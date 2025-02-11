@@ -44,7 +44,10 @@ let package = Package(
         .executableTarget(name: "Prepare"),
         .testTarget(
             name: "ElevenLabs_AHCTests",
-            dependencies: ["ElevenLabs_AHC"]
+            dependencies: ["ElevenLabs_AHC"],
+            resources: [
+                .copy("Resources")
+            ]
         ),
     ]
 )
