@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:ElevenLabs}",
+            "name": "Debug Prepare",
+            "program": "${workspaceFolder:ElevenLabs}/.build/debug/Prepare",
+            "preLaunchTask": "swift: Build Debug Prepare"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:ElevenLabs}",
+            "name": "Release Prepare",
+            "program": "${workspaceFolder:ElevenLabs}/.build/release/Prepare",
+            "preLaunchTask": "swift: Build Release Prepare"
+        }
+    ]
+}

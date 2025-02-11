@@ -5,20 +5,46 @@ import PackageDescription
 
 let package = Package(
     name: "ElevenLabs",
+    platforms: [
+        .iOS(.v13),
+        .macOS(.v10_15),
+        .watchOS(.v6),
+        .tvOS(.v13),
+        .visionOS(.v1),
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "ElevenLabs",
             targets: ["ElevenLabs"]),
+        .library(
+            name: "ElevenLabs_AHC",
+            targets: ["ElevenLabs_AHC"]
+        ),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.0.0"),
+        .package(
+            url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.0.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "ElevenLabs"),
         .testTarget(
             name: "ElevenLabsTests",
             dependencies: ["ElevenLabs"]
+        ),
+        .target(
+            name: "ElevenLabs_AHC",
+            dependencies: [
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(
+                    name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+            ]),
+        .executableTarget(name: "Prepare"),
+        .testTarget(
+            name: "ElevenLabs_AHCTests",
+            dependencies: ["ElevenLabs_AHC"]
         ),
     ]
 )
