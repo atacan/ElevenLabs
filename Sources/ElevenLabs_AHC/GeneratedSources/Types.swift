@@ -239,13 +239,6 @@ public protocol APIProtocol: Sendable {
     ///
     /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
     ///
-    /// - Remark: HTTP `POST /v1/studio/podcasts`.
-    /// - Remark: Generated from `#/paths//v1/studio/podcasts/post(Create_podcast_v1_studio_podcasts_post)`.
-    func Create_podcast_v1_studio_podcasts_post(_ input: Operations.Create_podcast_v1_studio_podcasts_post.Input) async throws -> Operations.Create_podcast_v1_studio_podcasts_post.Output
-    /// Create Podcast
-    ///
-    /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
-    ///
     /// - Remark: HTTP `POST /v1/projects/podcast/create`.
     /// - Remark: Generated from `#/paths//v1/projects/podcast/create/post(Create_podcast_v1_projects_podcast_create_post)`.
     @available(*, deprecated)
@@ -916,13 +909,6 @@ public protocol APIProtocol: Sendable {
     /// - Remark: Generated from `#/paths//v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}/get(Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get)`.
     @available(*, deprecated)
     func Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get(_ input: Operations.Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get.Input) async throws -> Operations.Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get.Output
-    /// Get Dependent Agents List
-    ///
-    /// Get a list of agents depending on this knowledge base document
-    ///
-    /// - Remark: HTTP `GET /v1/convai/knowledge-base/{documentation_id}/dependent-agents`.
-    /// - Remark: Generated from `#/paths//v1/convai/knowledge-base/{documentation_id}/dependent-agents/get(Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get)`.
-    func Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get(_ input: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input) async throws -> Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output
     /// Get Tools
     ///
     /// Get all available tools available in the workspace.
@@ -1453,21 +1439,6 @@ extension APIProtocol {
     ) async throws -> Operations.Add_sharing_voice_v1_voices_add__public_user_id___voice_id__post.Output {
         try await Add_sharing_voice_v1_voices_add__public_user_id___voice_id__post(Operations.Add_sharing_voice_v1_voices_add__public_user_id___voice_id__post.Input(
             path: path,
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Create Podcast
-    ///
-    /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
-    ///
-    /// - Remark: HTTP `POST /v1/studio/podcasts`.
-    /// - Remark: Generated from `#/paths//v1/studio/podcasts/post(Create_podcast_v1_studio_podcasts_post)`.
-    public func Create_podcast_v1_studio_podcasts_post(
-        headers: Operations.Create_podcast_v1_studio_podcasts_post.Input.Headers = .init(),
-        body: Operations.Create_podcast_v1_studio_podcasts_post.Input.Body
-    ) async throws -> Operations.Create_podcast_v1_studio_podcasts_post.Output {
-        try await Create_podcast_v1_studio_podcasts_post(Operations.Create_podcast_v1_studio_podcasts_post.Input(
             headers: headers,
             body: body
         ))
@@ -2837,8 +2808,14 @@ extension APIProtocol {
     /// - Remark: HTTP `POST /v1/convai/agents/{agent_id}/add-to-knowledge-base`.
     /// - Remark: Generated from `#/paths//v1/convai/agents/{agent_id}/add-to-knowledge-base/post(Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post)`.
     @available(*, deprecated)
-    public func Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post(headers: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Headers = .init()) async throws -> Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Output {
-        try await Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post(Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input(headers: headers))
+    public func Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post(
+        path: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Path,
+        headers: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Headers = .init()
+    ) async throws -> Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Output {
+        try await Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post(Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input(
+            path: path,
+            headers: headers
+        ))
     }
     /// Get Documentation From Knowledge Base
     ///
@@ -2883,23 +2860,6 @@ extension APIProtocol {
     ) async throws -> Operations.Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get.Output {
         try await Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get(Operations.Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get.Input(
             path: path,
-            headers: headers
-        ))
-    }
-    /// Get Dependent Agents List
-    ///
-    /// Get a list of agents depending on this knowledge base document
-    ///
-    /// - Remark: HTTP `GET /v1/convai/knowledge-base/{documentation_id}/dependent-agents`.
-    /// - Remark: Generated from `#/paths//v1/convai/knowledge-base/{documentation_id}/dependent-agents/get(Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get)`.
-    public func Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get(
-        path: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Path,
-        query: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Query = .init(),
-        headers: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Headers = .init()
-    ) async throws -> Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output {
-        try await Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get(Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input(
-            path: path,
-            query: query,
             headers: headers
         ))
     }
@@ -2990,6 +2950,61 @@ public enum Servers {}
 public enum Components {
     /// Types generated from the `#/components/schemas` section of the OpenAPI document.
     public enum Schemas {
+        /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post`.
+        @frozen public enum Body_Get_similar_library_voices_v1_similar_voices_post: Sendable, Hashable {
+            /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post/audio_file`.
+            public struct audio_filePayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `audio_filePayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case audio_file(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post.audio_filePayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post/similarity_threshold`.
+            public struct similarity_thresholdPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `similarity_thresholdPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case similarity_threshold(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post.similarity_thresholdPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post/top_k`.
+            public struct top_kPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `top_kPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case top_k(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post.top_kPayload>)
+            case undocumented(OpenAPIRuntime.MultipartRawPart)
+        }
+        /// - Remark: Generated from `#/components/schemas/ProjectSnapshotsResponseModel`.
+        public struct ProjectSnapshotsResponseModel: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/ProjectSnapshotsResponseModel/snapshots`.
+            public var snapshots: [Components.Schemas.ProjectSnapshotResponseModel]?
+            /// Creates a new `ProjectSnapshotsResponseModel`.
+            ///
+            /// - Parameters:
+            ///   - snapshots:
+            public init(snapshots: [Components.Schemas.ProjectSnapshotResponseModel]? = nil) {
+                self.snapshots = snapshots
+            }
+            public enum CodingKeys: String, CodingKey {
+                case snapshots
+            }
+        }
         /// - Remark: Generated from `#/components/schemas/ASRConversationalConfig`.
         public struct ASRConversationalConfig: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/ASRConversationalConfig/quality`.
@@ -5455,272 +5470,6 @@ public enum Components {
                 case callback_url
             }
         }
-        /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post`.
-        public struct Body_Create_podcast_v1_studio_podcasts_post: Codable, Hashable, Sendable {
-            /// The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/model_id`.
-            public var model_id: Swift.String
-            /// The type of podcast to generate
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/mode`.
-            public struct modePayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/mode/value1`.
-                public var value1: Components.Schemas.PodcastConversationMode?
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/mode/value2`.
-                public var value2: Components.Schemas.PodcastBulletinMode?
-                /// Creates a new `modePayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                ///   - value2:
-                public init(
-                    value1: Components.Schemas.PodcastConversationMode? = nil,
-                    value2: Components.Schemas.PodcastBulletinMode? = nil
-                ) {
-                    self.value1 = value1
-                    self.value2 = value2
-                }
-                public init(from decoder: any Decoder) throws {
-                    var errors: [any Error] = []
-                    do {
-                        self.value1 = try .init(from: decoder)
-                    } catch {
-                        errors.append(error)
-                    }
-                    do {
-                        self.value2 = try .init(from: decoder)
-                    } catch {
-                        errors.append(error)
-                    }
-                    try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                        [
-                            self.value1,
-                            self.value2
-                        ],
-                        type: Self.self,
-                        codingPath: decoder.codingPath,
-                        errors: errors
-                    )
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try self.value1?.encode(to: encoder)
-                    try self.value2?.encode(to: encoder)
-                }
-            }
-            /// The type of podcast to generate
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/mode`.
-            public var mode: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.modePayload
-            /// The source content for the Podcast.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source`.
-            public struct sourcePayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/value1`.
-                public var value1: Components.Schemas.PodcastTextSource?
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/value2`.
-                public var value2: Components.Schemas.PodcastURLSource?
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/Value3Payload`.
-                public struct Value3PayloadPayload: Codable, Hashable, Sendable {
-                    /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/Value3Payload/value1`.
-                    public var value1: Components.Schemas.PodcastTextSource?
-                    /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/Value3Payload/value2`.
-                    public var value2: Components.Schemas.PodcastURLSource?
-                    /// Creates a new `Value3PayloadPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - value1:
-                    ///   - value2:
-                    public init(
-                        value1: Components.Schemas.PodcastTextSource? = nil,
-                        value2: Components.Schemas.PodcastURLSource? = nil
-                    ) {
-                        self.value1 = value1
-                        self.value2 = value2
-                    }
-                    public init(from decoder: any Decoder) throws {
-                        var errors: [any Error] = []
-                        do {
-                            self.value1 = try .init(from: decoder)
-                        } catch {
-                            errors.append(error)
-                        }
-                        do {
-                            self.value2 = try .init(from: decoder)
-                        } catch {
-                            errors.append(error)
-                        }
-                        try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                            [
-                                self.value1,
-                                self.value2
-                            ],
-                            type: Self.self,
-                            codingPath: decoder.codingPath,
-                            errors: errors
-                        )
-                    }
-                    public func encode(to encoder: any Encoder) throws {
-                        try self.value1?.encode(to: encoder)
-                        try self.value2?.encode(to: encoder)
-                    }
-                }
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/value3`.
-                public typealias Value3Payload = [Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.sourcePayload.Value3PayloadPayload]
-                /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source/value3`.
-                public var value3: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.sourcePayload.Value3Payload?
-                /// Creates a new `sourcePayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                ///   - value2:
-                ///   - value3:
-                public init(
-                    value1: Components.Schemas.PodcastTextSource? = nil,
-                    value2: Components.Schemas.PodcastURLSource? = nil,
-                    value3: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.sourcePayload.Value3Payload? = nil
-                ) {
-                    self.value1 = value1
-                    self.value2 = value2
-                    self.value3 = value3
-                }
-                public init(from decoder: any Decoder) throws {
-                    var errors: [any Error] = []
-                    do {
-                        self.value1 = try .init(from: decoder)
-                    } catch {
-                        errors.append(error)
-                    }
-                    do {
-                        self.value2 = try .init(from: decoder)
-                    } catch {
-                        errors.append(error)
-                    }
-                    do {
-                        self.value3 = try decoder.decodeFromSingleValueContainer()
-                    } catch {
-                        errors.append(error)
-                    }
-                    try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                        [
-                            self.value1,
-                            self.value2,
-                            self.value3
-                        ],
-                        type: Self.self,
-                        codingPath: decoder.codingPath,
-                        errors: errors
-                    )
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try encoder.encodeFirstNonNilValueToSingleValueContainer([
-                        self.value3
-                    ])
-                    try self.value1?.encode(to: encoder)
-                    try self.value2?.encode(to: encoder)
-                }
-            }
-            /// The source content for the Podcast.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/source`.
-            public var source: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.sourcePayload
-            /// Output quality of the generated audio. Must be one of:
-            /// standard - standard output format, 128kbps with 44.1kHz sample rate.
-            /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.
-            /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.
-            /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.
-            ///
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/quality_preset`.
-            @frozen public enum quality_presetPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case standard = "standard"
-                case high = "high"
-                case highest = "highest"
-                case ultra = "ultra"
-                case ultra_lossless = "ultra_lossless"
-            }
-            /// Output quality of the generated audio. Must be one of:
-            /// standard - standard output format, 128kbps with 44.1kHz sample rate.
-            /// high - high quality output format, 192kbps with 44.1kHz sample rate and major improvements on our side. Using this setting increases the credit cost by 20%.
-            /// ultra - ultra quality output format, 192kbps with 44.1kHz sample rate and highest improvements on our side. Using this setting increases the credit cost by 50%.
-            /// ultra lossless - ultra quality output format, 705.6kbps with 44.1kHz sample rate and highest improvements on our side in a fully lossless format. Using this setting increases the credit cost by 100%.
-            ///
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/quality_preset`.
-            public var quality_preset: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.quality_presetPayload?
-            /// Duration of the generated podcast. Must be one of:
-            /// short - produces podcasts shorter than 3 minutes.
-            /// default - produces podcasts roughly between 3-7 minutes.
-            /// long - prodces podcasts longer than 7 minutes.
-            ///
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/duration_scale`.
-            @frozen public enum duration_scalePayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case short = "short"
-                case _default = "default"
-                case long = "long"
-            }
-            /// Duration of the generated podcast. Must be one of:
-            /// short - produces podcasts shorter than 3 minutes.
-            /// default - produces podcasts roughly between 3-7 minutes.
-            /// long - prodces podcasts longer than 7 minutes.
-            ///
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/duration_scale`.
-            public var duration_scale: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.duration_scalePayload?
-            /// An optional language of the Studio project. Two-letter language code (ISO 639-1).
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/language`.
-            public var language: Swift.String?
-            /// A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/highlights`.
-            public var highlights: [Swift.String]?
-            /// A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Create_podcast_v1_studio_podcasts_post/callback_url`.
-            public var callback_url: Swift.String?
-            /// Creates a new `Body_Create_podcast_v1_studio_podcasts_post`.
-            ///
-            /// - Parameters:
-            ///   - model_id: The ID of the model to be used for this Studio project, you can query GET /v1/models to list all available models.
-            ///   - mode: The type of podcast to generate
-            ///   - source: The source content for the Podcast.
-            ///   - quality_preset: Output quality of the generated audio. Must be one of:
-            ///   - duration_scale: Duration of the generated podcast. Must be one of:
-            ///   - language: An optional language of the Studio project. Two-letter language code (ISO 639-1).
-            ///   - highlights: A brief summary or highlights of the Studio project's content, providing key points or themes. This should be between 10 and 70 characters.
-            ///   - callback_url: A url that will be called by our service when the Studio project is converted. Request will contain a json blob containing the status of the conversion
-            public init(
-                model_id: Swift.String,
-                mode: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.modePayload,
-                source: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.sourcePayload,
-                quality_preset: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.quality_presetPayload? = nil,
-                duration_scale: Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post.duration_scalePayload? = nil,
-                language: Swift.String? = nil,
-                highlights: [Swift.String]? = nil,
-                callback_url: Swift.String? = nil
-            ) {
-                self.model_id = model_id
-                self.mode = mode
-                self.source = source
-                self.quality_preset = quality_preset
-                self.duration_scale = duration_scale
-                self.language = language
-                self.highlights = highlights
-                self.callback_url = callback_url
-            }
-            public enum CodingKeys: String, CodingKey {
-                case model_id
-                case mode
-                case source
-                case quality_preset
-                case duration_scale
-                case language
-                case highlights
-                case callback_url
-            }
-        }
         /// - Remark: Generated from `#/components/schemas/Body_Creates_AudioNative_enabled_project__v1_audio_native_post`.
         @frozen public enum Body_Creates_AudioNative_enabled_project__v1_audio_native_post: Sendable, Hashable {
             /// - Remark: Generated from `#/components/schemas/Body_Creates_AudioNative_enabled_project__v1_audio_native_post/name`.
@@ -6369,46 +6118,6 @@ public enum Components {
                 case accent_strength
                 case text
             }
-        }
-        /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post`.
-        @frozen public enum Body_Get_similar_library_voices_v1_similar_voices_post: Sendable, Hashable {
-            /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post/audio_file`.
-            public struct audio_filePayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `audio_filePayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case audio_file(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post.audio_filePayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post/similarity_threshold`.
-            public struct similarity_thresholdPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `similarity_thresholdPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case similarity_threshold(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post.similarity_thresholdPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post/top_k`.
-            public struct top_kPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `top_kPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case top_k(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post.top_kPayload>)
-            case undocumented(OpenAPIRuntime.MultipartRawPart)
         }
         /// - Remark: Generated from `#/components/schemas/Body_Invite_multiple_users_v1_workspace_invites_add_bulk_post`.
         public struct Body_Invite_multiple_users_v1_workspace_invites_add_bulk_post: Codable, Hashable, Sendable {
@@ -7834,76 +7543,6 @@ public enum Components {
                 case nodes
             }
         }
-        /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel`.
-        public struct ChapterContentBlockResponseModel: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/block_id`.
-            public var block_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/nodesPayload`.
-            public struct nodesPayloadPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/nodesPayload/value1`.
-                public var value1: Components.Schemas.ChapterContentBlockTtsNodeResponseModel?
-                /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/nodesPayload/value2`.
-                public var value2: Components.Schemas.ChapterContentBlockExtendableNodeResponseModel?
-                /// Creates a new `nodesPayloadPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                ///   - value2:
-                public init(
-                    value1: Components.Schemas.ChapterContentBlockTtsNodeResponseModel? = nil,
-                    value2: Components.Schemas.ChapterContentBlockExtendableNodeResponseModel? = nil
-                ) {
-                    self.value1 = value1
-                    self.value2 = value2
-                }
-                public init(from decoder: any Decoder) throws {
-                    var errors: [any Error] = []
-                    do {
-                        self.value1 = try .init(from: decoder)
-                    } catch {
-                        errors.append(error)
-                    }
-                    do {
-                        self.value2 = try .init(from: decoder)
-                    } catch {
-                        errors.append(error)
-                    }
-                    try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                        [
-                            self.value1,
-                            self.value2
-                        ],
-                        type: Self.self,
-                        codingPath: decoder.codingPath,
-                        errors: errors
-                    )
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try self.value1?.encode(to: encoder)
-                    try self.value2?.encode(to: encoder)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/nodes`.
-            public typealias nodesPayload = [Components.Schemas.ChapterContentBlockResponseModel.nodesPayloadPayload]
-            /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/nodes`.
-            public var nodes: Components.Schemas.ChapterContentBlockResponseModel.nodesPayload
-            /// Creates a new `ChapterContentBlockResponseModel`.
-            ///
-            /// - Parameters:
-            ///   - block_id:
-            ///   - nodes:
-            public init(
-                block_id: Swift.String,
-                nodes: Components.Schemas.ChapterContentBlockResponseModel.nodesPayload
-            ) {
-                self.block_id = block_id
-                self.nodes = nodes
-            }
-            public enum CodingKeys: String, CodingKey {
-                case block_id
-                case nodes
-            }
-        }
         /// - Remark: Generated from `#/components/schemas/ChapterContentBlockTtsNodeResponseModel`.
         public struct ChapterContentBlockTtsNodeResponseModel: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/ChapterContentBlockTtsNodeResponseModel/type`.
@@ -7998,6 +7637,62 @@ public enum Components {
             }
             public enum CodingKeys: String, CodingKey {
                 case blocks
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel`.
+        public struct ChapterContentBlockResponseModel: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/block_id`.
+            public var block_id: Swift.String
+            /// - Remark: Generated from `#/components/schemas/ChapterContentBlockResponseModel/nodes`.
+            public var nodes: [Components.Schemas.ChapterContentParagraphTtsNodeResponseModel]
+            /// Creates a new `ChapterContentBlockResponseModel`.
+            ///
+            /// - Parameters:
+            ///   - block_id:
+            ///   - nodes:
+            public init(
+                block_id: Swift.String,
+                nodes: [Components.Schemas.ChapterContentParagraphTtsNodeResponseModel]
+            ) {
+                self.block_id = block_id
+                self.nodes = nodes
+            }
+            public enum CodingKeys: String, CodingKey {
+                case block_id
+                case nodes
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/ChapterContentParagraphTtsNodeResponseModel`.
+        public struct ChapterContentParagraphTtsNodeResponseModel: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/ChapterContentParagraphTtsNodeResponseModel/type`.
+            @frozen public enum _typePayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case tts_node = "tts_node"
+            }
+            /// - Remark: Generated from `#/components/schemas/ChapterContentParagraphTtsNodeResponseModel/type`.
+            public var _type: Components.Schemas.ChapterContentParagraphTtsNodeResponseModel._typePayload
+            /// - Remark: Generated from `#/components/schemas/ChapterContentParagraphTtsNodeResponseModel/text`.
+            public var text: Swift.String
+            /// - Remark: Generated from `#/components/schemas/ChapterContentParagraphTtsNodeResponseModel/voice_id`.
+            public var voice_id: Swift.String
+            /// Creates a new `ChapterContentParagraphTtsNodeResponseModel`.
+            ///
+            /// - Parameters:
+            ///   - _type:
+            ///   - text:
+            ///   - voice_id:
+            public init(
+                _type: Components.Schemas.ChapterContentParagraphTtsNodeResponseModel._typePayload,
+                text: Swift.String,
+                voice_id: Swift.String
+            ) {
+                self._type = _type
+                self.text = text
+                self.voice_id = voice_id
+            }
+            public enum CodingKeys: String, CodingKey {
+                case _type = "type"
+                case text
+                case voice_id
             }
         }
         /// - Remark: Generated from `#/components/schemas/ChapterResponseModel`.
@@ -8509,77 +8204,6 @@ public enum Components {
                 case delete_audio
             }
         }
-        /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel`.
-        public struct ConversationHistoryAnalysisCommonModel: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/evaluation_criteria_results`.
-            public struct evaluation_criteria_resultsPayload: Codable, Hashable, Sendable {
-                /// A container of undocumented properties.
-                public var additionalProperties: [String: Components.Schemas.ConversationHistoryEvaluationCriteriaResultCommonModel]
-                /// Creates a new `evaluation_criteria_resultsPayload`.
-                ///
-                /// - Parameters:
-                ///   - additionalProperties: A container of undocumented properties.
-                public init(additionalProperties: [String: Components.Schemas.ConversationHistoryEvaluationCriteriaResultCommonModel] = .init()) {
-                    self.additionalProperties = additionalProperties
-                }
-                public init(from decoder: any Decoder) throws {
-                    additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try encoder.encodeAdditionalProperties(additionalProperties)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/evaluation_criteria_results`.
-            public var evaluation_criteria_results: Components.Schemas.ConversationHistoryAnalysisCommonModel.evaluation_criteria_resultsPayload?
-            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/data_collection_results`.
-            public struct data_collection_resultsPayload: Codable, Hashable, Sendable {
-                /// A container of undocumented properties.
-                public var additionalProperties: [String: Components.Schemas.DataCollectionResultCommonModel]
-                /// Creates a new `data_collection_resultsPayload`.
-                ///
-                /// - Parameters:
-                ///   - additionalProperties: A container of undocumented properties.
-                public init(additionalProperties: [String: Components.Schemas.DataCollectionResultCommonModel] = .init()) {
-                    self.additionalProperties = additionalProperties
-                }
-                public init(from decoder: any Decoder) throws {
-                    additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try encoder.encodeAdditionalProperties(additionalProperties)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/data_collection_results`.
-            public var data_collection_results: Components.Schemas.ConversationHistoryAnalysisCommonModel.data_collection_resultsPayload?
-            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/call_successful`.
-            public var call_successful: Components.Schemas.EvaluationSuccessResult
-            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/transcript_summary`.
-            public var transcript_summary: Swift.String
-            /// Creates a new `ConversationHistoryAnalysisCommonModel`.
-            ///
-            /// - Parameters:
-            ///   - evaluation_criteria_results:
-            ///   - data_collection_results:
-            ///   - call_successful:
-            ///   - transcript_summary:
-            public init(
-                evaluation_criteria_results: Components.Schemas.ConversationHistoryAnalysisCommonModel.evaluation_criteria_resultsPayload? = nil,
-                data_collection_results: Components.Schemas.ConversationHistoryAnalysisCommonModel.data_collection_resultsPayload? = nil,
-                call_successful: Components.Schemas.EvaluationSuccessResult,
-                transcript_summary: Swift.String
-            ) {
-                self.evaluation_criteria_results = evaluation_criteria_results
-                self.data_collection_results = data_collection_results
-                self.call_successful = call_successful
-                self.transcript_summary = transcript_summary
-            }
-            public enum CodingKeys: String, CodingKey {
-                case evaluation_criteria_results
-                case data_collection_results
-                case call_successful
-                case transcript_summary
-            }
-        }
         /// - Remark: Generated from `#/components/schemas/ConversationHistoryEvaluationCriteriaResultCommonModel`.
         public struct ConversationHistoryEvaluationCriteriaResultCommonModel: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/ConversationHistoryEvaluationCriteriaResultCommonModel/criteria_id`.
@@ -8636,6 +8260,21 @@ public enum Components {
                 case overall_score
                 case likes
                 case dislikes
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel`.
+        public struct ConversationHistoryAnalysisCommonModel: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/ConversationHistoryAnalysisCommonModel/analysis_id`.
+            public var analysis_id: Swift.String?
+            /// Creates a new `ConversationHistoryAnalysisCommonModel`.
+            ///
+            /// - Parameters:
+            ///   - analysis_id:
+            public init(analysis_id: Swift.String? = nil) {
+                self.analysis_id = analysis_id
+            }
+            public enum CodingKeys: String, CodingKey {
+                case analysis_id
             }
         }
         /// - Remark: Generated from `#/components/schemas/ConversationHistoryMetadataCommonModel`.
@@ -9324,41 +8963,6 @@ public enum Components {
                 case url
                 case model_id
                 case api_key
-            }
-        }
-        /// - Remark: Generated from `#/components/schemas/DataCollectionResultCommonModel`.
-        public struct DataCollectionResultCommonModel: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/DataCollectionResultCommonModel/data_collection_id`.
-            public var data_collection_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/DataCollectionResultCommonModel/value`.
-            public var value: OpenAPIRuntime.OpenAPIValueContainer?
-            /// - Remark: Generated from `#/components/schemas/DataCollectionResultCommonModel/json_schema`.
-            public var json_schema: Components.Schemas.LiteralJsonSchemaProperty?
-            /// - Remark: Generated from `#/components/schemas/DataCollectionResultCommonModel/rationale`.
-            public var rationale: Swift.String
-            /// Creates a new `DataCollectionResultCommonModel`.
-            ///
-            /// - Parameters:
-            ///   - data_collection_id:
-            ///   - value:
-            ///   - json_schema:
-            ///   - rationale:
-            public init(
-                data_collection_id: Swift.String,
-                value: OpenAPIRuntime.OpenAPIValueContainer? = nil,
-                json_schema: Components.Schemas.LiteralJsonSchemaProperty? = nil,
-                rationale: Swift.String
-            ) {
-                self.data_collection_id = data_collection_id
-                self.value = value
-                self.json_schema = json_schema
-                self.rationale = rationale
-            }
-            public enum CodingKeys: String, CodingKey {
-                case data_collection_id
-                case value
-                case json_schema
-                case rationale
             }
         }
         /// - Remark: Generated from `#/components/schemas/DependentAvailableAgentIdentifier`.
@@ -10749,6 +10353,8 @@ public enum Components {
                 case has_more
             }
         }
+        /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel`.
+        public typealias SpeechHistoryItemResponseModel = OpenAPIRuntime.OpenAPIValueContainer
         /// - Remark: Generated from `#/components/schemas/GetVoicesResponseModel`.
         public struct GetVoicesResponseModel: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/GetVoicesResponseModel/voices`.
@@ -10764,6 +10370,8 @@ public enum Components {
                 case voices
             }
         }
+        /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel`.
+        public typealias VoiceGenerationParameterResponseModel = OpenAPIRuntime.OpenAPIValueContainer
         /// - Remark: Generated from `#/components/schemas/HTTPValidationError`.
         public struct HTTPValidationError: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/HTTPValidationError/detail`.
@@ -12647,21 +12255,6 @@ public enum Components {
                 case acx_volume_normalization
             }
         }
-        /// - Remark: Generated from `#/components/schemas/ProjectSnapshotsResponseModel`.
-        public struct ProjectSnapshotsResponseModel: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/ProjectSnapshotsResponseModel/snapshots`.
-            public var snapshots: [Components.Schemas.ProjectSnapshotResponseModel]
-            /// Creates a new `ProjectSnapshotsResponseModel`.
-            ///
-            /// - Parameters:
-            ///   - snapshots:
-            public init(snapshots: [Components.Schemas.ProjectSnapshotResponseModel]) {
-                self.snapshots = snapshots
-            }
-            public enum CodingKeys: String, CodingKey {
-                case snapshots
-            }
-        }
         /// - Remark: Generated from `#/components/schemas/PromptAgent`.
         public struct PromptAgent: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/PromptAgent/prompt`.
@@ -13302,137 +12895,6 @@ public enum Components {
                 case hash
             }
         }
-        /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel`.
-        public struct SpeechHistoryItemResponseModel: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/history_item_id`.
-            public var history_item_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/request_id`.
-            public var request_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/voice_id`.
-            public var voice_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/model_id`.
-            public var model_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/voice_name`.
-            public var voice_name: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/voice_category`.
-            @frozen public enum voice_categoryPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case premade = "premade"
-                case cloned = "cloned"
-                case generated = "generated"
-                case professional = "professional"
-            }
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/voice_category`.
-            public var voice_category: Components.Schemas.SpeechHistoryItemResponseModel.voice_categoryPayload
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/text`.
-            public var text: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/date_unix`.
-            public var date_unix: Swift.Int
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/character_count_change_from`.
-            public var character_count_change_from: Swift.Int
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/character_count_change_to`.
-            public var character_count_change_to: Swift.Int
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/content_type`.
-            public var content_type: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/state`.
-            @frozen public enum statePayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case created = "created"
-                case deleted = "deleted"
-                case processing = "processing"
-            }
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/state`.
-            public var state: Components.Schemas.SpeechHistoryItemResponseModel.statePayload
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/settings`.
-            public var settings: OpenAPIRuntime.OpenAPIObjectContainer
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/feedback`.
-            public var feedback: Components.Schemas.FeedbackResponseModel
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/share_link_id`.
-            public var share_link_id: Swift.String
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/source`.
-            @frozen public enum sourcePayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case TTS = "TTS"
-                case STS = "STS"
-            }
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/source`.
-            public var source: Components.Schemas.SpeechHistoryItemResponseModel.sourcePayload
-            /// - Remark: Generated from `#/components/schemas/SpeechHistoryItemResponseModel/alignments`.
-            public var alignments: Components.Schemas.HistoryAlignmentsResponseModel?
-            /// Creates a new `SpeechHistoryItemResponseModel`.
-            ///
-            /// - Parameters:
-            ///   - history_item_id:
-            ///   - request_id:
-            ///   - voice_id:
-            ///   - model_id:
-            ///   - voice_name:
-            ///   - voice_category:
-            ///   - text:
-            ///   - date_unix:
-            ///   - character_count_change_from:
-            ///   - character_count_change_to:
-            ///   - content_type:
-            ///   - state:
-            ///   - settings:
-            ///   - feedback:
-            ///   - share_link_id:
-            ///   - source:
-            ///   - alignments:
-            public init(
-                history_item_id: Swift.String,
-                request_id: Swift.String,
-                voice_id: Swift.String,
-                model_id: Swift.String,
-                voice_name: Swift.String,
-                voice_category: Components.Schemas.SpeechHistoryItemResponseModel.voice_categoryPayload,
-                text: Swift.String,
-                date_unix: Swift.Int,
-                character_count_change_from: Swift.Int,
-                character_count_change_to: Swift.Int,
-                content_type: Swift.String,
-                state: Components.Schemas.SpeechHistoryItemResponseModel.statePayload,
-                settings: OpenAPIRuntime.OpenAPIObjectContainer,
-                feedback: Components.Schemas.FeedbackResponseModel,
-                share_link_id: Swift.String,
-                source: Components.Schemas.SpeechHistoryItemResponseModel.sourcePayload,
-                alignments: Components.Schemas.HistoryAlignmentsResponseModel? = nil
-            ) {
-                self.history_item_id = history_item_id
-                self.request_id = request_id
-                self.voice_id = voice_id
-                self.model_id = model_id
-                self.voice_name = voice_name
-                self.voice_category = voice_category
-                self.text = text
-                self.date_unix = date_unix
-                self.character_count_change_from = character_count_change_from
-                self.character_count_change_to = character_count_change_to
-                self.content_type = content_type
-                self.state = state
-                self.settings = settings
-                self.feedback = feedback
-                self.share_link_id = share_link_id
-                self.source = source
-                self.alignments = alignments
-            }
-            public enum CodingKeys: String, CodingKey {
-                case history_item_id
-                case request_id
-                case voice_id
-                case model_id
-                case voice_name
-                case voice_category
-                case text
-                case date_unix
-                case character_count_change_from
-                case character_count_change_to
-                case content_type
-                case state
-                case settings
-                case feedback
-                case share_link_id
-                case source
-                case alignments
-            }
-        }
         /// Chunk-level detail of the transcription with timing information.
         ///
         /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel`.
@@ -13832,109 +13294,17 @@ public enum Components {
         }
         /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig`.
         public struct TTSConversationalConfig: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/model_id`.
-            public struct model_idPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/model_id/value1`.
-                public var value1: Components.Schemas.TTSConversationalModel
-                /// Creates a new `model_idPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.TTSConversationalModel) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/model_id`.
-            public var model_id: Components.Schemas.TTSConversationalConfig.model_idPayload?
             /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/voice_id`.
             public var voice_id: Swift.String?
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/agent_output_audio_format`.
-            public struct agent_output_audio_formatPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/agent_output_audio_format/value1`.
-                public var value1: Components.Schemas.TTSOutputFormat
-                /// Creates a new `agent_output_audio_formatPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.TTSOutputFormat) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/agent_output_audio_format`.
-            public var agent_output_audio_format: Components.Schemas.TTSConversationalConfig.agent_output_audio_formatPayload?
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/optimize_streaming_latency`.
-            public struct optimize_streaming_latencyPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/optimize_streaming_latency/value1`.
-                public var value1: Components.Schemas.TTSOptimizeStreamingLatency
-                /// Creates a new `optimize_streaming_latencyPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.TTSOptimizeStreamingLatency) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/optimize_streaming_latency`.
-            public var optimize_streaming_latency: Components.Schemas.TTSConversationalConfig.optimize_streaming_latencyPayload?
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/stability`.
-            public var stability: Swift.Double?
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/similarity_boost`.
-            public var similarity_boost: Swift.Double?
-            /// - Remark: Generated from `#/components/schemas/TTSConversationalConfig/pronunciation_dictionary_locators`.
-            public var pronunciation_dictionary_locators: [Components.Schemas.PydanticPronunciationDictionaryVersionLocator]?
             /// Creates a new `TTSConversationalConfig`.
             ///
             /// - Parameters:
-            ///   - model_id:
             ///   - voice_id:
-            ///   - agent_output_audio_format:
-            ///   - optimize_streaming_latency:
-            ///   - stability:
-            ///   - similarity_boost:
-            ///   - pronunciation_dictionary_locators:
-            public init(
-                model_id: Components.Schemas.TTSConversationalConfig.model_idPayload? = nil,
-                voice_id: Swift.String? = nil,
-                agent_output_audio_format: Components.Schemas.TTSConversationalConfig.agent_output_audio_formatPayload? = nil,
-                optimize_streaming_latency: Components.Schemas.TTSConversationalConfig.optimize_streaming_latencyPayload? = nil,
-                stability: Swift.Double? = nil,
-                similarity_boost: Swift.Double? = nil,
-                pronunciation_dictionary_locators: [Components.Schemas.PydanticPronunciationDictionaryVersionLocator]? = nil
-            ) {
-                self.model_id = model_id
+            public init(voice_id: Swift.String? = nil) {
                 self.voice_id = voice_id
-                self.agent_output_audio_format = agent_output_audio_format
-                self.optimize_streaming_latency = optimize_streaming_latency
-                self.stability = stability
-                self.similarity_boost = similarity_boost
-                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
             }
             public enum CodingKeys: String, CodingKey {
-                case model_id
                 case voice_id
-                case agent_output_audio_format
-                case optimize_streaming_latency
-                case stability
-                case similarity_boost
-                case pronunciation_dictionary_locators
             }
         }
         /// - Remark: Generated from `#/components/schemas/TTSConversationalConfigOverride`.
@@ -14583,59 +13953,6 @@ public enum Components {
             public enum CodingKeys: String, CodingKey {
                 case name
                 case code
-            }
-        }
-        /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel`.
-        public struct VoiceGenerationParameterResponseModel: Codable, Hashable, Sendable {
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/genders`.
-            public var genders: [Components.Schemas.VoiceGenerationParameterOptionResponseModel]
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/accents`.
-            public var accents: [Components.Schemas.VoiceGenerationParameterOptionResponseModel]
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/ages`.
-            public var ages: [Components.Schemas.VoiceGenerationParameterOptionResponseModel]
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/minimum_characters`.
-            public var minimum_characters: Swift.Int
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/maximum_characters`.
-            public var maximum_characters: Swift.Int
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/minimum_accent_strength`.
-            public var minimum_accent_strength: Swift.Double
-            /// - Remark: Generated from `#/components/schemas/VoiceGenerationParameterResponseModel/maximum_accent_strength`.
-            public var maximum_accent_strength: Swift.Double
-            /// Creates a new `VoiceGenerationParameterResponseModel`.
-            ///
-            /// - Parameters:
-            ///   - genders:
-            ///   - accents:
-            ///   - ages:
-            ///   - minimum_characters:
-            ///   - maximum_characters:
-            ///   - minimum_accent_strength:
-            ///   - maximum_accent_strength:
-            public init(
-                genders: [Components.Schemas.VoiceGenerationParameterOptionResponseModel],
-                accents: [Components.Schemas.VoiceGenerationParameterOptionResponseModel],
-                ages: [Components.Schemas.VoiceGenerationParameterOptionResponseModel],
-                minimum_characters: Swift.Int,
-                maximum_characters: Swift.Int,
-                minimum_accent_strength: Swift.Double,
-                maximum_accent_strength: Swift.Double
-            ) {
-                self.genders = genders
-                self.accents = accents
-                self.ages = ages
-                self.minimum_characters = minimum_characters
-                self.maximum_characters = maximum_characters
-                self.minimum_accent_strength = minimum_accent_strength
-                self.maximum_accent_strength = maximum_accent_strength
-            }
-            public enum CodingKeys: String, CodingKey {
-                case genders
-                case accents
-                case ages
-                case minimum_characters
-                case maximum_characters
-                case minimum_accent_strength
-                case maximum_accent_strength
             }
         }
         /// - Remark: Generated from `#/components/schemas/VoicePreviewResponseModel`.
@@ -22373,189 +21690,6 @@ public enum Operations {
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
             public var unprocessableContent: Operations.Add_sharing_voice_v1_voices_add__public_user_id___voice_id__post.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Create Podcast
-    ///
-    /// Create and auto-convert a podcast project. Currently, the LLM cost is covered by us but you will still be charged for the audio generation. In the future, you will be charged for both the LLM and audio generation costs.
-    ///
-    /// - Remark: HTTP `POST /v1/studio/podcasts`.
-    /// - Remark: Generated from `#/paths//v1/studio/podcasts/post(Create_podcast_v1_studio_podcasts_post)`.
-    public enum Create_podcast_v1_studio_podcasts_post {
-        public static let id: Swift.String = "Create_podcast_v1_studio_podcasts_post"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Create_podcast_v1_studio_podcasts_post.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Create_podcast_v1_studio_podcasts_post.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.Create_podcast_v1_studio_podcasts_post.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.Body_Create_podcast_v1_studio_podcasts_post)
-            }
-            public var body: Operations.Create_podcast_v1_studio_podcasts_post.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.Create_podcast_v1_studio_podcasts_post.Input.Headers = .init(),
-                body: Operations.Create_podcast_v1_studio_podcasts_post.Input.Body
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.PodcastProjectResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.PodcastProjectResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.Create_podcast_v1_studio_podcasts_post.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.Create_podcast_v1_studio_podcasts_post.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/studio/podcasts/post(Create_podcast_v1_studio_podcasts_post)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.Create_podcast_v1_studio_podcasts_post.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.Create_podcast_v1_studio_podcasts_post.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/studio/podcasts/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.Create_podcast_v1_studio_podcasts_post.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.Create_podcast_v1_studio_podcasts_post.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/studio/podcasts/post(Create_podcast_v1_studio_podcasts_post)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Create_podcast_v1_studio_podcasts_post.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Create_podcast_v1_studio_podcasts_post.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -40086,6 +39220,19 @@ public enum Operations {
     public enum Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post {
         public static let id: Swift.String = "Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post"
         public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/convai/agents/{agent_id}/add-to-knowledge-base/POST/path`.
+            public struct Path: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/convai/agents/{agent_id}/add-to-knowledge-base/POST/path/agent_id`.
+                public var agent_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - agent_id:
+                public init(agent_id: Swift.String) {
+                    self.agent_id = agent_id
+                }
+            }
+            public var path: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Path
             /// - Remark: Generated from `#/paths/v1/convai/agents/{agent_id}/add-to-knowledge-base/POST/header`.
             public struct Headers: Sendable, Hashable {
                 /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
@@ -40110,8 +39257,13 @@ public enum Operations {
             /// Creates a new `Input`.
             ///
             /// - Parameters:
+            ///   - path:
             ///   - headers:
-            public init(headers: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Headers = .init()) {
+            public init(
+                path: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Path,
+                headers: Operations.Add_to_knowledge_base_v1_convai_agents__agent_id__add_to_knowledge_base_post.Input.Headers = .init()
+            ) {
+                self.path = path
                 self.headers = headers
             }
         }
@@ -40644,6 +39796,10 @@ public enum Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}/GET/path`.
             public struct Path: Sendable, Hashable {
+                /// The id of the agent to get documentation from.
+                ///
+                /// - Remark: Generated from `#/paths/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}/GET/path/agent_id`.
+                public var agent_id: Swift.String
                 /// The id of a document from the knowledge base. This is returned on document addition.
                 ///
                 /// - Remark: Generated from `#/paths/v1/convai/agents/{agent_id}/knowledge-base/{documentation_id}/GET/path/documentation_id`.
@@ -40651,8 +39807,13 @@ public enum Operations {
                 /// Creates a new `Path`.
                 ///
                 /// - Parameters:
+                ///   - agent_id: The id of the agent to get documentation from.
                 ///   - documentation_id: The id of a document from the knowledge base. This is returned on document addition.
-                public init(documentation_id: Swift.String) {
+                public init(
+                    agent_id: Swift.String,
+                    documentation_id: Swift.String
+                ) {
+                    self.agent_id = agent_id
                     self.documentation_id = documentation_id
                 }
             }
@@ -40782,225 +39943,6 @@ public enum Operations {
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
             public var unprocessableContent: Operations.Get_documentation_from_knowledge_base_v1_convai_agents__agent_id__knowledge_base__documentation_id__get.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Dependent Agents List
-    ///
-    /// Get a list of agents depending on this knowledge base document
-    ///
-    /// - Remark: HTTP `GET /v1/convai/knowledge-base/{documentation_id}/dependent-agents`.
-    /// - Remark: Generated from `#/paths//v1/convai/knowledge-base/{documentation_id}/dependent-agents/get(Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get)`.
-    public enum Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get {
-        public static let id: Swift.String = "Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/path`.
-            public struct Path: Sendable, Hashable {
-                /// The id of a document from the knowledge base. This is returned on document addition.
-                ///
-                /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/path/documentation_id`.
-                public var documentation_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - documentation_id: The id of a document from the knowledge base. This is returned on document addition.
-                public init(documentation_id: Swift.String) {
-                    self.documentation_id = documentation_id
-                }
-            }
-            public var path: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Path
-            /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/query`.
-            public struct Query: Sendable, Hashable {
-                /// Used for fetching next page. Cursor is returned in the response.
-                ///
-                /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/query/cursor`.
-                public var cursor: Swift.String?
-                /// How many documents to return at maximum. Can not exceed 100, defaults to 30.
-                ///
-                /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/query/page_size`.
-                public var page_size: Swift.Int?
-                /// Creates a new `Query`.
-                ///
-                /// - Parameters:
-                ///   - cursor: Used for fetching next page. Cursor is returned in the response.
-                ///   - page_size: How many documents to return at maximum. Can not exceed 100, defaults to 30.
-                public init(
-                    cursor: Swift.String? = nil,
-                    page_size: Swift.Int? = nil
-                ) {
-                    self.cursor = cursor
-                    self.page_size = page_size
-                }
-            }
-            public var query: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Query
-            /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - query:
-            ///   - headers:
-            public init(
-                path: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Path,
-                query: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Query = .init(),
-                headers: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Input.Headers = .init()
-            ) {
-                self.path = path
-                self.query = query
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.GetKnowledgeBaseDependentAgentsResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.GetKnowledgeBaseDependentAgentsResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/convai/knowledge-base/{documentation_id}/dependent-agents/get(Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/convai/knowledge-base/{documentation_id}/dependent-agents/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/convai/knowledge-base/{documentation_id}/dependent-agents/get(Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Get_dependent_agents_list_v1_convai_knowledge_base__documentation_id__dependent_agents_get.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
