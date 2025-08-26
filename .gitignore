@@ -1,16 +1,20 @@
 .DS_Store
 /.build
+/.swiftpm
+/.devContainer
 /Packages
+/*.xcodeproj
 xcuserdata/
-DerivedData/
-.swiftpm
-.netrc
+# /.vscode/*
+!/.vscode/hummingbird.code-snippets
+.env.*
 .env
-auth/
+**/*.env
 
-# Audio files
+*.m4a
 *.wav
 *.mp3
-*.m4a
-*.aac
-*.ogg
+*.mp4
+*.mov
+*.avi
+*.mkv

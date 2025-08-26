@@ -1,52 +1,60 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.1
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "ElevenLabs",
-    platforms: [
-        .iOS(.v13),
-        .macOS(.v10_15),
-        .watchOS(.v6),
-        .tvOS(.v13),
-        .visionOS(.v1),
-    ],
+    platforms: [.macOS(.v14), .iOS(.v17), .tvOS(.v17)],
     products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "ElevenLabs",
-            targets: ["ElevenLabs"]),
+            targets: ["ElevenLabs"]
+        ),
         .library(
-            name: "ElevenLabs_AHC",
-            targets: ["ElevenLabs_AHC"]
+            name: "ElevenLabsTypes",
+            targets: ["ElevenLabsTypes"]
+        ),
+        .library(
+            name: "ElevenLabsUrlSessionClient",
+            targets: ["ElevenLabsUrlSessionClient"]
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.0.0"),
-        .package(
-            url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.10.2"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.8.2"),
+        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.1.0"),
+        .package(url: "https://github.com/apple/swift-openapi-urlsession", from: "1.1.0"),
+        .package(url: "https://github.com/atacan/UsefulThings", branch: "main"),
     ],
     targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "ElevenLabs"),
-        .testTarget(
-            name: "ElevenLabsTests",
-            dependencies: ["ElevenLabs"]
-        ),
-        .target(
-            name: "ElevenLabs_AHC",
+            name: "ElevenLabs",
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(
-                    name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
-            ]),
-        .executableTarget(name: "Prepare"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+                .target(name: "ElevenLabsTypes"),
+            ]
+        ),
         .testTarget(
-            name: "ElevenLabs_AHCTests",
-            dependencies: ["ElevenLabs_AHC"],
-            resources: [
-                .copy("Resources")
+            name: "ElevenLabsTests",
+            dependencies: ["ElevenLabs", .product(name: "UsefulThings", package: "UsefulThings")]
+        ),
+        .target(
+            name: "ElevenLabsTypes",
+            dependencies: [
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime")
+            ]
+        ),
+        .target(
+            name: "ElevenLabsUrlSessionClient",
+            dependencies: [
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession"),
+                .target(name: "ElevenLabsTypes"),
             ]
         ),
     ]

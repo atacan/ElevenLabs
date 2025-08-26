@@ -1,4 +1,5 @@
 generate:
-  - types
   - client
 accessModifier: public
+additionalImports:
+  - ElevenLabsTypes

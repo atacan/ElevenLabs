@@ -1,12 +1,3 @@
-# merge the current branch to main and push
-merge_main:
-	# get the name of the current branch
-	$(eval BRANCH := $(shell git branch --show-current))
-	# merge the current branch to main
-	git checkout main
-	git merge $(BRANCH)
-	git push
-
 check_uncommitted:
 	@if git diff-index --quiet HEAD --; then \
 		echo '\033[32mNo uncommitted changes found.\033[0m'; \
@@ -15,26 +6,63 @@ check_uncommitted:
 		exit 1; \
 	fi
 
+# merge the current branch to main and push
+merge_main: check_uncommitted
+	# get the name of the current branch
+	$(eval BRANCH := $(shell git branch --show-current))
+	# merge the current branch to main
+	git checkout main
+	git merge $(BRANCH)
+	git push
+
 # Run the formatters manually
+# Define a variable for swift-format options
+SWIFT_FORMAT_OPTIONS = -i -p --ignore-unparsable-files --configuration .swift-format
+# Define a variable for target directories. This makes it easy to add more directories later if needed
+SWIFT_FORMAT_TARGETS = ./Sources ./Tests
+# Placeholders to be replaced by the setup script:
+# - ElevenLabs
+# - ElevenLabsUrlSessionClient
+# - ElevenLabsTypes
 format: check_uncommitted
-	# run the formatters
-	# nicklockwood/SwiftFormat
-	# swiftformat --config .swiftformat --swiftversion 5.7 .
-	# apple/swift-format
-	swift-format ./Sources ./Tests -i -p --ignore-unparsable-files -r --configuration .swift-format
-	# commit
+	# find can take multiple starting directories
+	# xargs -r (or --no-run-if-empty for GNU xargs) ensures swift-format isn't run if no files are found
+	find $(SWIFT_FORMAT_TARGETS) -name "*.swift" -not -path "*/GeneratedSources/*" | xargs -r swift-format $(SWIFT_FORMAT_OPTIONS)
 	git add .
 	# git commit -m "Format code"
 
-# spm clean cache
-clean_spm_cache:
-	swift package purge-cache
+test-on-linux:
+	docker run -v "$PWD:/code" -w /code swift:latest swift test
 
+DOWNLOAD_OPENAPI_URL=https://api.elevenlabs.io/openapi.json
 download-openapi:
-	swift run Prepare
+	# Download the openapi.yaml file from remote repo as original.yaml file
+	curl -o original.yaml $(DOWNLOAD_OPENAPI_URL)
+	# Create a copy of original.yaml as openapi.yaml
+	cp original.yaml openapi.yaml
+	# Replace 9223372036854776000 with 922337203685477600 
+	sed -i '' 's/9223372036854776000/922337203685477600/g' ./openapi.yaml
+
+overlay-openapi:
+	openapi-format --no-sort ./openapi.yaml --overlayFile overlay.json -o ./openapi.yaml
 
 generate-openapi:
 	swift run swift-openapi-generator generate \
-		--output-directory Sources/ElevenLabs_AHC/GeneratedSources \
-		--config assets/openapi-generator-config.yaml \
-		assets/openapi.json
+	  --output-directory Sources/ElevenLabsTypes/GeneratedSources \
+	  --config ./openapi-generator-config-types.yaml \
+	  ./openapi.yaml
+
+	swift run swift-openapi-generator generate \
+	  --output-directory Sources/ElevenLabs/GeneratedSources \
+	  --config ./openapi-generator-config-client.yaml \
+	  ./openapi.yaml
+
+	swift run swift-openapi-generator generate \
+	  --output-directory Sources/ElevenLabsUrlSessionClient/GeneratedSources \
+	  --config ./openapi-generator-config-client.yaml \
+	  ./openapi.yaml
+
+prepare-openapi:
+	make download-openapi
+	make overlay-openapi
+	make generate-openapi
