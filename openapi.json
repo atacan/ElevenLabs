@@ -6051,25 +6051,6 @@
             "description": "Render this language"
           },
           {
-            "name": "should_normalize_volume",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "Whether to normalize the volume of the rendered audio.",
-              "default": false,
-              "title": "Should Normalize Volume"
-            },
-            "description": "Whether to normalize the volume of the rendered audio."
-          },
-          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -21766,23 +21747,6 @@
             ],
             "title": "Diarization Threshold",
             "description": "Diarization threshold to apply during speaker diarization. A higher value means there will be a lower chance of one speaker being diarized as two different speakers but also a higher chance of two different speakers being diarized as one speaker (less total speakers predicted). A low value means there will be a higher chance of one speaker being diarized as two different speakers but also a lower chance of two different speakers being diarized as one speaker (more total speakers predicted). Can only be set when diarize=True and num_speakers=None. Defaults to None, in which case we will choose a threshold based on the model_id (0.22 usually)."
-          },
-          "additional_formats": {
-            "$ref": "#/components/schemas/AdditionalFormats",
-            "description": "A list of additional formats to export the transcript to.",
-            "examples": [
-              [
-                {
-                  "format": "srt",
-                  "include_speakers": true,
-                  "include_timestamps": true
-                },
-                {
-                  "format": "txt",
-                  "include_speakers": false
-                }
-              ]
-            ]
           },
           "file_format": {
             "type": "string",
@@ -41782,18 +41746,6 @@
             "type": "number",
             "title": "Duration Secs",
             "description": "The duration of the preview in seconds."
-          },
-          "language": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Language",
-            "description": "The language of the preview."
           }
         },
         "type": "object",
@@ -41801,8 +41753,7 @@
           "audio_base_64",
           "generated_voice_id",
           "media_type",
-          "duration_secs",
-          "language"
+          "duration_secs"
         ],
         "title": "VoicePreviewResponseModel"
       },
