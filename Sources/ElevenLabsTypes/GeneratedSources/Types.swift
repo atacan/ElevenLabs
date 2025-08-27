@@ -696,25 +696,57 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/logprob`.
             public var logprob: Swift.Double
+            /// The start time of the word or sound in seconds.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/start`.
+            public var start: Swift.Double?
+            /// The end time of the word or sound in seconds.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/end`.
+            public var end: Swift.Double?
+            /// Unique identifier for the speaker of this word.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/speaker_id`.
+            public var speaker_id: Swift.String?
+            /// The characters that make up the word and their timing information.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/characters`.
+            public var characters: [Components.Schemas.SpeechToTextCharacterResponseModel]?
             /// Creates a new `SpeechToTextWordResponseModel`.
             ///
             /// - Parameters:
             ///   - text: The word or sound that was transcribed.
             ///   - _type: The type of the word or sound. 'audio_event' is used for non-word sounds like laughter or footsteps.
             ///   - logprob: The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.
+            ///   - start: The start time of the word or sound in seconds.
+            ///   - end: The end time of the word or sound in seconds.
+            ///   - speaker_id: Unique identifier for the speaker of this word.
+            ///   - characters: The characters that make up the word and their timing information.
             public init(
                 text: Swift.String,
                 _type: Components.Schemas.SpeechToTextWordResponseModel._typePayload,
-                logprob: Swift.Double
+                logprob: Swift.Double,
+                start: Swift.Double? = nil,
+                end: Swift.Double? = nil,
+                speaker_id: Swift.String? = nil,
+                characters: [Components.Schemas.SpeechToTextCharacterResponseModel]? = nil
             ) {
                 self.text = text
                 self._type = _type
                 self.logprob = logprob
+                self.start = start
+                self.end = end
+                self.speaker_id = speaker_id
+                self.characters = characters
             }
             public enum CodingKeys: String, CodingKey {
                 case text
                 case _type = "type"
                 case logprob
+                case start
+                case end
+                case speaker_id
+                case characters
             }
         }
         /// - Remark: Generated from `#/components/schemas/SrtExportOptions`.

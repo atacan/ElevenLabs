@@ -38493,30 +38493,6 @@
             "title": "Text",
             "description": "The word or sound that was transcribed."
           },
-          "start": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Start",
-            "description": "The start time of the word or sound in seconds."
-          },
-          "end": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "End",
-            "description": "The end time of the word or sound in seconds."
-          },
           "type": {
             "type": "string",
             "enum": [
@@ -38527,35 +38503,31 @@
             "title": "Type",
             "description": "The type of the word or sound. 'audio_event' is used for non-word sounds like laughter or footsteps."
           },
-          "speaker_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Speaker Id",
-            "description": "Unique identifier for the speaker of this word."
-          },
           "logprob": {
             "type": "number",
             "title": "Logprob",
             "description": "The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions."
           },
+          "start": {
+            "type": "number",
+            "title": "Start",
+            "description": "The start time of the word or sound in seconds."
+          },
+          "end": {
+            "type": "number",
+            "title": "End",
+            "description": "The end time of the word or sound in seconds."
+          },
+          "speaker_id": {
+            "type": "string",
+            "title": "Speaker Id",
+            "description": "Unique identifier for the speaker of this word."
+          },
           "characters": {
-            "anyOf": [
-              {
-                "items": {
-                  "$ref": "#/components/schemas/SpeechToTextCharacterResponseModel"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "items": {
+              "$ref": "#/components/schemas/SpeechToTextCharacterResponseModel"
+            },
+            "type": "array",
             "title": "Characters",
             "description": "The characters that make up the word and their timing information."
           }

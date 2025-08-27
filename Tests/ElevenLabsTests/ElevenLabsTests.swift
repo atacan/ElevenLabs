@@ -62,9 +62,9 @@ struct ElevenLabsTests {
 
         let word: Components.Schemas.SpeechToTextWordResponseModel = words[0]
         #expect(word.text.isEmpty == false)
-        // #expect(word. > 0)
-        // #expect(word.end > 0)
-        // #expect(word.end > word.start)
+        #expect(word.start! > 0)
+        #expect(word.end! > 0)
+        #expect(word.end! > word.start!)
     }
 
     @Test func testClientInitialization() {
