@@ -36,31 +36,31 @@ test-on-linux:
 
 DOWNLOAD_OPENAPI_URL=https://api.elevenlabs.io/openapi.json
 download-openapi:
-	# Download the openapi.yaml file from remote repo as original.yaml file
-	curl -o original.yaml $(DOWNLOAD_OPENAPI_URL)
-	# Create a copy of original.yaml as openapi.yaml
-	cp original.yaml openapi.yaml
+	# Download the openapi.json file from remote repo as original.json file
+	curl -o original.json $(DOWNLOAD_OPENAPI_URL)
+	# Create a copy of original.json as openapi.json
+	cp original.json openapi.json
 	# Replace 9223372036854776000 with 922337203685477600 
-	sed -i '' 's/9223372036854776000/922337203685477600/g' ./openapi.yaml
+	sed -i '' 's/9223372036854776000/922337203685477600/g' ./openapi.json
 
 overlay-openapi:
-	openapi-format --no-sort ./openapi.yaml --overlayFile overlay.json -o ./openapi.yaml
+	openapi-format --no-sort ./openapi.json --overlayFile overlay.json -o ./openapi.json
 
 generate-openapi:
 	swift run swift-openapi-generator generate \
 	  --output-directory Sources/ElevenLabsTypes/GeneratedSources \
 	  --config ./openapi-generator-config-types.yaml \
-	  ./openapi.yaml
+	  ./openapi.json
 
 	swift run swift-openapi-generator generate \
 	  --output-directory Sources/ElevenLabs/GeneratedSources \
 	  --config ./openapi-generator-config-client.yaml \
-	  ./openapi.yaml
+	  ./openapi.json
 
 	swift run swift-openapi-generator generate \
 	  --output-directory Sources/ElevenLabsUrlSessionClient/GeneratedSources \
 	  --config ./openapi-generator-config-client.yaml \
-	  ./openapi.yaml
+	  ./openapi.json
 
 prepare-openapi:
 	make download-openapi
