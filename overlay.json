@@ -10,11 +10,29 @@
             "remove": true
         },
         {
-            "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.additional_formats",
+            "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
             "update": {
-                "type": "string",
-                "title": "Additional Formats",
-                "description": "Additional formats to export the transcript to (simplified due to generator limitation)."
+                "additional_formats": {
+                    "type": "array",
+                    "description": "A list of additional formats to export the transcript to.",
+                    "items": {
+                        "$ref": "#/components/schemas/ExportOptions"
+                    },
+                    "maxItems": 10
+                }
+            }
+        },
+        {
+            "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.file",
+            "remove": true
+        },
+        {
+            "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
+            "update": {
+                "file": {
+                    "type": "string",
+                    "format": "binary"
+                }
             }
         }
     ]

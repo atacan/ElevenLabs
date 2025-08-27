@@ -258,7 +258,125 @@ public enum Components {
                 }
             }
             case webhook_metadata(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats`.
+            public struct additional_formatsPayload: Sendable, Hashable {
+                public var body: Components.Schemas.ExportOptions
+                /// Creates a new `additional_formatsPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: Components.Schemas.ExportOptions) {
+                    self.body = body
+                }
+            }
+            case additional_formats(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/file`.
+            public struct filePayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `filePayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case file(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.filePayload>)
             case undocumented(OpenAPIRuntime.MultipartRawPart)
+        }
+        /// - Remark: Generated from `#/components/schemas/DocxExportOptions`.
+        public struct DocxExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/include_speakers`.
+            public var include_speakers: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/include_timestamps`.
+            public var include_timestamps: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/format`.
+            @frozen public enum formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case docx = "docx"
+            }
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/format`.
+            public var format: Components.Schemas.DocxExportOptions.formatPayload
+            /// Creates a new `DocxExportOptions`.
+            ///
+            /// - Parameters:
+            ///   - include_speakers:
+            ///   - include_timestamps:
+            ///   - format:
+            public init(
+                include_speakers: Swift.Bool? = nil,
+                include_timestamps: Swift.Bool? = nil,
+                format: Components.Schemas.DocxExportOptions.formatPayload
+            ) {
+                self.include_speakers = include_speakers
+                self.include_timestamps = include_timestamps
+                self.format = format
+            }
+            public enum CodingKeys: String, CodingKey {
+                case include_speakers
+                case include_timestamps
+                case format
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/ExportOptions`.
+        @frozen public enum ExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/ExportOptions/DocxExportOptions`.
+            case docx(Components.Schemas.DocxExportOptions)
+            /// - Remark: Generated from `#/components/schemas/ExportOptions/HtmlExportOptions`.
+            case html(Components.Schemas.HtmlExportOptions)
+            /// - Remark: Generated from `#/components/schemas/ExportOptions/PdfExportOptions`.
+            case pdf(Components.Schemas.PdfExportOptions)
+            /// - Remark: Generated from `#/components/schemas/ExportOptions/SegmentedJsonExportOptions`.
+            case segmented_json(Components.Schemas.SegmentedJsonExportOptions)
+            /// - Remark: Generated from `#/components/schemas/ExportOptions/SrtExportOptions`.
+            case srt(Components.Schemas.SrtExportOptions)
+            /// - Remark: Generated from `#/components/schemas/ExportOptions/TxtExportOptions`.
+            case txt(Components.Schemas.TxtExportOptions)
+            public enum CodingKeys: String, CodingKey {
+                case format
+            }
+            public init(from decoder: any Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                let discriminator = try container.decode(
+                    Swift.String.self,
+                    forKey: .format
+                )
+                switch discriminator {
+                case "docx":
+                    self = .docx(try .init(from: decoder))
+                case "html":
+                    self = .html(try .init(from: decoder))
+                case "pdf":
+                    self = .pdf(try .init(from: decoder))
+                case "segmented_json":
+                    self = .segmented_json(try .init(from: decoder))
+                case "srt":
+                    self = .srt(try .init(from: decoder))
+                case "txt":
+                    self = .txt(try .init(from: decoder))
+                default:
+                    throw Swift.DecodingError.unknownOneOfDiscriminator(
+                        discriminatorKey: CodingKeys.format,
+                        discriminatorValue: discriminator,
+                        codingPath: decoder.codingPath
+                    )
+                }
+            }
+            public func encode(to encoder: any Encoder) throws {
+                switch self {
+                case let .docx(value):
+                    try value.encode(to: encoder)
+                case let .html(value):
+                    try value.encode(to: encoder)
+                case let .pdf(value):
+                    try value.encode(to: encoder)
+                case let .segmented_json(value):
+                    try value.encode(to: encoder)
+                case let .srt(value):
+                    try value.encode(to: encoder)
+                case let .txt(value):
+                    try value.encode(to: encoder)
+                }
+            }
         }
         /// - Remark: Generated from `#/components/schemas/HTTPValidationError`.
         public struct HTTPValidationError: Codable, Hashable, Sendable {
@@ -273,6 +391,39 @@ public enum Components {
             }
             public enum CodingKeys: String, CodingKey {
                 case detail
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/HtmlExportOptions`.
+        public struct HtmlExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/include_speakers`.
+            public var include_speakers: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/include_timestamps`.
+            public var include_timestamps: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/format`.
+            @frozen public enum formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case html = "html"
+            }
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/format`.
+            public var format: Components.Schemas.HtmlExportOptions.formatPayload
+            /// Creates a new `HtmlExportOptions`.
+            ///
+            /// - Parameters:
+            ///   - include_speakers:
+            ///   - include_timestamps:
+            ///   - format:
+            public init(
+                include_speakers: Swift.Bool? = nil,
+                include_timestamps: Swift.Bool? = nil,
+                format: Components.Schemas.HtmlExportOptions.formatPayload
+            ) {
+                self.include_speakers = include_speakers
+                self.include_timestamps = include_timestamps
+                self.format = format
+            }
+            public enum CodingKeys: String, CodingKey {
+                case include_speakers
+                case include_timestamps
+                case format
             }
         }
         /// Response model for multichannel speech-to-text transcription.
@@ -292,6 +443,72 @@ public enum Components {
             }
             public enum CodingKeys: String, CodingKey {
                 case transcripts
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/PdfExportOptions`.
+        public struct PdfExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/include_speakers`.
+            public var include_speakers: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/include_timestamps`.
+            public var include_timestamps: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/format`.
+            @frozen public enum formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case pdf = "pdf"
+            }
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/format`.
+            public var format: Components.Schemas.PdfExportOptions.formatPayload
+            /// Creates a new `PdfExportOptions`.
+            ///
+            /// - Parameters:
+            ///   - include_speakers:
+            ///   - include_timestamps:
+            ///   - format:
+            public init(
+                include_speakers: Swift.Bool? = nil,
+                include_timestamps: Swift.Bool? = nil,
+                format: Components.Schemas.PdfExportOptions.formatPayload
+            ) {
+                self.include_speakers = include_speakers
+                self.include_timestamps = include_timestamps
+                self.format = format
+            }
+            public enum CodingKeys: String, CodingKey {
+                case include_speakers
+                case include_timestamps
+                case format
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions`.
+        public struct SegmentedJsonExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/include_speakers`.
+            public var include_speakers: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/include_timestamps`.
+            public var include_timestamps: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/format`.
+            @frozen public enum formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case segmented_json = "segmented_json"
+            }
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/format`.
+            public var format: Components.Schemas.SegmentedJsonExportOptions.formatPayload
+            /// Creates a new `SegmentedJsonExportOptions`.
+            ///
+            /// - Parameters:
+            ///   - include_speakers:
+            ///   - include_timestamps:
+            ///   - format:
+            public init(
+                include_speakers: Swift.Bool? = nil,
+                include_timestamps: Swift.Bool? = nil,
+                format: Components.Schemas.SegmentedJsonExportOptions.formatPayload
+            ) {
+                self.include_speakers = include_speakers
+                self.include_timestamps = include_timestamps
+                self.format = format
+            }
+            public enum CodingKeys: String, CodingKey {
+                case include_speakers
+                case include_timestamps
+                case format
             }
         }
         /// - Remark: Generated from `#/components/schemas/SpeechToTextCharacterResponseModel`.
@@ -426,6 +643,72 @@ public enum Components {
                 case text
                 case _type = "type"
                 case logprob
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/SrtExportOptions`.
+        public struct SrtExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/include_speakers`.
+            public var include_speakers: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/include_timestamps`.
+            public var include_timestamps: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/format`.
+            @frozen public enum formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case srt = "srt"
+            }
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/format`.
+            public var format: Components.Schemas.SrtExportOptions.formatPayload
+            /// Creates a new `SrtExportOptions`.
+            ///
+            /// - Parameters:
+            ///   - include_speakers:
+            ///   - include_timestamps:
+            ///   - format:
+            public init(
+                include_speakers: Swift.Bool? = nil,
+                include_timestamps: Swift.Bool? = nil,
+                format: Components.Schemas.SrtExportOptions.formatPayload
+            ) {
+                self.include_speakers = include_speakers
+                self.include_timestamps = include_timestamps
+                self.format = format
+            }
+            public enum CodingKeys: String, CodingKey {
+                case include_speakers
+                case include_timestamps
+                case format
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/TxtExportOptions`.
+        public struct TxtExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/include_speakers`.
+            public var include_speakers: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/include_timestamps`.
+            public var include_timestamps: Swift.Bool?
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/format`.
+            @frozen public enum formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case txt = "txt"
+            }
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/format`.
+            public var format: Components.Schemas.TxtExportOptions.formatPayload
+            /// Creates a new `TxtExportOptions`.
+            ///
+            /// - Parameters:
+            ///   - include_speakers:
+            ///   - include_timestamps:
+            ///   - format:
+            public init(
+                include_speakers: Swift.Bool? = nil,
+                include_timestamps: Swift.Bool? = nil,
+                format: Components.Schemas.TxtExportOptions.formatPayload
+            ) {
+                self.include_speakers = include_speakers
+                self.include_timestamps = include_timestamps
+                self.format = format
+            }
+            public enum CodingKeys: String, CodingKey {
+                case include_speakers
+                case include_timestamps
+                case format
             }
         }
         /// - Remark: Generated from `#/components/schemas/ValidationError`.
