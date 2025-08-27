@@ -66,6 +66,11 @@ public struct Client: APIProtocol {
                     name: "enable_logging",
                     value: input.query.enable_logging
                 )
+                try converter.setHeaderFieldAsURI(
+                    in: &request.headerFields,
+                    name: "xi-api-key",
+                    value: input.headers.xi_hyphen_api_hyphen_key
+                )
                 converter.setAcceptHeader(
                     in: &request.headerFields,
                     contentTypes: input.headers.accept

@@ -1078,12 +1078,21 @@ public enum Operations {
             public var query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query
             /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header`.
             public struct Headers: Sendable, Hashable {
+                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
                 public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Speech_to_Text_v1_speech_to_text_post.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Speech_to_Text_v1_speech_to_text_post.AcceptableContentType>] = .defaultValues()) {
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Speech_to_Text_v1_speech_to_text_post.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
