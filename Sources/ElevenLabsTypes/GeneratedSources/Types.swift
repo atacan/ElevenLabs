@@ -368,25 +368,43 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/DocxExportOptions/format`.
             public var format: Components.Schemas.DocxExportOptions.formatPayload
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/segment_on_silence_longer_than_s`.
+            public var segment_on_silence_longer_than_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/max_segment_duration_s`.
+            public var max_segment_duration_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/DocxExportOptions/max_segment_chars`.
+            public var max_segment_chars: Swift.Int?
             /// Creates a new `DocxExportOptions`.
             ///
             /// - Parameters:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
+            ///   - segment_on_silence_longer_than_s:
+            ///   - max_segment_duration_s:
+            ///   - max_segment_chars:
             public init(
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
-                format: Components.Schemas.DocxExportOptions.formatPayload
+                format: Components.Schemas.DocxExportOptions.formatPayload,
+                segment_on_silence_longer_than_s: Swift.Double? = nil,
+                max_segment_duration_s: Swift.Double? = nil,
+                max_segment_chars: Swift.Int? = nil
             ) {
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
+                self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
+                self.max_segment_duration_s = max_segment_duration_s
+                self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
                 case include_speakers
                 case include_timestamps
                 case format
+                case segment_on_silence_longer_than_s
+                case max_segment_duration_s
+                case max_segment_chars
             }
         }
         /// - Remark: Generated from `#/components/schemas/ExportOptions`.
@@ -477,25 +495,43 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/format`.
             public var format: Components.Schemas.HtmlExportOptions.formatPayload
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/segment_on_silence_longer_than_s`.
+            public var segment_on_silence_longer_than_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/max_segment_duration_s`.
+            public var max_segment_duration_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/HtmlExportOptions/max_segment_chars`.
+            public var max_segment_chars: Swift.Int?
             /// Creates a new `HtmlExportOptions`.
             ///
             /// - Parameters:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
+            ///   - segment_on_silence_longer_than_s:
+            ///   - max_segment_duration_s:
+            ///   - max_segment_chars:
             public init(
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
-                format: Components.Schemas.HtmlExportOptions.formatPayload
+                format: Components.Schemas.HtmlExportOptions.formatPayload,
+                segment_on_silence_longer_than_s: Swift.Double? = nil,
+                max_segment_duration_s: Swift.Double? = nil,
+                max_segment_chars: Swift.Int? = nil
             ) {
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
+                self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
+                self.max_segment_duration_s = max_segment_duration_s
+                self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
                 case include_speakers
                 case include_timestamps
                 case format
+                case segment_on_silence_longer_than_s
+                case max_segment_duration_s
+                case max_segment_chars
             }
         }
         /// Response model for multichannel speech-to-text transcription.
@@ -529,25 +565,43 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/PdfExportOptions/format`.
             public var format: Components.Schemas.PdfExportOptions.formatPayload
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/segment_on_silence_longer_than_s`.
+            public var segment_on_silence_longer_than_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/max_segment_duration_s`.
+            public var max_segment_duration_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/PdfExportOptions/max_segment_chars`.
+            public var max_segment_chars: Swift.Int?
             /// Creates a new `PdfExportOptions`.
             ///
             /// - Parameters:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
+            ///   - segment_on_silence_longer_than_s:
+            ///   - max_segment_duration_s:
+            ///   - max_segment_chars:
             public init(
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
-                format: Components.Schemas.PdfExportOptions.formatPayload
+                format: Components.Schemas.PdfExportOptions.formatPayload,
+                segment_on_silence_longer_than_s: Swift.Double? = nil,
+                max_segment_duration_s: Swift.Double? = nil,
+                max_segment_chars: Swift.Int? = nil
             ) {
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
+                self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
+                self.max_segment_duration_s = max_segment_duration_s
+                self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
                 case include_speakers
                 case include_timestamps
                 case format
+                case segment_on_silence_longer_than_s
+                case max_segment_duration_s
+                case max_segment_chars
             }
         }
         /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions`.
@@ -562,25 +616,43 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/format`.
             public var format: Components.Schemas.SegmentedJsonExportOptions.formatPayload
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/segment_on_silence_longer_than_s`.
+            public var segment_on_silence_longer_than_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/max_segment_duration_s`.
+            public var max_segment_duration_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/SegmentedJsonExportOptions/max_segment_chars`.
+            public var max_segment_chars: Swift.Int?
             /// Creates a new `SegmentedJsonExportOptions`.
             ///
             /// - Parameters:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
+            ///   - segment_on_silence_longer_than_s:
+            ///   - max_segment_duration_s:
+            ///   - max_segment_chars:
             public init(
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
-                format: Components.Schemas.SegmentedJsonExportOptions.formatPayload
+                format: Components.Schemas.SegmentedJsonExportOptions.formatPayload,
+                segment_on_silence_longer_than_s: Swift.Double? = nil,
+                max_segment_duration_s: Swift.Double? = nil,
+                max_segment_chars: Swift.Int? = nil
             ) {
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
+                self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
+                self.max_segment_duration_s = max_segment_duration_s
+                self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
                 case include_speakers
                 case include_timestamps
                 case format
+                case segment_on_silence_longer_than_s
+                case max_segment_duration_s
+                case max_segment_chars
             }
         }
         /// - Remark: Generated from `#/components/schemas/SpeechToTextCharacterResponseModel`.
@@ -589,15 +661,33 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextCharacterResponseModel/text`.
             public var text: Swift.String
+            /// The start time of the character in seconds.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextCharacterResponseModel/start`.
+            public var start: Swift.Double?
+            /// The end time of the character in seconds.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextCharacterResponseModel/end`.
+            public var end: Swift.Double?
             /// Creates a new `SpeechToTextCharacterResponseModel`.
             ///
             /// - Parameters:
             ///   - text: The character that was transcribed.
-            public init(text: Swift.String) {
+            ///   - start: The start time of the character in seconds.
+            ///   - end: The end time of the character in seconds.
+            public init(
+                text: Swift.String,
+                start: Swift.Double? = nil,
+                end: Swift.Double? = nil
+            ) {
                 self.text = text
+                self.start = start
+                self.end = end
             }
             public enum CodingKeys: String, CodingKey {
                 case text
+                case start
+                case end
             }
         }
         /// Chunk-level detail of the transcription with timing information.
@@ -620,6 +710,10 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/words`.
             public var words: [Components.Schemas.SpeechToTextWordResponseModel]
+            /// The channel index this transcript belongs to (for multichannel audio).
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/channel_index`.
+            public var channel_index: Swift.Int?
             /// Creates a new `SpeechToTextChunkResponseModel`.
             ///
             /// - Parameters:
@@ -627,22 +721,26 @@ public enum Components {
             ///   - language_probability: The confidence score of the language detection (0 to 1).
             ///   - text: The raw text of the transcription.
             ///   - words: List of words with their timing information.
+            ///   - channel_index: The channel index this transcript belongs to (for multichannel audio).
             public init(
                 language_code: Swift.String,
                 language_probability: Swift.Double,
                 text: Swift.String,
-                words: [Components.Schemas.SpeechToTextWordResponseModel]
+                words: [Components.Schemas.SpeechToTextWordResponseModel],
+                channel_index: Swift.Int? = nil
             ) {
                 self.language_code = language_code
                 self.language_probability = language_probability
                 self.text = text
                 self.words = words
+                self.channel_index = channel_index
             }
             public enum CodingKeys: String, CodingKey {
                 case language_code
                 case language_probability
                 case text
                 case words
+                case channel_index
             }
         }
         /// - Remark: Generated from `#/components/schemas/SpeechToTextWebhookResponseModel`.
@@ -761,25 +859,49 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/SrtExportOptions/format`.
             public var format: Components.Schemas.SrtExportOptions.formatPayload
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/max_characters_per_line`.
+            public var max_characters_per_line: Swift.Int?
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/segment_on_silence_longer_than_s`.
+            public var segment_on_silence_longer_than_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/max_segment_duration_s`.
+            public var max_segment_duration_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/max_segment_chars`.
+            public var max_segment_chars: Swift.Int?
             /// Creates a new `SrtExportOptions`.
             ///
             /// - Parameters:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
+            ///   - max_characters_per_line:
+            ///   - segment_on_silence_longer_than_s:
+            ///   - max_segment_duration_s:
+            ///   - max_segment_chars:
             public init(
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
-                format: Components.Schemas.SrtExportOptions.formatPayload
+                format: Components.Schemas.SrtExportOptions.formatPayload,
+                max_characters_per_line: Swift.Int? = nil,
+                segment_on_silence_longer_than_s: Swift.Double? = nil,
+                max_segment_duration_s: Swift.Double? = nil,
+                max_segment_chars: Swift.Int? = nil
             ) {
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
+                self.max_characters_per_line = max_characters_per_line
+                self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
+                self.max_segment_duration_s = max_segment_duration_s
+                self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
                 case include_speakers
                 case include_timestamps
                 case format
+                case max_characters_per_line
+                case segment_on_silence_longer_than_s
+                case max_segment_duration_s
+                case max_segment_chars
             }
         }
         /// - Remark: Generated from `#/components/schemas/TxtExportOptions`.
@@ -794,25 +916,49 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/TxtExportOptions/format`.
             public var format: Components.Schemas.TxtExportOptions.formatPayload
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/max_characters_per_line`.
+            public var max_characters_per_line: Swift.Int?
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/segment_on_silence_longer_than_s`.
+            public var segment_on_silence_longer_than_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/max_segment_duration_s`.
+            public var max_segment_duration_s: Swift.Double?
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/max_segment_chars`.
+            public var max_segment_chars: Swift.Int?
             /// Creates a new `TxtExportOptions`.
             ///
             /// - Parameters:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
+            ///   - max_characters_per_line:
+            ///   - segment_on_silence_longer_than_s:
+            ///   - max_segment_duration_s:
+            ///   - max_segment_chars:
             public init(
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
-                format: Components.Schemas.TxtExportOptions.formatPayload
+                format: Components.Schemas.TxtExportOptions.formatPayload,
+                max_characters_per_line: Swift.Int? = nil,
+                segment_on_silence_longer_than_s: Swift.Double? = nil,
+                max_segment_duration_s: Swift.Double? = nil,
+                max_segment_chars: Swift.Int? = nil
             ) {
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
+                self.max_characters_per_line = max_characters_per_line
+                self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
+                self.max_segment_duration_s = max_segment_duration_s
+                self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
                 case include_speakers
                 case include_timestamps
                 case format
+                case max_characters_per_line
+                case segment_on_silence_longer_than_s
+                case max_segment_duration_s
+                case max_segment_chars
             }
         }
         /// - Remark: Generated from `#/components/schemas/ValidationError`.

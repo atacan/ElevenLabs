@@ -45,6 +45,7 @@ download-openapi:
 
 overlay-openapi:
 	openapi-format --no-sort ./openapi.json --overlayFile overlay.json -o ./openapi.json
+	openapi-format --no-sort ./openapi.json --overlayFile overlay_generated.json -o ./openapi.json
 
 generate-openapi:
 	swift run swift-openapi-generator generate \
