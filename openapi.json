@@ -21672,37 +21672,11 @@
             "title": "Model Id",
             "description": "The ID of the model to use for transcription, currently only 'scribe_v1' and 'scribe_v1_experimental' are available."
           },
-          "language_code": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Language Code",
-            "description": "An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically."
-          },
           "tag_audio_events": {
             "type": "boolean",
             "title": "Tag Audio Events",
             "description": "Whether to tag audio events like (laughter), (footsteps), etc. in the transcription.",
             "default": true
-          },
-          "num_speakers": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "maximum": 32,
-                "minimum": 1
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Num Speakers",
-            "description": "The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports."
           },
           "timestamps_granularity": {
             "type": "string",
@@ -21721,20 +21695,6 @@
             "description": "Whether to annotate which speaker is currently talking in the uploaded file.",
             "default": false
           },
-          "diarization_threshold": {
-            "anyOf": [
-              {
-                "type": "number",
-                "maximum": 0.4,
-                "minimum": 0.1
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Diarization Threshold",
-            "description": "Diarization threshold to apply during speaker diarization. A higher value means there will be a lower chance of one speaker being diarized as two different speakers but also a higher chance of two different speakers being diarized as one speaker (less total speakers predicted). A low value means there will be a higher chance of one speaker being diarized as two different speakers but also a lower chance of two different speakers being diarized as one speaker (more total speakers predicted). Can only be set when diarize=True and num_speakers=None. Defaults to None, in which case we will choose a threshold based on the model_id (0.22 usually)."
-          },
           "file_format": {
             "type": "string",
             "enum": [
@@ -21749,97 +21709,17 @@
               "other"
             ]
           },
-          "cloud_storage_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Cloud Storage Url",
-            "description": "The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.",
-            "examples": [
-              "https://storage.googleapis.com/my-bucket/folder/audio.mp3",
-              "https://my-bucket.s3.us-west-2.amazonaws.com/folder/audio.mp3",
-              "https://account123.r2.cloudflarestorage.com/my-bucket/audio.mp3",
-              "https://cdn.example.com/media/audio.wav"
-            ]
-          },
           "webhook": {
             "type": "boolean",
             "title": "Webhook",
             "description": "Whether to send the transcription result to configured speech-to-text webhooks.  If set the request will return early without the transcription, which will be delivered later via webhook.",
             "default": false
           },
-          "webhook_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Id",
-            "description": "Optional specific webhook ID to send the transcription result to. Only valid when webhook is set to true. If not provided, transcription will be sent to all configured speech-to-text webhooks."
-          },
-          "temperature": {
-            "anyOf": [
-              {
-                "type": "number",
-                "maximum": 2,
-                "minimum": 0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Temperature",
-            "description": "Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0."
-          },
-          "seed": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "maximum": 2147483647,
-                "minimum": 0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Seed",
-            "description": "If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.",
-            "examples": [
-              12345
-            ]
-          },
           "use_multi_channel": {
             "type": "boolean",
             "title": "Use Multi Channel",
             "description": "Whether the audio file contains multiple channels where each channel contains a single speaker. When enabled, each channel will be transcribed independently and the results will be combined. Each word in the response will include a 'channel_index' field indicating which channel it was spoken on. A maximum of 5 channels is supported.",
             "default": false
-          },
-          "webhook_metadata": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Metadata",
-            "description": "Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.",
-            "examples": [
-              "{\"user_id\": \"123\", \"session_id\": \"abc-def-ghi\"}",
-              "{\"request_type\": \"interview\", \"participant_name\": \"John Doe\"}"
-            ]
           },
           "additional_formats": {
             "type": "array",
@@ -21852,6 +21732,74 @@
           "file": {
             "type": "string",
             "format": "binary"
+          },
+          "language_code": {
+            "type": "string",
+            "title": "Language Code",
+            "description": "An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically."
+          },
+          "num_speakers": {
+            "type": "integer",
+            "maximum": 32,
+            "minimum": 1,
+            "title": "Num Speakers",
+            "description": "The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports."
+          },
+          "diarization_threshold": {
+            "type": "number",
+            "maximum": 0.4,
+            "minimum": 0.1,
+            "title": "Diarization Threshold",
+            "description": "Diarization threshold to apply during speaker diarization. A higher value means there will be a lower chance of one speaker being diarized as two different speakers but also a higher chance of two different speakers being diarized as one speaker (less total speakers predicted). A low value means there will be a higher chance of one speaker being diarized as two different speakers but also a lower chance of two different speakers being diarized as one speaker (more total speakers predicted). Can only be set when diarize=True and num_speakers=None. Defaults to None, in which case we will choose a threshold based on the model_id (0.22 usually)."
+          },
+          "cloud_storage_url": {
+            "type": "string",
+            "title": "Cloud Storage Url",
+            "description": "The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.",
+            "examples": [
+              "https://storage.googleapis.com/my-bucket/folder/audio.mp3",
+              "https://my-bucket.s3.us-west-2.amazonaws.com/folder/audio.mp3",
+              "https://account123.r2.cloudflarestorage.com/my-bucket/audio.mp3",
+              "https://cdn.example.com/media/audio.wav"
+            ]
+          },
+          "webhook_id": {
+            "type": "string",
+            "title": "Webhook Id",
+            "description": "Optional specific webhook ID to send the transcription result to. Only valid when webhook is set to true. If not provided, transcription will be sent to all configured speech-to-text webhooks."
+          },
+          "temperature": {
+            "type": "number",
+            "maximum": 2,
+            "minimum": 0,
+            "title": "Temperature",
+            "description": "Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0."
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.",
+            "examples": [
+              12345
+            ]
+          },
+          "webhook_metadata": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "title": "Webhook Metadata",
+            "description": "Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.",
+            "examples": [
+              "{\"user_id\": \"123\", \"session_id\": \"abc-def-ghi\"}",
+              "{\"request_type\": \"interview\", \"participant_name\": \"John Doe\"}"
+            ]
           }
         },
         "type": "object",

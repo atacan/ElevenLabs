@@ -28,15 +28,17 @@ struct ElevenLabsTests {
         return client
     }()
     let audioData = try! Data(contentsOf: URL(fileURLWithPath: "/Users/atacan/Developer/Repositories/GoogleGenerativeLanguage/assets/speech.mp3"))
+
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.
         let response = try await client.Speech_to_Text_v1_speech_to_text_post(
             query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query.init(enable_logging: true),
             body: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Body.multipartForm(
                 [
-                    
+                    .file(.init(payload: .init(body: HTTPBody(audioData))))
                 ]
             )
         )
+        dump(response)
     }
 }

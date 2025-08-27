@@ -83,13 +83,20 @@ public struct Client: APIProtocol {
                         ],
                         requiredAtLeastOncePartNames: [],
                         atMostOncePartNames: [
+                            "cloud_storage_url",
+                            "diarization_threshold",
                             "diarize",
                             "file",
                             "file_format",
+                            "language_code",
+                            "num_speakers",
+                            "seed",
                             "tag_audio_events",
+                            "temperature",
                             "timestamps_granularity",
                             "use_multi_channel",
                             "webhook",
+                            "webhook_id",
                             "webhook_metadata"
                         ],
                         zeroOrMoreTimesPartNames: [
@@ -195,20 +202,6 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
-                            case let .webhook_metadata(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsJSON(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "application/json; charset=utf-8"
-                                )
-                                return .init(
-                                    name: "webhook_metadata",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
                             case let .additional_formats(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
@@ -233,6 +226,118 @@ public struct Client: APIProtocol {
                                 )
                                 return .init(
                                     name: "file",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .language_code(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "language_code",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .num_speakers(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "num_speakers",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .diarization_threshold(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "diarization_threshold",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .cloud_storage_url(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "cloud_storage_url",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .webhook_id(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "webhook_id",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .temperature(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "temperature",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .seed(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "seed",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .webhook_metadata(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsJSON(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "application/json; charset=utf-8"
+                                )
+                                return .init(
+                                    name: "webhook_metadata",
                                     filename: wrapped.filename,
                                     headerFields: headerFields,
                                     body: body

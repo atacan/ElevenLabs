@@ -185,79 +185,6 @@ public enum Components {
                 }
             }
             case use_multi_channel(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.use_multi_channelPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata`.
-            public struct webhook_metadataPayload: Sendable, Hashable {
-                /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
-                ///
-                /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body`.
-                public struct bodyPayload: Codable, Hashable, Sendable {
-                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value1`.
-                    public var value1: Swift.String?
-                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value2`.
-                    public var value2: OpenAPIRuntime.OpenAPIObjectContainer?
-                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value3`.
-                    public var value3: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload.Value3Payload?
-                    /// Creates a new `bodyPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - value1:
-                    ///   - value2:
-                    ///   - value3:
-                    public init(
-                        value1: Swift.String? = nil,
-                        value2: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-                        value3: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload.Value3Payload? = nil
-                    ) {
-                        self.value1 = value1
-                        self.value2 = value2
-                        self.value3 = value3
-                    }
-                    public init(from decoder: any Decoder) throws {
-                        var errors: [any Error] = []
-                        do {
-                            self.value1 = try decoder.decodeFromSingleValueContainer()
-                        } catch {
-                            errors.append(error)
-                        }
-                        do {
-                            self.value2 = try .init(from: decoder)
-                        } catch {
-                            errors.append(error)
-                        }
-                        do {
-                            self.value3 = try decoder.decodeFromSingleValueContainer()
-                        } catch {
-                            errors.append(error)
-                        }
-                        try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                            [
-                                self.value1,
-                                self.value2,
-                                self.value3
-                            ],
-                            type: Self.self,
-                            codingPath: decoder.codingPath,
-                            errors: errors
-                        )
-                    }
-                    public func encode(to encoder: any Encoder) throws {
-                        try encoder.encodeFirstNonNilValueToSingleValueContainer([
-                            self.value1,
-                            self.value3
-                        ])
-                        try self.value2?.encode(to: encoder)
-                    }
-                }
-                public var body: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload?
-                /// Creates a new `webhook_metadataPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload? = nil) {
-                    self.body = body
-                }
-            }
-            case webhook_metadata(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats`.
             public struct additional_formatsPayload: Sendable, Hashable {
                 public var body: Components.Schemas.ExportOptions
@@ -282,6 +209,151 @@ public enum Components {
                 }
             }
             case file(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.filePayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/language_code`.
+            public struct language_codePayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `language_codePayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case language_code(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.language_codePayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/num_speakers`.
+            public struct num_speakersPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `num_speakersPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case num_speakers(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.num_speakersPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/diarization_threshold`.
+            public struct diarization_thresholdPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `diarization_thresholdPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case diarization_threshold(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.diarization_thresholdPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/cloud_storage_url`.
+            public struct cloud_storage_urlPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `cloud_storage_urlPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case cloud_storage_url(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.cloud_storage_urlPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_id`.
+            public struct webhook_idPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `webhook_idPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case webhook_id(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_idPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/temperature`.
+            public struct temperaturePayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `temperaturePayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case temperature(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.temperaturePayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/seed`.
+            public struct seedPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `seedPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case seed(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.seedPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata`.
+            public struct webhook_metadataPayload: Sendable, Hashable {
+                /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
+                ///
+                /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body`.
+                public struct bodyPayload: Codable, Hashable, Sendable {
+                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value1`.
+                    public var value1: Swift.String?
+                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value2`.
+                    public var value2: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// Creates a new `bodyPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - value1:
+                    ///   - value2:
+                    public init(
+                        value1: Swift.String? = nil,
+                        value2: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+                    ) {
+                        self.value1 = value1
+                        self.value2 = value2
+                    }
+                    public init(from decoder: any Decoder) throws {
+                        var errors: [any Error] = []
+                        do {
+                            self.value1 = try decoder.decodeFromSingleValueContainer()
+                        } catch {
+                            errors.append(error)
+                        }
+                        do {
+                            self.value2 = try .init(from: decoder)
+                        } catch {
+                            errors.append(error)
+                        }
+                        try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
+                            [
+                                self.value1,
+                                self.value2
+                            ],
+                            type: Self.self,
+                            codingPath: decoder.codingPath,
+                            errors: errors
+                        )
+                    }
+                    public func encode(to encoder: any Encoder) throws {
+                        try encoder.encodeFirstNonNilValueToSingleValueContainer([
+                            self.value1
+                        ])
+                        try self.value2?.encode(to: encoder)
+                    }
+                }
+                public var body: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload
+                /// Creates a new `webhook_metadataPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload) {
+                    self.body = body
+                }
+            }
+            case webhook_metadata(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload>)
             case undocumented(OpenAPIRuntime.MultipartRawPart)
         }
         /// - Remark: Generated from `#/components/schemas/DocxExportOptions`.
