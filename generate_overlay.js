@@ -58,9 +58,32 @@ function findNullableFields(obj, currentPath = []) {
     return nullableFields;
 }
 
-// Find all nullable fields in components.schemas
+// Function to find nullable fields in path parameters
+function findNullableParameterFields(paths) {
+    const nullableFields = [];
+    
+    for (const [pathName, pathObj] of Object.entries(paths)) {
+        for (const [method, methodObj] of Object.entries(pathObj)) {
+            if (methodObj.parameters && Array.isArray(methodObj.parameters)) {
+                methodObj.parameters.forEach((param, paramIndex) => {
+                    if (param.schema) {
+                        const currentPath = ['paths', pathName, method, 'parameters', paramIndex.toString(), 'schema'];
+                        const paramNullableFields = findNullableFields(param.schema, currentPath);
+                        nullableFields.push(...paramNullableFields);
+                    }
+                });
+            }
+        }
+    }
+    
+    return nullableFields;
+}
+
+// Find all nullable fields in components.schemas and path parameters
 console.log('Scanning OpenAPI spec for nullable fields...');
-const nullableFields = findNullableFields(openApiSpec.components?.schemas || {}, ['components', 'schemas']);
+const schemaNullableFields = findNullableFields(openApiSpec.components?.schemas || {}, ['components', 'schemas']);
+const parameterNullableFields = findNullableParameterFields(openApiSpec.paths || {});
+const nullableFields = [...schemaNullableFields, ...parameterNullableFields];
 
 console.log(`Found ${nullableFields.length} nullable fields:`);
 nullableFields.forEach(field => {

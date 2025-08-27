@@ -11642,6 +11642,3723 @@
           "description": "The most recent time the webhook failed, failures are any non-200 codes returned by the callback URL."
         }
       }
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "After which ID to start fetching, use this parameter to paginate across a large collection of history items. In case this parameter is not provided history items will be fetched starting from the most recently created one ordered descending by their creation date.",
+          "title": "Start After History Item Id"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Voice ID to be filtered for, you can use GET https://api.elevenlabs.io/v1/voices to receive a list of voices and their IDs.",
+          "title": "Voice Id"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "search term used for filtering",
+          "examples": [
+            "In the land far far away"
+          ],
+          "title": "Search"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.4",
+      "update": {
+        "schema": {
+          "enum": [
+            "TTS",
+            "STS"
+          ],
+          "type": "string",
+          "description": "Source of the generated history item",
+          "examples": [
+            "TTS"
+          ],
+          "title": "Source"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.5.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history.get.parameters.5",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history/{history_item_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history/{history_item_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history/{history_item_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history/{history_item_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history/{history_item_id}/audio.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history/{history_item_id}/audio.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/history/download.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/history/download.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/sound-generation.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/sound-generation.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/audio-isolation.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/audio-isolation.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/audio-isolation/stream.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/audio-isolation/stream.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/samples/{sample_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/samples/{sample_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/samples/{sample_id}/audio.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/samples/{sample_id}/audio.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "title": "DEPRECATED. How much we should optimize streaming request latency (time to first audio byte).",
+          "description": "You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:\n0 - default mode (no latency optimizations)\n1 - normal latency optimizations (about 50% of possible latency improvement of option 3)\n2 - strong latency optimizations (about 75% of possible latency improvement of option 3)\n3 - max latency optimizations\n4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).\n\nDefaults to None.\n",
+          "deprecated": true
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}.post.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}.post.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/with-timestamps.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/with-timestamps.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "title": "DEPRECATED. How much we should optimize streaming request latency (time to first audio byte).",
+          "description": "You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:\n0 - default mode (no latency optimizations)\n1 - normal latency optimizations (about 50% of possible latency improvement of option 3)\n2 - strong latency optimizations (about 75% of possible latency improvement of option 3)\n3 - max latency optimizations\n4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).\n\nDefaults to None.\n",
+          "deprecated": true
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/with-timestamps.post.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/with-timestamps.post.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "title": "DEPRECATED. How much we should optimize streaming request latency (time to first audio byte).",
+          "description": "You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:\n0 - default mode (no latency optimizations)\n1 - normal latency optimizations (about 50% of possible latency improvement of option 3)\n2 - strong latency optimizations (about 75% of possible latency improvement of option 3)\n3 - max latency optimizations\n4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).\n\nDefaults to None.\n",
+          "deprecated": true
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream.post.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream.post.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream/with-timestamps.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream/with-timestamps.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "title": "DEPRECATED. How much we should optimize streaming request latency (time to first audio byte).",
+          "description": "You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:\n0 - default mode (no latency optimizations)\n1 - normal latency optimizations (about 50% of possible latency improvement of option 3)\n2 - strong latency optimizations (about 75% of possible latency improvement of option 3)\n3 - max latency optimizations\n4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).\n\nDefaults to None.\n",
+          "deprecated": true
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream/with-timestamps.post.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-speech/{voice_id}/stream/with-timestamps.post.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-dialogue.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-dialogue.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-dialogue/stream.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-dialogue/stream.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "title": "DEPRECATED. How much we should optimize streaming request latency (time to first audio byte).",
+          "description": "You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:\n0 - default mode (no latency optimizations)\n1 - normal latency optimizations (about 50% of possible latency improvement of option 3)\n2 - strong latency optimizations (about 75% of possible latency improvement of option 3)\n3 - max latency optimizations\n4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).\n\nDefaults to None.\n",
+          "deprecated": true
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}.post.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}.post.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}/stream.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}/stream.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "title": "DEPRECATED. How much we should optimize streaming request latency (time to first audio byte).",
+          "description": "You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:\n0 - default mode (no latency optimizations)\n1 - normal latency optimizations (about 50% of possible latency improvement of option 3)\n2 - strong latency optimizations (about 75% of possible latency improvement of option 3)\n3 - max latency optimizations\n4 - max latency optimizations, but also with text normalizer turned off for even more latency savings (best latency, but can mispronounce eg numbers and dates).\n\nDefaults to None.\n",
+          "deprecated": true
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}/stream.post.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/speech-to-speech/{voice_id}/stream.post.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voice-generation/generate-voice.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voice-generation/generate-voice.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-voice/create-previews.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-voice/create-previews.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voice-generation/create-voice.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voice-generation/create-voice.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-voice.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-voice.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-voice/design.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-voice/design.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/text-to-voice/{generated_voice_id}/stream.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/text-to-voice/{generated_voice_id}/stream.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/user/subscription.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/user/subscription.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/user.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/user.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "boolean",
+          "description": "If set to true, legacy premade voices will be included in responses from /v1/voices",
+          "examples": [
+            true
+          ],
+          "default": false,
+          "title": "Show Legacy"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "The next page token to use for pagination. Returned from the previous request.",
+          "examples": [
+            "0"
+          ],
+          "title": "Next Page Token"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Search term to filter voices by. Searches in name, description, labels, category.",
+          "title": "Search"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.",
+          "examples": [
+            "created_at_unix"
+          ],
+          "title": "Sort"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Which direction to sort the voices in. 'asc' or 'desc'.",
+          "examples": [
+            "desc"
+          ],
+          "title": "Sort Direction"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.5.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.5",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default'. 'non-default' is equal to all but 'default'.",
+          "title": "Voice Type"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.6.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.6",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'",
+          "title": "Category"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.7.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.7",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'",
+          "title": "Fine Tuning State"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.8.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.8",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Collection ID to filter voices by.",
+          "title": "Collection Id"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.10.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.10",
+      "update": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Voice IDs to lookup by. Maximum 100 voice IDs.",
+          "title": "Voice Ids"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.11.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v2/voices.get.parameters.11",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/settings.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/settings.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/settings/edit.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/settings/edit.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/add.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/add.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/edit.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/{voice_id}/edit.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/add/{public_user_id}/{voice_id}.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/add/{public_user_id}/{voice_id}.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/content.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/content.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/convert.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/convert.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/stream.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/stream.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/archive.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/snapshots/{project_snapshot_id}/archive.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/convert.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/convert.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream.post.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/chapters/{chapter_id}/snapshots/{chapter_snapshot_id}/stream.post.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/pronunciation-dictionaries.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/pronunciation-dictionaries.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/language.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/language.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/segment.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/segment.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/segment/{segment_id}/{language}.patch.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/segment/{segment_id}/{language}.patch.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/segment/{segment_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/segment/{segment_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/transcribe.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/transcribe.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/translate.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/translate.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/dub.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/dub.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}.patch.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}.patch.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/similar-voices.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/speaker/{speaker_id}/similar-voices.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/render/{language}.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/resource/{dubbing_id}/render/{language}.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing.get.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}/audio/{language_code}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}/audio/{language_code}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}/transcript/{language_code}.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/dubbing/{dubbing_id}/transcript/{language_code}.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/models.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/models.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/audio-native.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/audio-native.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/audio-native/{project_id}/settings.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/audio-native/{project_id}/settings.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/audio-native/{project_id}/content.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/audio-native/{project_id}/content.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Voice category used for filtering",
+          "examples": [
+            "professional"
+          ],
+          "enum": [
+            "professional",
+            "famous",
+            "high_quality"
+          ],
+          "title": "Category"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Gender used for filtering",
+          "examples": [
+            "male"
+          ],
+          "title": "Gender"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Age used for filtering",
+          "examples": [
+            "young"
+          ],
+          "title": "Age"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Accent used for filtering",
+          "examples": [
+            "american"
+          ],
+          "title": "Accent"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.5.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.5",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Language used for filtering",
+          "examples": [
+            "en"
+          ],
+          "title": "Language"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.6.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.6",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Locale used for filtering",
+          "examples": [
+            "en-US"
+          ],
+          "title": "Locale"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.7.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.7",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Search term used for filtering",
+          "examples": [
+            "tiktok"
+          ],
+          "title": "Search"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.8.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.8",
+      "update": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Use-case used for filtering",
+          "examples": [
+            "audiobook"
+          ],
+          "title": "Use Cases"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.9.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.9",
+      "update": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Search term used for filtering",
+          "examples": [
+            "tiktok"
+          ],
+          "title": "Descriptives"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.11.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.11",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "description": "Filter voices with a minimum notice period of the given number of days.",
+          "examples": [
+            30
+          ],
+          "title": "Min Notice Period Days"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.12.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.12",
+      "update": {
+        "schema": {
+          "type": "boolean",
+          "description": "Include/exclude voices with custom rates",
+          "examples": [
+            true
+          ],
+          "title": "Include Custom Rates"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.13.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.13",
+      "update": {
+        "schema": {
+          "type": "boolean",
+          "description": "Include/exclude voices that are live moderated",
+          "examples": [
+            true
+          ],
+          "title": "Include Live Moderated"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.15.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.15",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Filter voices by public owner ID",
+          "examples": [
+            "7c9fab611d9a0e1fb2e7448a0c294a8804efc2bcc324b0a366a5d5232b7d1532"
+          ],
+          "title": "Owner Id"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.16.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.16",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Sort criteria",
+          "examples": [
+            "created_date"
+          ],
+          "title": "Sort"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.18.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/shared-voices.get.parameters.18",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/similar-voices.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/similar-voices.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/usage/character-stats.get.parameters.5.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/usage/character-stats.get.parameters.5",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "description": "Aggregation bucket size in seconds. Overrides the aggregation interval.",
+          "title": "Aggregation Bucket Size"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/usage/character-stats.get.parameters.7.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/usage/character-stats.get.parameters.7",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/add-from-file.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/add-from-file.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/add-from-rules.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/add-from-rules.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/add-rules.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/add-rules.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/remove-rules.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{pronunciation_dictionary_id}/remove-rules.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{dictionary_id}/{version_id}/download.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries/{dictionary_id}/{version_id}/download.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.2",
+      "update": {
+        "schema": {
+          "enum": [
+            "creation_time_unix",
+            "name"
+          ],
+          "type": "string",
+          "description": "Which field to sort by, one of 'created_at_unix' or 'name'.",
+          "examples": [
+            "creation_time_unix"
+          ],
+          "default": "creation_time_unix",
+          "title": "Sort"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Which direction to sort the voices in. 'ascending' or 'descending'.",
+          "examples": [
+            "descending"
+          ],
+          "default": "DESCENDING",
+          "title": "Sort Direction"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/pronunciation-dictionaries.get.parameters.4",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}.patch.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}.patch.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/service-accounts/{service_account_user_id}/api-keys/{api_key_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/service-accounts.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/service-accounts.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/groups/search.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/groups/search.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/groups/{group_id}/members/remove.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/groups/{group_id}/members/remove.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/groups/{group_id}/members.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/groups/{group_id}/members.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/invites/add.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/invites/add.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/invites/add-bulk.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/invites/add-bulk.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/invites.delete.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/invites.delete.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/members.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/members.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/resources/{resource_id}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/resources/{resource_id}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/resources/{resource_id}/share.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/resources/{resource_id}/share.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/resources/{resource_id}/unshare.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/resources/{resource_id}/unshare.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/workspace/webhooks.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/workspace/webhooks.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/speech-to-text.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/speech-to-text.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/forced-alignment.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/forced-alignment.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/get-signed-url.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/get-signed-url.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/get_signed_url.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/get_signed_url.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/token.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/token.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Optional custom participant name. If not provided, user ID will be used",
+          "title": "Participant Name"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/token.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversation/token.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/twilio/outbound-call.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/twilio/outbound-call.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/create.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/create.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/widget.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/widget.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "An expiring token that enables a websocket conversation to start. These can be generated for an agent using the /v1/convai/conversation/get-signed-url endpoint",
+          "title": "Conversation Signature"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/widget.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/widget.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/link.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/link.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/avatar.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/avatar.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Search by agents name.",
+          "title": "Search"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent/{agent_id}/knowledge-base/size.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent/{agent_id}/knowledge-base/size.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent/{agent_id}/llm-usage/calculate.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent/{agent_id}/llm-usage/calculate.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/duplicate.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/duplicate.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/simulate-conversation.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/simulate-conversation.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/simulate-conversation/stream.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/simulate-conversation/stream.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/create.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/create.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/{test_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/{test_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/{test_id}.put.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/{test_id}.put.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/{test_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/{test_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/summaries.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing/summaries.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Search query to filter tests by name.",
+          "title": "Search"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agent-testing.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/run-tests.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/agents/{agent_id}/run-tests.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/test-invocations/{test_invocation_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/test-invocations/{test_invocation_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/test-invocations/{test_invocation_id}/resubmit.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/test-invocations/{test_invocation_id}/resubmit.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "The id of the agent you're taking the action on.",
+          "examples": [
+            "21m00Tcm4TlvDq8ikWAM"
+          ],
+          "title": "Agent Id"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.2",
+      "update": {
+        "schema": {
+          "$ref": "#/components/schemas/EvaluationSuccessResult",
+          "description": "The result of the success evaluation",
+          "examples": [
+            "success"
+          ],
+          "title": "Call Successful"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "description": "Unix timestamp (in seconds) to filter conversations up to this start date.",
+          "title": "Call Start Before Unix"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.4",
+      "update": {
+        "schema": {
+          "type": "integer",
+          "description": "Unix timestamp (in seconds) to filter conversations after to this start date.",
+          "title": "Call Start After Unix"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.5.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.5",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Filter conversations by the user ID who initiated them.",
+          "title": "User Id"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.8.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations.get.parameters.8",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations/{conversation_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations/{conversation_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations/{conversation_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations/{conversation_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/conversations/{conversation_id}/audio.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/conversations/{conversation_id}/audio.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers/{phone_number_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers/{phone_number_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers/{phone_number_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers/{phone_number_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers/{phone_number_id}.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/phone-numbers/{phone_number_id}.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "If specified, the endpoint returns only such knowledge base documents whose names start with this string.",
+          "title": "Search"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.4.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.4",
+      "update": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/KnowledgeBaseDocumentType"
+          },
+          "description": "If present, the endpoint will return only documents of the given types.",
+          "title": "Types"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.6.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.get.parameters.6",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/url.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/url.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/file.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/file.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/text.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/text.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/rag-index.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/rag-index.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/rag-index.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/rag-index.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/rag-index/{rag_index_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/rag-index/{rag_index_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/rag-index.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/rag-index.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/dependent-agents.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/dependent-agents.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/dependent-agents.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/dependent-agents.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/content.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/content.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id}.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base/{documentation_id}/chunk/{chunk_id}.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}/dependent-agents.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}/dependent-agents.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Used for fetching next page. Cursor is returned in the response.",
+          "title": "Cursor"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}/dependent-agents.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/tools/{tool_id}/dependent-agents.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/settings.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/settings.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/settings.patch.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/settings.patch.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/settings/dashboard.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/settings/dashboard.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/settings/dashboard.patch.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/settings/dashboard.patch.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/secrets.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/secrets.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/secrets.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/secrets.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/secrets/{secret_id}.delete.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/secrets/{secret_id}.delete.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/secrets/{secret_id}.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/secrets/{secret_id}.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/submit.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/submit.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/workspace.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/workspace.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "title": "Last Doc"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/workspace.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/workspace.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/{batch_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/{batch_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/{batch_id}/cancel.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/{batch_id}/cancel.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/{batch_id}/retry.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/batch-calling/{batch_id}/retry.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/sip-trunk/outbound-call.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/sip-trunk/outbound-call.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers.get.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers.get.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/tools.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/tools.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/approval-policy.patch.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/approval-policy.patch.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/tool-approvals.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/tool-approvals.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/tool-approvals/{tool_name}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/convai/mcp-servers/{mcp_server_id}/tool-approvals/{tool_name}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/music/plan.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/music/plan.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/music.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/music.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/music/detailed.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/music/detailed.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/music/stream.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/music/stream.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc.post.parameters.0.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc.post.parameters.0",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}.delete.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}.delete.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/audio.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/audio.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/waveform.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/waveform.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/speakers.get.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/speakers.get.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/separate-speakers.post.parameters.2.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/separate-speakers.post.parameters.2",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/speakers/{speaker_id}/audio.get.parameters.3.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/samples/{sample_id}/speakers/{speaker_id}/audio.get.parameters.3",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/captcha.get.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/captcha.get.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/captcha.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/captcha.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/train.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/train.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/verification.post.parameters.1.schema",
+      "remove": true
+    },
+    {
+      "target": "$.paths./v1/voices/pvc/{voice_id}/verification.post.parameters.1",
+      "update": {
+        "schema": {
+          "type": "string",
+          "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+          "title": "Xi-Api-Key"
+        }
+      }
     }
   ]
 }
