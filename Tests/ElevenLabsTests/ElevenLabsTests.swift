@@ -67,6 +67,40 @@ struct ElevenLabsTests {
         #expect(word.end! > word.start!)
     }
 
+    @Test func testTextToSpeechApiStructure() async throws {
+        let response = try await client.Text_to_speech_v1_text_to_speech__voice_id__post(
+            path: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Path.init(voice_id: "YVyp28LAMQfmx8iIH88U"),
+            body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Body.json(
+                Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post(
+                    text: "Hello world! Code generation is working!",
+                    model_id: "eleven_multilingual_v2",
+                    use_pvc_as_ivc: Optional<Swift.Bool>.none,
+                    apply_text_normalization: Optional<Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post.apply_text_normalizationPayload>.none,
+                    apply_language_text_normalization: Optional<Swift.Bool>.none,
+                    language_code: Optional<Swift.String>.none,
+                    voice_settings: Optional<Components.Schemas.VoiceSettingsResponseModel>.none,
+                    pronunciation_dictionary_locators: Optional<[Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]>.none,
+                    seed: Optional<Swift.Int>.none,
+                    previous_text: Optional<Swift.String>.none,
+                    next_text: Optional<Swift.String>.none,
+                    previous_request_ids: Optional<[Swift.String]>.none,
+                    next_request_ids: Optional<[Swift.String]>.none,
+                )
+            )
+        )
+
+        dump(response)
+
+        let output: HTTPBody = try response.ok.body.audio_mpeg
+        let audioData: Data = try await Data(collecting: output, upTo: 1024 * 1024 * 10)
+        #expect(audioData.count > 0)
+
+        let downloadsFolderUrl: URL = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
+        let audioUrl: URL = downloadsFolderUrl.appendingPathComponent("elevenlabs-test-\(Date().timeIntervalSince1970).mpeg")
+        try audioData.write(to: audioUrl)
+        #expect(FileManager.default.fileExists(atPath: audioUrl.path))
+    }
+
     @Test func testClientInitialization() {
         // Test that client initializes correctly
         // The client should be created without throwing errors

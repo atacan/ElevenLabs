@@ -3,6 +3,6 @@ generate:
 accessModifier: public
 additionalImports:
   - ElevenLabsTypes
-filter:
-  tags:
-    - speech-to-text
+# filter:
+#   tags:
+#     - speech-to-text

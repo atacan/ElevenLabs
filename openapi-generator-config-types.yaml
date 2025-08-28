@@ -1,6 +1,6 @@
 generate:
   - types
 accessModifier: public
-filter:
-  tags:
-    - speech-to-text
+# filter:
+#   tags:
+#     - speech-to-text
