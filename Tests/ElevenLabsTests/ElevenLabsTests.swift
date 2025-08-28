@@ -68,11 +68,12 @@ struct ElevenLabsTests {
     }
 
     @Test func testTextToSpeechApiStructure() async throws {
+        let humanReadableDate: String = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
         let response = try await client.Text_to_speech_v1_text_to_speech__voice_id__post(
             path: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Path.init(voice_id: "YVyp28LAMQfmx8iIH88U"),
             body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Body.json(
                 Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post(
-                    text: "Hello world! Code generation is working!",
+                    text: "Hello world! Code generation is working! Today's date is \(humanReadableDate).",
                     model_id: "eleven_multilingual_v2",
                     use_pvc_as_ivc: Optional<Swift.Bool>.none,
                     apply_text_normalization: Optional<Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post.apply_text_normalizationPayload>.none,
