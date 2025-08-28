@@ -3404,7 +3404,8 @@
                 "$ref": "#/components/schemas/Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5449,6 +5450,18 @@
             "description": "Render this language"
           },
           {
+            "name": "should_normalize_volume",
+            "in": "query",
+            "required": false,
+            "description": "Whether to normalize the volume of the rendered audio.",
+            "schema": {
+              "type": "boolean",
+              "description": "Whether to normalize the volume of the rendered audio.",
+              "default": false,
+              "title": "Should Normalize Volume"
+            }
+          },
+          {
             "name": "xi-api-key",
             "in": "header",
             "required": false,
@@ -5638,7 +5651,8 @@
                 "$ref": "#/components/schemas/Body_Dub_a_video_or_an_audio_file_v1_dubbing_post"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6234,7 +6248,8 @@
                 "$ref": "#/components/schemas/Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6596,7 +6611,8 @@
                 "$ref": "#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -11199,7 +11215,8 @@
                 "$ref": "#/components/schemas/Body_Add_to_knowledge_base_v1_convai_knowledge_base_post"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -35687,6 +35704,11 @@
             "type": "number",
             "title": "Duration Secs",
             "description": "The duration of the preview in seconds."
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "description": "The language of the preview."
           }
         },
         "type": "object",
@@ -35694,7 +35716,8 @@
           "audio_base_64",
           "generated_voice_id",
           "media_type",
-          "duration_secs"
+          "duration_secs",
+          "language"
         ],
         "title": "VoicePreviewResponseModel"
       },

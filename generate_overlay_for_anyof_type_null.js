@@ -124,7 +124,7 @@ const overlay = {
 };
 
 // Write the overlay file
-const overlayPath = path.join(__dirname, 'overlay_generated.json');
+const overlayPath = path.join(__dirname, 'overlay_generated_for_anyof_type_null.json');
 fs.writeFileSync(overlayPath, JSON.stringify(overlay, null, 2));
 
 console.log(`\nGenerated overlay with ${overlayActions.length} actions`);

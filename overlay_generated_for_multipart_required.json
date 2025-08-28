@@ -1,0 +1,74 @@
+{
+  "overlay": "1.0.0",
+  "info": {
+    "title": "Fix OpenAPI spec - Add required: true to multipart/form-data request bodies",
+    "version": "1.0.0"
+  },
+  "actions": [
+    {
+      "target": "$.paths./v1/studio/projects/{project_id}/content.post.requestBody",
+      "update": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "$ref": "#/components/schemas/Body_Update_Studio_project_content_v1_studio_projects__project_id__content_post"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "target": "$.paths./v1/dubbing.post.requestBody",
+      "update": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "$ref": "#/components/schemas/Body_Dub_a_video_or_an_audio_file_v1_dubbing_post"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "target": "$.paths./v1/audio-native/{project_id}/content.post.requestBody",
+      "update": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "$ref": "#/components/schemas/Body_Update_audio_native_Project_content_v1_audio_native__project_id__content_post"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "target": "$.paths./v1/similar-voices.post.requestBody",
+      "update": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "$ref": "#/components/schemas/Body_Get_similar_library_voices_v1_similar_voices_post"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    {
+      "target": "$.paths./v1/convai/knowledge-base.post.requestBody",
+      "update": {
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "$ref": "#/components/schemas/Body_Add_to_knowledge_base_v1_convai_knowledge_base_post"
+            }
+          }
+        },
+        "required": true
+      }
+    }
+  ]
+}
