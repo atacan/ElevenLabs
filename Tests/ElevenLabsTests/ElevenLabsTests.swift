@@ -28,22 +28,18 @@ struct ElevenLabsTests {
     @Test func testSpeechToTextApiStructure() async throws {
         let audioData = try! Data(contentsOf: URL(fileURLWithPath: "/Users/atacan/Developer/Repositories/ElevenLabs/60s_speech.wav"))
 
-        let response = try await client.Speech_to_Text_v1_speech_to_text_post(
-            query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query.init(enable_logging: true),
-            body: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Body.multipartForm(
-                [
+        let response = try await client.speech_to_text(
+            Operations.speech_to_text.Input(
+                query: .init(enable_logging: true),
+                body: .multipartForm([
                     .model_id(.init(payload: .init(body: HTTPBody("scribe_v1")))),
                     .file(
                         .init(
-                            payload: .init(
-                                body: HTTPBody(
-                                    audioData
-                                )
-                            ),
+                            payload: .init(body: HTTPBody(audioData)),
                             filename: "speech.mp3"
                         )
                     ),
-                ]
+                ])
             )
         )
 
@@ -69,23 +65,14 @@ struct ElevenLabsTests {
 
     @Test func testTextToSpeechApiStructure() async throws {
         let humanReadableDate: String = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
-        let response = try await client.Text_to_speech_v1_text_to_speech__voice_id__post(
-            path: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Path.init(voice_id: "YVyp28LAMQfmx8iIH88U"),
-            body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Body.json(
-                Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post(
-                    text: "Hello world! Code generation is working! Today's date is \(humanReadableDate).",
-                    model_id: "eleven_multilingual_v2",
-                    use_pvc_as_ivc: Optional<Swift.Bool>.none,
-                    apply_text_normalization: Optional<Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post.apply_text_normalizationPayload>.none,
-                    apply_language_text_normalization: Optional<Swift.Bool>.none,
-                    language_code: Optional<Swift.String>.none,
-                    voice_settings: Optional<Components.Schemas.VoiceSettingsResponseModel>.none,
-                    pronunciation_dictionary_locators: Optional<[Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]>.none,
-                    seed: Optional<Swift.Int>.none,
-                    previous_text: Optional<Swift.String>.none,
-                    next_text: Optional<Swift.String>.none,
-                    previous_request_ids: Optional<[Swift.String]>.none,
-                    next_request_ids: Optional<[Swift.String]>.none,
+        let response = try await client.text_to_speech_full(
+            Operations.text_to_speech_full.Input(
+                path: .init(voice_id: "YVyp28LAMQfmx8iIH88U"),
+                body: .json(
+                    Components.Schemas.Body_text_to_speech_full(
+                        text: "Hello world! Code generation is working! Today's date is \(humanReadableDate).",
+                        model_id: "eleven_multilingual_v2"
+                    )
                 )
             )
         )
