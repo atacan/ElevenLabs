@@ -5,5 +5,74 @@
     "title": "ElevenLabs API Overlay",
     "version": "1.0.0"
   },
-  "actions": []
+  "actions": [
+    {
+      "target": "$.components.schemas",
+      "update": {
+        "PaymentRequiredErrorDetail": {
+          "type": "object",
+          "title": "PaymentRequiredErrorDetail",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Error code identifying the specific payment issue.",
+              "example": "paid_plan_required"
+            },
+            "message": {
+              "type": "string",
+              "description": "Human-readable description of the payment requirement."
+            },
+            "request_id": {
+              "type": "string",
+              "description": "Unique identifier for the request."
+            },
+            "status": {
+              "type": "string",
+              "description": "HTTP status description.",
+              "example": "payment_required"
+            },
+            "type": {
+              "type": "string",
+              "description": "Error type.",
+              "example": "payment_required"
+            }
+          }
+        },
+        "PaymentRequiredError": {
+          "type": "object",
+          "title": "PaymentRequiredError",
+          "properties": {
+            "detail": {
+              "$ref": "#/components/schemas/PaymentRequiredErrorDetail"
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.components",
+      "update": {
+        "responses": {
+          "PaymentRequired": {
+            "description": "Payment Required - A paid plan is required to access this resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequiredError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.paths.*.*.responses",
+      "update": {
+        "402": {
+          "$ref": "#/components/responses/PaymentRequired"
+        }
+      }
+    }
+  ]
 }

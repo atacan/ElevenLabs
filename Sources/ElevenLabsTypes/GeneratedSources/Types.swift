@@ -1987,13 +1987,108 @@ public enum Components {
                 case speed
             }
         }
+        /// - Remark: Generated from `#/components/schemas/PaymentRequiredErrorDetail`.
+        public struct PaymentRequiredErrorDetail: Codable, Hashable, Sendable {
+            /// Error code identifying the specific payment issue.
+            ///
+            /// - Remark: Generated from `#/components/schemas/PaymentRequiredErrorDetail/code`.
+            public var code: Swift.String?
+            /// Human-readable description of the payment requirement.
+            ///
+            /// - Remark: Generated from `#/components/schemas/PaymentRequiredErrorDetail/message`.
+            public var message: Swift.String?
+            /// Unique identifier for the request.
+            ///
+            /// - Remark: Generated from `#/components/schemas/PaymentRequiredErrorDetail/request_id`.
+            public var request_id: Swift.String?
+            /// HTTP status description.
+            ///
+            /// - Remark: Generated from `#/components/schemas/PaymentRequiredErrorDetail/status`.
+            public var status: Swift.String?
+            /// Error type.
+            ///
+            /// - Remark: Generated from `#/components/schemas/PaymentRequiredErrorDetail/type`.
+            public var _type: Swift.String?
+            /// Creates a new `PaymentRequiredErrorDetail`.
+            ///
+            /// - Parameters:
+            ///   - code: Error code identifying the specific payment issue.
+            ///   - message: Human-readable description of the payment requirement.
+            ///   - request_id: Unique identifier for the request.
+            ///   - status: HTTP status description.
+            ///   - _type: Error type.
+            public init(
+                code: Swift.String? = nil,
+                message: Swift.String? = nil,
+                request_id: Swift.String? = nil,
+                status: Swift.String? = nil,
+                _type: Swift.String? = nil
+            ) {
+                self.code = code
+                self.message = message
+                self.request_id = request_id
+                self.status = status
+                self._type = _type
+            }
+            public enum CodingKeys: String, CodingKey {
+                case code
+                case message
+                case request_id
+                case status
+                case _type = "type"
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/PaymentRequiredError`.
+        public struct PaymentRequiredError: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/PaymentRequiredError/detail`.
+            public var detail: Components.Schemas.PaymentRequiredErrorDetail?
+            /// Creates a new `PaymentRequiredError`.
+            ///
+            /// - Parameters:
+            ///   - detail:
+            public init(detail: Components.Schemas.PaymentRequiredErrorDetail? = nil) {
+                self.detail = detail
+            }
+            public enum CodingKeys: String, CodingKey {
+                case detail
+            }
+        }
     }
     /// Types generated from the `#/components/parameters` section of the OpenAPI document.
     public enum Parameters {}
     /// Types generated from the `#/components/requestBodies` section of the OpenAPI document.
     public enum RequestBodies {}
     /// Types generated from the `#/components/responses` section of the OpenAPI document.
-    public enum Responses {}
+    public enum Responses {
+        public struct PaymentRequired: Sendable, Hashable {
+            /// - Remark: Generated from `#/components/responses/PaymentRequired/content`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/components/responses/PaymentRequired/content/application\/json`.
+                case json(Components.Schemas.PaymentRequiredError)
+                /// The associated value of the enum case if `self` is `.json`.
+                ///
+                /// - Throws: An error if `self` is not `.json`.
+                /// - SeeAlso: `.json`.
+                public var json: Components.Schemas.PaymentRequiredError {
+                    get throws {
+                        switch self {
+                        case let .json(body):
+                            return body
+                        }
+                    }
+                }
+            }
+            /// Received HTTP response body
+            public var body: Components.Responses.PaymentRequired.Body
+            /// Creates a new `PaymentRequired`.
+            ///
+            /// - Parameters:
+            ///   - body: Received HTTP response body
+            public init(body: Components.Responses.PaymentRequired.Body) {
+                self.body = body
+            }
+        }
+    }
     /// Types generated from the `#/components/headers` section of the OpenAPI document.
     public enum Headers {}
 }
@@ -2190,6 +2285,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
                             response: self
                         )
                     }
@@ -2478,6 +2596,29 @@ public enum Operations {
                     }
                 }
             }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
             public struct UnprocessableContent: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/responses/422/content`.
                 @frozen public enum Body: Sendable, Hashable {
@@ -2743,6 +2884,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
                             response: self
                         )
                     }
@@ -3019,6 +3183,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
                             response: self
                         )
                     }
@@ -3333,6 +3520,29 @@ public enum Operations {
                     }
                 }
             }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
             public struct UnprocessableContent: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/422/content`.
                 @frozen public enum Body: Sendable, Hashable {
@@ -3616,6 +3826,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "unauthorized",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
                             response: self
                         )
                     }
@@ -3910,6 +4143,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "unauthorized",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
                             response: self
                         )
                     }

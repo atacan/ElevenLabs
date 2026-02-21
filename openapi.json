@@ -167,6 +167,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -228,6 +231,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -286,6 +292,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -348,6 +357,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -428,6 +440,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -530,6 +545,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -583,6 +601,9 @@
               "audio/mpeg": {}
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -635,6 +656,9 @@
             "content": {
               "audio/mpeg": {}
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -712,6 +736,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -782,6 +809,9 @@
             "content": {
               "audio/*": {}
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -926,6 +956,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1064,6 +1097,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1195,6 +1231,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -1328,6 +1367,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1436,6 +1478,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1529,6 +1574,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1621,6 +1669,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -1728,6 +1779,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -1861,6 +1915,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1993,6 +2050,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2086,6 +2146,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2142,6 +2205,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -2234,6 +2300,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -2341,6 +2410,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2404,6 +2476,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2452,6 +2527,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2498,6 +2576,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -2560,6 +2641,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -2746,6 +2830,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2779,6 +2866,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           }
         },
         "x-fern-sdk-group-name": [
@@ -2833,6 +2923,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -2912,6 +3005,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -2970,6 +3066,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3043,6 +3142,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3102,6 +3204,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3176,6 +3281,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3262,6 +3370,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3329,6 +3440,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3401,6 +3515,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3451,6 +3568,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3509,6 +3629,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3584,6 +3707,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3657,6 +3783,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3718,6 +3847,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3792,6 +3924,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3857,6 +3992,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3920,6 +4058,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -3999,6 +4140,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4081,6 +4225,9 @@
           "200": {
             "description": "Successful Response"
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4162,6 +4309,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4226,6 +4376,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4299,6 +4452,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4378,6 +4534,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4465,6 +4624,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4541,6 +4703,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4621,6 +4786,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4699,6 +4867,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4793,6 +4964,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -4898,6 +5072,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4965,6 +5142,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -5029,6 +5209,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5104,6 +5287,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5192,6 +5378,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5293,6 +5482,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -5368,6 +5560,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5445,6 +5640,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -5521,6 +5719,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -5596,6 +5797,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -5670,6 +5874,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5756,6 +5963,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -5829,6 +6039,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5906,6 +6119,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -5993,6 +6209,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -6139,6 +6358,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -6194,6 +6416,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -6255,6 +6480,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -6312,6 +6540,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -6391,6 +6622,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "403": {
             "description": "Permission denied",
             "content": {
@@ -6413,6 +6647,16 @@
               }
             }
           },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
           "425": {
             "description": "Dubbing not ready",
             "content": {
@@ -6420,16 +6664,6 @@
                 "example": {
                   "error": "dubbing_not_dubbed",
                   "message": "Dubbing has not finished yet."
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -6536,6 +6770,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "403": {
             "description": "Anonymous users cannot use this function",
             "content": {
@@ -6558,6 +6795,16 @@
               }
             }
           },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
           "425": {
             "description": "Dubbing not ready",
             "content": {
@@ -6565,16 +6812,6 @@
                 "example": {
                   "error": "dubbing_not_dubbed",
                   "message": "Dubbing has not finished yet."
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -6669,6 +6906,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -6722,6 +6962,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -6779,6 +7022,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -6840,6 +7086,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -6910,6 +7159,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7217,6 +7469,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -7272,6 +7527,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7401,6 +7659,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -7458,6 +7719,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -7514,6 +7778,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7585,6 +7852,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -7643,6 +7913,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7714,6 +7987,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7788,6 +8064,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7875,6 +8154,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -7982,6 +8264,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8037,6 +8322,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8104,6 +8392,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8181,6 +8472,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8245,6 +8539,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8294,6 +8591,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8358,6 +8658,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8429,6 +8732,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8502,6 +8808,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8563,6 +8872,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8622,6 +8934,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8683,6 +8998,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8742,6 +9060,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8814,6 +9135,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -8882,6 +9206,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -8952,6 +9279,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9017,6 +9347,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9071,6 +9404,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -9143,6 +9479,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9201,6 +9540,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -9297,7 +9639,7 @@
                       "words": [
                         {
                           "text": "Hello",
-                          "start": 0.0,
+                          "start": 0,
                           "end": 0.5,
                           "type": "word",
                           "speaker_id": "speaker_1",
@@ -9317,7 +9659,7 @@
                           "words": [
                             {
                               "text": "Hello",
-                              "start": 0.0,
+                              "start": 0,
                               "end": 0.5,
                               "type": "word",
                               "speaker_id": "speaker_0",
@@ -9359,6 +9701,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -9447,6 +9792,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "404": {
             "description": "Transcript not found",
             "content": {
@@ -9530,6 +9878,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9587,6 +9938,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -9647,6 +10001,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -9731,6 +10088,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -9820,6 +10180,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9902,6 +10265,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9961,6 +10327,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10022,6 +10391,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -10081,6 +10453,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10142,6 +10517,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -10201,6 +10579,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10288,6 +10669,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10383,6 +10767,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -10469,6 +10856,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -10527,6 +10917,9 @@
           },
           "204": {
             "description": "Agent successfully deleted"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10604,6 +10997,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -10669,6 +11065,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10745,6 +11144,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -10883,6 +11285,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -10941,6 +11346,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11011,6 +11419,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11087,6 +11498,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11162,6 +11576,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11229,6 +11646,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11298,6 +11718,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11379,6 +11802,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11481,6 +11907,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11539,6 +11968,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11595,6 +12027,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11679,6 +12114,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11762,6 +12200,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11835,6 +12276,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -11893,6 +12337,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -11961,6 +12408,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -12263,6 +12713,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -12385,6 +12838,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -12450,6 +12906,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -12511,6 +12970,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -12571,6 +13033,9 @@
             "content": {
               "audio/mpeg": {}
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -12635,6 +13100,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -12941,6 +13409,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13048,6 +13519,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13118,6 +13592,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13183,6 +13660,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -13264,6 +13744,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13324,6 +13807,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -13414,6 +13900,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13460,6 +13949,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -13510,6 +14002,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -13580,6 +14075,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13649,6 +14147,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13713,6 +14214,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -13805,6 +14309,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -13876,6 +14383,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14040,6 +14550,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14099,6 +14612,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14161,6 +14677,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14222,6 +14741,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14282,6 +14804,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14382,6 +14907,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14479,6 +15007,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14552,6 +15083,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14632,6 +15166,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14679,6 +15216,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14753,6 +15293,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -14816,6 +15359,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14893,6 +15439,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -14992,6 +15541,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15057,6 +15609,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15124,6 +15679,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15206,6 +15764,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15275,6 +15836,9 @@
           "200": {
             "description": "Successful Response"
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15328,6 +15892,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15390,6 +15957,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15522,6 +16092,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15582,6 +16155,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15653,6 +16229,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15709,6 +16288,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15796,6 +16378,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15845,6 +16430,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -15905,6 +16493,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -15954,6 +16545,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16014,6 +16608,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16076,6 +16673,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16149,6 +16749,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16200,6 +16803,9 @@
         "responses": {
           "204": {
             "description": "Successful Response"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16269,6 +16875,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16328,6 +16937,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16398,6 +17010,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16457,6 +17072,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16506,6 +17124,9 @@
         "responses": {
           "204": {
             "description": "Successful Response"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16566,6 +17187,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16624,6 +17248,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16684,6 +17311,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16746,6 +17376,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16793,6 +17426,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16855,6 +17491,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -16911,6 +17550,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -16982,6 +17624,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -17042,6 +17687,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -17117,6 +17765,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -17189,6 +17840,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -17263,6 +17917,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -17335,6 +17992,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "409": {
             "description": "Tool config override already exists"
@@ -17411,6 +18071,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "404": {
             "description": "Tool config override not found"
@@ -17497,6 +18160,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "404": {
             "description": "Tool config override not found"
           },
@@ -17571,6 +18237,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -17630,6 +18299,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -17696,6 +18368,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -17751,6 +18426,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -17800,6 +18478,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -17875,6 +18556,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -17966,6 +18650,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -18045,6 +18732,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -18132,6 +18822,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -18236,6 +18929,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -18311,6 +19007,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -18401,6 +19100,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -18478,6 +19180,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -18538,6 +19243,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -18642,6 +19350,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -18743,6 +19454,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -18842,6 +19556,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -18947,6 +19664,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -19003,6 +19723,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19076,6 +19799,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19154,6 +19880,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19243,6 +19972,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -19319,6 +20051,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19415,6 +20150,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -19494,6 +20232,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19575,6 +20316,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -19654,6 +20398,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19749,6 +20496,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -19808,6 +20558,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19882,6 +20635,9 @@
                 }
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           },
           "422": {
             "description": "Validation Error",
@@ -19958,6 +20714,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -20032,6 +20791,9 @@
               }
             }
           },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -20063,6 +20825,9 @@
                 "schema": {}
               }
             }
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
           }
         }
       }
@@ -23161,7 +23926,7 @@
             "type": "number",
             "title": "Current Live Percentage",
             "description": "Percentage of traffic live on the branch",
-            "default": 0.0
+            "default": 0
           },
           "parent_branch": {
             "$ref": "#/components/schemas/AgentBranchBasicInfo",
@@ -23230,7 +23995,7 @@
             "type": "number",
             "title": "Current Live Percentage",
             "description": "Percentage of traffic live on the branch",
-            "default": 0.0
+            "default": 0
           },
           "draft_exists": {
             "type": "boolean",
@@ -23422,7 +24187,7 @@
             "llm": "gemini-2.0-flash-001",
             "max_tokens": -1,
             "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-            "temperature": 0.0,
+            "temperature": 0,
             "tool_ids": [],
             "tools": []
           }
@@ -23478,7 +24243,7 @@
             "llm": "gemini-2.0-flash-001",
             "max_tokens": -1,
             "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-            "temperature": 0.0,
+            "temperature": 0,
             "tool_ids": [],
             "tools": []
           }
@@ -23591,8 +24356,8 @@
           },
           "traffic_percentage": {
             "type": "number",
-            "maximum": 100.0,
-            "minimum": 0.0,
+            "maximum": 100,
+            "minimum": 0,
             "title": "Traffic Percentage",
             "description": "Traffic percentage to deploy",
             "examples": [
@@ -23645,14 +24410,14 @@
             ]
           },
           "deployment_strategy": {
+            "$ref": "#/components/schemas/AgentDeploymentPercentageStrategy",
             "title": "Deployment Strategy",
             "discriminator": {
               "propertyName": "type",
               "mapping": {
                 "percentage": "#/components/schemas/AgentDeploymentPercentageStrategy"
               }
-            },
-            "$ref": "#/components/schemas/AgentDeploymentPercentageStrategy"
+            }
           }
         },
         "type": "object",
@@ -23780,6 +24545,7 @@
             "default": false
           },
           "guardrails": {
+            "$ref": "#/components/schemas/GuardrailsV1-Input",
             "title": "Guardrails",
             "description": "Guardrails configuration for the agent",
             "discriminator": {
@@ -23788,8 +24554,7 @@
                 "1": "#/components/schemas/GuardrailsV1-Input"
               }
             },
-            "x-fern-ignore": true,
-            "$ref": "#/components/schemas/GuardrailsV1-Input"
+            "x-fern-ignore": true
           },
           "auth": {
             "$ref": "#/components/schemas/AuthSettings",
@@ -23844,6 +24609,7 @@
             "default": false
           },
           "guardrails": {
+            "$ref": "#/components/schemas/GuardrailsV1-Output",
             "title": "Guardrails",
             "description": "Guardrails configuration for the agent",
             "discriminator": {
@@ -23852,8 +24618,7 @@
                 "1": "#/components/schemas/GuardrailsV1-Output"
               }
             },
-            "x-fern-ignore": true,
-            "$ref": "#/components/schemas/GuardrailsV1-Output"
+            "x-fern-ignore": true
           },
           "auth": {
             "$ref": "#/components/schemas/AuthSettings",
@@ -24509,8 +25274,8 @@
               ],
               "label": "Entry",
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "type": "override_agent"
             },
@@ -24522,8 +25287,8 @@
               "edge_order": [],
               "label": "Failure",
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "type": "override_agent"
             },
@@ -24532,8 +25297,8 @@
                 "start_to_entry"
               ],
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "type": "start"
             },
@@ -24545,16 +25310,16 @@
               "edge_order": [],
               "label": "Success A",
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "type": "override_agent"
             },
             "success_end": {
               "edge_order": [],
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "type": "end"
             },
@@ -24562,8 +25327,8 @@
               "custom_sip_headers": [],
               "edge_order": [],
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "transfer_destination": {
                 "phone_number": "+1234567890",
@@ -24578,8 +25343,8 @@
               "edge_order": [],
               "enable_transferred_agent_first_message": false,
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "type": "standalone_agent"
             },
@@ -24589,8 +25354,8 @@
                 "tool_a_to_tool_b"
               ],
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "tools": [
                 {
@@ -24610,8 +25375,8 @@
                 "tool_b_to_agent_transfer"
               ],
               "position": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0,
+                "y": 0
               },
               "tools": [
                 {
@@ -24813,8 +25578,8 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
-            "minimum": 5.0,
+            "maximum": 120,
+            "minimum": 5,
             "title": "Response Timeout Secs",
             "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
             "default": 20
@@ -24915,8 +25680,8 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
-            "minimum": 5.0,
+            "maximum": 120,
+            "minimum": 5,
             "title": "Response Timeout Secs",
             "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
             "default": 20
@@ -25336,7 +26101,7 @@
               0.7
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1,
               0.2,
               0.3,
@@ -25366,7 +26131,7 @@
               0.7
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1,
               0.2,
               0.3,
@@ -25390,7 +26155,7 @@
               "character_start_index": 0,
               "dialogue_input_index": 0,
               "end_time_seconds": 0.5,
-              "start_time_seconds": 0.0,
+              "start_time_seconds": 0,
               "voice_id": "21m00Tcm4TlvDq8ikWAM"
             },
             {
@@ -25435,7 +26200,7 @@
               0.5
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1,
               0.2,
               0.3,
@@ -25459,7 +26224,7 @@
               0.5
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1,
               0.2,
               0.3,
@@ -26274,8 +27039,8 @@
           },
           "music_length_ms": {
             "type": "integer",
-            "maximum": 600000.0,
-            "minimum": 3000.0,
+            "maximum": 600000,
+            "minimum": 3000,
             "title": "Music Length Ms",
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
@@ -26290,8 +27055,8 @@
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt."
           },
@@ -26350,8 +27115,8 @@
           },
           "music_length_ms": {
             "type": "integer",
-            "maximum": 600000.0,
-            "minimum": 3000.0,
+            "maximum": 600000,
+            "minimum": 3000,
             "title": "Music Length Ms",
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
@@ -26366,8 +27131,8 @@
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt."
           },
@@ -27813,8 +28578,8 @@
           },
           "music_length_ms": {
             "type": "integer",
-            "maximum": 600000.0,
-            "minimum": 3000.0,
+            "maximum": 600000,
+            "minimum": 3000,
             "title": "Music Length Ms",
             "description": "The length of the composition plan to generate in milliseconds. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
@@ -28634,8 +29399,8 @@
           },
           "num_speakers": {
             "type": "integer",
-            "maximum": 32.0,
-            "minimum": 1.0,
+            "maximum": 32,
+            "minimum": 1,
             "title": "Num Speakers",
             "description": "The maximum amount of speakers talking in the uploaded file. Can help with predicting who speaks when. The maximum amount of speakers that can be predicted is 32. Defaults to null, in this case the amount of speakers is set to the maximum value the model supports."
           },
@@ -28707,15 +29472,15 @@
           },
           "temperature": {
             "type": "number",
-            "maximum": 2.0,
-            "minimum": 0.0,
+            "maximum": 2,
+            "minimum": 0,
             "title": "Temperature",
             "description": "Controls the randomness of the transcription output. Accepts values between 0.0 and 2.0, where higher values result in more diverse and less deterministic results. If omitted, we will use a temperature based on the model you selected which is usually 0."
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be an integer between 0 and 2147483647.",
             "examples": [
@@ -28851,8 +29616,8 @@
           },
           "music_length_ms": {
             "type": "integer",
-            "maximum": 600000.0,
-            "minimum": 3000.0,
+            "maximum": 600000,
+            "minimum": 3000,
             "title": "Music Length Ms",
             "description": "The length of the song to generate in milliseconds. Used only in conjunction with `prompt`. Must be between 3000ms and 600000ms. Optional - if not provided, the model will choose a length based on the prompt."
           },
@@ -28867,8 +29632,8 @@
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "Random seed to initialize the music generation process. Providing the same seed with the same parameters can help achieve more consistent results, but exact reproducibility is not guaranteed and outputs may change across system updates. Cannot be used in conjunction with prompt."
           },
@@ -30566,32 +31331,32 @@
           "scale_x": {
             "type": "number",
             "title": "Scale X",
-            "default": 1.0
+            "default": 1
           },
           "scale_y": {
             "type": "number",
             "title": "Scale Y",
-            "default": 1.0
+            "default": 1
           },
           "pivot_x": {
             "type": "number",
             "title": "Pivot X",
-            "default": 0.0
+            "default": 0
           },
           "pivot_y": {
             "type": "number",
             "title": "Pivot Y",
-            "default": 0.0
+            "default": 0
           },
           "skew_x": {
             "type": "number",
             "title": "Skew X",
-            "default": 0.0
+            "default": 0
           },
           "skew_y": {
             "type": "number",
             "title": "Skew Y",
-            "default": 0.0
+            "default": 0
           }
         },
         "type": "object",
@@ -31485,8 +32250,8 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
-            "minimum": 1.0,
+            "maximum": 120,
+            "minimum": 1,
             "title": "Response Timeout Secs",
             "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).",
             "default": 20
@@ -31583,8 +32348,8 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
-            "minimum": 1.0,
+            "maximum": 120,
+            "minimum": 1,
             "title": "Response Timeout Secs",
             "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 1 and 120 seconds (inclusive).",
             "default": 20
@@ -32143,12 +32908,12 @@
           "free_minutes_consumed": {
             "type": "number",
             "title": "Free Minutes Consumed",
-            "default": 0.0
+            "default": 0
           },
           "free_llm_dollars_consumed": {
             "type": "number",
             "title": "Free Llm Dollars Consumed",
-            "default": 0.0
+            "default": 0
           }
         },
         "type": "object",
@@ -32234,7 +32999,7 @@
           },
           "tts": {
             "similarity_boost": 0.8,
-            "speed": 1.0,
+            "speed": 1,
             "stability": 0.5,
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
@@ -32277,7 +33042,7 @@
           },
           "tts": {
             "similarity_boost": 0.8,
-            "speed": 1.0,
+            "speed": 1,
             "stability": 0.5,
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
@@ -34641,7 +35406,7 @@
               "llm": "gemini-2.0-flash-001",
               "max_tokens": -1,
               "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-              "temperature": 0.0,
+              "temperature": 0,
               "tool_ids": [],
               "tools": []
             }
@@ -34668,22 +35433,22 @@
             "optimize_streaming_latency": 3,
             "pronunciation_dictionary_locators": [],
             "similarity_boost": 0.8,
-            "speed": 1.0,
+            "speed": 1,
             "stability": 0.5,
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
           "turn": {
             "mode": "turn",
-            "silence_end_call_timeout": -1.0,
+            "silence_end_call_timeout": -1,
             "soft_timeout_config": {
               "message": "Hhmmmm...yeah.",
-              "timeout_seconds": -1.0,
+              "timeout_seconds": -1,
               "use_llm_generated_message": false
             },
             "speculative_turn": false,
             "spelling_patience": "auto",
             "turn_eagerness": "normal",
-            "turn_timeout": 7.0
+            "turn_timeout": 7
           },
           "vad": {
             "background_voice_detection": false
@@ -34742,7 +35507,7 @@
               "llm": "gemini-2.0-flash-001",
               "max_tokens": -1,
               "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-              "temperature": 0.0,
+              "temperature": 0,
               "tool_ids": [],
               "tools": []
             }
@@ -34769,22 +35534,22 @@
             "optimize_streaming_latency": 3,
             "pronunciation_dictionary_locators": [],
             "similarity_boost": 0.8,
-            "speed": 1.0,
+            "speed": 1,
             "stability": 0.5,
             "voice_id": "cjVigY5qzO86Huf0OWal"
           },
           "turn": {
             "mode": "turn",
-            "silence_end_call_timeout": -1.0,
+            "silence_end_call_timeout": -1,
             "soft_timeout_config": {
               "message": "Hhmmmm...yeah.",
-              "timeout_seconds": -1.0,
+              "timeout_seconds": -1,
               "use_llm_generated_message": false
             },
             "speculative_turn": false,
             "spelling_patience": "auto",
             "turn_eagerness": "normal",
-            "turn_timeout": 7.0
+            "turn_timeout": 7
           },
           "vad": {
             "background_voice_detection": false
@@ -35089,8 +35854,8 @@
           },
           "simulation_max_turns": {
             "type": "integer",
-            "maximum": 50.0,
-            "minimum": 1.0,
+            "maximum": 50,
+            "minimum": 1,
             "title": "Simulation Max Turns",
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
@@ -36746,12 +37511,12 @@
           "start_s": {
             "type": "number",
             "title": "Start S",
-            "default": 0.0
+            "default": 0
           },
           "end_s": {
             "type": "number",
             "title": "End S",
-            "default": 0.0
+            "default": 0
           }
         },
         "type": "object",
@@ -36793,12 +37558,12 @@
           "start_s": {
             "type": "number",
             "title": "Start S",
-            "default": 0.0
+            "default": 0
           },
           "end_s": {
             "type": "number",
             "title": "End S",
-            "default": 0.0
+            "default": 0
           },
           "words": {
             "items": {
@@ -36826,12 +37591,12 @@
           "start_s": {
             "type": "number",
             "title": "Start S",
-            "default": 0.0
+            "default": 0
           },
           "end_s": {
             "type": "number",
             "title": "End S",
-            "default": 0.0
+            "default": 0
           },
           "characters": {
             "items": {
@@ -37415,7 +38180,7 @@
             "amount_due_cents": 1000,
             "discounts": [
               {
-                "discount_percent_off": 20.0
+                "discount_percent_off": 20
               }
             ],
             "next_payment_attempt_unix": 1738356858,
@@ -37432,7 +38197,7 @@
               "amount_due_cents": 1000,
               "discounts": [
                 {
-                  "discount_percent_off": 20.0
+                  "discount_percent_off": 20
                 }
               ],
               "next_payment_attempt_unix": 1738356858,
@@ -37735,7 +38500,7 @@
         "description": "Model representing a single character with its timing information from the aligner.",
         "example": {
           "end": 0.02,
-          "start": 0.0,
+          "start": 0,
           "text": "H"
         }
       },
@@ -37807,7 +38572,7 @@
         "example": {
           "end": 1.02,
           "loss": 0.12,
-          "start": 0.0,
+          "start": 0,
           "text": "Hello"
         }
       },
@@ -38081,8 +38846,8 @@
                 ],
                 "label": "Entry",
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "type": "override_agent"
               },
@@ -38094,8 +38859,8 @@
                 "edge_order": [],
                 "label": "Failure",
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "type": "override_agent"
               },
@@ -38104,8 +38869,8 @@
                   "start_to_entry"
                 ],
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "type": "start"
               },
@@ -38117,16 +38882,16 @@
                 "edge_order": [],
                 "label": "Success A",
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "type": "override_agent"
               },
               "success_end": {
                 "edge_order": [],
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "type": "end"
               },
@@ -38134,8 +38899,8 @@
                 "custom_sip_headers": [],
                 "edge_order": [],
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "transfer_destination": {
                   "phone_number": "+1234567890",
@@ -38150,8 +38915,8 @@
                 "edge_order": [],
                 "enable_transferred_agent_first_message": false,
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "type": "standalone_agent"
               },
@@ -38161,8 +38926,8 @@
                   "tool_a_to_tool_b"
                 ],
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "tools": [
                   {
@@ -38182,8 +38947,8 @@
                   "tool_b_to_agent_transfer"
                 ],
                 "position": {
-                  "x": 0.0,
-                  "y": 0.0
+                  "x": 0,
+                  "y": 0
                 },
                 "tools": [
                   {
@@ -38351,8 +39116,8 @@
           },
           "rag_retention_period_days": {
             "type": "integer",
-            "maximum": 30.0,
-            "exclusiveMinimum": 0.0,
+            "maximum": 30,
+            "exclusiveMinimum": 0,
             "title": "Rag Retention Period Days",
             "default": 10
           },
@@ -39925,8 +40690,8 @@
           },
           "simulation_max_turns": {
             "type": "integer",
-            "maximum": 50.0,
-            "minimum": 1.0,
+            "maximum": 50,
+            "minimum": 1,
             "title": "Simulation Max Turns",
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
@@ -40277,10 +41042,10 @@
               "name": "Rachel",
               "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3",
               "settings": {
-                "similarity_boost": 1.0,
-                "speed": 1.0,
-                "stability": 1.0,
-                "style": 0.0,
+                "similarity_boost": 1,
+                "speed": 1,
+                "stability": 1,
+                "style": 0,
                 "use_speaker_boost": true
               },
               "sharing": {
@@ -40804,7 +41569,7 @@
           "amount_due_cents": 1000,
           "discounts": [
             {
-              "discount_percent_off": 20.0
+              "discount_percent_off": 20
             }
           ],
           "next_payment_attempt_unix": 1738356858,
@@ -41517,7 +42282,7 @@
           "price": {
             "type": "number",
             "title": "Price",
-            "default": 0.0
+            "default": 0
           }
         },
         "type": "object",
@@ -43479,7 +44244,7 @@
         ],
         "title": "ModelRatesResponseModel",
         "example": {
-          "character_cost_multiplier": 1.0
+          "character_cost_multiplier": 1
         }
       },
       "ModelResponseModel": {
@@ -43612,20 +44377,20 @@
           "maximum_text_length_per_request": 1000000,
           "model_id": "eleven_multilingual_v2",
           "model_rates": {
-            "character_cost_multiplier": 1.0
+            "character_cost_multiplier": 1
           },
           "name": "Eleven Multilingual v2",
           "requires_alpha_access": false,
           "serves_pro_voices": false,
-          "token_cost_factor": 1.0
+          "token_cost_factor": 1
         }
       },
       "ModelSettingsResponseModel": {
         "properties": {
           "stability": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Stability",
             "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.",
             "default": 0.5
@@ -43780,13 +44545,13 @@
                   "end": 0.5,
                   "logprob": -0.124,
                   "speaker_id": "speaker_0",
-                  "start": 0.0,
+                  "start": 0,
                   "text": "Hello",
                   "type": "word"
                 },
                 {
                   "end": 0.5,
-                  "logprob": 0.0,
+                  "logprob": 0,
                   "speaker_id": "speaker_0",
                   "start": 0.5,
                   "text": " ",
@@ -43817,14 +44582,14 @@
                 },
                 {
                   "end": 0.7,
-                  "logprob": 0.0,
+                  "logprob": 0,
                   "speaker_id": "speaker_1",
                   "start": 0.7,
                   "text": " ",
                   "type": "spacing"
                 },
                 {
-                  "end": 1.0,
+                  "end": 1,
                   "logprob": -0.078,
                   "speaker_id": "speaker_1",
                   "start": 0.7,
@@ -44353,8 +45118,8 @@
           },
           "rag_retention_period_days": {
             "type": "integer",
-            "maximum": 30.0,
-            "exclusiveMinimum": 0.0,
+            "maximum": 30,
+            "exclusiveMinimum": 0,
             "title": "Rag Retention Period Days",
             "default": 10
           },
@@ -44484,7 +45249,7 @@
           "progress": {
             "type": "number",
             "title": "Progress",
-            "default": 0.0
+            "default": 0
           },
           "started_at_ms": {
             "type": "integer",
@@ -45013,12 +45778,12 @@
           "x": {
             "type": "number",
             "title": "X",
-            "default": 0.0
+            "default": 0
           },
           "y": {
             "type": "number",
             "title": "Y",
-            "default": 0.0
+            "default": 0
           }
         },
         "type": "object",
@@ -45029,12 +45794,12 @@
           "x": {
             "type": "number",
             "title": "X",
-            "default": 0.0
+            "default": 0
           },
           "y": {
             "type": "number",
             "title": "Y",
-            "default": 0.0
+            "default": 0
           }
         },
         "type": "object",
@@ -45826,7 +46591,7 @@
           "volume_gain_db": {
             "type": "number",
             "title": "Volume Gain Db",
-            "default": 0.0
+            "default": 0
           },
           "muted": {
             "type": "boolean",
@@ -46775,7 +47540,7 @@
             "type": "number",
             "title": "Temperature",
             "description": "The temperature for the LLM",
-            "default": 0.0
+            "default": 0
           },
           "max_tokens": {
             "type": "integer",
@@ -46866,11 +47631,11 @@
           },
           "cascade_timeout_seconds": {
             "type": "number",
-            "maximum": 15.0,
-            "minimum": 2.0,
+            "maximum": 15,
+            "minimum": 2,
             "title": "Cascade Timeout Seconds",
             "description": "Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.",
-            "default": 8.0
+            "default": 8
           },
           "tools": {
             "items": {
@@ -46920,7 +47685,7 @@
           "llm": "gemini-2.0-flash-001",
           "max_tokens": -1,
           "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-          "temperature": 0.0,
+          "temperature": 0,
           "tool_ids": [],
           "tools": []
         }
@@ -46953,7 +47718,7 @@
             "type": "number",
             "title": "Temperature",
             "description": "The temperature for the LLM",
-            "default": 0.0
+            "default": 0
           },
           "max_tokens": {
             "type": "integer",
@@ -47044,11 +47809,11 @@
           },
           "cascade_timeout_seconds": {
             "type": "number",
-            "maximum": 15.0,
-            "minimum": 2.0,
+            "maximum": 15,
+            "minimum": 2,
             "title": "Cascade Timeout Seconds",
             "description": "Time in seconds before cascading to backup LLM. Must be between 2 and 15 seconds.",
-            "default": 8.0
+            "default": 8
           },
           "tools": {
             "items": {
@@ -47098,7 +47863,7 @@
           "llm": "gemini-2.0-flash-001",
           "max_tokens": -1,
           "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-          "temperature": 0.0,
+          "temperature": 0,
           "tool_ids": [],
           "tools": []
         }
@@ -47311,7 +48076,7 @@
           "llm": "gemini-2.0-flash-001",
           "max_tokens": -1,
           "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-          "temperature": 0.0,
+          "temperature": 0,
           "tool_ids": [],
           "tools": []
         }
@@ -47470,7 +48235,7 @@
           "llm": "gemini-2.0-flash-001",
           "max_tokens": -1,
           "prompt": "You are a helpful assistant that can answer questions about the topic of the conversation.",
-          "temperature": 0.0,
+          "temperature": 0,
           "tool_ids": [],
           "tools": []
         }
@@ -48060,8 +48825,8 @@
           },
           "max_vector_distance": {
             "type": "number",
-            "exclusiveMaximum": 1.0,
-            "exclusiveMinimum": 0.0,
+            "exclusiveMaximum": 1,
+            "exclusiveMinimum": 0,
             "title": "Max Vector Distance",
             "description": "Maximum vector distance of retrieved chunks.",
             "default": 0.6,
@@ -48071,8 +48836,8 @@
           },
           "max_documents_length": {
             "type": "integer",
-            "exclusiveMaximum": 10000000.0,
-            "exclusiveMinimum": 0.0,
+            "exclusiveMaximum": 10000000,
+            "exclusiveMinimum": 0,
             "title": "Max Documents Length",
             "description": "Maximum total length of document chunks retrieved from RAG.",
             "default": 50000,
@@ -48082,8 +48847,8 @@
           },
           "max_retrieved_rag_chunks_count": {
             "type": "integer",
-            "maximum": 20.0,
-            "exclusiveMinimum": 0.0,
+            "maximum": 20,
+            "exclusiveMinimum": 0,
             "title": "Max Retrieved Rag Chunks Count",
             "description": "Maximum number of RAG document chunks to initially retrieve from the vector store. These are then further filtered by vector distance and total length.",
             "default": 20,
@@ -49723,8 +50488,8 @@
           },
           "simulation_max_turns": {
             "type": "integer",
-            "maximum": 50.0,
-            "minimum": 1.0,
+            "maximum": 50,
+            "minimum": 1,
             "title": "Simulation Max Turns",
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
@@ -49824,7 +50589,7 @@
             "type": "number",
             "title": "Timeout Seconds",
             "description": "Time in seconds before showing the predefined message while waiting for LLM response. Set to -1 to disable.",
-            "default": -1.0
+            "default": -1
           },
           "message": {
             "type": "string",
@@ -49848,7 +50613,7 @@
         "description": "Configuration for soft timeout functionality during LLM response generation.",
         "example": {
           "message": "Hhmmmm...yeah.",
-          "timeout_seconds": 2.0,
+          "timeout_seconds": 2,
           "use_llm_generated_message": false
         }
       },
@@ -49904,7 +50669,7 @@
         "title": "SoftTimeoutConfigWorkflowOverride",
         "example": {
           "message": "Hhmmmm...yeah.",
-          "timeout_seconds": -1.0,
+          "timeout_seconds": -1,
           "use_llm_generated_message": false
         }
       },
@@ -49995,8 +50760,8 @@
           },
           "duration_ms": {
             "type": "integer",
-            "maximum": 120000.0,
-            "minimum": 3000.0,
+            "maximum": 120000,
+            "minimum": 3000,
             "title": "Duration Ms",
             "description": "The duration of the section in milliseconds. Must be between 3000ms and 120000ms."
           },
@@ -50138,17 +50903,17 @@
           "dense_weight": {
             "type": "number",
             "title": "Dense Weight",
-            "default": 1.0
+            "default": 1
           },
           "keyword_weight": {
             "type": "number",
             "title": "Keyword Weight",
-            "default": 1.0
+            "default": 1
           },
           "source_weight": {
             "type": "number",
             "title": "Source Weight",
-            "default": 1.0
+            "default": 1
           },
           "vector_index_name": {
             "type": "string",
@@ -50217,7 +50982,7 @@
         "title": "SpeakerAudioResponseModel",
         "example": {
           "audio_base_64": "audio_base_64",
-          "duration_secs": 5.0,
+          "duration_secs": 5,
           "media_type": "audio/mpeg"
         }
       },
@@ -50267,7 +51032,7 @@
         ],
         "title": "SpeakerResponseModel",
         "example": {
-          "duration_secs": 5.0,
+          "duration_secs": 5,
           "speaker_id": "DCwhRBWXzGAHq8TQ4Fs18"
         }
       },
@@ -50593,7 +51358,7 @@
         "title": "SpeechToTextCharacterResponseModel",
         "example": {
           "end": 0.1,
-          "start": 0.0,
+          "start": 0,
           "text": "H"
         }
       },
@@ -50667,13 +51432,13 @@
               "end": 0.5,
               "logprob": -0.124,
               "speaker_id": "speaker_1",
-              "start": 0.0,
+              "start": 0,
               "text": "Hello",
               "type": "word"
             },
             {
               "end": 0.5,
-              "logprob": 0.0,
+              "logprob": 0,
               "speaker_id": "speaker_1",
               "start": 0.5,
               "text": " ",
@@ -50777,7 +51542,7 @@
           "characters": [
             {
               "end": 0.1,
-              "start": 0.0,
+              "start": 0,
               "text": "H"
             },
             {
@@ -50804,7 +51569,7 @@
           "end": 0.5,
           "logprob": -0.124,
           "speaker_id": "speaker_1",
-          "start": 0.0,
+          "start": 0,
           "text": "Hello",
           "type": "word"
         }
@@ -50935,7 +51700,7 @@
               0.2
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1
             ],
             "characters": [
@@ -50950,7 +51715,7 @@
               0.2
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1
             ],
             "characters": [
@@ -50964,7 +51729,7 @@
               "character_start_index": 0,
               "dialogue_input_index": 0,
               "end_time_seconds": 0.2,
-              "start_time_seconds": 0.0,
+              "start_time_seconds": 0,
               "voice_id": "VEDscrYI8uIMttlO2Ztu"
             }
           ]
@@ -50998,7 +51763,7 @@
               0.2
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1
             ],
             "characters": [
@@ -51013,7 +51778,7 @@
               0.2
             ],
             "character_start_times_seconds": [
-              0.0,
+              0,
               0.1
             ],
             "characters": [
@@ -51232,8 +51997,8 @@
           },
           "stability": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Stability"
           },
           "speed": {
@@ -51244,8 +52009,8 @@
           },
           "similarity_boost": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Similarity Boost"
           }
         },
@@ -51577,8 +52342,8 @@
           },
           "stability": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Stability",
             "description": "The stability of generated speech",
             "default": 0.5,
@@ -51590,13 +52355,13 @@
             "minimum": 0.7,
             "title": "Speed",
             "description": "The speed of generated speech",
-            "default": 1.0,
+            "default": 1,
             "x-convai-client-override": true
           },
           "similarity_boost": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Similarity Boost",
             "description": "The similarity boost for generated speech",
             "default": 0.8,
@@ -51624,7 +52389,7 @@
           "optimize_streaming_latency": 3,
           "pronunciation_dictionary_locators": [],
           "similarity_boost": 0.8,
-          "speed": 1.0,
+          "speed": 1,
           "stability": 0.5,
           "voice_id": "cjVigY5qzO86Huf0OWal"
         }
@@ -51680,8 +52445,8 @@
           },
           "stability": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Stability",
             "description": "The stability of generated speech",
             "default": 0.5,
@@ -51693,13 +52458,13 @@
             "minimum": 0.7,
             "title": "Speed",
             "description": "The speed of generated speech",
-            "default": 1.0,
+            "default": 1,
             "x-convai-client-override": true
           },
           "similarity_boost": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Similarity Boost",
             "description": "The similarity boost for generated speech",
             "default": 0.8,
@@ -51727,7 +52492,7 @@
           "optimize_streaming_latency": 3,
           "pronunciation_dictionary_locators": [],
           "similarity_boost": 0.8,
-          "speed": 1.0,
+          "speed": 1,
           "stability": 0.5,
           "voice_id": "cjVigY5qzO86Huf0OWal"
         }
@@ -51764,7 +52529,7 @@
         "title": "TTSConversationalConfigOverride",
         "example": {
           "similarity_boost": 0.8,
-          "speed": 1.0,
+          "speed": 1,
           "stability": 0.5,
           "voice_id": "cjVigY5qzO86Huf0OWal"
         }
@@ -51880,7 +52645,7 @@
           "optimize_streaming_latency": 3,
           "pronunciation_dictionary_locators": [],
           "similarity_boost": 0.8,
-          "speed": 1.0,
+          "speed": 1,
           "stability": 0.5,
           "voice_id": "cjVigY5qzO86Huf0OWal"
         }
@@ -51966,7 +52731,7 @@
           "optimize_streaming_latency": 3,
           "pronunciation_dictionary_locators": [],
           "similarity_boost": 0.8,
-          "speed": 1.0,
+          "speed": 1,
           "stability": 0.5,
           "voice_id": "cjVigY5qzO86Huf0OWal"
         }
@@ -52310,8 +53075,8 @@
           },
           "threshold": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Threshold",
             "default": 0.3
           }
@@ -53069,7 +53834,7 @@
             "type": "number",
             "title": "Turn Timeout",
             "description": "Maximum wait time for the user's reply before re-engaging the user",
-            "default": 7.0
+            "default": 7
           },
           "initial_wait_time": {
             "type": "number",
@@ -53113,15 +53878,15 @@
         "title": "TurnConfig",
         "example": {
           "mode": "turn",
-          "silence_end_call_timeout": -1.0,
+          "silence_end_call_timeout": -1,
           "soft_timeout_config": {
             "message": "Hhmmmm...yeah.",
-            "timeout_seconds": -1.0
+            "timeout_seconds": -1
           },
           "speculative_turn": false,
           "spelling_patience": "auto",
           "turn_eagerness": "normal",
-          "turn_timeout": 7.0
+          "turn_timeout": 7
         }
       },
       "TurnConfigOverride": {
@@ -53193,16 +53958,16 @@
         "title": "TurnConfigWorkflowOverride",
         "example": {
           "mode": "turn",
-          "silence_end_call_timeout": -1.0,
+          "silence_end_call_timeout": -1,
           "soft_timeout_config": {
             "message": "Hhmmmm...yeah.",
-            "timeout_seconds": -1.0,
+            "timeout_seconds": -1,
             "use_llm_generated_message": false
           },
           "speculative_turn": false,
           "spelling_patience": "auto",
           "turn_eagerness": "normal",
-          "turn_timeout": 7.0
+          "turn_timeout": 7
         }
       },
       "TurnEagerness": {
@@ -53757,8 +54522,8 @@
           },
           "simulation_max_turns": {
             "type": "integer",
-            "maximum": 50.0,
-            "minimum": 1.0,
+            "maximum": 50,
+            "minimum": 1,
             "title": "Simulation Max Turns",
             "description": "Maximum number of conversation turns for simulation tests.",
             "default": 5
@@ -54090,8 +54855,8 @@
         ],
         "title": "UtteranceResponseModel",
         "example": {
-          "end": 1.0,
-          "start": 0.0
+          "end": 1,
+          "start": 0
         }
       },
       "VADConfig": {
@@ -54324,8 +55089,8 @@
           },
           "loudness": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": -1.0,
+            "maximum": 1,
+            "minimum": -1,
             "title": "Loudness",
             "description": "Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.",
             "default": 0.5,
@@ -54335,8 +55100,8 @@
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "Random number that controls the voice generation. Same seed with same inputs produces same voice.",
             "examples": [
@@ -54345,8 +55110,8 @@
           },
           "guidance_scale": {
             "type": "number",
-            "maximum": 100.0,
-            "minimum": 0.0,
+            "maximum": 100,
+            "minimum": 0,
             "title": "Guidance Scale",
             "description": "Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.",
             "default": 5,
@@ -54390,8 +55155,8 @@
           },
           "quality": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": -1.0,
+            "maximum": 1,
+            "minimum": -1,
             "title": "Quality",
             "description": "Higher quality results in better voice output but less variety.",
             "examples": [
@@ -54405,8 +55170,8 @@
           },
           "prompt_strength": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Prompt Strength",
             "description": "Controls the balance of prompt versus reference audio when generating voice samples. 0 means almost no prompt influence, 1 means almost no reference audio influence. Only supported when using the eleven_ttv_v3 model.",
             "examples": [
@@ -54518,8 +55283,8 @@
           },
           "loudness": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": -1.0,
+            "maximum": 1,
+            "minimum": -1,
             "title": "Loudness",
             "description": "Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.",
             "default": 0.5,
@@ -54529,8 +55294,8 @@
           },
           "quality": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": -1.0,
+            "maximum": 1,
+            "minimum": -1,
             "title": "Quality",
             "description": "Higher quality results in better voice output but less variety.",
             "default": 0.9,
@@ -54540,8 +55305,8 @@
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "Random number that controls the voice generation. Same seed with same inputs produces same voice.",
             "examples": [
@@ -54550,8 +55315,8 @@
           },
           "guidance_scale": {
             "type": "number",
-            "maximum": 100.0,
-            "minimum": 0.0,
+            "maximum": 100,
+            "minimum": 0,
             "title": "Guidance Scale",
             "description": "Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.",
             "default": 5,
@@ -54628,8 +55393,8 @@
           },
           "loudness": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": -1.0,
+            "maximum": 1,
+            "minimum": -1,
             "title": "Loudness",
             "description": "Controls the volume level of the generated voice. -1 is quietest, 1 is loudest, 0 corresponds to roughly -24 LUFS.",
             "default": 0.5,
@@ -54639,8 +55404,8 @@
           },
           "seed": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "minimum": 0.0,
+            "maximum": 2147483647,
+            "minimum": 0,
             "title": "Seed",
             "description": "Random number that controls the voice generation. Same seed with same inputs produces same voice.",
             "examples": [
@@ -54649,8 +55414,8 @@
           },
           "guidance_scale": {
             "type": "number",
-            "maximum": 100.0,
-            "minimum": 0.0,
+            "maximum": 100,
+            "minimum": 0,
             "title": "Guidance Scale",
             "description": "Controls how closely the AI follows the prompt. Lower numbers give the AI more freedom to be creative, while higher numbers force it to stick more to the prompt. High numbers can cause voice to sound artificial or robotic. We recommend to use longer, more detailed prompts at lower Guidance Scale.",
             "default": 2,
@@ -54685,8 +55450,8 @@
           },
           "prompt_strength": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Prompt Strength",
             "description": "Controls the balance of prompt versus reference audio when generating voice samples. 0 means almost no prompt influence, 1 means almost no reference audio influence. Only supported when using the eleven_ttv_v3 model.",
             "examples": [
@@ -54892,10 +55657,10 @@
           "name": "Rachel",
           "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/9BWtsMINqrJLrRacOk9x/405766b8-1f4e-4d3c-aba1-6f25333823ec.mp3",
           "settings": {
-            "similarity_boost": 1.0,
-            "speed": 1.0,
-            "stability": 1.0,
-            "style": 0.0,
+            "similarity_boost": 1,
+            "speed": 1,
+            "stability": 1,
+            "style": 0,
             "use_speaker_boost": true
           },
           "sharing": {
@@ -55030,7 +55795,7 @@
         "title": "VoiceSamplePreviewResponseModel",
         "example": {
           "audio_base_64": "audio_base_64",
-          "duration_secs": 5.0,
+          "duration_secs": 5,
           "media_type": "audio/mpeg",
           "sample_id": "DCwhRBWXzGAHq8TQ4Fs18",
           "voice_id": "DCwhRBWXzGAHq8TQ4Fs18"
@@ -55117,8 +55882,8 @@
         "properties": {
           "stability": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Stability",
             "description": "Determines how stable the voice is and the randomness between each generation. Lower values introduce broader emotional range for the voice. Higher values can result in a monotonous voice with limited emotion.",
             "default": 0.5
@@ -55131,8 +55896,8 @@
           },
           "similarity_boost": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Similarity Boost",
             "description": "Determines how closely the AI should adhere to the original voice when attempting to replicate it.",
             "default": 0.75
@@ -55141,22 +55906,22 @@
             "type": "number",
             "title": "Style",
             "description": "Determines the style exaggeration of the voice. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0.",
-            "default": 0.0
+            "default": 0
           },
           "speed": {
             "type": "number",
             "title": "Speed",
             "description": "Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.",
-            "default": 1.0
+            "default": 1
           }
         },
         "type": "object",
         "title": "VoiceSettingsResponseModel",
         "example": {
-          "similarity_boost": 1.0,
-          "speed": 1.0,
-          "stability": 1.0,
-          "style": 0.0,
+          "similarity_boost": 1,
+          "speed": 1,
+          "stability": 1,
+          "style": 0,
           "use_speaker_boost": true
         }
       },
@@ -55883,8 +56648,8 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
-            "minimum": 5.0,
+            "maximum": 120,
+            "minimum": 5,
             "title": "Response Timeout Secs",
             "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
             "default": 20
@@ -55976,8 +56741,8 @@
           },
           "response_timeout_secs": {
             "type": "integer",
-            "maximum": 120.0,
-            "minimum": 5.0,
+            "maximum": 120,
+            "minimum": 5,
             "title": "Response Timeout Secs",
             "description": "The maximum time in seconds to wait for the tool call to complete. Must be between 5 and 120 seconds (inclusive).",
             "default": 20
@@ -59484,6 +60249,56 @@
           "usage_type"
         ],
         "title": "WorkspaceWebhookUsageResponseModel"
+      },
+      "PaymentRequiredErrorDetail": {
+        "type": "object",
+        "title": "PaymentRequiredErrorDetail",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Error code identifying the specific payment issue.",
+            "example": "paid_plan_required"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable description of the payment requirement."
+          },
+          "request_id": {
+            "type": "string",
+            "description": "Unique identifier for the request."
+          },
+          "status": {
+            "type": "string",
+            "description": "HTTP status description.",
+            "example": "payment_required"
+          },
+          "type": {
+            "type": "string",
+            "description": "Error type.",
+            "example": "payment_required"
+          }
+        }
+      },
+      "PaymentRequiredError": {
+        "type": "object",
+        "title": "PaymentRequiredError",
+        "properties": {
+          "detail": {
+            "$ref": "#/components/schemas/PaymentRequiredErrorDetail"
+          }
+        }
+      }
+    },
+    "responses": {
+      "PaymentRequired": {
+        "description": "Payment Required - A paid plan is required to access this resource.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/PaymentRequiredError"
+            }
+          }
+        }
       }
     }
   },
