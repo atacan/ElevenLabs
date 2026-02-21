@@ -1,0 +1,7 @@
+# False positives — example/placeholder values in OpenAPI spec files
+29ca37ca1aeca6c350fa0ef2327dd414fbf572d2:openapi.json:generic-api-key:49769
+07317997a3b2a47c21db90c22208c0906943f8fd:original.json:generic-api-key:1
+ea762e412c3bb57f01c971a009cba3e00a4b8c21:original.json:generic-api-key:1
+d8b42d30f4833bf225f7b1147d7c03c0fd14da34:original.json:generic-api-key:1
+ea762e412c3bb57f01c971a009cba3e00a4b8c21:openapi.json:generic-api-key:41274
+29ca37ca1aeca6c350fa0ef2327dd414fbf572d2:original_openapi.json:generic-api-key:1
