@@ -27,6 +27,8 @@ venv/
 *.tmp
 *~
 
-**.wav# Secret scanning reports
+**.wav
+
+# Secret scanning reports
 gitleaks-report.json
 trufflehog-report.json
