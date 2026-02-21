@@ -73,6 +73,62 @@
           "$ref": "#/components/responses/PaymentRequired"
         }
       }
+    },
+    {
+      "target": "$.components.schemas",
+      "update": {
+        "BadRequestErrorDetail": {
+          "type": "object",
+          "title": "BadRequestErrorDetail",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Error code identifying the specific issue.",
+              "example": "max_character_limit_exceeded"
+            },
+            "message": {
+              "type": "string",
+              "description": "Human-readable description of the error."
+            }
+          }
+        },
+        "BadRequestError": {
+          "type": "object",
+          "title": "BadRequestError",
+          "properties": {
+            "detail": {
+              "$ref": "#/components/schemas/BadRequestErrorDetail"
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.components.responses",
+      "update": {
+        "BadRequest": {
+          "description": "Bad Request - The request was invalid or malformed.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BadRequestError"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.paths['/v1/history/download'].post.responses['400']",
+      "remove": true
+    },
+    {
+      "target": "$.paths.*.*.responses",
+      "update": {
+        "400": {
+          "$ref": "#/components/responses/BadRequest"
+        }
+      }
     }
   ]
 }

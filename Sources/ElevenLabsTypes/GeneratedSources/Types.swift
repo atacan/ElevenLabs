@@ -2053,6 +2053,48 @@ public enum Components {
                 case detail
             }
         }
+        /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail`.
+        public struct BadRequestErrorDetail: Codable, Hashable, Sendable {
+            /// Error code identifying the specific issue.
+            ///
+            /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/status`.
+            public var status: Swift.String?
+            /// Human-readable description of the error.
+            ///
+            /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/message`.
+            public var message: Swift.String?
+            /// Creates a new `BadRequestErrorDetail`.
+            ///
+            /// - Parameters:
+            ///   - status: Error code identifying the specific issue.
+            ///   - message: Human-readable description of the error.
+            public init(
+                status: Swift.String? = nil,
+                message: Swift.String? = nil
+            ) {
+                self.status = status
+                self.message = message
+            }
+            public enum CodingKeys: String, CodingKey {
+                case status
+                case message
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/BadRequestError`.
+        public struct BadRequestError: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/BadRequestError/detail`.
+            public var detail: Components.Schemas.BadRequestErrorDetail?
+            /// Creates a new `BadRequestError`.
+            ///
+            /// - Parameters:
+            ///   - detail:
+            public init(detail: Components.Schemas.BadRequestErrorDetail? = nil) {
+                self.detail = detail
+            }
+            public enum CodingKeys: String, CodingKey {
+                case detail
+            }
+        }
     }
     /// Types generated from the `#/components/parameters` section of the OpenAPI document.
     public enum Parameters {}
@@ -2085,6 +2127,34 @@ public enum Components {
             /// - Parameters:
             ///   - body: Received HTTP response body
             public init(body: Components.Responses.PaymentRequired.Body) {
+                self.body = body
+            }
+        }
+        public struct BadRequest: Sendable, Hashable {
+            /// - Remark: Generated from `#/components/responses/BadRequest/content`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/components/responses/BadRequest/content/application\/json`.
+                case json(Components.Schemas.BadRequestError)
+                /// The associated value of the enum case if `self` is `.json`.
+                ///
+                /// - Throws: An error if `self` is not `.json`.
+                /// - SeeAlso: `.json`.
+                public var json: Components.Schemas.BadRequestError {
+                    get throws {
+                        switch self {
+                        case let .json(body):
+                            return body
+                        }
+                    }
+                }
+            }
+            /// Received HTTP response body
+            public var body: Components.Responses.BadRequest.Body
+            /// Creates a new `BadRequest`.
+            ///
+            /// - Parameters:
+            ///   - body: Received HTTP response body
+            public init(body: Components.Responses.BadRequest.Body) {
                 self.body = body
             }
         }
@@ -2285,6 +2355,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
                             response: self
                         )
                     }
@@ -2596,6 +2689,29 @@ public enum Operations {
                     }
                 }
             }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
             /// Payment Required - A paid plan is required to access this resource.
             ///
             /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/402`.
@@ -2884,6 +3000,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
                             response: self
                         )
                     }
@@ -3183,6 +3322,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
                             response: self
                         )
                     }
@@ -3520,6 +3682,29 @@ public enum Operations {
                     }
                 }
             }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
             /// Payment Required - A paid plan is required to access this resource.
             ///
             /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/402`.
@@ -3775,6 +3960,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
                             response: self
                         )
                     }
@@ -4092,6 +4300,29 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
                             response: self
                         )
                     }

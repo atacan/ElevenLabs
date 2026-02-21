@@ -167,6 +167,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -231,6 +234,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -292,6 +298,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -358,6 +367,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -420,26 +432,7 @@
             }
           },
           "400": {
-            "description": "Invalid request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "example": {
-                  "error": "invalid_output_format",
-                  "message": "output_format must be wav or none"
-                }
-              }
-            }
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -545,6 +538,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -601,6 +597,9 @@
               "audio/mpeg": {}
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -656,6 +655,9 @@
             "content": {
               "audio/mpeg": {}
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -736,6 +738,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -809,6 +814,9 @@
             "content": {
               "audio/*": {}
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -956,6 +964,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -1097,6 +1108,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -1231,6 +1245,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -1367,6 +1384,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -1478,6 +1498,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -1574,6 +1597,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -1669,6 +1695,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -1779,6 +1808,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -1915,6 +1947,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2050,6 +2085,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2146,6 +2184,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2205,6 +2246,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -2300,6 +2344,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -2410,6 +2457,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2476,6 +2526,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2527,6 +2580,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2576,6 +2632,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -2641,6 +2700,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -2830,6 +2892,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -2866,6 +2931,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -2923,6 +2991,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3005,6 +3076,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3066,6 +3140,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3142,6 +3219,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3204,6 +3284,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3281,6 +3364,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3370,6 +3456,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3440,6 +3529,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3515,6 +3607,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3568,6 +3663,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3629,6 +3727,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3707,6 +3808,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3783,6 +3887,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3847,6 +3954,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -3924,6 +4034,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -3992,6 +4105,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -4058,6 +4174,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4140,6 +4259,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4225,6 +4347,9 @@
           "200": {
             "description": "Successful Response"
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -4309,6 +4434,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -4376,6 +4504,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4452,6 +4583,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4534,6 +4668,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4624,6 +4761,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -4703,6 +4843,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4786,6 +4929,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -4867,6 +5013,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -4964,6 +5113,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -5072,6 +5224,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -5142,6 +5297,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -5209,6 +5367,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -5287,6 +5448,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -5378,6 +5542,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -5482,6 +5649,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -5560,6 +5730,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -5640,6 +5813,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -5719,6 +5895,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -5797,6 +5976,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -5874,6 +6056,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -5963,6 +6148,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -6039,6 +6227,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -6119,6 +6310,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -6209,6 +6403,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -6358,6 +6555,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -6416,6 +6616,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -6480,6 +6683,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -6540,6 +6746,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -6621,6 +6830,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -6770,6 +6982,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -6906,6 +7121,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -6962,6 +7180,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7022,6 +7243,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7086,6 +7310,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7159,6 +7386,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7469,6 +7699,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -7527,6 +7760,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7659,6 +7895,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -7719,6 +7958,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -7778,6 +8020,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7852,6 +8097,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -7913,6 +8161,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -7987,6 +8238,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8064,6 +8318,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8154,6 +8411,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8264,6 +8524,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -8322,6 +8585,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8392,6 +8658,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8472,6 +8741,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -8539,6 +8811,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -8591,6 +8866,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8658,6 +8936,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8732,6 +9013,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8808,6 +9092,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -8872,6 +9159,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -8934,6 +9224,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -8998,6 +9291,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -9060,6 +9356,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -9135,6 +9434,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -9206,6 +9508,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -9279,6 +9584,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -9347,6 +9655,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -9404,6 +9715,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -9479,6 +9793,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -9540,6 +9857,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -9702,6 +10022,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -9778,6 +10101,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "description": "Authentication required",
@@ -9865,6 +10191,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "401": {
             "description": "Authentication required",
             "content": {
@@ -9939,6 +10268,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10001,6 +10333,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10088,6 +10423,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10180,6 +10518,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10265,6 +10606,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10327,6 +10671,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10391,6 +10738,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10453,6 +10803,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10517,6 +10870,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10579,6 +10935,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10669,6 +11028,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10767,6 +11129,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10856,6 +11221,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -10917,6 +11285,9 @@
           },
           "204": {
             "description": "Agent successfully deleted"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -10997,6 +11368,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -11065,6 +11439,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11144,6 +11521,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11285,6 +11665,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -11346,6 +11729,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11419,6 +11805,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11498,6 +11887,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -11576,6 +11968,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -11646,6 +12041,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11718,6 +12116,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11802,6 +12203,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -11907,6 +12311,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -11968,6 +12375,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12027,6 +12437,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -12114,6 +12527,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12200,6 +12616,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12276,6 +12695,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12337,6 +12759,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -12408,6 +12833,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -12713,6 +13141,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12838,6 +13269,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12906,6 +13340,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -12970,6 +13407,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -13033,6 +13473,9 @@
             "content": {
               "audio/mpeg": {}
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -13100,6 +13543,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -13409,6 +13855,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -13519,6 +13968,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -13592,6 +14044,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -13660,6 +14115,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -13744,6 +14202,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -13807,6 +14268,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -13900,6 +14364,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -13949,6 +14416,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -14002,6 +14472,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -14075,6 +14548,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -14147,6 +14623,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -14214,6 +14693,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -14309,6 +14791,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -14383,6 +14868,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -14550,6 +15038,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -14612,6 +15103,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -14677,6 +15171,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -14741,6 +15238,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -14804,6 +15304,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -14907,6 +15410,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15007,6 +15513,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15083,6 +15592,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15166,6 +15678,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15216,6 +15731,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15293,6 +15811,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15359,6 +15880,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15439,6 +15963,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15541,6 +16068,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15609,6 +16139,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15679,6 +16212,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15764,6 +16300,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15836,6 +16375,9 @@
           "200": {
             "description": "Successful Response"
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -15892,6 +16434,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -15957,6 +16502,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16092,6 +16640,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -16155,6 +16706,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16229,6 +16783,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -16288,6 +16845,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16378,6 +16938,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -16430,6 +16993,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16493,6 +17059,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -16545,6 +17114,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16608,6 +17180,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16673,6 +17248,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16749,6 +17327,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -16803,6 +17384,9 @@
         "responses": {
           "204": {
             "description": "Successful Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -16875,6 +17459,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -16937,6 +17524,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17010,6 +17600,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17072,6 +17665,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17124,6 +17720,9 @@
         "responses": {
           "204": {
             "description": "Successful Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17187,6 +17786,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17248,6 +17850,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17311,6 +17916,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17376,6 +17984,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17426,6 +18037,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17491,6 +18105,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17550,6 +18167,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17624,6 +18244,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17687,6 +18310,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17765,6 +18391,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17840,6 +18469,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -17917,6 +18549,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -17992,6 +18627,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18071,6 +18709,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18160,6 +18801,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -18237,6 +18881,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -18299,6 +18946,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18368,6 +19018,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -18426,6 +19079,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -18478,6 +19134,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18556,6 +19215,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18650,6 +19312,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -18732,6 +19397,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18822,6 +19490,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -18929,6 +19600,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -19007,6 +19681,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -19100,6 +19777,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -19180,6 +19860,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -19243,6 +19926,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -19350,6 +20036,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -19454,6 +20143,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -19556,6 +20248,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -19664,6 +20359,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -19723,6 +20421,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -19799,6 +20500,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -19880,6 +20584,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -19972,6 +20679,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -20051,6 +20761,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -20150,6 +20863,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -20232,6 +20948,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -20316,6 +21035,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -20398,6 +21120,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -20496,6 +21221,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -20558,6 +21286,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -20635,6 +21366,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -20714,6 +21448,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -20791,6 +21528,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
           },
@@ -20825,6 +21565,9 @@
                 "schema": {}
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
           },
           "402": {
             "$ref": "#/components/responses/PaymentRequired"
@@ -60287,6 +61030,30 @@
             "$ref": "#/components/schemas/PaymentRequiredErrorDetail"
           }
         }
+      },
+      "BadRequestErrorDetail": {
+        "type": "object",
+        "title": "BadRequestErrorDetail",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Error code identifying the specific issue.",
+            "example": "max_character_limit_exceeded"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable description of the error."
+          }
+        }
+      },
+      "BadRequestError": {
+        "type": "object",
+        "title": "BadRequestError",
+        "properties": {
+          "detail": {
+            "$ref": "#/components/schemas/BadRequestErrorDetail"
+          }
+        }
       }
     },
     "responses": {
@@ -60296,6 +61063,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/PaymentRequiredError"
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Bad Request - The request was invalid or malformed.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BadRequestError"
             }
           }
         }
