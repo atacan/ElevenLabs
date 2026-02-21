@@ -26,7 +26,7 @@ struct ElevenLabsTests {
     }()
 
     @Test func testSpeechToTextApiStructure() async throws {
-        let audioData = try! Data(contentsOf: URL(fileURLWithPath: "/Users/atacan/Developer/Repositories/GoogleGenerativeLanguage/assets/speech.mp3"))
+        let audioData = try! Data(contentsOf: URL(fileURLWithPath: "/Users/atacan/Developer/Repositories/ElevenLabs/60s_speech.wav"))
 
         let response = try await client.Speech_to_Text_v1_speech_to_text_post(
             query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query.init(enable_logging: true),
