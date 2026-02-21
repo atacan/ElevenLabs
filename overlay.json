@@ -1,0 +1,26 @@
+{
+    "overlay": "1.0.0",
+    "info": {
+        "title": "Fix OpenAPI spec - Fix speech-to-text additional_formats issue",
+        "version": "1.0.1"
+    },
+    "actions": [
+        {
+            "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.additional_formats",
+            "remove": true
+        },
+        {
+            "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
+            "update": {
+                "additional_formats": {
+                    "type": "array",
+                    "description": "A list of additional formats to export the transcript to.",
+                    "items": {
+                        "$ref": "#/components/schemas/ExportOptions"
+                    },
+                    "maxItems": 10
+                }
+            }
+        }
+    ]
+}

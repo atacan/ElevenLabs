@@ -1,4 +1,3 @@
-import AsyncHTTPClient
 import HTTPTypes
 import OpenAPIRuntime
 
@@ -14,12 +13,12 @@ import struct Foundation.Date
 
 /// Injects an authorization header to every request.
 public struct AuthenticationMiddleware: ClientMiddleware {
+    /// x-goog-api-key
+    public var apiKey: String
+
     public init(apiKey: String) {
         self.apiKey = apiKey
     }
-
-    /// The token value.
-    public var apiKey: String
 
     public func intercept(
         _ request: HTTPRequest,
@@ -29,7 +28,7 @@ public struct AuthenticationMiddleware: ClientMiddleware {
         next: (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?)
     ) async throws -> (HTTPResponse, HTTPBody?) {
         var request = request
-        if let httpFieldName = HTTPField.Name("xi-api-key") {
+        if let httpFieldName = HTTPField.Name.init("xi-api-key") {
             request.headerFields[httpFieldName] = apiKey
         }
         return try await next(request, body, baseURL)

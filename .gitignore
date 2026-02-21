@@ -1,16 +1,34 @@
-.DS_Store
-/.build
-/Packages
-xcuserdata/
-DerivedData/
-.swiftpm
+# Swift Package Manager
+.build/
 .netrc
-.env
-auth/
+.swiftpm/
+/Packages
+DerivedData/
+xcuserdata/
 
-# Audio files
-*.wav
-*.mp3
-*.m4a
-*.aac
-*.ogg
+# Environment files (keep .env.example, ignore actual .env)
+.env
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Python (if using the bootstrapper locally)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Temporary files
+*.swp
+*.tmp
+*~
+
+**.wav
+
+# Secret scanning reports
+gitleaks-report.json
+trufflehog-report.json
