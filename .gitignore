@@ -1,20 +1,30 @@
-.DS_Store
-/.build
-/.swiftpm
-/.devContainer
+# Swift Package Manager
+.build/
+.netrc
+.swiftpm/
 /Packages
-/*.xcodeproj
+DerivedData/
 xcuserdata/
-# /.vscode/*
-!/.vscode/hummingbird.code-snippets
-.env.*
-.env
-**/*.env
 
-*.m4a
-*.wav
-*.mp3
-*.mp4
-*.mov
-*.avi
-*.mkv
+# Environment files (keep .env.example, ignore actual .env)
+.env
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Python (if using the bootstrapper locally)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Temporary files
+*.swp
+*.tmp
+*~
+
+**.wav

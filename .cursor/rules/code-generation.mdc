@@ -1,6 +1,0 @@
----
-globs: *.json,*.yaml,**/GeneratedSources/*
-alwaysApply: false
----
-
-@AGENTS.md

@@ -44,11 +44,11 @@ public struct Client: APIProtocol {
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(Text_to_speech_v1_text_to_speech__voice_id__post)`.
-    public func Text_to_speech_v1_text_to_speech__voice_id__post(_ input: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input) async throws -> Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output {
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
+    public func text_to_speech_full(_ input: Operations.text_to_speech_full.Input) async throws -> Operations.text_to_speech_full.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.id,
+            forOperation: Operations.text_to_speech_full.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/v1/text-to-speech/{}",
@@ -106,7 +106,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.Ok.Body
+                    let body: Operations.text_to_speech_full.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -128,7 +128,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 case 422:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.UnprocessableContent.Body
+                    let body: Operations.text_to_speech_full.Output.UnprocessableContent.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -165,11 +165,11 @@ public struct Client: APIProtocol {
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)`.
-    public func Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post(_ input: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input) async throws -> Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output {
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
+    public func text_to_speech_full_with_timestamps(_ input: Operations.text_to_speech_full_with_timestamps.Input) async throws -> Operations.text_to_speech_full_with_timestamps.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.id,
+            forOperation: Operations.text_to_speech_full_with_timestamps.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/v1/text-to-speech/{}/with-timestamps",
@@ -227,7 +227,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.Ok.Body
+                    let body: Operations.text_to_speech_full_with_timestamps.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -249,7 +249,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 case 422:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.UnprocessableContent.Body
+                    let body: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -286,11 +286,11 @@ public struct Client: APIProtocol {
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)`.
-    public func Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post(_ input: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input) async throws -> Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output {
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
+    public func text_to_speech_stream(_ input: Operations.text_to_speech_stream.Input) async throws -> Operations.text_to_speech_stream.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.id,
+            forOperation: Operations.text_to_speech_stream.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/v1/text-to-speech/{}/stream",
@@ -348,7 +348,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.Ok.Body
+                    let body: Operations.text_to_speech_stream.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -370,7 +370,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 case 422:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.UnprocessableContent.Body
+                    let body: Operations.text_to_speech_stream.Output.UnprocessableContent.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -407,11 +407,11 @@ public struct Client: APIProtocol {
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)`.
-    public func Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post(_ input: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input) async throws -> Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output {
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
+    public func text_to_speech_stream_with_timestamps(_ input: Operations.text_to_speech_stream_with_timestamps.Input) async throws -> Operations.text_to_speech_stream_with_timestamps.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.id,
+            forOperation: Operations.text_to_speech_stream_with_timestamps.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/v1/text-to-speech/{}/stream/with-timestamps",
@@ -469,7 +469,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.Ok.Body
+                    let body: Operations.text_to_speech_stream_with_timestamps.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -491,7 +491,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 case 422:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.UnprocessableContent.Body
+                    let body: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -528,11 +528,11 @@ public struct Client: APIProtocol {
     /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
     ///
     /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)`.
-    public func Speech_to_Text_v1_speech_to_text_post(_ input: Operations.Speech_to_Text_v1_speech_to_text_post.Input) async throws -> Operations.Speech_to_Text_v1_speech_to_text_post.Output {
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
+    public func speech_to_text(_ input: Operations.speech_to_text.Input) async throws -> Operations.speech_to_text.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.Speech_to_Text_v1_speech_to_text_post.id,
+            forOperation: Operations.speech_to_text.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/v1/speech-to-text",
@@ -575,6 +575,7 @@ public struct Client: APIProtocol {
                             "cloud_storage_url",
                             "diarization_threshold",
                             "diarize",
+                            "entity_detection",
                             "file",
                             "file_format",
                             "language_code",
@@ -589,7 +590,8 @@ public struct Client: APIProtocol {
                             "webhook_metadata"
                         ],
                         zeroOrMoreTimesPartNames: [
-                            "additional_formats"
+                            "additional_formats",
+                            "keyterms"
                         ],
                         encoding: { part in
                             switch part {
@@ -603,104 +605,6 @@ public struct Client: APIProtocol {
                                 )
                                 return .init(
                                     name: "model_id",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .tag_audio_events(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsBinary(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "text/plain"
-                                )
-                                return .init(
-                                    name: "tag_audio_events",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .timestamps_granularity(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsBinary(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "text/plain"
-                                )
-                                return .init(
-                                    name: "timestamps_granularity",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .diarize(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsBinary(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "text/plain"
-                                )
-                                return .init(
-                                    name: "diarize",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .file_format(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsBinary(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "text/plain"
-                                )
-                                return .init(
-                                    name: "file_format",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .webhook(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsBinary(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "text/plain"
-                                )
-                                return .init(
-                                    name: "webhook",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .use_multi_channel(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsBinary(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "text/plain"
-                                )
-                                return .init(
-                                    name: "use_multi_channel",
-                                    filename: wrapped.filename,
-                                    headerFields: headerFields,
-                                    body: body
-                                )
-                            case let .additional_formats(wrapped):
-                                var headerFields: HTTPTypes.HTTPFields = .init()
-                                let value = wrapped.payload
-                                let body = try converter.setRequiredRequestBodyAsJSON(
-                                    value.body,
-                                    headerFields: &headerFields,
-                                    contentType: "application/json; charset=utf-8"
-                                )
-                                return .init(
-                                    name: "additional_formats",
                                     filename: wrapped.filename,
                                     headerFields: headerFields,
                                     body: body
@@ -733,6 +637,20 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
+                            case let .tag_audio_events(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "tag_audio_events",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
                             case let .num_speakers(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
@@ -743,6 +661,34 @@ public struct Client: APIProtocol {
                                 )
                                 return .init(
                                     name: "num_speakers",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .timestamps_granularity(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "timestamps_granularity",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .diarize(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "diarize",
                                     filename: wrapped.filename,
                                     headerFields: headerFields,
                                     body: body
@@ -761,6 +707,34 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
+                            case let .additional_formats(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsJSON(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "application/json; charset=utf-8"
+                                )
+                                return .init(
+                                    name: "additional_formats",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .file_format(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "file_format",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
                             case let .cloud_storage_url(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
@@ -771,6 +745,20 @@ public struct Client: APIProtocol {
                                 )
                                 return .init(
                                     name: "cloud_storage_url",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .webhook(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "webhook",
                                     filename: wrapped.filename,
                                     headerFields: headerFields,
                                     body: body
@@ -817,6 +805,20 @@ public struct Client: APIProtocol {
                                     headerFields: headerFields,
                                     body: body
                                 )
+                            case let .use_multi_channel(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "use_multi_channel",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
                             case let .webhook_metadata(wrapped):
                                 var headerFields: HTTPTypes.HTTPFields = .init()
                                 let value = wrapped.payload
@@ -827,6 +829,34 @@ public struct Client: APIProtocol {
                                 )
                                 return .init(
                                     name: "webhook_metadata",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .entity_detection(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "entity_detection",
+                                    filename: wrapped.filename,
+                                    headerFields: headerFields,
+                                    body: body
+                                )
+                            case let .keyterms(wrapped):
+                                var headerFields: HTTPTypes.HTTPFields = .init()
+                                let value = wrapped.payload
+                                let body = try converter.setRequiredRequestBodyAsBinary(
+                                    value.body,
+                                    headerFields: &headerFields,
+                                    contentType: "text/plain"
+                                )
+                                return .init(
+                                    name: "keyterms",
                                     filename: wrapped.filename,
                                     headerFields: headerFields,
                                     body: body
@@ -843,7 +873,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok.Body
+                    let body: Operations.speech_to_text.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -853,7 +883,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok.Body.jsonPayload.self,
+                            Operations.speech_to_text.Output.Ok.Body.jsonPayload.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -865,7 +895,7 @@ public struct Client: APIProtocol {
                     return .ok(.init(body: body))
                 case 202:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Accepted.Body
+                    let body: Operations.speech_to_text.Output.Accepted.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -887,7 +917,255 @@ public struct Client: APIProtocol {
                     return .accepted(.init(body: body))
                 case 422:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.UnprocessableContent.Body
+                    let body: Operations.speech_to_text.Output.UnprocessableContent.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.HTTPValidationError.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .unprocessableContent(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody
+                        )
+                    )
+                }
+            }
+        )
+    }
+    /// Get Transcript By Id
+    ///
+    /// Retrieve a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
+    public func get_transcript_by_id(_ input: Operations.get_transcript_by_id.Input) async throws -> Operations.get_transcript_by_id.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.get_transcript_by_id.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/v1/speech-to-text/transcripts/{}",
+                    parameters: [
+                        input.path.transcription_id
+                    ]
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .get
+                )
+                suppressMutabilityWarning(&request)
+                try converter.setHeaderFieldAsURI(
+                    in: &request.headerFields,
+                    name: "xi-api-key",
+                    value: input.headers.xi_hyphen_api_hyphen_key
+                )
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept
+                )
+                return (request, nil)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.get_transcript_by_id.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Operations.get_transcript_by_id.Output.Ok.Body.jsonPayload.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                case 401:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.get_transcript_by_id.Output.Unauthorized.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            OpenAPIRuntime.OpenAPIValueContainer.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .unauthorized(.init(body: body))
+                case 404:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.get_transcript_by_id.Output.NotFound.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            OpenAPIRuntime.OpenAPIValueContainer.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .notFound(.init(body: body))
+                case 422:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.get_transcript_by_id.Output.UnprocessableContent.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.HTTPValidationError.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .unprocessableContent(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody
+                        )
+                    )
+                }
+            }
+        )
+    }
+    /// Delete Transcript By Id
+    ///
+    /// Delete a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
+    public func delete_transcript_by_id(_ input: Operations.delete_transcript_by_id.Input) async throws -> Operations.delete_transcript_by_id.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.delete_transcript_by_id.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/v1/speech-to-text/transcripts/{}",
+                    parameters: [
+                        input.path.transcription_id
+                    ]
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .delete
+                )
+                suppressMutabilityWarning(&request)
+                try converter.setHeaderFieldAsURI(
+                    in: &request.headerFields,
+                    name: "xi-api-key",
+                    value: input.headers.xi_hyphen_api_hyphen_key
+                )
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept
+                )
+                return (request, nil)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.delete_transcript_by_id.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            OpenAPIRuntime.OpenAPIValueContainer.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                case 401:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.delete_transcript_by_id.Output.Unauthorized.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json"
+                        ]
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            OpenAPIRuntime.OpenAPIValueContainer.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            }
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .unauthorized(.init(body: body))
+                case 422:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.delete_transcript_by_id.Output.UnprocessableContent.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [

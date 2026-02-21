@@ -16,36 +16,50 @@ public protocol APIProtocol: Sendable {
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(Text_to_speech_v1_text_to_speech__voice_id__post)`.
-    func Text_to_speech_v1_text_to_speech__voice_id__post(_ input: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input) async throws -> Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
+    func text_to_speech_full(_ input: Operations.text_to_speech_full.Input) async throws -> Operations.text_to_speech_full.Output
     /// Text To Speech With Timestamps
     ///
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)`.
-    func Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post(_ input: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input) async throws -> Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
+    func text_to_speech_full_with_timestamps(_ input: Operations.text_to_speech_full_with_timestamps.Input) async throws -> Operations.text_to_speech_full_with_timestamps.Output
     /// Text To Speech Streaming
     ///
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)`.
-    func Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post(_ input: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input) async throws -> Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
+    func text_to_speech_stream(_ input: Operations.text_to_speech_stream.Input) async throws -> Operations.text_to_speech_stream.Output
     /// Text To Speech Streaming With Timestamps
     ///
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)`.
-    func Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post(_ input: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input) async throws -> Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
+    func text_to_speech_stream_with_timestamps(_ input: Operations.text_to_speech_stream_with_timestamps.Input) async throws -> Operations.text_to_speech_stream_with_timestamps.Output
     /// Speech To Text
     ///
     /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
     ///
     /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)`.
-    func Speech_to_Text_v1_speech_to_text_post(_ input: Operations.Speech_to_Text_v1_speech_to_text_post.Input) async throws -> Operations.Speech_to_Text_v1_speech_to_text_post.Output
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
+    func speech_to_text(_ input: Operations.speech_to_text.Input) async throws -> Operations.speech_to_text.Output
+    /// Get Transcript By Id
+    ///
+    /// Retrieve a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
+    func get_transcript_by_id(_ input: Operations.get_transcript_by_id.Input) async throws -> Operations.get_transcript_by_id.Output
+    /// Delete Transcript By Id
+    ///
+    /// Delete a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
+    func delete_transcript_by_id(_ input: Operations.delete_transcript_by_id.Input) async throws -> Operations.delete_transcript_by_id.Output
 }
 
 /// Convenience overloads for operation inputs.
@@ -55,14 +69,14 @@ extension APIProtocol {
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(Text_to_speech_v1_text_to_speech__voice_id__post)`.
-    public func Text_to_speech_v1_text_to_speech__voice_id__post(
-        path: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Path,
-        query: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Query = .init(),
-        headers: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Headers = .init(),
-        body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Body
-    ) async throws -> Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output {
-        try await Text_to_speech_v1_text_to_speech__voice_id__post(Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
+    public func text_to_speech_full(
+        path: Operations.text_to_speech_full.Input.Path,
+        query: Operations.text_to_speech_full.Input.Query = .init(),
+        headers: Operations.text_to_speech_full.Input.Headers = .init(),
+        body: Operations.text_to_speech_full.Input.Body
+    ) async throws -> Operations.text_to_speech_full.Output {
+        try await text_to_speech_full(Operations.text_to_speech_full.Input(
             path: path,
             query: query,
             headers: headers,
@@ -74,14 +88,14 @@ extension APIProtocol {
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)`.
-    public func Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post(
-        path: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Path,
-        query: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Query = .init(),
-        headers: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Headers = .init(),
-        body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Body
-    ) async throws -> Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output {
-        try await Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post(Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
+    public func text_to_speech_full_with_timestamps(
+        path: Operations.text_to_speech_full_with_timestamps.Input.Path,
+        query: Operations.text_to_speech_full_with_timestamps.Input.Query = .init(),
+        headers: Operations.text_to_speech_full_with_timestamps.Input.Headers = .init(),
+        body: Operations.text_to_speech_full_with_timestamps.Input.Body
+    ) async throws -> Operations.text_to_speech_full_with_timestamps.Output {
+        try await text_to_speech_full_with_timestamps(Operations.text_to_speech_full_with_timestamps.Input(
             path: path,
             query: query,
             headers: headers,
@@ -93,14 +107,14 @@ extension APIProtocol {
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)`.
-    public func Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post(
-        path: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Path,
-        query: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Query = .init(),
-        headers: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Headers = .init(),
-        body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Body
-    ) async throws -> Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output {
-        try await Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post(Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
+    public func text_to_speech_stream(
+        path: Operations.text_to_speech_stream.Input.Path,
+        query: Operations.text_to_speech_stream.Input.Query = .init(),
+        headers: Operations.text_to_speech_stream.Input.Headers = .init(),
+        body: Operations.text_to_speech_stream.Input.Body
+    ) async throws -> Operations.text_to_speech_stream.Output {
+        try await text_to_speech_stream(Operations.text_to_speech_stream.Input(
             path: path,
             query: query,
             headers: headers,
@@ -112,14 +126,14 @@ extension APIProtocol {
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)`.
-    public func Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post(
-        path: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Path,
-        query: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Query = .init(),
-        headers: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Headers = .init(),
-        body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Body
-    ) async throws -> Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output {
-        try await Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post(Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
+    public func text_to_speech_stream_with_timestamps(
+        path: Operations.text_to_speech_stream_with_timestamps.Input.Path,
+        query: Operations.text_to_speech_stream_with_timestamps.Input.Query = .init(),
+        headers: Operations.text_to_speech_stream_with_timestamps.Input.Headers = .init(),
+        body: Operations.text_to_speech_stream_with_timestamps.Input.Body
+    ) async throws -> Operations.text_to_speech_stream_with_timestamps.Output {
+        try await text_to_speech_stream_with_timestamps(Operations.text_to_speech_stream_with_timestamps.Input(
             path: path,
             query: query,
             headers: headers,
@@ -131,16 +145,46 @@ extension APIProtocol {
     /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
     ///
     /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)`.
-    public func Speech_to_Text_v1_speech_to_text_post(
-        query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query = .init(),
-        headers: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Headers = .init(),
-        body: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Body
-    ) async throws -> Operations.Speech_to_Text_v1_speech_to_text_post.Output {
-        try await Speech_to_Text_v1_speech_to_text_post(Operations.Speech_to_Text_v1_speech_to_text_post.Input(
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
+    public func speech_to_text(
+        query: Operations.speech_to_text.Input.Query = .init(),
+        headers: Operations.speech_to_text.Input.Headers = .init(),
+        body: Operations.speech_to_text.Input.Body
+    ) async throws -> Operations.speech_to_text.Output {
+        try await speech_to_text(Operations.speech_to_text.Input(
             query: query,
             headers: headers,
             body: body
+        ))
+    }
+    /// Get Transcript By Id
+    ///
+    /// Retrieve a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
+    public func get_transcript_by_id(
+        path: Operations.get_transcript_by_id.Input.Path,
+        headers: Operations.get_transcript_by_id.Input.Headers = .init()
+    ) async throws -> Operations.get_transcript_by_id.Output {
+        try await get_transcript_by_id(Operations.get_transcript_by_id.Input(
+            path: path,
+            headers: headers
+        ))
+    }
+    /// Delete Transcript By Id
+    ///
+    /// Delete a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
+    public func delete_transcript_by_id(
+        path: Operations.delete_transcript_by_id.Input.Path,
+        headers: Operations.delete_transcript_by_id.Input.Headers = .init()
+    ) async throws -> Operations.delete_transcript_by_id.Output {
+        try await delete_transcript_by_id(Operations.delete_transcript_by_id.Input(
+            path: path,
+            headers: headers
         ))
     }
 }
@@ -252,90 +296,6 @@ public enum Components {
                 }
             }
             case model_id(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.model_idPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/tag_audio_events`.
-            public struct tag_audio_eventsPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `tag_audio_eventsPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case tag_audio_events(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.tag_audio_eventsPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/timestamps_granularity`.
-            public struct timestamps_granularityPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `timestamps_granularityPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case timestamps_granularity(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.timestamps_granularityPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/diarize`.
-            public struct diarizePayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `diarizePayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case diarize(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.diarizePayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/file_format`.
-            public struct file_formatPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `file_formatPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case file_format(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.file_formatPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook`.
-            public struct webhookPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `webhookPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case webhook(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhookPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/use_multi_channel`.
-            public struct use_multi_channelPayload: Sendable, Hashable {
-                public var body: OpenAPIRuntime.HTTPBody
-                /// Creates a new `use_multi_channelPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: OpenAPIRuntime.HTTPBody) {
-                    self.body = body
-                }
-            }
-            case use_multi_channel(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.use_multi_channelPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats`.
-            public struct additional_formatsPayload: Sendable, Hashable {
-                public var body: Components.Schemas.ExportOptions
-                /// Creates a new `additional_formatsPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: Components.Schemas.ExportOptions) {
-                    self.body = body
-                }
-            }
-            case additional_formats(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/file`.
             public struct filePayload: Sendable, Hashable {
                 public var body: OpenAPIRuntime.HTTPBody
@@ -360,6 +320,18 @@ public enum Components {
                 }
             }
             case language_code(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.language_codePayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/tag_audio_events`.
+            public struct tag_audio_eventsPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `tag_audio_eventsPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case tag_audio_events(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.tag_audio_eventsPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/num_speakers`.
             public struct num_speakersPayload: Sendable, Hashable {
                 public var body: OpenAPIRuntime.HTTPBody
@@ -372,6 +344,30 @@ public enum Components {
                 }
             }
             case num_speakers(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.num_speakersPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/timestamps_granularity`.
+            public struct timestamps_granularityPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `timestamps_granularityPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case timestamps_granularity(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.timestamps_granularityPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/diarize`.
+            public struct diarizePayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `diarizePayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case diarize(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.diarizePayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/diarization_threshold`.
             public struct diarization_thresholdPayload: Sendable, Hashable {
                 public var body: OpenAPIRuntime.HTTPBody
@@ -384,6 +380,30 @@ public enum Components {
                 }
             }
             case diarization_threshold(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.diarization_thresholdPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats`.
+            public struct additional_formatsPayload: Sendable, Hashable {
+                public var body: Components.Schemas.ExportOptions
+                /// Creates a new `additional_formatsPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: Components.Schemas.ExportOptions) {
+                    self.body = body
+                }
+            }
+            case additional_formats(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/file_format`.
+            public struct file_formatPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `file_formatPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case file_format(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.file_formatPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/cloud_storage_url`.
             public struct cloud_storage_urlPayload: Sendable, Hashable {
                 public var body: OpenAPIRuntime.HTTPBody
@@ -396,6 +416,18 @@ public enum Components {
                 }
             }
             case cloud_storage_url(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.cloud_storage_urlPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook`.
+            public struct webhookPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `webhookPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case webhook(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhookPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_id`.
             public struct webhook_idPayload: Sendable, Hashable {
                 public var body: OpenAPIRuntime.HTTPBody
@@ -432,6 +464,18 @@ public enum Components {
                 }
             }
             case seed(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.seedPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/use_multi_channel`.
+            public struct use_multi_channelPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `use_multi_channelPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case use_multi_channel(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.use_multi_channelPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata`.
             public struct webhook_metadataPayload: Sendable, Hashable {
                 /// Optional metadata to be included in the webhook response. This should be a JSON string representing an object with a maximum depth of 2 levels and maximum size of 16KB. Useful for tracking internal IDs, job references, or other contextual information.
@@ -441,7 +485,25 @@ public enum Components {
                     /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value1`.
                     public var value1: Swift.String?
                     /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value2`.
-                    public var value2: OpenAPIRuntime.OpenAPIObjectContainer?
+                    public struct Value2Payload: Codable, Hashable, Sendable {
+                        /// A container of undocumented properties.
+                        public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
+                        /// Creates a new `Value2Payload`.
+                        ///
+                        /// - Parameters:
+                        ///   - additionalProperties: A container of undocumented properties.
+                        public init(additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init()) {
+                            self.additionalProperties = additionalProperties
+                        }
+                        public init(from decoder: any Decoder) throws {
+                            additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
+                        }
+                        public func encode(to encoder: any Encoder) throws {
+                            try encoder.encodeAdditionalProperties(additionalProperties)
+                        }
+                    }
+                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/webhook_metadata/content/body/value2`.
+                    public var value2: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload.Value2Payload?
                     /// Creates a new `bodyPayload`.
                     ///
                     /// - Parameters:
@@ -449,7 +511,7 @@ public enum Components {
                     ///   - value2:
                     public init(
                         value1: Swift.String? = nil,
-                        value2: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+                        value2: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload.bodyPayload.Value2Payload? = nil
                     ) {
                         self.value1 = value1
                         self.value2 = value2
@@ -493,80 +555,101 @@ public enum Components {
                 }
             }
             case webhook_metadata(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.webhook_metadataPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/entity_detection`.
+            public struct entity_detectionPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `entity_detectionPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case entity_detection(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.entity_detectionPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/keyterms`.
+            public struct keytermsPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `keytermsPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case keyterms(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.keytermsPayload>)
             case undocumented(OpenAPIRuntime.MultipartRawPart)
         }
-        /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post`.
-        public struct Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full`.
+        public struct Body_text_to_speech_full: Codable, Hashable, Sendable {
             /// The text that will get converted into speech.
             ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/text`.
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/text`.
             public var text: Swift.String
             /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
             ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/model_id`.
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/model_id`.
             public var model_id: Swift.String?
+            /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/language_code`.
+            public var language_code: Swift.String?
+            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/voice_settings`.
+            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
+            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/pronunciation_dictionary_locators`.
+            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
+            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/seed`.
+            public var seed: Swift.Int?
+            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/previous_text`.
+            public var previous_text: Swift.String?
+            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/next_text`.
+            public var next_text: Swift.String?
+            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/previous_request_ids`.
+            public var previous_request_ids: [Swift.String]?
+            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/next_request_ids`.
+            public var next_request_ids: [Swift.String]?
             /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
             ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/use_pvc_as_ivc`.
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/use_pvc_as_ivc`.
             @available(*, deprecated)
             public var use_pvc_as_ivc: Swift.Bool?
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
             ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/apply_text_normalization`.
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/apply_text_normalization`.
             @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
                 case auto = "auto"
                 case on = "on"
                 case off = "off"
             }
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
             ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/apply_text_normalization`.
-            public var apply_text_normalization: Components.Schemas.Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.apply_text_normalizationPayload?
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/apply_text_normalization`.
+            public var apply_text_normalization: Components.Schemas.Body_text_to_speech_full.apply_text_normalizationPayload?
             /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
             ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/apply_language_text_normalization`.
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full/apply_language_text_normalization`.
             public var apply_language_text_normalization: Swift.Bool?
-            /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/language_code`.
-            public var language_code: Swift.String?
-            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/voice_settings`.
-            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
-            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/pronunciation_dictionary_locators`.
-            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
-            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/seed`.
-            public var seed: Swift.Int?
-            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/previous_text`.
-            public var previous_text: Swift.String?
-            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/next_text`.
-            public var next_text: Swift.String?
-            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/previous_request_ids`.
-            public var previous_request_ids: [Swift.String]?
-            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post/next_request_ids`.
-            public var next_request_ids: [Swift.String]?
-            /// Creates a new `Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post`.
+            /// Creates a new `Body_text_to_speech_full`.
             ///
             /// - Parameters:
             ///   - text: The text that will get converted into speech.
             ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
+            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
             ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
             ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
             ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
@@ -574,421 +657,424 @@ public enum Components {
             ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
             ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
             ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
             public init(
                 text: Swift.String,
                 model_id: Swift.String? = nil,
-                use_pvc_as_ivc: Swift.Bool? = nil,
-                apply_text_normalization: Components.Schemas.Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.apply_text_normalizationPayload? = nil,
-                apply_language_text_normalization: Swift.Bool? = nil,
                 language_code: Swift.String? = nil,
                 voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
                 pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
                 seed: Swift.Int? = nil,
                 previous_text: Swift.String? = nil,
                 next_text: Swift.String? = nil,
-                previous_request_ids: [Swift.String]? = nil,
-                next_request_ids: [Swift.String]? = nil
-            ) {
-                self.text = text
-                self.model_id = model_id
-                self.use_pvc_as_ivc = use_pvc_as_ivc
-                self.apply_text_normalization = apply_text_normalization
-                self.apply_language_text_normalization = apply_language_text_normalization
-                self.language_code = language_code
-                self.voice_settings = voice_settings
-                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
-                self.seed = seed
-                self.previous_text = previous_text
-                self.next_text = next_text
-                self.previous_request_ids = previous_request_ids
-                self.next_request_ids = next_request_ids
-            }
-            public enum CodingKeys: String, CodingKey {
-                case text
-                case model_id
-                case use_pvc_as_ivc
-                case apply_text_normalization
-                case apply_language_text_normalization
-                case language_code
-                case voice_settings
-                case pronunciation_dictionary_locators
-                case seed
-                case previous_text
-                case next_text
-                case previous_request_ids
-                case next_request_ids
-            }
-        }
-        /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post`.
-        public struct Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post: Codable, Hashable, Sendable {
-            /// The text that will get converted into speech.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/text`.
-            public var text: Swift.String
-            /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/model_id`.
-            public var model_id: Swift.String?
-            /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/use_pvc_as_ivc`.
-            @available(*, deprecated)
-            public var use_pvc_as_ivc: Swift.Bool?
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/apply_text_normalization`.
-            @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case auto = "auto"
-                case on = "on"
-                case off = "off"
-            }
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/apply_text_normalization`.
-            public var apply_text_normalization: Components.Schemas.Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.apply_text_normalizationPayload?
-            /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/apply_language_text_normalization`.
-            public var apply_language_text_normalization: Swift.Bool?
-            /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/language_code`.
-            public var language_code: Swift.String?
-            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/voice_settings`.
-            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
-            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/pronunciation_dictionary_locators`.
-            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
-            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/seed`.
-            public var seed: Swift.Int?
-            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/previous_text`.
-            public var previous_text: Swift.String?
-            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/next_text`.
-            public var next_text: Swift.String?
-            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/previous_request_ids`.
-            public var previous_request_ids: [Swift.String]?
-            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post/next_request_ids`.
-            public var next_request_ids: [Swift.String]?
-            /// Creates a new `Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post`.
-            ///
-            /// - Parameters:
-            ///   - text: The text that will get converted into speech.
-            ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///   - previous_text: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            public init(
-                text: Swift.String,
-                model_id: Swift.String? = nil,
-                use_pvc_as_ivc: Swift.Bool? = nil,
-                apply_text_normalization: Components.Schemas.Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.apply_text_normalizationPayload? = nil,
-                apply_language_text_normalization: Swift.Bool? = nil,
-                language_code: Swift.String? = nil,
-                voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
-                pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
-                seed: Swift.Int? = nil,
-                previous_text: Swift.String? = nil,
-                next_text: Swift.String? = nil,
-                previous_request_ids: [Swift.String]? = nil,
-                next_request_ids: [Swift.String]? = nil
-            ) {
-                self.text = text
-                self.model_id = model_id
-                self.use_pvc_as_ivc = use_pvc_as_ivc
-                self.apply_text_normalization = apply_text_normalization
-                self.apply_language_text_normalization = apply_language_text_normalization
-                self.language_code = language_code
-                self.voice_settings = voice_settings
-                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
-                self.seed = seed
-                self.previous_text = previous_text
-                self.next_text = next_text
-                self.previous_request_ids = previous_request_ids
-                self.next_request_ids = next_request_ids
-            }
-            public enum CodingKeys: String, CodingKey {
-                case text
-                case model_id
-                case use_pvc_as_ivc
-                case apply_text_normalization
-                case apply_language_text_normalization
-                case language_code
-                case voice_settings
-                case pronunciation_dictionary_locators
-                case seed
-                case previous_text
-                case next_text
-                case previous_request_ids
-                case next_request_ids
-            }
-        }
-        /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post`.
-        public struct Body_Text_to_speech_v1_text_to_speech__voice_id__post: Codable, Hashable, Sendable {
-            /// The text that will get converted into speech.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/text`.
-            public var text: Swift.String
-            /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/model_id`.
-            public var model_id: Swift.String?
-            /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/use_pvc_as_ivc`.
-            @available(*, deprecated)
-            public var use_pvc_as_ivc: Swift.Bool?
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/apply_text_normalization`.
-            @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case auto = "auto"
-                case on = "on"
-                case off = "off"
-            }
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/apply_text_normalization`.
-            public var apply_text_normalization: Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post.apply_text_normalizationPayload?
-            /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/apply_language_text_normalization`.
-            public var apply_language_text_normalization: Swift.Bool?
-            /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/language_code`.
-            public var language_code: Swift.String?
-            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/voice_settings`.
-            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
-            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/pronunciation_dictionary_locators`.
-            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
-            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/seed`.
-            public var seed: Swift.Int?
-            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/previous_text`.
-            public var previous_text: Swift.String?
-            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/next_text`.
-            public var next_text: Swift.String?
-            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/previous_request_ids`.
-            public var previous_request_ids: [Swift.String]?
-            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_v1_text_to_speech__voice_id__post/next_request_ids`.
-            public var next_request_ids: [Swift.String]?
-            /// Creates a new `Body_Text_to_speech_v1_text_to_speech__voice_id__post`.
-            ///
-            /// - Parameters:
-            ///   - text: The text that will get converted into speech.
-            ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///   - previous_text: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            public init(
-                text: Swift.String,
-                model_id: Swift.String? = nil,
-                use_pvc_as_ivc: Swift.Bool? = nil,
-                apply_text_normalization: Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post.apply_text_normalizationPayload? = nil,
-                apply_language_text_normalization: Swift.Bool? = nil,
-                language_code: Swift.String? = nil,
-                voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
-                pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
-                seed: Swift.Int? = nil,
-                previous_text: Swift.String? = nil,
-                next_text: Swift.String? = nil,
-                previous_request_ids: [Swift.String]? = nil,
-                next_request_ids: [Swift.String]? = nil
-            ) {
-                self.text = text
-                self.model_id = model_id
-                self.use_pvc_as_ivc = use_pvc_as_ivc
-                self.apply_text_normalization = apply_text_normalization
-                self.apply_language_text_normalization = apply_language_text_normalization
-                self.language_code = language_code
-                self.voice_settings = voice_settings
-                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
-                self.seed = seed
-                self.previous_text = previous_text
-                self.next_text = next_text
-                self.previous_request_ids = previous_request_ids
-                self.next_request_ids = next_request_ids
-            }
-            public enum CodingKeys: String, CodingKey {
-                case text
-                case model_id
-                case use_pvc_as_ivc
-                case apply_text_normalization
-                case apply_language_text_normalization
-                case language_code
-                case voice_settings
-                case pronunciation_dictionary_locators
-                case seed
-                case previous_text
-                case next_text
-                case previous_request_ids
-                case next_request_ids
-            }
-        }
-        /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post`.
-        public struct Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post: Codable, Hashable, Sendable {
-            /// The text that will get converted into speech.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/text`.
-            public var text: Swift.String
-            /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/model_id`.
-            public var model_id: Swift.String?
-            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/pronunciation_dictionary_locators`.
-            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
-            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/previous_request_ids`.
-            public var previous_request_ids: [Swift.String]?
-            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/next_request_ids`.
-            public var next_request_ids: [Swift.String]?
-            /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/use_pvc_as_ivc`.
-            @available(*, deprecated)
-            public var use_pvc_as_ivc: Swift.Bool?
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/apply_text_normalization`.
-            @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                case auto = "auto"
-                case on = "on"
-                case off = "off"
-            }
-            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/apply_text_normalization`.
-            public var apply_text_normalization: Components.Schemas.Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.apply_text_normalizationPayload?
-            /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/apply_language_text_normalization`.
-            public var apply_language_text_normalization: Swift.Bool?
-            /// Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/language_code`.
-            public var language_code: Swift.String?
-            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/voice_settings`.
-            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
-            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/seed`.
-            public var seed: Swift.Int?
-            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/previous_text`.
-            public var previous_text: Swift.String?
-            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///
-            /// - Remark: Generated from `#/components/schemas/Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post/next_text`.
-            public var next_text: Swift.String?
-            /// Creates a new `Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post`.
-            ///
-            /// - Parameters:
-            ///   - text: The text that will get converted into speech.
-            ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
-            ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
-            ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
-            ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
-            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
-            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped. For 'eleven_turbo_v2_5' and 'eleven_flash_v2_5' models, text normalization can only be enabled with Enterprise plans.
-            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
-            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model. Currently only Turbo v2.5 and Flash v2.5 support language enforcement. For other models, an error will be returned if language code is provided.
-            ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
-            ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
-            ///   - previous_text: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
-            public init(
-                text: Swift.String,
-                model_id: Swift.String? = nil,
-                pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
                 previous_request_ids: [Swift.String]? = nil,
                 next_request_ids: [Swift.String]? = nil,
                 use_pvc_as_ivc: Swift.Bool? = nil,
-                apply_text_normalization: Components.Schemas.Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.apply_text_normalizationPayload? = nil,
-                apply_language_text_normalization: Swift.Bool? = nil,
-                language_code: Swift.String? = nil,
-                voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
-                seed: Swift.Int? = nil,
-                previous_text: Swift.String? = nil,
-                next_text: Swift.String? = nil
+                apply_text_normalization: Components.Schemas.Body_text_to_speech_full.apply_text_normalizationPayload? = nil,
+                apply_language_text_normalization: Swift.Bool? = nil
             ) {
                 self.text = text
                 self.model_id = model_id
+                self.language_code = language_code
+                self.voice_settings = voice_settings
                 self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
+                self.seed = seed
+                self.previous_text = previous_text
+                self.next_text = next_text
                 self.previous_request_ids = previous_request_ids
                 self.next_request_ids = next_request_ids
                 self.use_pvc_as_ivc = use_pvc_as_ivc
                 self.apply_text_normalization = apply_text_normalization
                 self.apply_language_text_normalization = apply_language_text_normalization
-                self.language_code = language_code
-                self.voice_settings = voice_settings
-                self.seed = seed
-                self.previous_text = previous_text
-                self.next_text = next_text
             }
             public enum CodingKeys: String, CodingKey {
                 case text
                 case model_id
+                case language_code
+                case voice_settings
                 case pronunciation_dictionary_locators
+                case seed
+                case previous_text
+                case next_text
                 case previous_request_ids
                 case next_request_ids
                 case use_pvc_as_ivc
                 case apply_text_normalization
                 case apply_language_text_normalization
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps`.
+        public struct Body_text_to_speech_full_with_timestamps: Codable, Hashable, Sendable {
+            /// The text that will get converted into speech.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/text`.
+            public var text: Swift.String
+            /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/model_id`.
+            public var model_id: Swift.String?
+            /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/language_code`.
+            public var language_code: Swift.String?
+            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/voice_settings`.
+            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
+            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/pronunciation_dictionary_locators`.
+            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
+            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/seed`.
+            public var seed: Swift.Int?
+            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/previous_text`.
+            public var previous_text: Swift.String?
+            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/next_text`.
+            public var next_text: Swift.String?
+            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/previous_request_ids`.
+            public var previous_request_ids: [Swift.String]?
+            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/next_request_ids`.
+            public var next_request_ids: [Swift.String]?
+            /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/use_pvc_as_ivc`.
+            @available(*, deprecated)
+            public var use_pvc_as_ivc: Swift.Bool?
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/apply_text_normalization`.
+            @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case auto = "auto"
+                case on = "on"
+                case off = "off"
+            }
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/apply_text_normalization`.
+            public var apply_text_normalization: Components.Schemas.Body_text_to_speech_full_with_timestamps.apply_text_normalizationPayload?
+            /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full_with_timestamps/apply_language_text_normalization`.
+            public var apply_language_text_normalization: Swift.Bool?
+            /// Creates a new `Body_text_to_speech_full_with_timestamps`.
+            ///
+            /// - Parameters:
+            ///   - text: The text that will get converted into speech.
+            ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
+            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///   - previous_text: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
+            public init(
+                text: Swift.String,
+                model_id: Swift.String? = nil,
+                language_code: Swift.String? = nil,
+                voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
+                pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
+                seed: Swift.Int? = nil,
+                previous_text: Swift.String? = nil,
+                next_text: Swift.String? = nil,
+                previous_request_ids: [Swift.String]? = nil,
+                next_request_ids: [Swift.String]? = nil,
+                use_pvc_as_ivc: Swift.Bool? = nil,
+                apply_text_normalization: Components.Schemas.Body_text_to_speech_full_with_timestamps.apply_text_normalizationPayload? = nil,
+                apply_language_text_normalization: Swift.Bool? = nil
+            ) {
+                self.text = text
+                self.model_id = model_id
+                self.language_code = language_code
+                self.voice_settings = voice_settings
+                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
+                self.seed = seed
+                self.previous_text = previous_text
+                self.next_text = next_text
+                self.previous_request_ids = previous_request_ids
+                self.next_request_ids = next_request_ids
+                self.use_pvc_as_ivc = use_pvc_as_ivc
+                self.apply_text_normalization = apply_text_normalization
+                self.apply_language_text_normalization = apply_language_text_normalization
+            }
+            public enum CodingKeys: String, CodingKey {
+                case text
+                case model_id
                 case language_code
                 case voice_settings
+                case pronunciation_dictionary_locators
                 case seed
                 case previous_text
                 case next_text
+                case previous_request_ids
+                case next_request_ids
+                case use_pvc_as_ivc
+                case apply_text_normalization
+                case apply_language_text_normalization
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream`.
+        public struct Body_text_to_speech_stream: Codable, Hashable, Sendable {
+            /// The text that will get converted into speech.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/text`.
+            public var text: Swift.String
+            /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/model_id`.
+            public var model_id: Swift.String?
+            /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/language_code`.
+            public var language_code: Swift.String?
+            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/voice_settings`.
+            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
+            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/pronunciation_dictionary_locators`.
+            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
+            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/seed`.
+            public var seed: Swift.Int?
+            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/previous_text`.
+            public var previous_text: Swift.String?
+            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/next_text`.
+            public var next_text: Swift.String?
+            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/previous_request_ids`.
+            public var previous_request_ids: [Swift.String]?
+            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/next_request_ids`.
+            public var next_request_ids: [Swift.String]?
+            /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/use_pvc_as_ivc`.
+            @available(*, deprecated)
+            public var use_pvc_as_ivc: Swift.Bool?
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/apply_text_normalization`.
+            @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case auto = "auto"
+                case on = "on"
+                case off = "off"
+            }
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/apply_text_normalization`.
+            public var apply_text_normalization: Components.Schemas.Body_text_to_speech_stream.apply_text_normalizationPayload?
+            /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream/apply_language_text_normalization`.
+            public var apply_language_text_normalization: Swift.Bool?
+            /// Creates a new `Body_text_to_speech_stream`.
+            ///
+            /// - Parameters:
+            ///   - text: The text that will get converted into speech.
+            ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
+            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///   - previous_text: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
+            public init(
+                text: Swift.String,
+                model_id: Swift.String? = nil,
+                language_code: Swift.String? = nil,
+                voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
+                pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
+                seed: Swift.Int? = nil,
+                previous_text: Swift.String? = nil,
+                next_text: Swift.String? = nil,
+                previous_request_ids: [Swift.String]? = nil,
+                next_request_ids: [Swift.String]? = nil,
+                use_pvc_as_ivc: Swift.Bool? = nil,
+                apply_text_normalization: Components.Schemas.Body_text_to_speech_stream.apply_text_normalizationPayload? = nil,
+                apply_language_text_normalization: Swift.Bool? = nil
+            ) {
+                self.text = text
+                self.model_id = model_id
+                self.language_code = language_code
+                self.voice_settings = voice_settings
+                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
+                self.seed = seed
+                self.previous_text = previous_text
+                self.next_text = next_text
+                self.previous_request_ids = previous_request_ids
+                self.next_request_ids = next_request_ids
+                self.use_pvc_as_ivc = use_pvc_as_ivc
+                self.apply_text_normalization = apply_text_normalization
+                self.apply_language_text_normalization = apply_language_text_normalization
+            }
+            public enum CodingKeys: String, CodingKey {
+                case text
+                case model_id
+                case language_code
+                case voice_settings
+                case pronunciation_dictionary_locators
+                case seed
+                case previous_text
+                case next_text
+                case previous_request_ids
+                case next_request_ids
+                case use_pvc_as_ivc
+                case apply_text_normalization
+                case apply_language_text_normalization
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps`.
+        public struct Body_text_to_speech_stream_with_timestamps: Codable, Hashable, Sendable {
+            /// The text that will get converted into speech.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/text`.
+            public var text: Swift.String
+            /// Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/model_id`.
+            public var model_id: Swift.String?
+            /// Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/language_code`.
+            public var language_code: Swift.String?
+            /// Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/voice_settings`.
+            public var voice_settings: Components.Schemas.VoiceSettingsResponseModel?
+            /// A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/pronunciation_dictionary_locators`.
+            public var pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]?
+            /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/seed`.
+            public var seed: Swift.Int?
+            /// The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/previous_text`.
+            public var previous_text: Swift.String?
+            /// The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/next_text`.
+            public var next_text: Swift.String?
+            /// A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/previous_request_ids`.
+            public var previous_request_ids: [Swift.String]?
+            /// A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/next_request_ids`.
+            public var next_request_ids: [Swift.String]?
+            /// If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/use_pvc_as_ivc`.
+            @available(*, deprecated)
+            public var use_pvc_as_ivc: Swift.Bool?
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/apply_text_normalization`.
+            @frozen public enum apply_text_normalizationPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                case auto = "auto"
+                case on = "on"
+                case off = "off"
+            }
+            /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/apply_text_normalization`.
+            public var apply_text_normalization: Components.Schemas.Body_text_to_speech_stream_with_timestamps.apply_text_normalizationPayload?
+            /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
+            ///
+            /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_stream_with_timestamps/apply_language_text_normalization`.
+            public var apply_language_text_normalization: Swift.Bool?
+            /// Creates a new `Body_text_to_speech_stream_with_timestamps`.
+            ///
+            /// - Parameters:
+            ///   - text: The text that will get converted into speech.
+            ///   - model_id: Identifier of the model that will be used, you can query them using GET /v1/models. The model needs to have support for text to speech, you can check this using the can_do_text_to_speech property.
+            ///   - language_code: Language code (ISO 639-1) used to enforce a language for the model and text normalization. If the model does not support provided language code, an error will be returned.
+            ///   - voice_settings: Voice settings overriding stored settings for the given voice. They are applied only on the given request.
+            ///   - pronunciation_dictionary_locators: A list of pronunciation dictionary locators (id, version_id) to be applied to the text. They will be applied in order. You may have up to 3 locators per request
+            ///   - seed: If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed. Must be integer between 0 and 4294967295.
+            ///   - previous_text: The text that came before the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///   - next_text: The text that comes after the text of the current request. Can be used to improve the speech's continuity when concatenating together multiple generations or to influence the speech's continuity in the current generation.
+            ///   - previous_request_ids: A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - next_request_ids: A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.
+            ///   - use_pvc_as_ivc: If true, we won't use PVC version of the voice for the generation but the IVC version. This is a temporary workaround for higher latency in PVC versions.
+            ///   - apply_text_normalization: This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.
+            ///   - apply_language_text_normalization: This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.
+            public init(
+                text: Swift.String,
+                model_id: Swift.String? = nil,
+                language_code: Swift.String? = nil,
+                voice_settings: Components.Schemas.VoiceSettingsResponseModel? = nil,
+                pronunciation_dictionary_locators: [Components.Schemas.PronunciationDictionaryVersionLocatorRequestModel]? = nil,
+                seed: Swift.Int? = nil,
+                previous_text: Swift.String? = nil,
+                next_text: Swift.String? = nil,
+                previous_request_ids: [Swift.String]? = nil,
+                next_request_ids: [Swift.String]? = nil,
+                use_pvc_as_ivc: Swift.Bool? = nil,
+                apply_text_normalization: Components.Schemas.Body_text_to_speech_stream_with_timestamps.apply_text_normalizationPayload? = nil,
+                apply_language_text_normalization: Swift.Bool? = nil
+            ) {
+                self.text = text
+                self.model_id = model_id
+                self.language_code = language_code
+                self.voice_settings = voice_settings
+                self.pronunciation_dictionary_locators = pronunciation_dictionary_locators
+                self.seed = seed
+                self.previous_text = previous_text
+                self.next_text = next_text
+                self.previous_request_ids = previous_request_ids
+                self.next_request_ids = next_request_ids
+                self.use_pvc_as_ivc = use_pvc_as_ivc
+                self.apply_text_normalization = apply_text_normalization
+                self.apply_language_text_normalization = apply_language_text_normalization
+            }
+            public enum CodingKeys: String, CodingKey {
+                case text
+                case model_id
+                case language_code
+                case voice_settings
+                case pronunciation_dictionary_locators
+                case seed
+                case previous_text
+                case next_text
+                case previous_request_ids
+                case next_request_ids
+                case use_pvc_as_ivc
+                case apply_text_normalization
+                case apply_language_text_normalization
             }
         }
         /// - Remark: Generated from `#/components/schemas/CharacterAlignmentResponseModel`.
@@ -1018,6 +1104,49 @@ public enum Components {
                 case characters
                 case character_start_times_seconds
                 case character_end_times_seconds
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/DetectedEntity`.
+        public struct DetectedEntity: Codable, Hashable, Sendable {
+            /// The text that was identified as an entity.
+            ///
+            /// - Remark: Generated from `#/components/schemas/DetectedEntity/text`.
+            public var text: Swift.String
+            /// The type of entity detected (e.g., 'credit_card', 'email_address', 'person_name').
+            ///
+            /// - Remark: Generated from `#/components/schemas/DetectedEntity/entity_type`.
+            public var entity_type: Swift.String
+            /// Start character position in the transcript text.
+            ///
+            /// - Remark: Generated from `#/components/schemas/DetectedEntity/start_char`.
+            public var start_char: Swift.Int
+            /// End character position in the transcript text.
+            ///
+            /// - Remark: Generated from `#/components/schemas/DetectedEntity/end_char`.
+            public var end_char: Swift.Int
+            /// Creates a new `DetectedEntity`.
+            ///
+            /// - Parameters:
+            ///   - text: The text that was identified as an entity.
+            ///   - entity_type: The type of entity detected (e.g., 'credit_card', 'email_address', 'person_name').
+            ///   - start_char: Start character position in the transcript text.
+            ///   - end_char: End character position in the transcript text.
+            public init(
+                text: Swift.String,
+                entity_type: Swift.String,
+                start_char: Swift.Int,
+                end_char: Swift.Int
+            ) {
+                self.text = text
+                self.entity_type = entity_type
+                self.start_char = start_char
+                self.end_char = end_char
+            }
+            public enum CodingKeys: String, CodingKey {
+                case text
+                case entity_type
+                case start_char
+                case end_char
             }
         }
         /// - Remark: Generated from `#/components/schemas/DocxExportOptions`.
@@ -1206,15 +1335,25 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/MultichannelSpeechToTextResponseModel/transcripts`.
             public var transcripts: [Components.Schemas.SpeechToTextChunkResponseModel]
+            /// The transcription ID of the response.
+            ///
+            /// - Remark: Generated from `#/components/schemas/MultichannelSpeechToTextResponseModel/transcription_id`.
+            public var transcription_id: Swift.String?
             /// Creates a new `MultichannelSpeechToTextResponseModel`.
             ///
             /// - Parameters:
             ///   - transcripts: List of transcripts, one for each audio channel. Each transcript contains the text and word-level details for its respective channel.
-            public init(transcripts: [Components.Schemas.SpeechToTextChunkResponseModel]) {
+            ///   - transcription_id: The transcription ID of the response.
+            public init(
+                transcripts: [Components.Schemas.SpeechToTextChunkResponseModel],
+                transcription_id: Swift.String? = nil
+            ) {
                 self.transcripts = transcripts
+                self.transcription_id = transcription_id
             }
             public enum CodingKeys: String, CodingKey {
                 case transcripts
+                case transcription_id
             }
         }
         /// - Remark: Generated from `#/components/schemas/PdfExportOptions`.
@@ -1405,6 +1544,18 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/channel_index`.
             public var channel_index: Swift.Int?
+            /// Requested additional formats of the transcript.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/additional_formats`.
+            public var additional_formats: [Components.Schemas.AdditionalFormatResponseModel]?
+            /// The transcription ID of the response.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/transcription_id`.
+            public var transcription_id: Swift.String?
+            /// List of detected entities with their text, type, and character positions in the transcript.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/entities`.
+            public var entities: [Components.Schemas.DetectedEntity]?
             /// Creates a new `SpeechToTextChunkResponseModel`.
             ///
             /// - Parameters:
@@ -1413,18 +1564,27 @@ public enum Components {
             ///   - text: The raw text of the transcription.
             ///   - words: List of words with their timing information.
             ///   - channel_index: The channel index this transcript belongs to (for multichannel audio).
+            ///   - additional_formats: Requested additional formats of the transcript.
+            ///   - transcription_id: The transcription ID of the response.
+            ///   - entities: List of detected entities with their text, type, and character positions in the transcript.
             public init(
                 language_code: Swift.String,
                 language_probability: Swift.Double,
                 text: Swift.String,
                 words: [Components.Schemas.SpeechToTextWordResponseModel],
-                channel_index: Swift.Int? = nil
+                channel_index: Swift.Int? = nil,
+                additional_formats: [Components.Schemas.AdditionalFormatResponseModel]? = nil,
+                transcription_id: Swift.String? = nil,
+                entities: [Components.Schemas.DetectedEntity]? = nil
             ) {
                 self.language_code = language_code
                 self.language_probability = language_probability
                 self.text = text
                 self.words = words
                 self.channel_index = channel_index
+                self.additional_formats = additional_formats
+                self.transcription_id = transcription_id
+                self.entities = entities
             }
             public enum CodingKeys: String, CodingKey {
                 case language_code
@@ -1432,6 +1592,9 @@ public enum Components {
                 case text
                 case words
                 case channel_index
+                case additional_formats
+                case transcription_id
+                case entities
             }
         }
         /// - Remark: Generated from `#/components/schemas/SpeechToTextWebhookResponseModel`.
@@ -1444,21 +1607,29 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWebhookResponseModel/request_id`.
             public var request_id: Swift.String
+            /// The transcription ID of the webhook response.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWebhookResponseModel/transcription_id`.
+            public var transcription_id: Swift.String?
             /// Creates a new `SpeechToTextWebhookResponseModel`.
             ///
             /// - Parameters:
             ///   - message: The message of the webhook response.
             ///   - request_id: The request ID of the webhook response.
+            ///   - transcription_id: The transcription ID of the webhook response.
             public init(
                 message: Swift.String,
-                request_id: Swift.String
+                request_id: Swift.String,
+                transcription_id: Swift.String? = nil
             ) {
                 self.message = message
                 self.request_id = request_id
+                self.transcription_id = transcription_id
             }
             public enum CodingKeys: String, CodingKey {
                 case message
                 case request_id
+                case transcription_id
             }
         }
         /// Word-level detail of the transcription with timing information.
@@ -1469,6 +1640,14 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/text`.
             public var text: Swift.String
+            /// The start time of the word or sound in seconds.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/start`.
+            public var start: Swift.Double?
+            /// The end time of the word or sound in seconds.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/end`.
+            public var end: Swift.Double?
             /// The type of the word or sound. 'audio_event' is used for non-word sounds like laughter or footsteps.
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/type`.
@@ -1481,22 +1660,14 @@ public enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/type`.
             public var _type: Components.Schemas.SpeechToTextWordResponseModel._typePayload
-            /// The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.
-            ///
-            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/logprob`.
-            public var logprob: Swift.Double
-            /// The start time of the word or sound in seconds.
-            ///
-            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/start`.
-            public var start: Swift.Double?
-            /// The end time of the word or sound in seconds.
-            ///
-            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/end`.
-            public var end: Swift.Double?
             /// Unique identifier for the speaker of this word.
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/speaker_id`.
             public var speaker_id: Swift.String?
+            /// The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/logprob`.
+            public var logprob: Swift.Double
             /// The characters that make up the word and their timing information.
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/characters`.
@@ -1505,41 +1676,43 @@ public enum Components {
             ///
             /// - Parameters:
             ///   - text: The word or sound that was transcribed.
-            ///   - _type: The type of the word or sound. 'audio_event' is used for non-word sounds like laughter or footsteps.
-            ///   - logprob: The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.
             ///   - start: The start time of the word or sound in seconds.
             ///   - end: The end time of the word or sound in seconds.
+            ///   - _type: The type of the word or sound. 'audio_event' is used for non-word sounds like laughter or footsteps.
             ///   - speaker_id: Unique identifier for the speaker of this word.
+            ///   - logprob: The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.
             ///   - characters: The characters that make up the word and their timing information.
             public init(
                 text: Swift.String,
-                _type: Components.Schemas.SpeechToTextWordResponseModel._typePayload,
-                logprob: Swift.Double,
                 start: Swift.Double? = nil,
                 end: Swift.Double? = nil,
+                _type: Components.Schemas.SpeechToTextWordResponseModel._typePayload,
                 speaker_id: Swift.String? = nil,
+                logprob: Swift.Double,
                 characters: [Components.Schemas.SpeechToTextCharacterResponseModel]? = nil
             ) {
                 self.text = text
-                self._type = _type
-                self.logprob = logprob
                 self.start = start
                 self.end = end
+                self._type = _type
                 self.speaker_id = speaker_id
+                self.logprob = logprob
                 self.characters = characters
             }
             public enum CodingKeys: String, CodingKey {
                 case text
-                case _type = "type"
-                case logprob
                 case start
                 case end
+                case _type = "type"
                 case speaker_id
+                case logprob
                 case characters
             }
         }
         /// - Remark: Generated from `#/components/schemas/SrtExportOptions`.
         public struct SrtExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/max_characters_per_line`.
+            public var max_characters_per_line: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/SrtExportOptions/include_speakers`.
             public var include_speakers: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/SrtExportOptions/include_timestamps`.
@@ -1550,8 +1723,6 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/SrtExportOptions/format`.
             public var format: Components.Schemas.SrtExportOptions.formatPayload
-            /// - Remark: Generated from `#/components/schemas/SrtExportOptions/max_characters_per_line`.
-            public var max_characters_per_line: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/SrtExportOptions/segment_on_silence_longer_than_s`.
             public var segment_on_silence_longer_than_s: Swift.Double?
             /// - Remark: Generated from `#/components/schemas/SrtExportOptions/max_segment_duration_s`.
@@ -1561,35 +1732,35 @@ public enum Components {
             /// Creates a new `SrtExportOptions`.
             ///
             /// - Parameters:
+            ///   - max_characters_per_line:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
-            ///   - max_characters_per_line:
             ///   - segment_on_silence_longer_than_s:
             ///   - max_segment_duration_s:
             ///   - max_segment_chars:
             public init(
+                max_characters_per_line: Swift.Int? = nil,
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
                 format: Components.Schemas.SrtExportOptions.formatPayload,
-                max_characters_per_line: Swift.Int? = nil,
                 segment_on_silence_longer_than_s: Swift.Double? = nil,
                 max_segment_duration_s: Swift.Double? = nil,
                 max_segment_chars: Swift.Int? = nil
             ) {
+                self.max_characters_per_line = max_characters_per_line
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
-                self.max_characters_per_line = max_characters_per_line
                 self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
                 self.max_segment_duration_s = max_segment_duration_s
                 self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
+                case max_characters_per_line
                 case include_speakers
                 case include_timestamps
                 case format
-                case max_characters_per_line
                 case segment_on_silence_longer_than_s
                 case max_segment_duration_s
                 case max_segment_chars
@@ -1632,6 +1803,8 @@ public enum Components {
         }
         /// - Remark: Generated from `#/components/schemas/TxtExportOptions`.
         public struct TxtExportOptions: Codable, Hashable, Sendable {
+            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/max_characters_per_line`.
+            public var max_characters_per_line: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/TxtExportOptions/include_speakers`.
             public var include_speakers: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/TxtExportOptions/include_timestamps`.
@@ -1642,8 +1815,6 @@ public enum Components {
             }
             /// - Remark: Generated from `#/components/schemas/TxtExportOptions/format`.
             public var format: Components.Schemas.TxtExportOptions.formatPayload
-            /// - Remark: Generated from `#/components/schemas/TxtExportOptions/max_characters_per_line`.
-            public var max_characters_per_line: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/TxtExportOptions/segment_on_silence_longer_than_s`.
             public var segment_on_silence_longer_than_s: Swift.Double?
             /// - Remark: Generated from `#/components/schemas/TxtExportOptions/max_segment_duration_s`.
@@ -1653,35 +1824,35 @@ public enum Components {
             /// Creates a new `TxtExportOptions`.
             ///
             /// - Parameters:
+            ///   - max_characters_per_line:
             ///   - include_speakers:
             ///   - include_timestamps:
             ///   - format:
-            ///   - max_characters_per_line:
             ///   - segment_on_silence_longer_than_s:
             ///   - max_segment_duration_s:
             ///   - max_segment_chars:
             public init(
+                max_characters_per_line: Swift.Int? = nil,
                 include_speakers: Swift.Bool? = nil,
                 include_timestamps: Swift.Bool? = nil,
                 format: Components.Schemas.TxtExportOptions.formatPayload,
-                max_characters_per_line: Swift.Int? = nil,
                 segment_on_silence_longer_than_s: Swift.Double? = nil,
                 max_segment_duration_s: Swift.Double? = nil,
                 max_segment_chars: Swift.Int? = nil
             ) {
+                self.max_characters_per_line = max_characters_per_line
                 self.include_speakers = include_speakers
                 self.include_timestamps = include_timestamps
                 self.format = format
-                self.max_characters_per_line = max_characters_per_line
                 self.segment_on_silence_longer_than_s = segment_on_silence_longer_than_s
                 self.max_segment_duration_s = max_segment_duration_s
                 self.max_segment_chars = max_segment_chars
             }
             public enum CodingKeys: String, CodingKey {
+                case max_characters_per_line
                 case include_speakers
                 case include_timestamps
                 case format
-                case max_characters_per_line
                 case segment_on_silence_longer_than_s
                 case max_segment_duration_s
                 case max_segment_chars
@@ -1834,9 +2005,9 @@ public enum Operations {
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(Text_to_speech_v1_text_to_speech__voice_id__post)`.
-    public enum Text_to_speech_v1_text_to_speech__voice_id__post {
-        public static let id: Swift.String = "Text_to_speech_v1_text_to_speech__voice_id__post"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
+    public enum text_to_speech_full {
+        public static let id: Swift.String = "text_to_speech_full"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/path`.
             public struct Path: Sendable, Hashable {
@@ -1852,7 +2023,7 @@ public enum Operations {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Path
+            public var path: Operations.text_to_speech_full.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -1872,78 +2043,87 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query/optimize_streaming_latency`.
                 @available(*, deprecated)
                 public var optimize_streaming_latency: Swift.Int?
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query/output_format`.
                 @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                    case alaw_8000 = "alaw_8000"
                     case mp3_22050_32 = "mp3_22050_32"
+                    case mp3_24000_48 = "mp3_24000_48"
+                    case mp3_44100_128 = "mp3_44100_128"
+                    case mp3_44100_192 = "mp3_44100_192"
                     case mp3_44100_32 = "mp3_44100_32"
                     case mp3_44100_64 = "mp3_44100_64"
                     case mp3_44100_96 = "mp3_44100_96"
-                    case mp3_44100_128 = "mp3_44100_128"
-                    case mp3_44100_192 = "mp3_44100_192"
-                    case pcm_8000 = "pcm_8000"
-                    case pcm_16000 = "pcm_16000"
-                    case pcm_22050 = "pcm_22050"
-                    case pcm_24000 = "pcm_24000"
-                    case pcm_44100 = "pcm_44100"
-                    case pcm_48000 = "pcm_48000"
-                    case ulaw_8000 = "ulaw_8000"
-                    case alaw_8000 = "alaw_8000"
+                    case opus_48000_128 = "opus_48000_128"
+                    case opus_48000_192 = "opus_48000_192"
                     case opus_48000_32 = "opus_48000_32"
                     case opus_48000_64 = "opus_48000_64"
                     case opus_48000_96 = "opus_48000_96"
-                    case opus_48000_128 = "opus_48000_128"
-                    case opus_48000_192 = "opus_48000_192"
+                    case pcm_16000 = "pcm_16000"
+                    case pcm_22050 = "pcm_22050"
+                    case pcm_24000 = "pcm_24000"
+                    case pcm_32000 = "pcm_32000"
+                    case pcm_44100 = "pcm_44100"
+                    case pcm_48000 = "pcm_48000"
+                    case pcm_8000 = "pcm_8000"
+                    case ulaw_8000 = "ulaw_8000"
+                    case wav_16000 = "wav_16000"
+                    case wav_22050 = "wav_22050"
+                    case wav_24000 = "wav_24000"
+                    case wav_32000 = "wav_32000"
+                    case wav_44100 = "wav_44100"
+                    case wav_48000 = "wav_48000"
+                    case wav_8000 = "wav_8000"
                 }
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query/output_format`.
-                public var output_format: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Query.output_formatPayload?
+                public var output_format: Operations.text_to_speech_full.Input.Query.output_formatPayload?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
                 ///   - enable_logging: When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
                 ///   - optimize_streaming_latency: You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:
-                ///   - output_format: Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+                ///   - output_format: Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Query.output_formatPayload? = nil
+                    output_format: Operations.text_to_speech_full.Input.Query.output_formatPayload? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Query
+            public var query: Operations.text_to_speech_full.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_v1_text_to_speech__voice_id__post.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_v1_text_to_speech__voice_id__post.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Headers
+            public var headers: Operations.text_to_speech_full.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.Body_Text_to_speech_v1_text_to_speech__voice_id__post)
+                case json(Components.Schemas.Body_text_to_speech_full)
             }
-            public var body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Body
+            public var body: Operations.text_to_speech_full.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -1952,10 +2132,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Path,
-                query: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Query = .init(),
-                headers: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Headers = .init(),
-                body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Input.Body
+                path: Operations.text_to_speech_full.Input.Path,
+                query: Operations.text_to_speech_full.Input.Query = .init(),
+                headers: Operations.text_to_speech_full.Input.Headers = .init(),
+                body: Operations.text_to_speech_full.Input.Body
             ) {
                 self.path = path
                 self.query = query
@@ -1983,26 +2163,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.Ok.Body
+                public var body: Operations.text_to_speech_full.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.Ok.Body) {
+                public init(body: Operations.text_to_speech_full.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// The generated audio file
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(Text_to_speech_v1_text_to_speech__voice_id__post)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.Ok)
+            case ok(Operations.text_to_speech_full.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.Ok {
+            public var ok: Operations.text_to_speech_full.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -2034,26 +2214,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.UnprocessableContent.Body
+                public var body: Operations.text_to_speech_full.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.UnprocessableContent.Body) {
+                public init(body: Operations.text_to_speech_full.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(Text_to_speech_v1_text_to_speech__voice_id__post)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.UnprocessableContent)
+            case unprocessableContent(Operations.text_to_speech_full.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Text_to_speech_v1_text_to_speech__voice_id__post.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.text_to_speech_full.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -2108,9 +2288,9 @@ public enum Operations {
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)`.
-    public enum Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post {
-        public static let id: Swift.String = "Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
+    public enum text_to_speech_full_with_timestamps {
+        public static let id: Swift.String = "text_to_speech_full_with_timestamps"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/path`.
             public struct Path: Sendable, Hashable {
@@ -2126,7 +2306,7 @@ public enum Operations {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Path
+            public var path: Operations.text_to_speech_full_with_timestamps.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -2146,78 +2326,87 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query/optimize_streaming_latency`.
                 @available(*, deprecated)
                 public var optimize_streaming_latency: Swift.Int?
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query/output_format`.
                 @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
+                    case alaw_8000 = "alaw_8000"
                     case mp3_22050_32 = "mp3_22050_32"
+                    case mp3_24000_48 = "mp3_24000_48"
+                    case mp3_44100_128 = "mp3_44100_128"
+                    case mp3_44100_192 = "mp3_44100_192"
                     case mp3_44100_32 = "mp3_44100_32"
                     case mp3_44100_64 = "mp3_44100_64"
                     case mp3_44100_96 = "mp3_44100_96"
-                    case mp3_44100_128 = "mp3_44100_128"
-                    case mp3_44100_192 = "mp3_44100_192"
-                    case pcm_8000 = "pcm_8000"
-                    case pcm_16000 = "pcm_16000"
-                    case pcm_22050 = "pcm_22050"
-                    case pcm_24000 = "pcm_24000"
-                    case pcm_44100 = "pcm_44100"
-                    case pcm_48000 = "pcm_48000"
-                    case ulaw_8000 = "ulaw_8000"
-                    case alaw_8000 = "alaw_8000"
+                    case opus_48000_128 = "opus_48000_128"
+                    case opus_48000_192 = "opus_48000_192"
                     case opus_48000_32 = "opus_48000_32"
                     case opus_48000_64 = "opus_48000_64"
                     case opus_48000_96 = "opus_48000_96"
-                    case opus_48000_128 = "opus_48000_128"
-                    case opus_48000_192 = "opus_48000_192"
+                    case pcm_16000 = "pcm_16000"
+                    case pcm_22050 = "pcm_22050"
+                    case pcm_24000 = "pcm_24000"
+                    case pcm_32000 = "pcm_32000"
+                    case pcm_44100 = "pcm_44100"
+                    case pcm_48000 = "pcm_48000"
+                    case pcm_8000 = "pcm_8000"
+                    case ulaw_8000 = "ulaw_8000"
+                    case wav_16000 = "wav_16000"
+                    case wav_22050 = "wav_22050"
+                    case wav_24000 = "wav_24000"
+                    case wav_32000 = "wav_32000"
+                    case wav_44100 = "wav_44100"
+                    case wav_48000 = "wav_48000"
+                    case wav_8000 = "wav_8000"
                 }
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query/output_format`.
-                public var output_format: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Query.output_formatPayload?
+                public var output_format: Operations.text_to_speech_full_with_timestamps.Input.Query.output_formatPayload?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
                 ///   - enable_logging: When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
                 ///   - optimize_streaming_latency: You can turn on latency optimizations at some cost of quality. The best possible final latency varies by model. Possible values:
-                ///   - output_format: Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
+                ///   - output_format: Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Query.output_formatPayload? = nil
+                    output_format: Operations.text_to_speech_full_with_timestamps.Input.Query.output_formatPayload? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Query
+            public var query: Operations.text_to_speech_full_with_timestamps.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full_with_timestamps.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full_with_timestamps.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Headers
+            public var headers: Operations.text_to_speech_full_with_timestamps.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.Body_Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)
+                case json(Components.Schemas.Body_text_to_speech_full_with_timestamps)
             }
-            public var body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Body
+            public var body: Operations.text_to_speech_full_with_timestamps.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -2226,10 +2415,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Path,
-                query: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Query = .init(),
-                headers: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Headers = .init(),
-                body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Input.Body
+                path: Operations.text_to_speech_full_with_timestamps.Input.Path,
+                query: Operations.text_to_speech_full_with_timestamps.Input.Query = .init(),
+                headers: Operations.text_to_speech_full_with_timestamps.Input.Headers = .init(),
+                body: Operations.text_to_speech_full_with_timestamps.Input.Body
             ) {
                 self.path = path
                 self.query = query
@@ -2257,26 +2446,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.Ok.Body
+                public var body: Operations.text_to_speech_full_with_timestamps.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.Ok.Body) {
+                public init(body: Operations.text_to_speech_full_with_timestamps.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Successful Response
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.Ok)
+            case ok(Operations.text_to_speech_full_with_timestamps.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.Ok {
+            public var ok: Operations.text_to_speech_full_with_timestamps.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -2308,26 +2497,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.UnprocessableContent.Body
+                public var body: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.UnprocessableContent.Body) {
+                public init(body: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.UnprocessableContent)
+            case unprocessableContent(Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Text_to_speech_with_timestamps_v1_text_to_speech__voice_id__with_timestamps_post.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -2376,9 +2565,9 @@ public enum Operations {
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)`.
-    public enum Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post {
-        public static let id: Swift.String = "Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
+    public enum text_to_speech_stream {
+        public static let id: Swift.String = "text_to_speech_stream"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/path`.
             public struct Path: Sendable, Hashable {
@@ -2394,7 +2583,7 @@ public enum Operations {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Path
+            public var path: Operations.text_to_speech_stream.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -2419,6 +2608,7 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/query/output_format`.
                 @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
                     case mp3_22050_32 = "mp3_22050_32"
+                    case mp3_24000_48 = "mp3_24000_48"
                     case mp3_44100_32 = "mp3_44100_32"
                     case mp3_44100_64 = "mp3_44100_64"
                     case mp3_44100_96 = "mp3_44100_96"
@@ -2428,6 +2618,7 @@ public enum Operations {
                     case pcm_16000 = "pcm_16000"
                     case pcm_22050 = "pcm_22050"
                     case pcm_24000 = "pcm_24000"
+                    case pcm_32000 = "pcm_32000"
                     case pcm_44100 = "pcm_44100"
                     case pcm_48000 = "pcm_48000"
                     case ulaw_8000 = "ulaw_8000"
@@ -2441,7 +2632,7 @@ public enum Operations {
                 /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/query/output_format`.
-                public var output_format: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Query.output_formatPayload?
+                public var output_format: Operations.text_to_speech_stream.Input.Query.output_formatPayload?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
@@ -2451,41 +2642,41 @@ public enum Operations {
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Query.output_formatPayload? = nil
+                    output_format: Operations.text_to_speech_stream.Input.Query.output_formatPayload? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Query
+            public var query: Operations.text_to_speech_stream.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Headers
+            public var headers: Operations.text_to_speech_stream.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.Body_Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)
+                case json(Components.Schemas.Body_text_to_speech_stream)
             }
-            public var body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Body
+            public var body: Operations.text_to_speech_stream.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -2494,10 +2685,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Path,
-                query: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Query = .init(),
-                headers: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Headers = .init(),
-                body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Input.Body
+                path: Operations.text_to_speech_stream.Input.Path,
+                query: Operations.text_to_speech_stream.Input.Query = .init(),
+                headers: Operations.text_to_speech_stream.Input.Headers = .init(),
+                body: Operations.text_to_speech_stream.Input.Body
             ) {
                 self.path = path
                 self.query = query
@@ -2525,26 +2716,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.Ok.Body
+                public var body: Operations.text_to_speech_stream.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.Ok.Body) {
+                public init(body: Operations.text_to_speech_stream.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Streaming audio data
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.Ok)
+            case ok(Operations.text_to_speech_stream.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.Ok {
+            public var ok: Operations.text_to_speech_stream.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -2576,26 +2767,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.UnprocessableContent.Body
+                public var body: Operations.text_to_speech_stream.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.UnprocessableContent.Body) {
+                public init(body: Operations.text_to_speech_stream.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.UnprocessableContent)
+            case unprocessableContent(Operations.text_to_speech_stream.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Text_to_speech_streaming_v1_text_to_speech__voice_id__stream_post.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.text_to_speech_stream.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -2650,9 +2841,9 @@ public enum Operations {
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)`.
-    public enum Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post {
-        public static let id: Swift.String = "Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
+    public enum text_to_speech_stream_with_timestamps {
+        public static let id: Swift.String = "text_to_speech_stream_with_timestamps"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/path`.
             public struct Path: Sendable, Hashable {
@@ -2668,7 +2859,7 @@ public enum Operations {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Path
+            public var path: Operations.text_to_speech_stream_with_timestamps.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -2693,6 +2884,7 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/query/output_format`.
                 @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
                     case mp3_22050_32 = "mp3_22050_32"
+                    case mp3_24000_48 = "mp3_24000_48"
                     case mp3_44100_32 = "mp3_44100_32"
                     case mp3_44100_64 = "mp3_44100_64"
                     case mp3_44100_96 = "mp3_44100_96"
@@ -2702,6 +2894,7 @@ public enum Operations {
                     case pcm_16000 = "pcm_16000"
                     case pcm_22050 = "pcm_22050"
                     case pcm_24000 = "pcm_24000"
+                    case pcm_32000 = "pcm_32000"
                     case pcm_44100 = "pcm_44100"
                     case pcm_48000 = "pcm_48000"
                     case ulaw_8000 = "ulaw_8000"
@@ -2715,7 +2908,7 @@ public enum Operations {
                 /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/query/output_format`.
-                public var output_format: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Query.output_formatPayload?
+                public var output_format: Operations.text_to_speech_stream_with_timestamps.Input.Query.output_formatPayload?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
@@ -2725,41 +2918,41 @@ public enum Operations {
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Query.output_formatPayload? = nil
+                    output_format: Operations.text_to_speech_stream_with_timestamps.Input.Query.output_formatPayload? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Query
+            public var query: Operations.text_to_speech_stream_with_timestamps.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream_with_timestamps.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream_with_timestamps.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Headers
+            public var headers: Operations.text_to_speech_stream_with_timestamps.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.Body_Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)
+                case json(Components.Schemas.Body_text_to_speech_stream_with_timestamps)
             }
-            public var body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Body
+            public var body: Operations.text_to_speech_stream_with_timestamps.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -2768,10 +2961,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Path,
-                query: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Query = .init(),
-                headers: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Headers = .init(),
-                body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Input.Body
+                path: Operations.text_to_speech_stream_with_timestamps.Input.Path,
+                query: Operations.text_to_speech_stream_with_timestamps.Input.Query = .init(),
+                headers: Operations.text_to_speech_stream_with_timestamps.Input.Headers = .init(),
+                body: Operations.text_to_speech_stream_with_timestamps.Input.Body
             ) {
                 self.path = path
                 self.query = query
@@ -2799,26 +2992,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.Ok.Body
+                public var body: Operations.text_to_speech_stream_with_timestamps.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.Ok.Body) {
+                public init(body: Operations.text_to_speech_stream_with_timestamps.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Stream of transcription chunks
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.Ok)
+            case ok(Operations.text_to_speech_stream_with_timestamps.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.Ok {
+            public var ok: Operations.text_to_speech_stream_with_timestamps.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -2850,26 +3043,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.UnprocessableContent.Body
+                public var body: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.UnprocessableContent.Body) {
+                public init(body: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.UnprocessableContent)
+            case unprocessableContent(Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Text_to_speech_streaming_with_timestamps_v1_text_to_speech__voice_id__stream_with_timestamps_post.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -2918,52 +3111,52 @@ public enum Operations {
     /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
     ///
     /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)`.
-    public enum Speech_to_Text_v1_speech_to_text_post {
-        public static let id: Swift.String = "Speech_to_Text_v1_speech_to_text_post"
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
+    public enum speech_to_text {
+        public static let id: Swift.String = "speech_to_text"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query`.
             public struct Query: Sendable, Hashable {
-                /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
+                /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.
                 ///
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query/enable_logging`.
                 public var enable_logging: Swift.Bool?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
-                ///   - enable_logging: When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
+                ///   - enable_logging: When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.
                 public init(enable_logging: Swift.Bool? = nil) {
                     self.enable_logging = enable_logging
                 }
             }
-            public var query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query
+            public var query: Operations.speech_to_text.Input.Query
             /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Speech_to_Text_v1_speech_to_text_post.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.speech_to_text.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.Speech_to_Text_v1_speech_to_text_post.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.speech_to_text.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Headers
+            public var headers: Operations.speech_to_text.Input.Headers
             /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/content/multipart\/form-data`.
                 case multipartForm(OpenAPIRuntime.MultipartBody<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post>)
             }
-            public var body: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Body
+            public var body: Operations.speech_to_text.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -2971,9 +3164,9 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                query: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Query = .init(),
-                headers: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Headers = .init(),
-                body: Operations.Speech_to_Text_v1_speech_to_text_post.Input.Body
+                query: Operations.speech_to_text.Input.Query = .init(),
+                headers: Operations.speech_to_text.Input.Headers = .init(),
+                body: Operations.speech_to_text.Input.Body
             ) {
                 self.query = query
                 self.headers = headers
@@ -3042,12 +3235,12 @@ public enum Operations {
                         }
                     }
                     /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/application\/json`.
-                    case json(Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok.Body.jsonPayload)
+                    case json(Operations.speech_to_text.Output.Ok.Body.jsonPayload)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok.Body.jsonPayload {
+                    public var json: Operations.speech_to_text.Output.Ok.Body.jsonPayload {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -3057,26 +3250,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok.Body
+                public var body: Operations.speech_to_text.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok.Body) {
+                public init(body: Operations.speech_to_text.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Synchronous transcription result
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok)
+            case ok(Operations.speech_to_text.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Ok {
+            public var ok: Operations.speech_to_text.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -3108,26 +3301,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Accepted.Body
+                public var body: Operations.speech_to_text.Output.Accepted.Body
                 /// Creates a new `Accepted`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Accepted.Body) {
+                public init(body: Operations.speech_to_text.Output.Accepted.Body) {
                     self.body = body
                 }
             }
             /// Asynchronous request accepted
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)/responses/202`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/202`.
             ///
             /// HTTP response code: `202 accepted`.
-            case accepted(Operations.Speech_to_Text_v1_speech_to_text_post.Output.Accepted)
+            case accepted(Operations.speech_to_text.Output.Accepted)
             /// The associated value of the enum case if `self` is `.accepted`.
             ///
             /// - Throws: An error if `self` is not `.accepted`.
             /// - SeeAlso: `.accepted`.
-            public var accepted: Operations.Speech_to_Text_v1_speech_to_text_post.Output.Accepted {
+            public var accepted: Operations.speech_to_text.Output.Accepted {
                 get throws {
                     switch self {
                     case let .accepted(response):
@@ -3159,26 +3352,608 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.UnprocessableContent.Body
+                public var body: Operations.speech_to_text.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.Speech_to_Text_v1_speech_to_text_post.Output.UnprocessableContent.Body) {
+                public init(body: Operations.speech_to_text.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(Speech_to_Text_v1_speech_to_text_post)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.Speech_to_Text_v1_speech_to_text_post.Output.UnprocessableContent)
+            case unprocessableContent(Operations.speech_to_text.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.Speech_to_Text_v1_speech_to_text_post.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.speech_to_text.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Get Transcript By Id
+    ///
+    /// Retrieve a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
+    public enum get_transcript_by_id {
+        public static let id: Swift.String = "get_transcript_by_id"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/path`.
+            public struct Path: Sendable, Hashable {
+                /// The unique ID of the transcript to retrieve
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/path/transcription_id`.
+                public var transcription_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - transcription_id: The unique ID of the transcript to retrieve
+                public init(transcription_id: Swift.String) {
+                    self.transcription_id = transcription_id
+                }
+            }
+            public var path: Operations.get_transcript_by_id.Input.Path
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_transcript_by_id.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_transcript_by_id.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.get_transcript_by_id.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            public init(
+                path: Operations.get_transcript_by_id.Input.Path,
+                headers: Operations.get_transcript_by_id.Input.Headers = .init()
+            ) {
+                self.path = path
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/json`.
+                    public struct jsonPayload: Codable, Hashable, Sendable {
+                        /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/json/value1`.
+                        public var value1: Components.Schemas.SpeechToTextChunkResponseModel?
+                        /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/json/value2`.
+                        public var value2: Components.Schemas.MultichannelSpeechToTextResponseModel?
+                        /// Creates a new `jsonPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - value1:
+                        ///   - value2:
+                        public init(
+                            value1: Components.Schemas.SpeechToTextChunkResponseModel? = nil,
+                            value2: Components.Schemas.MultichannelSpeechToTextResponseModel? = nil
+                        ) {
+                            self.value1 = value1
+                            self.value2 = value2
+                        }
+                        public init(from decoder: any Decoder) throws {
+                            var errors: [any Error] = []
+                            do {
+                                self.value1 = try .init(from: decoder)
+                            } catch {
+                                errors.append(error)
+                            }
+                            do {
+                                self.value2 = try .init(from: decoder)
+                            } catch {
+                                errors.append(error)
+                            }
+                            try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
+                                [
+                                    self.value1,
+                                    self.value2
+                                ],
+                                type: Self.self,
+                                codingPath: decoder.codingPath,
+                                errors: errors
+                            )
+                        }
+                        public func encode(to encoder: any Encoder) throws {
+                            try self.value1?.encode(to: encoder)
+                            try self.value2?.encode(to: encoder)
+                        }
+                    }
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/application\/json`.
+                    case json(Operations.get_transcript_by_id.Output.Ok.Body.jsonPayload)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Operations.get_transcript_by_id.Output.Ok.Body.jsonPayload {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.get_transcript_by_id.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.get_transcript_by_id.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// The transcript data
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.get_transcript_by_id.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.get_transcript_by_id.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct Unauthorized: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/401/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/401/content/application\/json`.
+                    case json(OpenAPIRuntime.OpenAPIValueContainer)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.get_transcript_by_id.Output.Unauthorized.Body
+                /// Creates a new `Unauthorized`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.get_transcript_by_id.Output.Unauthorized.Body) {
+                    self.body = body
+                }
+            }
+            /// Authentication required
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/401`.
+            ///
+            /// HTTP response code: `401 unauthorized`.
+            case unauthorized(Operations.get_transcript_by_id.Output.Unauthorized)
+            /// The associated value of the enum case if `self` is `.unauthorized`.
+            ///
+            /// - Throws: An error if `self` is not `.unauthorized`.
+            /// - SeeAlso: `.unauthorized`.
+            public var unauthorized: Operations.get_transcript_by_id.Output.Unauthorized {
+                get throws {
+                    switch self {
+                    case let .unauthorized(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unauthorized",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct NotFound: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/404/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/404/content/application\/json`.
+                    case json(OpenAPIRuntime.OpenAPIValueContainer)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.get_transcript_by_id.Output.NotFound.Body
+                /// Creates a new `NotFound`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.get_transcript_by_id.Output.NotFound.Body) {
+                    self.body = body
+                }
+            }
+            /// Transcript not found
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/404`.
+            ///
+            /// HTTP response code: `404 notFound`.
+            case notFound(Operations.get_transcript_by_id.Output.NotFound)
+            /// The associated value of the enum case if `self` is `.notFound`.
+            ///
+            /// - Throws: An error if `self` is not `.notFound`.
+            /// - SeeAlso: `.notFound`.
+            public var notFound: Operations.get_transcript_by_id.Output.NotFound {
+                get throws {
+                    switch self {
+                    case let .notFound(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "notFound",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.get_transcript_by_id.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.get_transcript_by_id.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.get_transcript_by_id.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.get_transcript_by_id.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Delete Transcript By Id
+    ///
+    /// Delete a previously generated transcript by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
+    public enum delete_transcript_by_id {
+        public static let id: Swift.String = "delete_transcript_by_id"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/path`.
+            public struct Path: Sendable, Hashable {
+                /// The unique ID of the transcript to delete
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/path/transcription_id`.
+                public var transcription_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - transcription_id: The unique ID of the transcript to delete
+                public init(transcription_id: Swift.String) {
+                    self.transcription_id = transcription_id
+                }
+            }
+            public var path: Operations.delete_transcript_by_id.Input.Path
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/header`.
+            public struct Headers: Sendable, Hashable {
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.delete_transcript_by_id.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.delete_transcript_by_id.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.delete_transcript_by_id.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            public init(
+                path: Operations.delete_transcript_by_id.Input.Path,
+                headers: Operations.delete_transcript_by_id.Input.Headers = .init()
+            ) {
+                self.path = path
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/200/content/application\/json`.
+                    case json(OpenAPIRuntime.OpenAPIValueContainer)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.delete_transcript_by_id.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.delete_transcript_by_id.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Delete completed successfully.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.delete_transcript_by_id.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.delete_transcript_by_id.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct Unauthorized: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/401/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/401/content/application\/json`.
+                    case json(OpenAPIRuntime.OpenAPIValueContainer)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.delete_transcript_by_id.Output.Unauthorized.Body
+                /// Creates a new `Unauthorized`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.delete_transcript_by_id.Output.Unauthorized.Body) {
+                    self.body = body
+                }
+            }
+            /// Authentication required
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/401`.
+            ///
+            /// HTTP response code: `401 unauthorized`.
+            case unauthorized(Operations.delete_transcript_by_id.Output.Unauthorized)
+            /// The associated value of the enum case if `self` is `.unauthorized`.
+            ///
+            /// - Throws: An error if `self` is not `.unauthorized`.
+            /// - SeeAlso: `.unauthorized`.
+            public var unauthorized: Operations.delete_transcript_by_id.Output.Unauthorized {
+                get throws {
+                    switch self {
+                    case let .unauthorized(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unauthorized",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.delete_transcript_by_id.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.delete_transcript_by_id.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.delete_transcript_by_id.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.delete_transcript_by_id.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
