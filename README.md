@@ -1,5 +1,8 @@
 # ElevenLabs Swift
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fatacan%2FElevenLabs%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/atacan/ElevenLabs)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fatacan%2FElevenLabs%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/atacan/ElevenLabs)
+
 A Swift package for the [ElevenLabs API](https://elevenlabs.io), generated from the official OpenAPI specification using [swift-openapi-generator](https://github.com/apple/swift-openapi-generator).
 
 ## Requirements
