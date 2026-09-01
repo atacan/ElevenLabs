@@ -39,6 +39,13 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
     /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
     func text_to_speech_stream_with_timestamps(_ input: Operations.text_to_speech_stream_with_timestamps.Input) async throws -> Operations.text_to_speech_stream_with_timestamps.Output
+    /// Get Models
+    ///
+    /// Gets a list of available models.
+    ///
+    /// - Remark: HTTP `GET /v1/models`.
+    /// - Remark: Generated from `#/paths//v1/models/get(get_models)`.
+    func get_models(_ input: Operations.get_models.Input) async throws -> Operations.get_models.Output
     /// Speech To Text
     ///
     /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
@@ -139,6 +146,15 @@ extension APIProtocol {
             headers: headers,
             body: body
         ))
+    }
+    /// Get Models
+    ///
+    /// Gets a list of available models.
+    ///
+    /// - Remark: HTTP `GET /v1/models`.
+    /// - Remark: Generated from `#/paths//v1/models/get(get_models)`.
+    public func get_models(headers: Operations.get_models.Input.Headers = .init()) async throws -> Operations.get_models.Output {
+        try await get_models(Operations.get_models.Input(headers: headers))
     }
     /// Speech To Text
     ///
@@ -1325,6 +1341,197 @@ public enum Components {
                 case segment_on_silence_longer_than_s
                 case max_segment_duration_s
                 case max_segment_chars
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/LanguageResponseModel`.
+        public struct LanguageResponseModel: Codable, Hashable, Sendable {
+            /// The unique identifier of the language.
+            ///
+            /// - Remark: Generated from `#/components/schemas/LanguageResponseModel/language_id`.
+            public var language_id: Swift.String
+            /// The name of the language.
+            ///
+            /// - Remark: Generated from `#/components/schemas/LanguageResponseModel/name`.
+            public var name: Swift.String
+            /// Creates a new `LanguageResponseModel`.
+            ///
+            /// - Parameters:
+            ///   - language_id: The unique identifier of the language.
+            ///   - name: The name of the language.
+            public init(
+                language_id: Swift.String,
+                name: Swift.String
+            ) {
+                self.language_id = language_id
+                self.name = name
+            }
+            public enum CodingKeys: String, CodingKey {
+                case language_id
+                case name
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/ModelRatesResponseModel`.
+        public struct ModelRatesResponseModel: Codable, Hashable, Sendable {
+            /// The cost multiplier for characters.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelRatesResponseModel/character_cost_multiplier`.
+            public var character_cost_multiplier: Swift.Double
+            /// Creates a new `ModelRatesResponseModel`.
+            ///
+            /// - Parameters:
+            ///   - character_cost_multiplier: The cost multiplier for characters.
+            public init(character_cost_multiplier: Swift.Double) {
+                self.character_cost_multiplier = character_cost_multiplier
+            }
+            public enum CodingKeys: String, CodingKey {
+                case character_cost_multiplier
+            }
+        }
+        /// - Remark: Generated from `#/components/schemas/ModelResponseModel`.
+        public struct ModelResponseModel: Codable, Hashable, Sendable {
+            /// The unique identifier of the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/model_id`.
+            public var model_id: Swift.String
+            /// The name of the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/name`.
+            public var name: Swift.String
+            /// Whether the model can be finetuned.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/can_be_finetuned`.
+            public var can_be_finetuned: Swift.Bool
+            /// Whether the model can do text-to-speech.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/can_do_text_to_speech`.
+            public var can_do_text_to_speech: Swift.Bool
+            /// Whether the model can do voice conversion.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/can_do_voice_conversion`.
+            public var can_do_voice_conversion: Swift.Bool
+            /// Whether the model can use style.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/can_use_style`.
+            public var can_use_style: Swift.Bool
+            /// Whether the model can use speaker boost.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/can_use_speaker_boost`.
+            public var can_use_speaker_boost: Swift.Bool
+            /// Whether the model serves pro voices.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/serves_pro_voices`.
+            public var serves_pro_voices: Swift.Bool
+            /// The cost factor for the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/token_cost_factor`.
+            public var token_cost_factor: Swift.Double
+            /// The description of the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/description`.
+            public var description: Swift.String
+            /// Whether the model requires alpha access.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/requires_alpha_access`.
+            public var requires_alpha_access: Swift.Bool
+            /// The maximum number of characters that can be requested by a free user.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/max_characters_request_free_user`.
+            public var max_characters_request_free_user: Swift.Int
+            /// The maximum number of characters that can be requested by a subscribed user.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/max_characters_request_subscribed_user`.
+            public var max_characters_request_subscribed_user: Swift.Int
+            /// The maximum length of text that can be requested for this model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/maximum_text_length_per_request`.
+            public var maximum_text_length_per_request: Swift.Int
+            /// The languages supported by the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/languages`.
+            public var languages: [Components.Schemas.LanguageResponseModel]
+            /// The rates for the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/model_rates`.
+            public var model_rates: Components.Schemas.ModelRatesResponseModel
+            /// The concurrency group for the model.
+            ///
+            /// - Remark: Generated from `#/components/schemas/ModelResponseModel/concurrency_group`.
+            public var concurrency_group: Swift.String
+            /// Creates a new `ModelResponseModel`.
+            ///
+            /// - Parameters:
+            ///   - model_id: The unique identifier of the model.
+            ///   - name: The name of the model.
+            ///   - can_be_finetuned: Whether the model can be finetuned.
+            ///   - can_do_text_to_speech: Whether the model can do text-to-speech.
+            ///   - can_do_voice_conversion: Whether the model can do voice conversion.
+            ///   - can_use_style: Whether the model can use style.
+            ///   - can_use_speaker_boost: Whether the model can use speaker boost.
+            ///   - serves_pro_voices: Whether the model serves pro voices.
+            ///   - token_cost_factor: The cost factor for the model.
+            ///   - description: The description of the model.
+            ///   - requires_alpha_access: Whether the model requires alpha access.
+            ///   - max_characters_request_free_user: The maximum number of characters that can be requested by a free user.
+            ///   - max_characters_request_subscribed_user: The maximum number of characters that can be requested by a subscribed user.
+            ///   - maximum_text_length_per_request: The maximum length of text that can be requested for this model.
+            ///   - languages: The languages supported by the model.
+            ///   - model_rates: The rates for the model.
+            ///   - concurrency_group: The concurrency group for the model.
+            public init(
+                model_id: Swift.String,
+                name: Swift.String,
+                can_be_finetuned: Swift.Bool,
+                can_do_text_to_speech: Swift.Bool,
+                can_do_voice_conversion: Swift.Bool,
+                can_use_style: Swift.Bool,
+                can_use_speaker_boost: Swift.Bool,
+                serves_pro_voices: Swift.Bool,
+                token_cost_factor: Swift.Double,
+                description: Swift.String,
+                requires_alpha_access: Swift.Bool,
+                max_characters_request_free_user: Swift.Int,
+                max_characters_request_subscribed_user: Swift.Int,
+                maximum_text_length_per_request: Swift.Int,
+                languages: [Components.Schemas.LanguageResponseModel],
+                model_rates: Components.Schemas.ModelRatesResponseModel,
+                concurrency_group: Swift.String
+            ) {
+                self.model_id = model_id
+                self.name = name
+                self.can_be_finetuned = can_be_finetuned
+                self.can_do_text_to_speech = can_do_text_to_speech
+                self.can_do_voice_conversion = can_do_voice_conversion
+                self.can_use_style = can_use_style
+                self.can_use_speaker_boost = can_use_speaker_boost
+                self.serves_pro_voices = serves_pro_voices
+                self.token_cost_factor = token_cost_factor
+                self.description = description
+                self.requires_alpha_access = requires_alpha_access
+                self.max_characters_request_free_user = max_characters_request_free_user
+                self.max_characters_request_subscribed_user = max_characters_request_subscribed_user
+                self.maximum_text_length_per_request = maximum_text_length_per_request
+                self.languages = languages
+                self.model_rates = model_rates
+                self.concurrency_group = concurrency_group
+            }
+            public enum CodingKeys: String, CodingKey {
+                case model_id
+                case name
+                case can_be_finetuned
+                case can_do_text_to_speech
+                case can_do_voice_conversion
+                case can_use_style
+                case can_use_speaker_boost
+                case serves_pro_voices
+                case token_cost_factor
+                case description
+                case requires_alpha_access
+                case max_characters_request_free_user
+                case max_characters_request_subscribed_user
+                case maximum_text_length_per_request
+                case languages
+                case model_rates
+                case concurrency_group
             }
         }
         /// Response model for multichannel speech-to-text transcription.
@@ -3412,6 +3619,224 @@ public enum Operations {
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
             public var unprocessableContent: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Get Models
+    ///
+    /// Gets a list of available models.
+    ///
+    /// - Remark: HTTP `GET /v1/models`.
+    /// - Remark: Generated from `#/paths//v1/models/get(get_models)`.
+    public enum get_models {
+        public static let id: Swift.String = "get_models"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/models/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///
+                /// - Remark: Generated from `#/paths/v1/models/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_models.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_models.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.get_models.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            public init(headers: Operations.get_models.Input.Headers = .init()) {
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/models/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/models/GET/responses/200/content/application\/json`.
+                    case json([Components.Schemas.ModelResponseModel])
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: [Components.Schemas.ModelResponseModel] {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.get_models.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.get_models.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.get_models.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.get_models.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/models/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/models/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.get_models.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.get_models.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.get_models.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.get_models.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):

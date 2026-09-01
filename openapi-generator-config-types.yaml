@@ -13,7 +13,7 @@ filter:
     # - "dubbing"
     # - "enterprise"
     # - "forced-alignment"
-    # - "models"
+    - "models"
     # - "music-generation"
     # - "Pronunciation Dictionary"
     # - "pvc-voices"
