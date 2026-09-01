@@ -77,8 +77,6 @@ struct ElevenLabsTests {
             )
         )
 
-        dump(response)
-
         let output: HTTPBody = try response.ok.body.audio_mpeg
         let audioData: Data = try await Data(collecting: output, upTo: 1024 * 1024 * 10)
         #expect(audioData.count > 0)
