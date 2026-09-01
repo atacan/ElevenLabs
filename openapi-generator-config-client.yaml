@@ -34,5 +34,5 @@ filter:
     # - "usage"
     # - "user"
     # - "voice-generation"
-    # - "voices"
+    - "voices"
     # - "workspace"
