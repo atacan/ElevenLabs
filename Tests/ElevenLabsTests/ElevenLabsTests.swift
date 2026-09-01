@@ -87,6 +87,41 @@ struct ElevenLabsTests {
         #expect(FileManager.default.fileExists(atPath: audioUrl.path))
     }
 
+    @Test func testGetModelsApiStructure() async throws {
+        let response = try await client.get_models(Operations.get_models.Input())
+
+        let models: [Components.Schemas.ModelResponseModel] = try response.ok.body.json
+        #expect(models.isEmpty == false)
+
+        let model: Components.Schemas.ModelResponseModel = models[0]
+        #expect(model.model_id.isEmpty == false)
+        #expect(model.name.isEmpty == false)
+
+        let languages: [Components.Schemas.LanguageResponseModel] = model.languages
+        #expect(languages.isEmpty == false)
+
+        let ttsModel: Components.Schemas.ModelResponseModel? = models.first { $0.can_do_text_to_speech }
+        #expect(ttsModel != nil)
+    }
+
+    @Test func testGetVoicesApiStructure() async throws {
+        let response = try await client.get_voices(
+            Operations.get_voices.Input(query: .init(show_legacy: true))
+        )
+
+        let output: Components.Schemas.GetVoicesResponseModel = try response.ok.body.json
+
+        let voices: [Components.Schemas.VoiceResponseModel] = output.voices
+        #expect(voices.isEmpty == false)
+
+        let voice: Components.Schemas.VoiceResponseModel = voices[0]
+        #expect(voice.voice_id.isEmpty == false)
+        #expect(voice.name.isEmpty == false)
+
+        let category: Components.Schemas.VoiceResponseModel.categoryPayload = voice.category
+        #expect(Components.Schemas.VoiceResponseModel.categoryPayload.allCases.contains(category))
+    }
+
     @Test func testClientInitialization() {
         // Test that client initializes correctly
         // The client should be created without throwing errors
