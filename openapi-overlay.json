@@ -129,6 +129,30 @@
           "$ref": "#/components/responses/BadRequest"
         }
       }
+    },
+    {
+      "target": "$.components",
+      "update": {
+        "securitySchemes": {
+          "ElevenLabsAPIKey": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "xi-api-key",
+            "description": "Optional credential matching the existing xi-api-key header parameters; the service determines which endpoints require it."
+          }
+        }
+      }
+    },
+    {
+      "target": "$",
+      "update": {
+        "security": [
+          {
+            "ElevenLabsAPIKey": []
+          },
+          {}
+        ]
+      }
     }
   ]
 }

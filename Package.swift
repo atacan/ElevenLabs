@@ -23,11 +23,15 @@ let package = Package(
             name: "ElevenLabs",
             targets: ["ElevenLabs"]
         ),
+        .library(name: "ElevenLabsURLSession", targets: ["ElevenLabsURLSession"]),
+        .library(name: "ElevenLabsAsyncHTTPClient", targets: ["ElevenLabsAsyncHTTPClient"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.10.0"),
-        .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.0"),
-        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.1.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.13.0"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.12.0"),
+        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.5.0"),
+        .package(url: "https://github.com/apple/swift-openapi-urlsession", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-http-types", from: "1.0.0"),
         .package(url: "https://github.com/atacan/UsefulThings", branch: "main"),
     ],
     targets: [
@@ -35,7 +39,8 @@ let package = Package(
         .target(
             name: "ElevenLabsTypes",
             dependencies: [
-                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime")
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "HTTPTypes", package: "swift-http-types"),
             ]
         ),
         // Client target: Contains generated client and custom code
@@ -43,15 +48,61 @@ let package = Package(
             name: "ElevenLabs",
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+                .product(name: "HTTPTypes", package: "swift-http-types"),
                 .target(name: "ElevenLabsTypes"),
             ]
         ),
-        // Tests
+        // Transport conveniences both construct the shared generated Client.
+        .target(
+            name: "ElevenLabsURLSession",
+            dependencies: [
+                .target(name: "ElevenLabs"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession"),
+            ]
+        ),
+        .target(
+            name: "ElevenLabsAsyncHTTPClient",
+            dependencies: [
+                .target(name: "ElevenLabs"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+            ]
+        ),
+        .testTarget(
+            name: "ElevenLabsTypesTests",
+            dependencies: [.target(name: "ElevenLabsTypes")]
+        ),
+        .testTarget(
+            name: "ElevenLabsURLSessionTests",
+            dependencies: [
+                .target(name: "ElevenLabs"),
+                .target(name: "ElevenLabsURLSession"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession"),
+                .product(name: "HTTPTypes", package: "swift-http-types"),
+            ]
+        ),
+        .testTarget(
+            name: "ElevenLabsAsyncHTTPClientTests",
+            dependencies: [
+                .target(name: "ElevenLabs"),
+                .target(name: "ElevenLabsAsyncHTTPClient"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+                .product(name: "HTTPTypes", package: "swift-http-types"),
+            ]
+        ),
+        // Shared client and authentication tests
         .testTarget(
             name: "ElevenLabsTests",
             dependencies: [
                 .target(name: "ElevenLabs"),
+                .target(name: "ElevenLabsTypes"),
+                .target(name: "ElevenLabsAsyncHTTPClient"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+                .product(name: "HTTPTypes", package: "swift-http-types"),
                 .product(name: "UsefulThings", package: "UsefulThings"),
             ]
         ),

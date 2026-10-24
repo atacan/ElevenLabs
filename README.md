@@ -7,7 +7,7 @@ A Swift package for the [ElevenLabs API](https://elevenlabs.io), generated from 
 
 ## Requirements
 
-- Swift 5.9+
+- Swift 6.2+ with the current resolved dependencies (verified with Swift 6.4)
 - macOS 13+, iOS 16+, tvOS 16+, watchOS 9+
 
 ## Installation
@@ -23,6 +23,7 @@ targets: [
         name: "YourTarget",
         dependencies: [
             .product(name: "ElevenLabs", package: "ElevenLabs"),
+            .product(name: "ElevenLabsURLSession", package: "ElevenLabs"),
         ]
     ),
 ]
@@ -34,20 +35,55 @@ Use `ElevenLabsTypes` instead if you only need the types (e.g. for a server-side
 
 | Product | Description |
 |---|---|
-| `ElevenLabsTypes` | Generated request/response types and the `AuthenticationMiddleware` |
-| `ElevenLabs` | Generated HTTP client + `createClient(apiKey:)` factory function |
+| `ElevenLabsTypes` | Generated models, operation inputs/outputs, and API protocol |
+| `ElevenLabs` | Transport-independent HTTP client and shared authentication |
+| `ElevenLabsURLSession` | `Client.urlSession(...)` factory |
+| `ElevenLabsAsyncHTTPClient` | `Client.asyncHTTPClient(...)` and `createClient(apiKey:)` factories |
 
 ## Usage
 
 ### Creating a client
 
 ```swift
+import Foundation
 import ElevenLabs
+import ElevenLabsURLSession
 
-let client = createClient(apiKey: "your-api-key")
+let client = Client.urlSession(
+    serverURL: URL(string: "https://api.elevenlabs.io")!,
+    authentication: .apiKey("YOUR_API_KEY")
+)
 ```
 
-`createClient` points at `https://api.elevenlabs.io` and attaches an `AuthenticationMiddleware` that injects the `xi-api-key` header on every request.
+For AsyncHTTPClient, add its product to your target dependencies:
+
+```swift
+import Foundation
+import ElevenLabs
+import ElevenLabsAsyncHTTPClient
+
+let client = Client.asyncHTTPClient(
+    serverURL: URL(string: "https://api.elevenlabs.io")!,
+    authentication: .apiKey("YOUR_API_KEY")
+)
+
+// Provider helper with the same service URL and shared AsyncHTTPClient defaults.
+let defaultClient = createClient(apiKey: "YOUR_API_KEY")
+```
+
+Both factories return `ElevenLabs.Client`. Shared authentication injects the
+`xi-api-key` header. The overlay declares the API key as optional to match the
+source specification's optional header parameters; the service still decides
+which requests require credentials. Use `Authentication.credentials` with scheme
+name `ElevenLabsAPIKey` when selecting credentials by name, or an async provider
+with `.apiKey { try await keyStore.currentKey() }` for rotating keys.
+
+Factories accept `configuration:`, `transportConfiguration:`, and `middlewares:`.
+Additional middleware runs before shared authentication. Injected sessions/clients
+remain owned by the caller; do not shut down the transports' shared instances.
+For custom transports, use the core `Client(serverURL:configuration:transport:authentication:middlewares:)` initializer.
+The core and Types targets contain no transport dependencies; SwiftPM can still
+resolve both transport packages at the package level.
 
 ### Text to Speech
 
@@ -122,6 +158,8 @@ let audioBody = try response.ok.body.audio_mpeg
 
 The generator configs filter to a subset of the full ElevenLabs API. Currently enabled tags:
 
+- `models`
+- `voices`
 - `speech-to-text`
 - `text-to-speech`
 
@@ -133,7 +171,7 @@ To enable additional tags, edit `openapi-generator-config-types.yaml` and `opena
 
 The Swift sources under `Sources/*/GeneratedSources/` are generated — do not edit them by hand.
 
-To regenerate after updating `openapi.json` or the generator configs:
+To regenerate after updating `original_openapi.json`, `openapi-overlay.json`, or the generator configs:
 
 ```bash
 make regenerate
@@ -159,36 +197,52 @@ make merge-main     Merge current branch into main and push
 
 ### Running tests
 
-Tests call the live ElevenLabs API. Provide your key in a `.env` file in the repository root:
-
-```
-ELEVENLABS_API_KEY=sk-...
-```
-
-Then:
+Run the offline suites explicitly; they use mock transports and response middleware
+and do not read `.env` or call the service:
 
 ```bash
-swift test
-# or
-make test
+swift build
+swift test --filter 'AuthenticationTests|URLSessionFactoryTests|AsyncHTTPClientFactoryTests|ElevenLabsTypesTests'
 ```
+
+The existing `ElevenLabsTests` suite calls the live API and automatically reads
+`ELEVENLABS_API_KEY` from a root `.env` file. Run it separately only when intended:
+
+```bash
+swift test --filter ElevenLabsTests
+```
+
+### Troubleshooting dates
+
+If a response fails with `Expected date string to be ISO8601-formatted`, inspect
+the actual timestamp. Fractional seconds can require
+`configuration: .init(dateTranscoder: .iso8601WithFractionalSeconds)`. Pass runtime
+configuration to either factory; standalone JSON decoders need their own date
+strategy. No fractional-second default is currently required by the enabled API
+fixtures. If the provider needs it, update both preserved factory files and verify
+both offline response paths and explicit caller overrides.
 
 ### Project structure
 
 ```
 Sources/
-  ElevenLabsTypes/
-    AuthenticationMiddleware.swift   # Injects xi-api-key header
-    ElevenLabsTypes.swift            # Placeholder for custom extensions
-    GeneratedSources/Types.swift     # Generated: Operations, Components, schemas
+  ElevenLabsTypes/                  # Generated models and custom type utilities
   ElevenLabs/
-    ElevenLabs.swift                 # createClient(apiKey:) factory
-    GeneratedSources/Client.swift    # Generated: Client struct
+    Authentication/                # Shared authentication and generated security metadata
+    GeneratedSources/              # Generated client
+  ElevenLabsURLSession/            # URLSession factory
+  ElevenLabsAsyncHTTPClient/       # AsyncHTTPClient factory and provider helper
 Tests/
-  ElevenLabsTests/
-    ElevenLabsTests.swift            # Integration tests
-openapi.json                         # Source OpenAPI specification
-openapi-generator-config-types.yaml  # Generator config for types target
-openapi-generator-config-client.yaml # Generator config for client target
-Makefile
+  ElevenLabsTests/                 # Live API tests plus offline AuthenticationTests
+  ElevenLabsTypesTests/            # Type test placeholder
+  ElevenLabsURLSessionTests/       # Offline factory tests
+  ElevenLabsAsyncHTTPClientTests/  # Offline factory tests
+original_openapi.json              # Source specification
+openapi-overlay.json               # Editable provider corrections
+openapi.json                       # Generated, sanitized and overlaid specification
 ```
+
+Regeneration preserves manual helpers, factory settings, manifests, generator
+configs, tests, and documentation. Edit specifications through the original or
+overlay; edit custom Swift outside `GeneratedSources/`. Regenerate operation
+security metadata instead of editing it directly.
