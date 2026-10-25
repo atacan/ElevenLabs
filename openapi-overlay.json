@@ -153,6 +153,155 @@
           {}
         ]
       }
+    },
+    {
+      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.additional_formats",
+      "remove": true
+    },
+    {
+      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
+      "update": {
+        "additional_formats": {
+          "description": "Additional transcript formats, encoded together as one JSON array part.",
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ExportOptions"
+              },
+              "maxItems": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "target": "$.components.schemas.SpeechToTextChunkResponseModel.properties",
+      "update": {
+        "audio_duration_secs": {
+          "type": "number",
+          "description": "Audio duration in seconds for this transcript or channel."
+        }
+      }
+    },
+    {
+      "target": "$.components.schemas.MultichannelSpeechToTextResponseModel.properties",
+      "update": {
+        "audio_duration_secs": {
+          "type": "number",
+          "description": "Sum of audio durations in seconds across all channels, rather than wall-clock duration."
+        }
+      }
+    },
+    {
+      "target": "$.components.schemas.SpeechToTextWordResponseModel.properties",
+      "update": {
+        "channel_index": {
+          "type": "integer",
+          "description": "Zero-based index of the audio channel containing this word."
+        }
+      }
+    },
+    {
+      "target": "$.components.schemas.BadRequestErrorDetail.properties",
+      "update": {
+        "type": {
+          "type": "string",
+          "description": "Error type."
+        },
+        "code": {
+          "type": "string",
+          "description": "Machine-readable error code."
+        },
+        "request_id": {
+          "type": "string",
+          "description": "Identifier for the failed request."
+        },
+        "param": {
+          "type": "string",
+          "description": "Request parameter responsible for the error, when available."
+        }
+      }
+    },
+    {
+      "target": "$.paths['/v1/speech-to-text'].post.responses",
+      "update": {
+        "401": {
+          "description": "Authentication failed.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BadRequestError"
+              }
+            }
+          }
+        },
+        "429": {
+          "description": "Rate limit or quota exceeded.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BadRequestError"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.keyterms",
+      "update": {
+        "description": "Words or phrases to bias recognition towards (up to 1000; each less than 50 characters and at most 5 words). Additional charges apply, with a minimum billed duration for more than 100 terms."
+      }
+    },
+    {
+      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.cloud_storage_url",
+      "update": {
+        "deprecated": true,
+        "description": "Deprecated: use source_url for the URL of the file to transcribe."
+      }
+    },
+    {
+      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
+      "update": {
+        "source_url": {
+          "type": "string",
+          "description": "URL of an audio or video file, including supported video hosting services."
+        },
+        "no_verbatim": {
+          "type": "boolean",
+          "default": false,
+          "description": "Remove filler words, false starts and non-speech sounds. Supported by scribe_v2."
+        },
+        "multichannel_output_style": {
+          "type": "string",
+          "enum": [
+            "separate",
+            "combined"
+          ],
+          "default": "separate",
+          "description": "Return separate channel transcripts or merge words by time. Combined requires timestamps and does not support entity detection or redaction."
+        },
+        "entity_redaction": {
+          "type": "string",
+          "description": "Entity category or type to redact, or all. Must be a subset of entity_detection. Use a category to select multiple types."
+        },
+        "transcript_edit": {
+          "type": "string",
+          "maxLength": 2000,
+          "description": "Instruction to edit the final transcript. Incompatible with entity detection, redaction and multichannel. Additional charges apply."
+        },
+        "detect_speaker_roles": {
+          "type": "boolean",
+          "default": false,
+          "description": "Identify agent and customer roles. Requires diarization and single-channel mode. Additional charges apply."
+        },
+        "use_speaker_library": {
+          "type": "boolean",
+          "default": false,
+          "description": "Match diarized speakers against the workspace speaker library."
+        }
+      }
     }
   ]
 }

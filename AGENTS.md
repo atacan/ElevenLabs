@@ -18,11 +18,14 @@ Verify changes offline with:
 
 ```bash
 swift build
-swift test --filter 'AuthenticationTests|URLSessionFactoryTests|AsyncHTTPClientFactoryTests|ElevenLabsTypesTests'
+swift test --filter 'AuthenticationTests|URLSessionFactoryTests|AsyncHTTPClientFactoryTests|ElevenLabsTypesTests|SpeechToTextTests'
 ```
 
-The ElevenLabsTests suite loads .env and performs live API requests; run it only
-when explicitly requested. Never print credentials. Factory tests short-circuit
+The ElevenLabsTests suite reads ELEVENLABS_API_KEY from the process environment and performs live API requests; run it only
+when explicitly requested. Network tests skip when the key is absent or blank;
+a configured key rejected by the service is a failure, not a skip. Mocked
+400/401/429 tests assert expected error responses without real credentials.
+Never print credentials. Factory tests short-circuit
 network requests and shared-authentication tests use a mock transport.
 
 If date decoding reports `Expected date string to be ISO8601-formatted`, inspect

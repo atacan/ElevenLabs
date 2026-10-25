@@ -1,0 +1,1 @@
+{"detail":{"type":"validation_error","code":"invalid_parameters","message":"Multichannel mode does not support diarization and assigns speakers based on the channel they speak on.","status":"invalid_parameters","request_id":"145d85eb0d837014b5eaebbe41ab9afb","param":"use_multi_channel"}}

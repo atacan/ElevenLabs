@@ -32,7 +32,6 @@ let package = Package(
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.5.0"),
         .package(url: "https://github.com/apple/swift-openapi-urlsession", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-http-types", from: "1.0.0"),
-        .package(url: "https://github.com/atacan/UsefulThings", branch: "main"),
     ],
     targets: [
         // Types target: Contains generated types from OpenAPI spec
@@ -71,7 +70,8 @@ let package = Package(
         ),
         .testTarget(
             name: "ElevenLabsTypesTests",
-            dependencies: [.target(name: "ElevenLabsTypes")]
+            dependencies: [.target(name: "ElevenLabsTypes")],
+            resources: [.copy("Resources")]
         ),
         .testTarget(
             name: "ElevenLabsURLSessionTests",
@@ -103,7 +103,6 @@ let package = Package(
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
                 .product(name: "HTTPTypes", package: "swift-http-types"),
-                .product(name: "UsefulThings", package: "UsefulThings"),
             ]
         ),
     ]

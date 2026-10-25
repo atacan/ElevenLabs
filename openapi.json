@@ -10041,6 +10041,26 @@
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit or quota exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestError"
+                }
+              }
+            }
           }
         },
         "x-fern-sdk-group-name": "speech_to_text",
@@ -30161,12 +30181,6 @@
             "maximum": 0.4,
             "minimum": 0.1
           },
-          "additional_formats": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ExportOptions"
-            }
-          },
           "file_format": {
             "type": "string",
             "enum": [
@@ -30183,14 +30197,15 @@
           },
           "cloud_storage_url": {
             "title": "Cloud Storage Url",
-            "description": "The HTTPS URL of the file to transcribe. Exactly one of the file or cloud_storage_url parameters must be provided. The file must be accessible via HTTPS and the file size must be less than 2GB. Any valid HTTPS URL is accepted, including URLs from cloud storage providers (AWS S3, Google Cloud Storage, Cloudflare R2, etc.), CDNs, or any other HTTPS source. URLs can be pre-signed or include authentication tokens in query parameters.",
+            "description": "Deprecated: use source_url for the URL of the file to transcribe.",
             "examples": [
               "https://storage.googleapis.com/my-bucket/folder/audio.mp3",
               "https://my-bucket.s3.us-west-2.amazonaws.com/folder/audio.mp3",
               "https://account123.r2.cloudflarestorage.com/my-bucket/audio.mp3",
               "https://cdn.example.com/media/audio.wav"
             ],
-            "type": "string"
+            "type": "string",
+            "deprecated": true
           },
           "webhook": {
             "type": "boolean",
@@ -30264,8 +30279,57 @@
             },
             "type": "array",
             "title": "Keyterms",
-            "description": "A list of keyterms to bias the transcription towards.           The keyterms are words or phrases you want the model to recognise more accurately.           The number of keyterms cannot exceed 100.           The length of each keyterm must be less than 50 characters.           Keyterms can contain at most 5 words (after normalisation).           For example [\"hello\", \"world\", \"technical term\"].           Usage of this parameter will incur additional costs.  ",
+            "description": "Words or phrases to bias recognition towards (up to 1000; each less than 50 characters and at most 5 words). Additional charges apply, with a minimum billed duration for more than 100 terms.",
             "default": []
+          },
+          "additional_formats": {
+            "description": "Additional transcript formats, encoded together as one JSON array part.",
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExportOptions"
+                },
+                "maxItems": 10
+              }
+            ]
+          },
+          "source_url": {
+            "type": "string",
+            "description": "URL of an audio or video file, including supported video hosting services."
+          },
+          "no_verbatim": {
+            "type": "boolean",
+            "default": false,
+            "description": "Remove filler words, false starts and non-speech sounds. Supported by scribe_v2."
+          },
+          "multichannel_output_style": {
+            "type": "string",
+            "enum": [
+              "separate",
+              "combined"
+            ],
+            "default": "separate",
+            "description": "Return separate channel transcripts or merge words by time. Combined requires timestamps and does not support entity detection or redaction."
+          },
+          "entity_redaction": {
+            "type": "string",
+            "description": "Entity category or type to redact, or all. Must be a subset of entity_detection. Use a category to select multiple types."
+          },
+          "transcript_edit": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Instruction to edit the final transcript. Incompatible with entity detection, redaction and multichannel. Additional charges apply."
+          },
+          "detect_speaker_roles": {
+            "type": "boolean",
+            "default": false,
+            "description": "Identify agent and customer roles. Requires diarization and single-channel mode. Additional charges apply."
+          },
+          "use_speaker_library": {
+            "type": "boolean",
+            "default": false,
+            "description": "Match diarized speakers against the workspace speaker library."
           }
         },
         "type": "object",
@@ -45241,6 +45305,10 @@
             "title": "Transcription Id",
             "description": "The transcription ID of the response.",
             "type": "string"
+          },
+          "audio_duration_secs": {
+            "type": "number",
+            "description": "Sum of audio durations in seconds across all channels, rather than wall-clock duration."
           }
         },
         "type": "object",
@@ -52105,6 +52173,10 @@
               "$ref": "#/components/schemas/DetectedEntity"
             },
             "type": "array"
+          },
+          "audio_duration_secs": {
+            "type": "number",
+            "description": "Audio duration in seconds for this transcript or channel."
           }
         },
         "type": "object",
@@ -52221,6 +52293,10 @@
               "$ref": "#/components/schemas/SpeechToTextCharacterResponseModel"
             },
             "type": "array"
+          },
+          "channel_index": {
+            "type": "integer",
+            "description": "Zero-based index of the audio channel containing this word."
           }
         },
         "type": "object",
@@ -60979,6 +61055,22 @@
           "message": {
             "type": "string",
             "description": "Human-readable description of the error."
+          },
+          "type": {
+            "type": "string",
+            "description": "Error type."
+          },
+          "code": {
+            "type": "string",
+            "description": "Machine-readable error code."
+          },
+          "request_id": {
+            "type": "string",
+            "description": "Identifier for the failed request."
+          },
+          "param": {
+            "type": "string",
+            "description": "Request parameter responsible for the error, when available."
           }
         }
       },

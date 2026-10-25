@@ -553,18 +553,6 @@ extension Components {
                 }
             }
             case diarization_threshold(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.diarization_thresholdPayload>)
-            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats`.
-            public struct additional_formatsPayload: Sendable, Hashable {
-                public var body: Components.Schemas.ExportOptions
-                /// Creates a new `additional_formatsPayload`.
-                ///
-                /// - Parameters:
-                ///   - body:
-                public init(body: Components.Schemas.ExportOptions) {
-                    self.body = body
-                }
-            }
-            case additional_formats(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload>)
             /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/file_format`.
             public struct file_formatPayload: Sendable, Hashable {
                 public var body: OpenAPIRuntime.HTTPBody
@@ -752,6 +740,137 @@ extension Components {
                 }
             }
             case keyterms(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.keytermsPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats`.
+            public struct additional_formatsPayload: Sendable, Hashable {
+                /// Additional transcript formats, encoded together as one JSON array part.
+                ///
+                /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats/content/body`.
+                public struct bodyPayload: Codable, Hashable, Sendable {
+                    /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/additional_formats/content/body/value1`.
+                    public var value1: [Components.Schemas.ExportOptions]?
+                    /// Creates a new `bodyPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - value1:
+                    public init(value1: [Components.Schemas.ExportOptions]? = nil) {
+                        self.value1 = value1
+                    }
+                    public init(from decoder: any Swift.Decoder) throws {
+                        var errors: [any Swift.Error] = []
+                        do {
+                            self.value1 = try decoder.decodeFromSingleValueContainer()
+                        } catch {
+                            errors.append(error)
+                        }
+                        try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
+                            [
+                                self.value1
+                            ],
+                            type: Self.self,
+                            codingPath: decoder.codingPath,
+                            errors: errors
+                        )
+                    }
+                    public func encode(to encoder: any Swift.Encoder) throws {
+                        try encoder.encodeFirstNonNilValueToSingleValueContainer([
+                            self.value1
+                        ])
+                    }
+                }
+                public var body: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload.bodyPayload
+                /// Creates a new `additional_formatsPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload.bodyPayload) {
+                    self.body = body
+                }
+            }
+            case additional_formats(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.additional_formatsPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/source_url`.
+            public struct source_urlPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `source_urlPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case source_url(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.source_urlPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/no_verbatim`.
+            public struct no_verbatimPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `no_verbatimPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case no_verbatim(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.no_verbatimPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/multichannel_output_style`.
+            public struct multichannel_output_stylePayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `multichannel_output_stylePayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case multichannel_output_style(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.multichannel_output_stylePayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/entity_redaction`.
+            public struct entity_redactionPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `entity_redactionPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case entity_redaction(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.entity_redactionPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/transcript_edit`.
+            public struct transcript_editPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `transcript_editPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case transcript_edit(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.transcript_editPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/detect_speaker_roles`.
+            public struct detect_speaker_rolesPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `detect_speaker_rolesPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case detect_speaker_roles(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.detect_speaker_rolesPayload>)
+            /// - Remark: Generated from `#/components/schemas/Body_Speech_to_Text_v1_speech_to_text_post/use_speaker_library`.
+            public struct use_speaker_libraryPayload: Sendable, Hashable {
+                public var body: OpenAPIRuntime.HTTPBody
+                /// Creates a new `use_speaker_libraryPayload`.
+                ///
+                /// - Parameters:
+                ///   - body:
+                public init(body: OpenAPIRuntime.HTTPBody) {
+                    self.body = body
+                }
+            }
+            case use_speaker_library(OpenAPIRuntime.MultipartPart<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post.use_speaker_libraryPayload>)
             case undocumented(OpenAPIRuntime.MultipartRawPart)
         }
         /// - Remark: Generated from `#/components/schemas/Body_text_to_speech_full`.
@@ -2395,21 +2514,29 @@ extension Components {
             ///
             /// - Remark: Generated from `#/components/schemas/MultichannelSpeechToTextResponseModel/transcription_id`.
             public var transcription_id: Swift.String?
+            /// Sum of audio durations in seconds across all channels, rather than wall-clock duration.
+            ///
+            /// - Remark: Generated from `#/components/schemas/MultichannelSpeechToTextResponseModel/audio_duration_secs`.
+            public var audio_duration_secs: Swift.Double?
             /// Creates a new `MultichannelSpeechToTextResponseModel`.
             ///
             /// - Parameters:
             ///   - transcripts: List of transcripts, one for each audio channel. Each transcript contains the text and word-level details for its respective channel.
             ///   - transcription_id: The transcription ID of the response.
+            ///   - audio_duration_secs: Sum of audio durations in seconds across all channels, rather than wall-clock duration.
             public init(
                 transcripts: [Components.Schemas.SpeechToTextChunkResponseModel],
-                transcription_id: Swift.String? = nil
+                transcription_id: Swift.String? = nil,
+                audio_duration_secs: Swift.Double? = nil
             ) {
                 self.transcripts = transcripts
                 self.transcription_id = transcription_id
+                self.audio_duration_secs = audio_duration_secs
             }
             public enum CodingKeys: String, CodingKey {
                 case transcripts
                 case transcription_id
+                case audio_duration_secs
             }
         }
         /// - Remark: Generated from `#/components/schemas/PdfExportOptions`.
@@ -2905,6 +3032,10 @@ extension Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/entities`.
             public var entities: [Components.Schemas.DetectedEntity]?
+            /// Audio duration in seconds for this transcript or channel.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextChunkResponseModel/audio_duration_secs`.
+            public var audio_duration_secs: Swift.Double?
             /// Creates a new `SpeechToTextChunkResponseModel`.
             ///
             /// - Parameters:
@@ -2916,6 +3047,7 @@ extension Components {
             ///   - additional_formats: Requested additional formats of the transcript.
             ///   - transcription_id: The transcription ID of the response.
             ///   - entities: List of detected entities with their text, type, and character positions in the transcript.
+            ///   - audio_duration_secs: Audio duration in seconds for this transcript or channel.
             public init(
                 language_code: Swift.String,
                 language_probability: Swift.Double,
@@ -2924,7 +3056,8 @@ extension Components {
                 channel_index: Swift.Int? = nil,
                 additional_formats: [Components.Schemas.AdditionalFormatResponseModel]? = nil,
                 transcription_id: Swift.String? = nil,
-                entities: [Components.Schemas.DetectedEntity]? = nil
+                entities: [Components.Schemas.DetectedEntity]? = nil,
+                audio_duration_secs: Swift.Double? = nil
             ) {
                 self.language_code = language_code
                 self.language_probability = language_probability
@@ -2934,6 +3067,7 @@ extension Components {
                 self.additional_formats = additional_formats
                 self.transcription_id = transcription_id
                 self.entities = entities
+                self.audio_duration_secs = audio_duration_secs
             }
             public enum CodingKeys: String, CodingKey {
                 case language_code
@@ -2944,6 +3078,7 @@ extension Components {
                 case additional_formats
                 case transcription_id
                 case entities
+                case audio_duration_secs
             }
         }
         /// - Remark: Generated from `#/components/schemas/SpeechToTextWebhookResponseModel`.
@@ -3021,6 +3156,10 @@ extension Components {
             ///
             /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/characters`.
             public var characters: [Components.Schemas.SpeechToTextCharacterResponseModel]?
+            /// Zero-based index of the audio channel containing this word.
+            ///
+            /// - Remark: Generated from `#/components/schemas/SpeechToTextWordResponseModel/channel_index`.
+            public var channel_index: Swift.Int?
             /// Creates a new `SpeechToTextWordResponseModel`.
             ///
             /// - Parameters:
@@ -3031,6 +3170,7 @@ extension Components {
             ///   - speaker_id: Unique identifier for the speaker of this word.
             ///   - logprob: The log of the probability with which this word was predicted. Logprobs are in range [-infinity, 0], higher logprobs indicate a higher confidence the model has in its predictions.
             ///   - characters: The characters that make up the word and their timing information.
+            ///   - channel_index: Zero-based index of the audio channel containing this word.
             public init(
                 text: Swift.String,
                 start: Swift.Double? = nil,
@@ -3038,7 +3178,8 @@ extension Components {
                 _type: Components.Schemas.SpeechToTextWordResponseModel._typePayload,
                 speaker_id: Swift.String? = nil,
                 logprob: Swift.Double,
-                characters: [Components.Schemas.SpeechToTextCharacterResponseModel]? = nil
+                characters: [Components.Schemas.SpeechToTextCharacterResponseModel]? = nil,
+                channel_index: Swift.Int? = nil
             ) {
                 self.text = text
                 self.start = start
@@ -3047,6 +3188,7 @@ extension Components {
                 self.speaker_id = speaker_id
                 self.logprob = logprob
                 self.characters = characters
+                self.channel_index = channel_index
             }
             public enum CodingKeys: String, CodingKey {
                 case text
@@ -3056,6 +3198,7 @@ extension Components {
                 case speaker_id
                 case logprob
                 case characters
+                case channel_index
             }
         }
         /// - Remark: Generated from `#/components/schemas/SrtExportOptions`.
@@ -4244,21 +4387,53 @@ extension Components {
             ///
             /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/message`.
             public var message: Swift.String?
+            /// Error type.
+            ///
+            /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/type`.
+            public var _type: Swift.String?
+            /// Machine-readable error code.
+            ///
+            /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/code`.
+            public var code: Swift.String?
+            /// Identifier for the failed request.
+            ///
+            /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/request_id`.
+            public var request_id: Swift.String?
+            /// Request parameter responsible for the error, when available.
+            ///
+            /// - Remark: Generated from `#/components/schemas/BadRequestErrorDetail/param`.
+            public var param: Swift.String?
             /// Creates a new `BadRequestErrorDetail`.
             ///
             /// - Parameters:
             ///   - status: Error code identifying the specific issue.
             ///   - message: Human-readable description of the error.
+            ///   - _type: Error type.
+            ///   - code: Machine-readable error code.
+            ///   - request_id: Identifier for the failed request.
+            ///   - param: Request parameter responsible for the error, when available.
             public init(
                 status: Swift.String? = nil,
-                message: Swift.String? = nil
+                message: Swift.String? = nil,
+                _type: Swift.String? = nil,
+                code: Swift.String? = nil,
+                request_id: Swift.String? = nil,
+                param: Swift.String? = nil
             ) {
                 self.status = status
                 self.message = message
+                self._type = _type
+                self.code = code
+                self.request_id = request_id
+                self.param = param
             }
             public enum CodingKeys: String, CodingKey {
                 case status
                 case message
+                case _type = "type"
+                case code
+                case request_id
+                case param
             }
         }
         /// - Remark: Generated from `#/components/schemas/BadRequestError`.

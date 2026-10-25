@@ -1,0 +1,31 @@
+{
+  "language_code": "en",
+  "language_probability": 0.98,
+  "text": "Hello world!",
+  "words": [
+    {
+      "end": 0.5,
+      "logprob": -0.124,
+      "speaker_id": "speaker_1",
+      "start": 0.0,
+      "text": "Hello",
+      "type": "word"
+    },
+    {
+      "end": 0.5,
+      "logprob": 0.0,
+      "speaker_id": "speaker_1",
+      "start": 0.5,
+      "text": " ",
+      "type": "spacing"
+    },
+    {
+      "end": 1.2,
+      "logprob": -0.089,
+      "speaker_id": "speaker_1",
+      "start": 0.5,
+      "text": "world!",
+      "type": "word"
+    }
+  ]
+}

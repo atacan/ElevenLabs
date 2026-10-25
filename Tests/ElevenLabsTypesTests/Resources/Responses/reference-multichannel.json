@@ -1,0 +1,36 @@
+{
+  "transcripts": [
+    {
+      "language_code": "en",
+      "language_probability": 0.98,
+      "text": "Hello from channel one.",
+      "words": [
+        {
+          "text": "Hello",
+          "start": 0.0,
+          "end": 0.5,
+          "type": "word",
+          "speaker_id": "speaker_0",
+          "channel_index": 0,
+          "logprob": -0.124
+        }
+      ]
+    },
+    {
+      "language_code": "en",
+      "language_probability": 0.97,
+      "text": "Greetings from channel two.",
+      "words": [
+        {
+          "text": "Greetings",
+          "start": 0.1,
+          "end": 0.7,
+          "type": "word",
+          "speaker_id": "speaker_1",
+          "channel_index": 1,
+          "logprob": -0.156
+        }
+      ]
+    }
+  ]
+}

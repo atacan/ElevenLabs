@@ -253,15 +253,6 @@
       }
     },
     {
-      "identity" : "usefulthings",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/atacan/UsefulThings",
-      "state" : {
-        "branch" : "main",
-        "revision" : "8ba0a33fd20e7ed29d27b58ef5af23c61bc3a60b"
-      }
-    },
-    {
       "identity" : "yams",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/Yams",

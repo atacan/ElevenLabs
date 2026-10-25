@@ -1,0 +1,1 @@
+{"detail":{"type":"validation_error","code":"unsupported_model","message":"'scribe_v9' is not a valid model_id. Available models: 'scribe_v1', 'scribe_v1_experimental', 'scribe_v2', 'scribe_v2_medical'","status":"invalid_model_id","request_id":"7e7320a6345b911a61dd1e2209001b49","param":"model_id"}}

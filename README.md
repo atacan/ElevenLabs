@@ -202,11 +202,15 @@ and do not read `.env` or call the service:
 
 ```bash
 swift build
-swift test --filter 'AuthenticationTests|URLSessionFactoryTests|AsyncHTTPClientFactoryTests|ElevenLabsTypesTests'
+swift test --filter 'AuthenticationTests|URLSessionFactoryTests|AsyncHTTPClientFactoryTests|ElevenLabsTypesTests|SpeechToTextTests'
 ```
 
-The existing `ElevenLabsTests` suite calls the live API and automatically reads
-`ELEVENLABS_API_KEY` from a root `.env` file. Run it separately only when intended:
+The existing `ElevenLabsTests` suite calls the live API and reads
+`ELEVENLABS_API_KEY` from the process environment. Export the key before running
+it separately, and run it only when intended. The four network tests skip with
+a clear message when the key is absent or blank. A configured key that the service
+rejects still fails these success tests; mocked 400/401/429 tests assert the
+expected error response and pass when it matches:
 
 ```bash
 swift test --filter ElevenLabsTests
@@ -233,8 +237,8 @@ Sources/
   ElevenLabsURLSession/            # URLSession factory
   ElevenLabsAsyncHTTPClient/       # AsyncHTTPClient factory and provider helper
 Tests/
-  ElevenLabsTests/                 # Live API tests plus offline AuthenticationTests
-  ElevenLabsTypesTests/            # Type test placeholder
+  ElevenLabsTests/                 # Live API tests plus offline authentication and speech-to-text tests
+  ElevenLabsTypesTests/            # Offline response decoding tests and captured fixtures
   ElevenLabsURLSessionTests/       # Offline factory tests
   ElevenLabsAsyncHTTPClientTests/  # Offline factory tests
 original_openapi.json              # Source specification

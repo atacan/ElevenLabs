@@ -1,9 +1,8 @@
+import ElevenLabsAsyncHTTPClient
 import Foundation
 import OpenAPIAsyncHTTPClient
-import ElevenLabsAsyncHTTPClient
 import OpenAPIRuntime
 import Testing
-import UsefulThings
 
 @testable import ElevenLabs
 @testable import ElevenLabsTypes
@@ -18,16 +17,23 @@ import struct Foundation.Data
 import struct Foundation.Date
 #endif
 
-struct ElevenLabsTests {
-    let client = {
-        let envFileUrl = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent(".env")
-        let apiKey = getEnvironmentVariable("ELEVENLABS_API_KEY", from: envFileUrl)!
-        let client = createClient(apiKey: apiKey)
-        return client
-    }()
+private let liveAPIKey = ProcessInfo.processInfo.environment["ELEVENLABS_API_KEY"]?
+    .trimmingCharacters(in: .whitespacesAndNewlines)
 
-    @Test func testSpeechToTextApiStructure() async throws {
-        let audioData = try! Data(contentsOf: URL(fileURLWithPath: "/Users/atacan/Developer/Repositories/ElevenLabs/60s_speech.wav"))
+struct ElevenLabsTests {
+    private var client: Client {
+        get throws {
+            let apiKey = try #require(liveAPIKey, "ELEVENLABS_API_KEY is required for live API tests.")
+            return createClient(apiKey: apiKey)
+        }
+    }
+
+    @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
+    func testSpeechToTextApiStructure() async throws {
+        let audioURL = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("60s_speech.wav")
+        let audioData = try Data(contentsOf: audioURL)
 
         let response = try await client.speech_to_text(
             Operations.speech_to_text.Input(
@@ -43,8 +49,6 @@ struct ElevenLabsTests {
                 ])
             )
         )
-
-        dump(response)
 
         let output: Components.Schemas.SpeechToTextChunkResponseModel? = try response.ok.body.json.value1
         guard let output: Components.Schemas.SpeechToTextChunkResponseModel = output else {
@@ -64,14 +68,22 @@ struct ElevenLabsTests {
         #expect(word.end! > word.start!)
     }
 
-    @Test func testTextToSpeechApiStructure() async throws {
-        let humanReadableDate: String = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
+    @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
+    func testTextToSpeechApiStructure() async throws {
+        let client = try self.client
+        let voiceResponse = try await client.get_voices(.init(query: .init(show_legacy: false)))
+        let voices = try voiceResponse.ok.body.json.voices
+        // Default voices are returned as premade; library voices require a paid API plan.
+        let voice = try #require(
+            voices.first { $0.category == .premade && $0.is_legacy != true },
+            "No current default voice is available to this account; refusing to use a paid library voice."
+        )
         let response = try await client.text_to_speech_full(
             Operations.text_to_speech_full.Input(
-                path: .init(voice_id: "YVyp28LAMQfmx8iIH88U"),
+                path: .init(voice_id: voice.voice_id),
                 body: .json(
                     Components.Schemas.Body_text_to_speech_full(
-                        text: "Hello world! Code generation is working! Today's date is \(humanReadableDate).",
+                        text: "Hello world.",
                         model_id: "eleven_multilingual_v2"
                     )
                 )
@@ -88,7 +100,8 @@ struct ElevenLabsTests {
         #expect(FileManager.default.fileExists(atPath: audioUrl.path))
     }
 
-    @Test func testGetModelsApiStructure() async throws {
+    @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
+    func testGetModelsApiStructure() async throws {
         let response = try await client.get_models(Operations.get_models.Input())
 
         let models: [Components.Schemas.ModelResponseModel] = try response.ok.body.json
@@ -105,7 +118,8 @@ struct ElevenLabsTests {
         #expect(ttsModel != nil)
     }
 
-    @Test func testGetVoicesApiStructure() async throws {
+    @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
+    func testGetVoicesApiStructure() async throws {
         let response = try await client.get_voices(
             Operations.get_voices.Input(query: .init(show_legacy: true))
         )
