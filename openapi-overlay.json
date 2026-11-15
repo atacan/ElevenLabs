@@ -155,11 +155,11 @@
       }
     },
     {
-      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.additional_formats",
+      "target": "$.paths['/v1/speech-to-text'].post.requestBody.content['multipart/form-data'].schema.properties.additional_formats",
       "remove": true
     },
     {
-      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
+      "target": "$.paths['/v1/speech-to-text'].post.requestBody.content['multipart/form-data'].schema.properties",
       "update": {
         "additional_formats": {
           "description": "Additional transcript formats, encoded together as one JSON array part.",
@@ -249,57 +249,354 @@
       }
     },
     {
-      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.keyterms",
+      "target": "$.paths['/v1/speech-to-text'].post.requestBody.content['multipart/form-data'].schema.properties.keyterms",
       "update": {
         "description": "Words or phrases to bias recognition towards (up to 1000; each less than 50 characters and at most 5 words). Additional charges apply, with a minimum billed duration for more than 100 terms."
       }
     },
     {
-      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties.cloud_storage_url",
+      "target": "$.paths['/v1/speech-to-text'].post.requestBody.content['multipart/form-data'].schema.properties.cloud_storage_url",
       "update": {
         "deprecated": true,
         "description": "Deprecated: use source_url for the URL of the file to transcribe."
       }
     },
     {
-      "target": "$.components.schemas.Body_Speech_to_Text_v1_speech_to_text_post.properties",
+      "target": "$.components.schemas.speech_to_text_transcripts_get_Response_200.oneOf",
+      "remove": true
+    },
+    {
+      "target": "$.components.schemas.speech_to_text_transcripts_get_Response_200",
       "update": {
-        "source_url": {
-          "type": "string",
-          "description": "URL of an audio or video file, including supported video hosting services."
-        },
-        "no_verbatim": {
-          "type": "boolean",
-          "default": false,
-          "description": "Remove filler words, false starts and non-speech sounds. Supported by scribe_v2."
-        },
-        "multichannel_output_style": {
-          "type": "string",
-          "enum": [
-            "separate",
-            "combined"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SpeechToTextChunkResponseModel"
+          },
+          {
+            "$ref": "#/components/schemas/MultichannelSpeechToTextResponseModel"
+          }
+        ]
+      }
+    },
+    {
+      "target": "$.paths['/v1/flows/text-to-speech']",
+      "remove": true
+    },
+    {
+      "target": "$.paths['/v1/flows/text-to-speech/{generation_id}']",
+      "remove": true
+    },
+    {
+      "target": "$.components.schemas.ExportOptions",
+      "remove": true
+    },
+    {
+      "target": "$.components.schemas",
+      "update": {
+        "DocxExportOptions": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "docx"
+              ]
+            },
+            "include_speakers": {
+              "type": "boolean",
+              "default": true
+            },
+            "include_timestamps": {
+              "type": "boolean",
+              "default": true
+            },
+            "segment_on_silence_longer_than_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_duration_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_chars": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "format"
           ],
-          "default": "separate",
-          "description": "Return separate channel transcripts or merge words by time. Combined requires timestamps and does not support entity detection or redaction."
+          "description": "DocxExportOptions variant",
+          "title": "DocxExportOptions"
         },
-        "entity_redaction": {
-          "type": "string",
-          "description": "Entity category or type to redact, or all. Must be a subset of entity_detection. Use a category to select multiple types."
+        "HtmlExportOptions": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "html"
+              ]
+            },
+            "include_speakers": {
+              "type": "boolean",
+              "default": true
+            },
+            "include_timestamps": {
+              "type": "boolean",
+              "default": true
+            },
+            "segment_on_silence_longer_than_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_duration_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_chars": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "format"
+          ],
+          "description": "HtmlExportOptions variant",
+          "title": "HtmlExportOptions"
         },
-        "transcript_edit": {
-          "type": "string",
-          "maxLength": 2000,
-          "description": "Instruction to edit the final transcript. Incompatible with entity detection, redaction and multichannel. Additional charges apply."
+        "PdfExportOptions": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "pdf"
+              ]
+            },
+            "include_speakers": {
+              "type": "boolean",
+              "default": true
+            },
+            "include_timestamps": {
+              "type": "boolean",
+              "default": true
+            },
+            "segment_on_silence_longer_than_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_duration_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_chars": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "format"
+          ],
+          "description": "PdfExportOptions variant",
+          "title": "PdfExportOptions"
         },
-        "detect_speaker_roles": {
-          "type": "boolean",
-          "default": false,
-          "description": "Identify agent and customer roles. Requires diarization and single-channel mode. Additional charges apply."
+        "SegmentedJsonExportOptions": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "segmented_json"
+              ]
+            },
+            "include_speakers": {
+              "type": "boolean",
+              "default": true
+            },
+            "include_timestamps": {
+              "type": "boolean",
+              "default": true
+            },
+            "segment_on_silence_longer_than_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_duration_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_chars": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "format"
+          ],
+          "description": "SegmentedJsonExportOptions variant",
+          "title": "SegmentedJsonExportOptions"
         },
-        "use_speaker_library": {
-          "type": "boolean",
-          "default": false,
-          "description": "Match diarized speakers against the workspace speaker library."
+        "SrtExportOptions": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "srt"
+              ]
+            },
+            "max_characters_per_line": {
+              "type": "integer",
+              "default": 42
+            },
+            "include_speakers": {
+              "type": "boolean",
+              "default": false
+            },
+            "include_timestamps": {
+              "type": "boolean",
+              "default": true
+            },
+            "segment_on_silence_longer_than_s": {
+              "type": "number",
+              "format": "double",
+              "default": 0.8
+            },
+            "max_segment_duration_s": {
+              "type": "number",
+              "format": "double",
+              "default": 4
+            },
+            "max_segment_chars": {
+              "type": "integer",
+              "default": 84
+            }
+          },
+          "required": [
+            "format"
+          ],
+          "description": "SrtExportOptions variant",
+          "title": "SrtExportOptions"
+        },
+        "TxtExportOptions": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "txt"
+              ]
+            },
+            "max_characters_per_line": {
+              "type": "integer",
+              "default": 100
+            },
+            "include_speakers": {
+              "type": "boolean",
+              "default": true
+            },
+            "include_timestamps": {
+              "type": "boolean",
+              "default": true
+            },
+            "segment_on_silence_longer_than_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_duration_s": {
+              "type": "number",
+              "format": "double"
+            },
+            "max_segment_chars": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "format"
+          ],
+          "description": "TxtExportOptions variant",
+          "title": "TxtExportOptions"
+        },
+        "ExportOptions": {
+          "title": "ExportOptions",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/DocxExportOptions"
+            },
+            {
+              "$ref": "#/components/schemas/HtmlExportOptions"
+            },
+            {
+              "$ref": "#/components/schemas/PdfExportOptions"
+            },
+            {
+              "$ref": "#/components/schemas/SegmentedJsonExportOptions"
+            },
+            {
+              "$ref": "#/components/schemas/SrtExportOptions"
+            },
+            {
+              "$ref": "#/components/schemas/TxtExportOptions"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "format",
+            "mapping": {
+              "docx": "#/components/schemas/DocxExportOptions",
+              "html": "#/components/schemas/HtmlExportOptions",
+              "pdf": "#/components/schemas/PdfExportOptions",
+              "segmented_json": "#/components/schemas/SegmentedJsonExportOptions",
+              "srt": "#/components/schemas/SrtExportOptions",
+              "txt": "#/components/schemas/TxtExportOptions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.paths['/v1/text-to-speech/{voice_id}'].post.responses['200'].content",
+      "remove": true
+    },
+    {
+      "target": "$.paths['/v1/text-to-speech/{voice_id}'].post.responses['200']",
+      "update": {
+        "content": {
+          "audio/mpeg": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.paths['/v1/text-to-speech/{voice_id}/stream'].post.responses['200'].content",
+      "remove": true
+    },
+    {
+      "target": "$.paths['/v1/text-to-speech/{voice_id}/stream'].post.responses['200']",
+      "update": {
+        "content": {
+          "audio/mpeg": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": "$.paths['/v1/text-to-speech/{voice_id}/stream/with-timestamps'].post.responses['200'].content",
+      "remove": true
+    },
+    {
+      "target": "$.paths['/v1/text-to-speech/{voice_id}/stream/with-timestamps'].post.responses['200']",
+      "update": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/StreamingAudioChunkWithTimestampsResponseModel"
+            }
+          }
         }
       }
     }

@@ -5,30 +5,30 @@ public import struct Foundation.Data
 public import struct Foundation.Date
 /// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 public enum Operations {
-    /// Text To Speech
+    /// Create speech
     ///
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
-    public enum text_to_speech_full {
-        public static let id: Swift.String = "text_to_speech_full"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)`.
+    public enum textToSpeech_convert {
+        public static let id: Swift.String = "textToSpeech_convert"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/path`.
             public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                /// ID of the voice to be used. Use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/path/voice_id`.
                 public var voice_id: Swift.String
                 /// Creates a new `Path`.
                 ///
                 /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                ///   - voice_id: ID of the voice to be used. Use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
                 public init(voice_id: Swift.String) {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.text_to_speech_full.Input.Path
+            public var path: Operations.textToSpeech_convert.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -51,40 +51,7 @@ public enum Operations {
                 /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query/output_format`.
-                @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                    case alaw_8000 = "alaw_8000"
-                    case mp3_22050_32 = "mp3_22050_32"
-                    case mp3_24000_48 = "mp3_24000_48"
-                    case mp3_44100_128 = "mp3_44100_128"
-                    case mp3_44100_192 = "mp3_44100_192"
-                    case mp3_44100_32 = "mp3_44100_32"
-                    case mp3_44100_64 = "mp3_44100_64"
-                    case mp3_44100_96 = "mp3_44100_96"
-                    case opus_48000_128 = "opus_48000_128"
-                    case opus_48000_192 = "opus_48000_192"
-                    case opus_48000_32 = "opus_48000_32"
-                    case opus_48000_64 = "opus_48000_64"
-                    case opus_48000_96 = "opus_48000_96"
-                    case pcm_16000 = "pcm_16000"
-                    case pcm_22050 = "pcm_22050"
-                    case pcm_24000 = "pcm_24000"
-                    case pcm_32000 = "pcm_32000"
-                    case pcm_44100 = "pcm_44100"
-                    case pcm_48000 = "pcm_48000"
-                    case pcm_8000 = "pcm_8000"
-                    case ulaw_8000 = "ulaw_8000"
-                    case wav_16000 = "wav_16000"
-                    case wav_22050 = "wav_22050"
-                    case wav_24000 = "wav_24000"
-                    case wav_32000 = "wav_32000"
-                    case wav_44100 = "wav_44100"
-                    case wav_48000 = "wav_48000"
-                    case wav_8000 = "wav_8000"
-                }
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-                ///
-                /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/query/output_format`.
-                public var output_format: Operations.text_to_speech_full.Input.Query.output_formatPayload?
+                public var output_format: Components.Schemas.V1TextToSpeechVoiceIdPostParametersOutputFormat?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
@@ -94,41 +61,39 @@ public enum Operations {
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.text_to_speech_full.Input.Query.output_formatPayload? = nil
+                    output_format: Components.Schemas.V1TextToSpeechVoiceIdPostParametersOutputFormat? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.text_to_speech_full.Input.Query
+            public var query: Operations.textToSpeech_convert.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_convert.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key:
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_convert.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.text_to_speech_full.Input.Headers
+            public var headers: Operations.textToSpeech_convert.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/POST/requestBody/content/application\/json`.
                 case json(Components.Schemas.Body_text_to_speech_full)
             }
-            public var body: Operations.text_to_speech_full.Input.Body
+            public var body: Operations.textToSpeech_convert.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -137,10 +102,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.text_to_speech_full.Input.Path,
-                query: Operations.text_to_speech_full.Input.Query = .init(),
-                headers: Operations.text_to_speech_full.Input.Headers = .init(),
-                body: Operations.text_to_speech_full.Input.Body
+                path: Operations.textToSpeech_convert.Input.Path,
+                query: Operations.textToSpeech_convert.Input.Query = .init(),
+                headers: Operations.textToSpeech_convert.Input.Headers = .init(),
+                body: Operations.textToSpeech_convert.Input.Body? = nil
             ) {
                 self.path = path
                 self.query = query
@@ -168,26 +133,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_full.Output.Ok.Body
+                public var body: Operations.textToSpeech_convert.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_full.Output.Ok.Body) {
+                public init(body: Operations.textToSpeech_convert.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// The generated audio file
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.text_to_speech_full.Output.Ok)
+            case ok(Operations.textToSpeech_convert.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.text_to_speech_full.Output.Ok {
+            public var ok: Operations.textToSpeech_convert.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -219,26 +184,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_full.Output.UnprocessableContent.Body
+                public var body: Operations.textToSpeech_convert.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_full.Output.UnprocessableContent.Body) {
+                public init(body: Operations.textToSpeech_convert.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.text_to_speech_full.Output.UnprocessableContent)
+            case unprocessableContent(Operations.textToSpeech_convert.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.text_to_speech_full.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.textToSpeech_convert.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -253,7 +218,7 @@ public enum Operations {
             }
             /// Payment Required - A paid plan is required to access this resource.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/402`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)/responses/402`.
             ///
             /// HTTP response code: `402 code402`.
             case code402(Components.Responses.PaymentRequired)
@@ -276,7 +241,7 @@ public enum Operations {
             }
             /// Bad Request - The request was invalid or malformed.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)/responses/400`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)/responses/400`.
             ///
             /// HTTP response code: `400 badRequest`.
             case badRequest(Components.Responses.BadRequest)
@@ -334,14 +299,14 @@ public enum Operations {
             }
         }
     }
-    /// Text To Speech With Timestamps
+    /// Create speech with timing
     ///
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
-    public enum text_to_speech_full_with_timestamps {
-        public static let id: Swift.String = "text_to_speech_full_with_timestamps"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)`.
+    public enum textToSpeech_convert_with_timestamps {
+        public static let id: Swift.String = "textToSpeech_convert_with_timestamps"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/path`.
             public struct Path: Sendable, Hashable {
@@ -357,7 +322,7 @@ public enum Operations {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.text_to_speech_full_with_timestamps.Input.Path
+            public var path: Operations.textToSpeech_convert_with_timestamps.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -380,40 +345,7 @@ public enum Operations {
                 /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query/output_format`.
-                @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                    case alaw_8000 = "alaw_8000"
-                    case mp3_22050_32 = "mp3_22050_32"
-                    case mp3_24000_48 = "mp3_24000_48"
-                    case mp3_44100_128 = "mp3_44100_128"
-                    case mp3_44100_192 = "mp3_44100_192"
-                    case mp3_44100_32 = "mp3_44100_32"
-                    case mp3_44100_64 = "mp3_44100_64"
-                    case mp3_44100_96 = "mp3_44100_96"
-                    case opus_48000_128 = "opus_48000_128"
-                    case opus_48000_192 = "opus_48000_192"
-                    case opus_48000_32 = "opus_48000_32"
-                    case opus_48000_64 = "opus_48000_64"
-                    case opus_48000_96 = "opus_48000_96"
-                    case pcm_16000 = "pcm_16000"
-                    case pcm_22050 = "pcm_22050"
-                    case pcm_24000 = "pcm_24000"
-                    case pcm_32000 = "pcm_32000"
-                    case pcm_44100 = "pcm_44100"
-                    case pcm_48000 = "pcm_48000"
-                    case pcm_8000 = "pcm_8000"
-                    case ulaw_8000 = "ulaw_8000"
-                    case wav_16000 = "wav_16000"
-                    case wav_22050 = "wav_22050"
-                    case wav_24000 = "wav_24000"
-                    case wav_32000 = "wav_32000"
-                    case wav_44100 = "wav_44100"
-                    case wav_48000 = "wav_48000"
-                    case wav_8000 = "wav_8000"
-                }
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM and WAV formats with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-                ///
-                /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/query/output_format`.
-                public var output_format: Operations.text_to_speech_full_with_timestamps.Input.Query.output_formatPayload?
+                public var output_format: Components.Schemas.V1TextToSpeechVoiceIdWithTimestampsPostParametersOutputFormat?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
@@ -423,41 +355,39 @@ public enum Operations {
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.text_to_speech_full_with_timestamps.Input.Query.output_formatPayload? = nil
+                    output_format: Components.Schemas.V1TextToSpeechVoiceIdWithTimestampsPostParametersOutputFormat? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.text_to_speech_full_with_timestamps.Input.Query
+            public var query: Operations.textToSpeech_convert_with_timestamps.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full_with_timestamps.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_convert_with_timestamps.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key:
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_full_with_timestamps.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_convert_with_timestamps.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.text_to_speech_full_with_timestamps.Input.Headers
+            public var headers: Operations.textToSpeech_convert_with_timestamps.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/with-timestamps/POST/requestBody/content/application\/json`.
                 case json(Components.Schemas.Body_text_to_speech_full_with_timestamps)
             }
-            public var body: Operations.text_to_speech_full_with_timestamps.Input.Body
+            public var body: Operations.textToSpeech_convert_with_timestamps.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -466,10 +396,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.text_to_speech_full_with_timestamps.Input.Path,
-                query: Operations.text_to_speech_full_with_timestamps.Input.Query = .init(),
-                headers: Operations.text_to_speech_full_with_timestamps.Input.Headers = .init(),
-                body: Operations.text_to_speech_full_with_timestamps.Input.Body
+                path: Operations.textToSpeech_convert_with_timestamps.Input.Path,
+                query: Operations.textToSpeech_convert_with_timestamps.Input.Query = .init(),
+                headers: Operations.textToSpeech_convert_with_timestamps.Input.Headers = .init(),
+                body: Operations.textToSpeech_convert_with_timestamps.Input.Body? = nil
             ) {
                 self.path = path
                 self.query = query
@@ -497,26 +427,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_full_with_timestamps.Output.Ok.Body
+                public var body: Operations.textToSpeech_convert_with_timestamps.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_full_with_timestamps.Output.Ok.Body) {
+                public init(body: Operations.textToSpeech_convert_with_timestamps.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Successful Response
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.text_to_speech_full_with_timestamps.Output.Ok)
+            case ok(Operations.textToSpeech_convert_with_timestamps.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.text_to_speech_full_with_timestamps.Output.Ok {
+            public var ok: Operations.textToSpeech_convert_with_timestamps.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -548,26 +478,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent.Body
+                public var body: Operations.textToSpeech_convert_with_timestamps.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent.Body) {
+                public init(body: Operations.textToSpeech_convert_with_timestamps.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent)
+            case unprocessableContent(Operations.textToSpeech_convert_with_timestamps.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.text_to_speech_full_with_timestamps.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.textToSpeech_convert_with_timestamps.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -582,7 +512,7 @@ public enum Operations {
             }
             /// Payment Required - A paid plan is required to access this resource.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/402`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)/responses/402`.
             ///
             /// HTTP response code: `402 code402`.
             case code402(Components.Responses.PaymentRequired)
@@ -605,7 +535,7 @@ public enum Operations {
             }
             /// Bad Request - The request was invalid or malformed.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)/responses/400`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)/responses/400`.
             ///
             /// HTTP response code: `400 badRequest`.
             case badRequest(Components.Responses.BadRequest)
@@ -657,30 +587,30 @@ public enum Operations {
             }
         }
     }
-    /// Text To Speech Streaming
+    /// Stream speech
     ///
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
-    public enum text_to_speech_stream {
-        public static let id: Swift.String = "text_to_speech_stream"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)`.
+    public enum textToSpeech_stream {
+        public static let id: Swift.String = "textToSpeech_stream"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/path`.
             public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                /// ID of the voice to be used. Use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/path/voice_id`.
                 public var voice_id: Swift.String
                 /// Creates a new `Path`.
                 ///
                 /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                ///   - voice_id: ID of the voice to be used. Use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
                 public init(voice_id: Swift.String) {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.text_to_speech_stream.Input.Path
+            public var path: Operations.textToSpeech_stream.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -703,33 +633,7 @@ public enum Operations {
                 /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/query/output_format`.
-                @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                    case mp3_22050_32 = "mp3_22050_32"
-                    case mp3_24000_48 = "mp3_24000_48"
-                    case mp3_44100_32 = "mp3_44100_32"
-                    case mp3_44100_64 = "mp3_44100_64"
-                    case mp3_44100_96 = "mp3_44100_96"
-                    case mp3_44100_128 = "mp3_44100_128"
-                    case mp3_44100_192 = "mp3_44100_192"
-                    case pcm_8000 = "pcm_8000"
-                    case pcm_16000 = "pcm_16000"
-                    case pcm_22050 = "pcm_22050"
-                    case pcm_24000 = "pcm_24000"
-                    case pcm_32000 = "pcm_32000"
-                    case pcm_44100 = "pcm_44100"
-                    case pcm_48000 = "pcm_48000"
-                    case ulaw_8000 = "ulaw_8000"
-                    case alaw_8000 = "alaw_8000"
-                    case opus_48000_32 = "opus_48000_32"
-                    case opus_48000_64 = "opus_48000_64"
-                    case opus_48000_96 = "opus_48000_96"
-                    case opus_48000_128 = "opus_48000_128"
-                    case opus_48000_192 = "opus_48000_192"
-                }
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-                ///
-                /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/query/output_format`.
-                public var output_format: Operations.text_to_speech_stream.Input.Query.output_formatPayload?
+                public var output_format: Components.Schemas.V1TextToSpeechVoiceIdStreamPostParametersOutputFormat?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
@@ -739,41 +643,39 @@ public enum Operations {
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.text_to_speech_stream.Input.Query.output_formatPayload? = nil
+                    output_format: Components.Schemas.V1TextToSpeechVoiceIdStreamPostParametersOutputFormat? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.text_to_speech_stream.Input.Query
+            public var query: Operations.textToSpeech_stream.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_stream.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key:
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_stream.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.text_to_speech_stream.Input.Headers
+            public var headers: Operations.textToSpeech_stream.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/POST/requestBody/content/application\/json`.
                 case json(Components.Schemas.Body_text_to_speech_stream)
             }
-            public var body: Operations.text_to_speech_stream.Input.Body
+            public var body: Operations.textToSpeech_stream.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -782,10 +684,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.text_to_speech_stream.Input.Path,
-                query: Operations.text_to_speech_stream.Input.Query = .init(),
-                headers: Operations.text_to_speech_stream.Input.Headers = .init(),
-                body: Operations.text_to_speech_stream.Input.Body
+                path: Operations.textToSpeech_stream.Input.Path,
+                query: Operations.textToSpeech_stream.Input.Query = .init(),
+                headers: Operations.textToSpeech_stream.Input.Headers = .init(),
+                body: Operations.textToSpeech_stream.Input.Body? = nil
             ) {
                 self.path = path
                 self.query = query
@@ -813,26 +715,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_stream.Output.Ok.Body
+                public var body: Operations.textToSpeech_stream.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_stream.Output.Ok.Body) {
+                public init(body: Operations.textToSpeech_stream.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Streaming audio data
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.text_to_speech_stream.Output.Ok)
+            case ok(Operations.textToSpeech_stream.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.text_to_speech_stream.Output.Ok {
+            public var ok: Operations.textToSpeech_stream.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -864,26 +766,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_stream.Output.UnprocessableContent.Body
+                public var body: Operations.textToSpeech_stream.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_stream.Output.UnprocessableContent.Body) {
+                public init(body: Operations.textToSpeech_stream.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.text_to_speech_stream.Output.UnprocessableContent)
+            case unprocessableContent(Operations.textToSpeech_stream.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.text_to_speech_stream.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.textToSpeech_stream.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -898,7 +800,7 @@ public enum Operations {
             }
             /// Payment Required - A paid plan is required to access this resource.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/402`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)/responses/402`.
             ///
             /// HTTP response code: `402 code402`.
             case code402(Components.Responses.PaymentRequired)
@@ -921,7 +823,7 @@ public enum Operations {
             }
             /// Bad Request - The request was invalid or malformed.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)/responses/400`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)/responses/400`.
             ///
             /// HTTP response code: `400 badRequest`.
             case badRequest(Components.Responses.BadRequest)
@@ -979,30 +881,30 @@ public enum Operations {
             }
         }
     }
-    /// Text To Speech Streaming With Timestamps
+    /// Stream speech with timing
     ///
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
-    public enum text_to_speech_stream_with_timestamps {
-        public static let id: Swift.String = "text_to_speech_stream_with_timestamps"
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)`.
+    public enum textToSpeech_stream_with_timestamps {
+        public static let id: Swift.String = "textToSpeech_stream_with_timestamps"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/path`.
             public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                /// ID of the voice to be used. Use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/path/voice_id`.
                 public var voice_id: Swift.String
                 /// Creates a new `Path`.
                 ///
                 /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                ///   - voice_id: ID of the voice to be used. Use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
                 public init(voice_id: Swift.String) {
                     self.voice_id = voice_id
                 }
             }
-            public var path: Operations.text_to_speech_stream_with_timestamps.Input.Path
+            public var path: Operations.textToSpeech_stream_with_timestamps.Input.Path
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/query`.
             public struct Query: Sendable, Hashable {
                 /// When enable_logging is set to false zero retention mode will be used for the request. This will mean history features are unavailable for this request, including request stitching. Zero retention mode may only be used by enterprise customers.
@@ -1025,33 +927,7 @@ public enum Operations {
                 /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
                 ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/query/output_format`.
-                @frozen public enum output_formatPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                    case mp3_22050_32 = "mp3_22050_32"
-                    case mp3_24000_48 = "mp3_24000_48"
-                    case mp3_44100_32 = "mp3_44100_32"
-                    case mp3_44100_64 = "mp3_44100_64"
-                    case mp3_44100_96 = "mp3_44100_96"
-                    case mp3_44100_128 = "mp3_44100_128"
-                    case mp3_44100_192 = "mp3_44100_192"
-                    case pcm_8000 = "pcm_8000"
-                    case pcm_16000 = "pcm_16000"
-                    case pcm_22050 = "pcm_22050"
-                    case pcm_24000 = "pcm_24000"
-                    case pcm_32000 = "pcm_32000"
-                    case pcm_44100 = "pcm_44100"
-                    case pcm_48000 = "pcm_48000"
-                    case ulaw_8000 = "ulaw_8000"
-                    case alaw_8000 = "alaw_8000"
-                    case opus_48000_32 = "opus_48000_32"
-                    case opus_48000_64 = "opus_48000_64"
-                    case opus_48000_96 = "opus_48000_96"
-                    case opus_48000_128 = "opus_48000_128"
-                    case opus_48000_192 = "opus_48000_192"
-                }
-                /// Output format of the generated audio. Formatted as codec_sample_rate_bitrate. So an mp3 with 22.05kHz sample rate at 32kbs is represented as mp3_22050_32. MP3 with 192kbps bitrate requires you to be subscribed to Creator tier or above. PCM with 44.1kHz sample rate requires you to be subscribed to Pro tier or above. Note that the μ-law format (sometimes written mu-law, often approximated as u-law) is commonly used for Twilio audio inputs.
-                ///
-                /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/query/output_format`.
-                public var output_format: Operations.text_to_speech_stream_with_timestamps.Input.Query.output_formatPayload?
+                public var output_format: Components.Schemas.V1TextToSpeechVoiceIdStreamWithTimestampsPostParametersOutputFormat?
                 /// Creates a new `Query`.
                 ///
                 /// - Parameters:
@@ -1061,41 +937,39 @@ public enum Operations {
                 public init(
                     enable_logging: Swift.Bool? = nil,
                     optimize_streaming_latency: Swift.Int? = nil,
-                    output_format: Operations.text_to_speech_stream_with_timestamps.Input.Query.output_formatPayload? = nil
+                    output_format: Components.Schemas.V1TextToSpeechVoiceIdStreamWithTimestampsPostParametersOutputFormat? = nil
                 ) {
                     self.enable_logging = enable_logging
                     self.optimize_streaming_latency = optimize_streaming_latency
                     self.output_format = output_format
                 }
             }
-            public var query: Operations.text_to_speech_stream_with_timestamps.Input.Query
+            public var query: Operations.textToSpeech_stream_with_timestamps.Input.Query
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream_with_timestamps.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_stream_with_timestamps.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key:
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.text_to_speech_stream_with_timestamps.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.textToSpeech_stream_with_timestamps.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.text_to_speech_stream_with_timestamps.Input.Headers
+            public var headers: Operations.textToSpeech_stream_with_timestamps.Input.Headers
             /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/text-to-speech/{voice_id}/stream/with-timestamps/POST/requestBody/content/application\/json`.
                 case json(Components.Schemas.Body_text_to_speech_stream_with_timestamps)
             }
-            public var body: Operations.text_to_speech_stream_with_timestamps.Input.Body
+            public var body: Operations.textToSpeech_stream_with_timestamps.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -1104,10 +978,10 @@ public enum Operations {
             ///   - headers:
             ///   - body:
             public init(
-                path: Operations.text_to_speech_stream_with_timestamps.Input.Path,
-                query: Operations.text_to_speech_stream_with_timestamps.Input.Query = .init(),
-                headers: Operations.text_to_speech_stream_with_timestamps.Input.Headers = .init(),
-                body: Operations.text_to_speech_stream_with_timestamps.Input.Body
+                path: Operations.textToSpeech_stream_with_timestamps.Input.Path,
+                query: Operations.textToSpeech_stream_with_timestamps.Input.Query = .init(),
+                headers: Operations.textToSpeech_stream_with_timestamps.Input.Headers = .init(),
+                body: Operations.textToSpeech_stream_with_timestamps.Input.Body? = nil
             ) {
                 self.path = path
                 self.query = query
@@ -1135,26 +1009,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_stream_with_timestamps.Output.Ok.Body
+                public var body: Operations.textToSpeech_stream_with_timestamps.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_stream_with_timestamps.Output.Ok.Body) {
+                public init(body: Operations.textToSpeech_stream_with_timestamps.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Stream of transcription chunks
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.text_to_speech_stream_with_timestamps.Output.Ok)
+            case ok(Operations.textToSpeech_stream_with_timestamps.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.text_to_speech_stream_with_timestamps.Output.Ok {
+            public var ok: Operations.textToSpeech_stream_with_timestamps.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -1186,26 +1060,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent.Body
+                public var body: Operations.textToSpeech_stream_with_timestamps.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent.Body) {
+                public init(body: Operations.textToSpeech_stream_with_timestamps.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent)
+            case unprocessableContent(Operations.textToSpeech_stream_with_timestamps.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.text_to_speech_stream_with_timestamps.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.textToSpeech_stream_with_timestamps.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -1220,7 +1094,7 @@ public enum Operations {
             }
             /// Payment Required - A paid plan is required to access this resource.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/402`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)/responses/402`.
             ///
             /// HTTP response code: `402 code402`.
             case code402(Components.Responses.PaymentRequired)
@@ -1243,7 +1117,7 @@ public enum Operations {
             }
             /// Bad Request - The request was invalid or malformed.
             ///
-            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)/responses/400`.
+            /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)/responses/400`.
             ///
             /// HTTP response code: `400 badRequest`.
             case badRequest(Components.Responses.BadRequest)
@@ -1259,3693 +1133,6 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// List Voices
-    ///
-    /// Returns a list of all available voices for a user.
-    ///
-    /// - Remark: HTTP `GET /v1/voices`.
-    /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)`.
-    public enum get_voices {
-        public static let id: Swift.String = "get_voices"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/GET/query`.
-            public struct Query: Sendable, Hashable {
-                /// If set to true, legacy premade voices will be included in responses from /v1/voices
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/GET/query/show_legacy`.
-                public var show_legacy: Swift.Bool?
-                /// Creates a new `Query`.
-                ///
-                /// - Parameters:
-                ///   - show_legacy: If set to true, legacy premade voices will be included in responses from /v1/voices
-                public init(show_legacy: Swift.Bool? = nil) {
-                    self.show_legacy = show_legacy
-                }
-            }
-            public var query: Operations.get_voices.Input.Query
-            /// - Remark: Generated from `#/paths/v1/voices/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voices.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voices.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_voices.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - query:
-            ///   - headers:
-            public init(
-                query: Operations.get_voices.Input.Query = .init(),
-                headers: Operations.get_voices.Input.Headers = .init()
-            ) {
-                self.query = query
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.GetVoicesResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.GetVoicesResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voices.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voices.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_voices.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_voices.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voices.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voices.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_voices.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_voices.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Voices V2
-    ///
-    /// Gets a list of all available voices for a user with search, filtering and pagination.
-    ///
-    /// - Remark: HTTP `GET /v2/voices`.
-    /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)`.
-    public enum get_user_voices_v2 {
-        public static let id: Swift.String = "get_user_voices_v2"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v2/voices/GET/query`.
-            public struct Query: Sendable, Hashable {
-                /// The next page token to use for pagination. Returned from the previous request. Use this in combination with the has_more flag for reliable pagination.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/next_page_token`.
-                public var next_page_token: Swift.String?
-                /// How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/page_size`.
-                public var page_size: Swift.Int?
-                /// Search term to filter voices by. Searches in name, description, labels, category.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/search`.
-                public var search: Swift.String?
-                /// Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/sort`.
-                public var sort: Swift.String?
-                /// Which direction to sort the voices in. 'asc' or 'desc'.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/sort_direction`.
-                public var sort_direction: Swift.String?
-                /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default', 'saved'. 'non-default' is equal to all but 'default'. 'saved' is equal to non-default, but includes default voices if they have been added to a collection.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/voice_type`.
-                public var voice_type: Swift.String?
-                /// Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/category`.
-                public var category: Swift.String?
-                /// State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/fine_tuning_state`.
-                public var fine_tuning_state: Swift.String?
-                /// Collection ID to filter voices by.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/collection_id`.
-                public var collection_id: Swift.String?
-                /// Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/include_total_count`.
-                public var include_total_count: Swift.Bool?
-                /// Voice IDs to lookup by. Maximum 100 voice IDs.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/query/voice_ids`.
-                public var voice_ids: [Swift.String]?
-                /// Creates a new `Query`.
-                ///
-                /// - Parameters:
-                ///   - next_page_token: The next page token to use for pagination. Returned from the previous request. Use this in combination with the has_more flag for reliable pagination.
-                ///   - page_size: How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.
-                ///   - search: Search term to filter voices by. Searches in name, description, labels, category.
-                ///   - sort: Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.
-                ///   - sort_direction: Which direction to sort the voices in. 'asc' or 'desc'.
-                ///   - voice_type: Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default', 'saved'. 'non-default' is equal to all but 'default'. 'saved' is equal to non-default, but includes default voices if they have been added to a collection.
-                ///   - category: Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'
-                ///   - fine_tuning_state: State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
-                ///   - collection_id: Collection ID to filter voices by.
-                ///   - include_total_count: Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.
-                ///   - voice_ids: Voice IDs to lookup by. Maximum 100 voice IDs.
-                public init(
-                    next_page_token: Swift.String? = nil,
-                    page_size: Swift.Int? = nil,
-                    search: Swift.String? = nil,
-                    sort: Swift.String? = nil,
-                    sort_direction: Swift.String? = nil,
-                    voice_type: Swift.String? = nil,
-                    category: Swift.String? = nil,
-                    fine_tuning_state: Swift.String? = nil,
-                    collection_id: Swift.String? = nil,
-                    include_total_count: Swift.Bool? = nil,
-                    voice_ids: [Swift.String]? = nil
-                ) {
-                    self.next_page_token = next_page_token
-                    self.page_size = page_size
-                    self.search = search
-                    self.sort = sort
-                    self.sort_direction = sort_direction
-                    self.voice_type = voice_type
-                    self.category = category
-                    self.fine_tuning_state = fine_tuning_state
-                    self.collection_id = collection_id
-                    self.include_total_count = include_total_count
-                    self.voice_ids = voice_ids
-                }
-            }
-            public var query: Operations.get_user_voices_v2.Input.Query
-            /// - Remark: Generated from `#/paths/v2/voices/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v2/voices/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_user_voices_v2.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_user_voices_v2.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_user_voices_v2.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - query:
-            ///   - headers:
-            public init(
-                query: Operations.get_user_voices_v2.Input.Query = .init(),
-                headers: Operations.get_user_voices_v2.Input.Headers = .init()
-            ) {
-                self.query = query
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v2/voices/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v2/voices/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.GetVoicesV2ResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.GetVoicesV2ResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_user_voices_v2.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_user_voices_v2.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_user_voices_v2.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_user_voices_v2.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v2/voices/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v2/voices/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_user_voices_v2.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_user_voices_v2.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_user_voices_v2.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_user_voices_v2.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Default Voice Settings.
-    ///
-    /// Gets the default settings for voices. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/settings/default`.
-    /// - Remark: Generated from `#/paths//v1/voices/settings/default/get(get_voice_settings_default)`.
-    public enum get_voice_settings_default {
-        public static let id: Swift.String = "get_voice_settings_default"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/settings/default/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voice_settings_default.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voice_settings_default.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_voice_settings_default.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            public init(headers: Operations.get_voice_settings_default.Input.Headers = .init()) {
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/settings/default/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/settings/default/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.VoiceSettingsResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.VoiceSettingsResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voice_settings_default.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voice_settings_default.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/settings/default/get(get_voice_settings_default)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_voice_settings_default.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_voice_settings_default.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/settings/default/get(get_voice_settings_default)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/settings/default/get(get_voice_settings_default)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Voice Settings
-    ///
-    /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/{voice_id}/settings`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)`.
-    public enum get_voice_settings {
-        public static let id: Swift.String = "get_voice_settings"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/path`.
-            public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/path/voice_id`.
-                public var voice_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                public init(voice_id: Swift.String) {
-                    self.voice_id = voice_id
-                }
-            }
-            public var path: Operations.get_voice_settings.Input.Path
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voice_settings.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voice_settings.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_voice_settings.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - headers:
-            public init(
-                path: Operations.get_voice_settings.Input.Path,
-                headers: Operations.get_voice_settings.Input.Headers = .init()
-            ) {
-                self.path = path
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.VoiceSettingsResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.VoiceSettingsResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voice_settings.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voice_settings.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_voice_settings.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_voice_settings.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voice_settings.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voice_settings.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_voice_settings.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_voice_settings.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Voice
-    ///
-    /// Returns metadata about a specific voice.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)`.
-    public enum get_voice_by_id {
-        public static let id: Swift.String = "get_voice_by_id"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/path`.
-            public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/path/voice_id`.
-                public var voice_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                public init(voice_id: Swift.String) {
-                    self.voice_id = voice_id
-                }
-            }
-            public var path: Operations.get_voice_by_id.Input.Path
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/query`.
-            public struct Query: Sendable, Hashable {
-                /// This parameter is now deprecated. It is ignored and will be removed in a future version.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/query/with_settings`.
-                @available(*, deprecated)
-                public var with_settings: Swift.Bool?
-                /// Creates a new `Query`.
-                ///
-                /// - Parameters:
-                ///   - with_settings: This parameter is now deprecated. It is ignored and will be removed in a future version.
-                public init(with_settings: Swift.Bool? = nil) {
-                    self.with_settings = with_settings
-                }
-            }
-            public var query: Operations.get_voice_by_id.Input.Query
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voice_by_id.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_voice_by_id.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_voice_by_id.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - query:
-            ///   - headers:
-            public init(
-                path: Operations.get_voice_by_id.Input.Path,
-                query: Operations.get_voice_by_id.Input.Query = .init(),
-                headers: Operations.get_voice_by_id.Input.Headers = .init()
-            ) {
-                self.path = path
-                self.query = query
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.VoiceResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.VoiceResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voice_by_id.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voice_by_id.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_voice_by_id.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_voice_by_id.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_voice_by_id.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_voice_by_id.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_voice_by_id.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_voice_by_id.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Delete Voice
-    ///
-    /// Deletes a voice by its ID.
-    ///
-    /// - Remark: HTTP `DELETE /v1/voices/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)`.
-    public enum delete_voice {
-        public static let id: Swift.String = "delete_voice"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/path`.
-            public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/path/voice_id`.
-                public var voice_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                public init(voice_id: Swift.String) {
-                    self.voice_id = voice_id
-                }
-            }
-            public var path: Operations.delete_voice.Input.Path
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.delete_voice.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.delete_voice.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.delete_voice.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - headers:
-            public init(
-                path: Operations.delete_voice.Input.Path,
-                headers: Operations.delete_voice.Input.Headers = .init()
-            ) {
-                self.path = path
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/200/content/application\/json`.
-                    case json(Components.Schemas.DeleteVoiceResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.DeleteVoiceResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.delete_voice.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.delete_voice.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.delete_voice.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.delete_voice.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.delete_voice.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.delete_voice.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.delete_voice.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.delete_voice.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Edit Voice Settings
-    ///
-    /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/{voice_id}/settings/edit`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)`.
-    public enum edit_voice_settings {
-        public static let id: Swift.String = "edit_voice_settings"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/path`.
-            public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/path/voice_id`.
-                public var voice_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                public init(voice_id: Swift.String) {
-                    self.voice_id = voice_id
-                }
-            }
-            public var path: Operations.edit_voice_settings.Input.Path
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.edit_voice_settings.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.edit_voice_settings.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.edit_voice_settings.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.VoiceSettingsResponseModel)
-            }
-            public var body: Operations.edit_voice_settings.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - headers:
-            ///   - body:
-            public init(
-                path: Operations.edit_voice_settings.Input.Path,
-                headers: Operations.edit_voice_settings.Input.Headers = .init(),
-                body: Operations.edit_voice_settings.Input.Body
-            ) {
-                self.path = path
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.EditVoiceSettingsResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.EditVoiceSettingsResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.edit_voice_settings.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.edit_voice_settings.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.edit_voice_settings.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.edit_voice_settings.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/settings/edit/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.edit_voice_settings.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.edit_voice_settings.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.edit_voice_settings.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.edit_voice_settings.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Add Voice
-    ///
-    /// Add a new voice to your collection of voices in VoiceLab.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/add`.
-    /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)`.
-    public enum add_voice {
-        public static let id: Swift.String = "add_voice"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/add/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/add/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.add_voice.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.add_voice.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.add_voice.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/voices/add/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/add/POST/requestBody/content/multipart\/form-data`.
-                case multipartForm(OpenAPIRuntime.MultipartBody<Components.Schemas.Body_Add_voice_v1_voices_add_post>)
-            }
-            public var body: Operations.add_voice.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.add_voice.Input.Headers = .init(),
-                body: Operations.add_voice.Input.Body
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/add/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/add/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.AddVoiceIVCResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.AddVoiceIVCResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.add_voice.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.add_voice.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.add_voice.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.add_voice.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/add/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/add/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.add_voice.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.add_voice.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.add_voice.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.add_voice.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Edit Voice
-    ///
-    /// Edit a voice created by you.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/{voice_id}/edit`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)`.
-    public enum edit_voice {
-        public static let id: Swift.String = "edit_voice"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/path`.
-            public struct Path: Sendable, Hashable {
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/path/voice_id`.
-                public var voice_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                public init(voice_id: Swift.String) {
-                    self.voice_id = voice_id
-                }
-            }
-            public var path: Operations.edit_voice.Input.Path
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.edit_voice.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.edit_voice.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.edit_voice.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/content/multipart\/form-data`.
-                case multipartForm(OpenAPIRuntime.MultipartBody<Components.Schemas.Body_Edit_voice_v1_voices__voice_id__edit_post>)
-            }
-            public var body: Operations.edit_voice.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - headers:
-            ///   - body:
-            public init(
-                path: Operations.edit_voice.Input.Path,
-                headers: Operations.edit_voice.Input.Headers = .init(),
-                body: Operations.edit_voice.Input.Body
-            ) {
-                self.path = path
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.EditVoiceResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.EditVoiceResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.edit_voice.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.edit_voice.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.edit_voice.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.edit_voice.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.edit_voice.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.edit_voice.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.edit_voice.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.edit_voice.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Add Shared Voice
-    ///
-    /// Add a shared voice to your collection of voices.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/add/{public_user_id}/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)`.
-    public enum add_sharing_voice {
-        public static let id: Swift.String = "add_sharing_voice"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/path`.
-            public struct Path: Sendable, Hashable {
-                /// Public user ID used to publicly identify ElevenLabs users.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/path/public_user_id`.
-                public var public_user_id: Swift.String
-                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/path/voice_id`.
-                public var voice_id: Swift.String
-                /// Creates a new `Path`.
-                ///
-                /// - Parameters:
-                ///   - public_user_id: Public user ID used to publicly identify ElevenLabs users.
-                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
-                public init(
-                    public_user_id: Swift.String,
-                    voice_id: Swift.String
-                ) {
-                    self.public_user_id = public_user_id
-                    self.voice_id = voice_id
-                }
-            }
-            public var path: Operations.add_sharing_voice.Input.Path
-            /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.add_sharing_voice.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.add_sharing_voice.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.add_sharing_voice.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/requestBody/content/application\/json`.
-                case json(Components.Schemas.Body_Add_shared_voice_v1_voices_add__public_user_id___voice_id__post)
-            }
-            public var body: Operations.add_sharing_voice.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - path:
-            ///   - headers:
-            ///   - body:
-            public init(
-                path: Operations.add_sharing_voice.Input.Path,
-                headers: Operations.add_sharing_voice.Input.Headers = .init(),
-                body: Operations.add_sharing_voice.Input.Body
-            ) {
-                self.path = path
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.AddVoiceResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.AddVoiceResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.add_sharing_voice.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.add_sharing_voice.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.add_sharing_voice.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.add_sharing_voice.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.add_sharing_voice.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.add_sharing_voice.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.add_sharing_voice.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.add_sharing_voice.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Models
-    ///
-    /// Gets a list of available models.
-    ///
-    /// - Remark: HTTP `GET /v1/models`.
-    /// - Remark: Generated from `#/paths//v1/models/get(get_models)`.
-    public enum get_models {
-        public static let id: Swift.String = "get_models"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/models/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/models/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_models.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_models.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_models.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            public init(headers: Operations.get_models.Input.Headers = .init()) {
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/models/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/models/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.ModelResponseModel])
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.ModelResponseModel] {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_models.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_models.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_models.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_models.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/models/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/models/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_models.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_models.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_models.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_models.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/models/get(get_models)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Voices
-    ///
-    /// Retrieves a list of shared voices.
-    ///
-    /// - Remark: HTTP `GET /v1/shared-voices`.
-    /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)`.
-    public enum get_library_voices {
-        public static let id: Swift.String = "get_library_voices"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query`.
-            public struct Query: Sendable, Hashable {
-                /// How many shared voices to return at maximum. Can not exceed 100, defaults to 30.
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/page_size`.
-                public var page_size: Swift.Int?
-                /// Voice category used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/category`.
-                @frozen public enum categoryPayload: String, Codable, Hashable, Sendable, CaseIterable {
-                    case professional = "professional"
-                    case famous = "famous"
-                    case high_quality = "high_quality"
-                }
-                /// Voice category used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/category`.
-                public var category: Operations.get_library_voices.Input.Query.categoryPayload?
-                /// Gender used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/gender`.
-                public var gender: Swift.String?
-                /// Age used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/age`.
-                public var age: Swift.String?
-                /// Accent used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/accent`.
-                public var accent: Swift.String?
-                /// Language used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/language`.
-                public var language: Swift.String?
-                /// Locale used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/locale`.
-                public var locale: Swift.String?
-                /// Search term used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/search`.
-                public var search: Swift.String?
-                /// Use-case used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/use_cases`.
-                public var use_cases: [Swift.String]?
-                /// Search term used for filtering
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/descriptives`.
-                public var descriptives: [Swift.String]?
-                /// Filter featured voices
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/featured`.
-                public var featured: Swift.Bool?
-                /// Filter voices with a minimum notice period of the given number of days.
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/min_notice_period_days`.
-                public var min_notice_period_days: Swift.Int?
-                /// Include/exclude voices with custom rates
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/include_custom_rates`.
-                public var include_custom_rates: Swift.Bool?
-                /// Include/exclude voices that are live moderated
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/include_live_moderated`.
-                public var include_live_moderated: Swift.Bool?
-                /// Filter voices that are enabled for the reader app
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/reader_app_enabled`.
-                public var reader_app_enabled: Swift.Bool?
-                /// Filter voices by public owner ID
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/owner_id`.
-                public var owner_id: Swift.String?
-                /// Sort criteria
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/sort`.
-                public var sort: Swift.String?
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/page`.
-                public var page: Swift.Int?
-                /// Creates a new `Query`.
-                ///
-                /// - Parameters:
-                ///   - page_size: How many shared voices to return at maximum. Can not exceed 100, defaults to 30.
-                ///   - category: Voice category used for filtering
-                ///   - gender: Gender used for filtering
-                ///   - age: Age used for filtering
-                ///   - accent: Accent used for filtering
-                ///   - language: Language used for filtering
-                ///   - locale: Locale used for filtering
-                ///   - search: Search term used for filtering
-                ///   - use_cases: Use-case used for filtering
-                ///   - descriptives: Search term used for filtering
-                ///   - featured: Filter featured voices
-                ///   - min_notice_period_days: Filter voices with a minimum notice period of the given number of days.
-                ///   - include_custom_rates: Include/exclude voices with custom rates
-                ///   - include_live_moderated: Include/exclude voices that are live moderated
-                ///   - reader_app_enabled: Filter voices that are enabled for the reader app
-                ///   - owner_id: Filter voices by public owner ID
-                ///   - sort: Sort criteria
-                ///   - page:
-                public init(
-                    page_size: Swift.Int? = nil,
-                    category: Operations.get_library_voices.Input.Query.categoryPayload? = nil,
-                    gender: Swift.String? = nil,
-                    age: Swift.String? = nil,
-                    accent: Swift.String? = nil,
-                    language: Swift.String? = nil,
-                    locale: Swift.String? = nil,
-                    search: Swift.String? = nil,
-                    use_cases: [Swift.String]? = nil,
-                    descriptives: [Swift.String]? = nil,
-                    featured: Swift.Bool? = nil,
-                    min_notice_period_days: Swift.Int? = nil,
-                    include_custom_rates: Swift.Bool? = nil,
-                    include_live_moderated: Swift.Bool? = nil,
-                    reader_app_enabled: Swift.Bool? = nil,
-                    owner_id: Swift.String? = nil,
-                    sort: Swift.String? = nil,
-                    page: Swift.Int? = nil
-                ) {
-                    self.page_size = page_size
-                    self.category = category
-                    self.gender = gender
-                    self.age = age
-                    self.accent = accent
-                    self.language = language
-                    self.locale = locale
-                    self.search = search
-                    self.use_cases = use_cases
-                    self.descriptives = descriptives
-                    self.featured = featured
-                    self.min_notice_period_days = min_notice_period_days
-                    self.include_custom_rates = include_custom_rates
-                    self.include_live_moderated = include_live_moderated
-                    self.reader_app_enabled = reader_app_enabled
-                    self.owner_id = owner_id
-                    self.sort = sort
-                    self.page = page
-                }
-            }
-            public var query: Operations.get_library_voices.Input.Query
-            /// - Remark: Generated from `#/paths/v1/shared-voices/GET/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_library_voices.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_library_voices.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_library_voices.Input.Headers
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - query:
-            ///   - headers:
-            public init(
-                query: Operations.get_library_voices.Input.Query = .init(),
-                headers: Operations.get_library_voices.Input.Headers = .init()
-            ) {
-                self.query = query
-                self.headers = headers
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/200/content/application\/json`.
-                    case json(Components.Schemas.GetLibraryVoicesResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.GetLibraryVoicesResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_library_voices.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_library_voices.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_library_voices.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_library_voices.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_library_voices.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_library_voices.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_library_voices.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_library_voices.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Get Similar Library Voices
-    ///
-    /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
-    ///
-    /// - Remark: HTTP `POST /v1/similar-voices`.
-    /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)`.
-    public enum get_similar_library_voices {
-        public static let id: Swift.String = "get_similar_library_voices"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/similar-voices/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_similar_library_voices.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_similar_library_voices.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.get_similar_library_voices.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody/content/multipart\/form-data`.
-                case multipartForm(OpenAPIRuntime.MultipartBody<Components.Schemas.Body_Get_similar_library_voices_v1_similar_voices_post>)
-            }
-            public var body: Operations.get_similar_library_voices.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.get_similar_library_voices.Input.Headers = .init(),
-                body: Operations.get_similar_library_voices.Input.Body
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.GetLibraryVoicesResponseModel)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.GetLibraryVoicesResponseModel {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_similar_library_voices.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_similar_library_voices.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Successful Response
-            ///
-            /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.get_similar_library_voices.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_similar_library_voices.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_similar_library_voices.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_similar_library_voices.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_similar_library_voices.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_similar_library_voices.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    return string
-                case .json:
-                    return "application/json"
-                }
-            }
-            public static var allCases: [Self] {
-                [
-                    .json
-                ]
-            }
-        }
-    }
-    /// Speech To Text
-    ///
-    /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
-    ///
-    /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
-    public enum speech_to_text {
-        public static let id: Swift.String = "speech_to_text"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query`.
-            public struct Query: Sendable, Hashable {
-                /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.
-                ///
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query/enable_logging`.
-                public var enable_logging: Swift.Bool?
-                /// Creates a new `Query`.
-                ///
-                /// - Parameters:
-                ///   - enable_logging: When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.
-                public init(enable_logging: Swift.Bool? = nil) {
-                    self.enable_logging = enable_logging
-                }
-            }
-            public var query: Operations.speech_to_text.Input.Query
-            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header/xi-api-key`.
-                public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.speech_to_text.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///   - accept:
-                public init(
-                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.speech_to_text.AcceptableContentType>] = .defaultValues()
-                ) {
-                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
-                    self.accept = accept
-                }
-            }
-            public var headers: Operations.speech_to_text.Input.Headers
-            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/content/multipart\/form-data`.
-                case multipartForm(OpenAPIRuntime.MultipartBody<Components.Schemas.Body_Speech_to_Text_v1_speech_to_text_post>)
-            }
-            public var body: Operations.speech_to_text.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - query:
-            ///   - headers:
-            ///   - body:
-            public init(
-                query: Operations.speech_to_text.Input.Query = .init(),
-                headers: Operations.speech_to_text.Input.Headers = .init(),
-                body: Operations.speech_to_text.Input.Body
-            ) {
-                self.query = query
-                self.headers = headers
-                self.body = body
-            }
-        }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/json`.
-                    public struct jsonPayload: Codable, Hashable, Sendable {
-                        /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/json/value1`.
-                        public var value1: Components.Schemas.SpeechToTextChunkResponseModel?
-                        /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/json/value2`.
-                        public var value2: Components.Schemas.MultichannelSpeechToTextResponseModel?
-                        /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/json/value3`.
-                        public var value3: Components.Schemas.SpeechToTextWebhookResponseModel?
-                        /// Creates a new `jsonPayload`.
-                        ///
-                        /// - Parameters:
-                        ///   - value1:
-                        ///   - value2:
-                        ///   - value3:
-                        public init(
-                            value1: Components.Schemas.SpeechToTextChunkResponseModel? = nil,
-                            value2: Components.Schemas.MultichannelSpeechToTextResponseModel? = nil,
-                            value3: Components.Schemas.SpeechToTextWebhookResponseModel? = nil
-                        ) {
-                            self.value1 = value1
-                            self.value2 = value2
-                            self.value3 = value3
-                        }
-                        public init(from decoder: any Swift.Decoder) throws {
-                            var errors: [any Swift.Error] = []
-                            do {
-                                self.value1 = try .init(from: decoder)
-                            } catch {
-                                errors.append(error)
-                            }
-                            do {
-                                self.value2 = try .init(from: decoder)
-                            } catch {
-                                errors.append(error)
-                            }
-                            do {
-                                self.value3 = try .init(from: decoder)
-                            } catch {
-                                errors.append(error)
-                            }
-                            try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                                [
-                                    self.value1,
-                                    self.value2,
-                                    self.value3
-                                ],
-                                type: Self.self,
-                                codingPath: decoder.codingPath,
-                                errors: errors
-                            )
-                        }
-                        public func encode(to encoder: any Swift.Encoder) throws {
-                            try self.value1?.encode(to: encoder)
-                            try self.value2?.encode(to: encoder)
-                            try self.value3?.encode(to: encoder)
-                        }
-                    }
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/application\/json`.
-                    case json(Operations.speech_to_text.Output.Ok.Body.jsonPayload)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Operations.speech_to_text.Output.Ok.Body.jsonPayload {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.speech_to_text.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.speech_to_text.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-            /// Synchronous transcription result
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.speech_to_text.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.speech_to_text.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct Accepted: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/202/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/202/content/application\/json`.
-                    case json(OpenAPIRuntime.OpenAPIValueContainer)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.speech_to_text.Output.Accepted.Body
-                /// Creates a new `Accepted`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.speech_to_text.Output.Accepted.Body) {
-                    self.body = body
-                }
-            }
-            /// Asynchronous request accepted
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/202`.
-            ///
-            /// HTTP response code: `202 accepted`.
-            case accepted(Operations.speech_to_text.Output.Accepted)
-            /// The associated value of the enum case if `self` is `.accepted`.
-            ///
-            /// - Throws: An error if `self` is not `.accepted`.
-            /// - SeeAlso: `.accepted`.
-            public var accepted: Operations.speech_to_text.Output.Accepted {
-                get throws {
-                    switch self {
-                    case let .accepted(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "accepted",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct UnprocessableContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/422/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/422/content/application\/json`.
-                    case json(Components.Schemas.HTTPValidationError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.HTTPValidationError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.speech_to_text.Output.UnprocessableContent.Body
-                /// Creates a new `UnprocessableContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.speech_to_text.Output.UnprocessableContent.Body) {
-                    self.body = body
-                }
-            }
-            /// Validation Error
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/422`.
-            ///
-            /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.speech_to_text.Output.UnprocessableContent)
-            /// The associated value of the enum case if `self` is `.unprocessableContent`.
-            ///
-            /// - Throws: An error if `self` is not `.unprocessableContent`.
-            /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.speech_to_text.Output.UnprocessableContent {
-                get throws {
-                    switch self {
-                    case let .unprocessableContent(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unprocessableContent",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Payment Required - A paid plan is required to access this resource.
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/402`.
-            ///
-            /// HTTP response code: `402 code402`.
-            case code402(Components.Responses.PaymentRequired)
-            /// The associated value of the enum case if `self` is `.code402`.
-            ///
-            /// - Throws: An error if `self` is not `.code402`.
-            /// - SeeAlso: `.code402`.
-            public var code402: Components.Responses.PaymentRequired {
-                get throws {
-                    switch self {
-                    case let .code402(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "code402",
-                            response: self
-                        )
-                    }
-                }
-            }
-            /// Bad Request - The request was invalid or malformed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/400`.
-            ///
-            /// HTTP response code: `400 badRequest`.
-            case badRequest(Components.Responses.BadRequest)
-            /// The associated value of the enum case if `self` is `.badRequest`.
-            ///
-            /// - Throws: An error if `self` is not `.badRequest`.
-            /// - SeeAlso: `.badRequest`.
-            public var badRequest: Components.Responses.BadRequest {
-                get throws {
-                    switch self {
-                    case let .badRequest(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "badRequest",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct Unauthorized: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/401/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/401/content/application\/json`.
-                    case json(Components.Schemas.BadRequestError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.BadRequestError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.speech_to_text.Output.Unauthorized.Body
-                /// Creates a new `Unauthorized`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.speech_to_text.Output.Unauthorized.Body) {
-                    self.body = body
-                }
-            }
-            /// Authentication failed.
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/401`.
-            ///
-            /// HTTP response code: `401 unauthorized`.
-            case unauthorized(Operations.speech_to_text.Output.Unauthorized)
-            /// The associated value of the enum case if `self` is `.unauthorized`.
-            ///
-            /// - Throws: An error if `self` is not `.unauthorized`.
-            /// - SeeAlso: `.unauthorized`.
-            public var unauthorized: Operations.speech_to_text.Output.Unauthorized {
-                get throws {
-                    switch self {
-                    case let .unauthorized(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unauthorized",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct TooManyRequests: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/429/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/429/content/application\/json`.
-                    case json(Components.Schemas.BadRequestError)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.BadRequestError {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.speech_to_text.Output.TooManyRequests.Body
-                /// Creates a new `TooManyRequests`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.speech_to_text.Output.TooManyRequests.Body) {
-                    self.body = body
-                }
-            }
-            /// Rate limit or quota exceeded.
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)/responses/429`.
-            ///
-            /// HTTP response code: `429 tooManyRequests`.
-            case tooManyRequests(Operations.speech_to_text.Output.TooManyRequests)
-            /// The associated value of the enum case if `self` is `.tooManyRequests`.
-            ///
-            /// - Throws: An error if `self` is not `.tooManyRequests`.
-            /// - SeeAlso: `.tooManyRequests`.
-            public var tooManyRequests: Operations.speech_to_text.Output.TooManyRequests {
-                get throws {
-                    switch self {
-                    case let .tooManyRequests(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "tooManyRequests",
                             response: self
                         )
                     }
@@ -4987,9 +1174,9 @@ public enum Operations {
     /// Retrieve a previously generated transcript by its ID.
     ///
     /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
-    public enum get_transcript_by_id {
-        public static let id: Swift.String = "get_transcript_by_id"
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)`.
+    public enum transcripts_get {
+        public static let id: Swift.String = "transcripts_get"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/path`.
             public struct Path: Sendable, Hashable {
@@ -5005,36 +1192,34 @@ public enum Operations {
                     self.transcription_id = transcription_id
                 }
             }
-            public var path: Operations.get_transcript_by_id.Input.Path
+            public var path: Operations.transcripts_get.Input.Path
             /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_transcript_by_id.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.transcripts_get.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key:
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.get_transcript_by_id.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.transcripts_get.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.get_transcript_by_id.Input.Headers
+            public var headers: Operations.transcripts_get.Input.Headers
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - path:
             ///   - headers:
             public init(
-                path: Operations.get_transcript_by_id.Input.Path,
-                headers: Operations.get_transcript_by_id.Input.Headers = .init()
+                path: Operations.transcripts_get.Input.Path,
+                headers: Operations.transcripts_get.Input.Headers = .init()
             ) {
                 self.path = path
                 self.headers = headers
@@ -5044,58 +1229,13 @@ public enum Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/json`.
-                    public struct jsonPayload: Codable, Hashable, Sendable {
-                        /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/json/value1`.
-                        public var value1: Components.Schemas.SpeechToTextChunkResponseModel?
-                        /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/json/value2`.
-                        public var value2: Components.Schemas.MultichannelSpeechToTextResponseModel?
-                        /// Creates a new `jsonPayload`.
-                        ///
-                        /// - Parameters:
-                        ///   - value1:
-                        ///   - value2:
-                        public init(
-                            value1: Components.Schemas.SpeechToTextChunkResponseModel? = nil,
-                            value2: Components.Schemas.MultichannelSpeechToTextResponseModel? = nil
-                        ) {
-                            self.value1 = value1
-                            self.value2 = value2
-                        }
-                        public init(from decoder: any Swift.Decoder) throws {
-                            var errors: [any Swift.Error] = []
-                            do {
-                                self.value1 = try .init(from: decoder)
-                            } catch {
-                                errors.append(error)
-                            }
-                            do {
-                                self.value2 = try .init(from: decoder)
-                            } catch {
-                                errors.append(error)
-                            }
-                            try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
-                                [
-                                    self.value1,
-                                    self.value2
-                                ],
-                                type: Self.self,
-                                codingPath: decoder.codingPath,
-                                errors: errors
-                            )
-                        }
-                        public func encode(to encoder: any Swift.Encoder) throws {
-                            try self.value1?.encode(to: encoder)
-                            try self.value2?.encode(to: encoder)
-                        }
-                    }
                     /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/200/content/application\/json`.
-                    case json(Operations.get_transcript_by_id.Output.Ok.Body.jsonPayload)
+                    case json(Components.Schemas.speech_to_text_transcripts_get_Response_200)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Operations.get_transcript_by_id.Output.Ok.Body.jsonPayload {
+                    public var json: Components.Schemas.speech_to_text_transcripts_get_Response_200 {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -5105,26 +1245,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.get_transcript_by_id.Output.Ok.Body
+                public var body: Operations.transcripts_get.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.get_transcript_by_id.Output.Ok.Body) {
+                public init(body: Operations.transcripts_get.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// The transcript data
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.get_transcript_by_id.Output.Ok)
+            case ok(Operations.transcripts_get.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.get_transcript_by_id.Output.Ok {
+            public var ok: Operations.transcripts_get.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -5132,108 +1272,6 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct Unauthorized: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/401/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/401/content/application\/json`.
-                    case json(OpenAPIRuntime.OpenAPIValueContainer)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_transcript_by_id.Output.Unauthorized.Body
-                /// Creates a new `Unauthorized`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_transcript_by_id.Output.Unauthorized.Body) {
-                    self.body = body
-                }
-            }
-            /// Authentication required
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/401`.
-            ///
-            /// HTTP response code: `401 unauthorized`.
-            case unauthorized(Operations.get_transcript_by_id.Output.Unauthorized)
-            /// The associated value of the enum case if `self` is `.unauthorized`.
-            ///
-            /// - Throws: An error if `self` is not `.unauthorized`.
-            /// - SeeAlso: `.unauthorized`.
-            public var unauthorized: Operations.get_transcript_by_id.Output.Unauthorized {
-                get throws {
-                    switch self {
-                    case let .unauthorized(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unauthorized",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct NotFound: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/404/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/GET/responses/404/content/application\/json`.
-                    case json(OpenAPIRuntime.OpenAPIValueContainer)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.get_transcript_by_id.Output.NotFound.Body
-                /// Creates a new `NotFound`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.get_transcript_by_id.Output.NotFound.Body) {
-                    self.body = body
-                }
-            }
-            /// Transcript not found
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/404`.
-            ///
-            /// HTTP response code: `404 notFound`.
-            case notFound(Operations.get_transcript_by_id.Output.NotFound)
-            /// The associated value of the enum case if `self` is `.notFound`.
-            ///
-            /// - Throws: An error if `self` is not `.notFound`.
-            /// - SeeAlso: `.notFound`.
-            public var notFound: Operations.get_transcript_by_id.Output.NotFound {
-                get throws {
-                    switch self {
-                    case let .notFound(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "notFound",
                             response: self
                         )
                     }
@@ -5258,26 +1296,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.get_transcript_by_id.Output.UnprocessableContent.Body
+                public var body: Operations.transcripts_get.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.get_transcript_by_id.Output.UnprocessableContent.Body) {
+                public init(body: Operations.transcripts_get.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.get_transcript_by_id.Output.UnprocessableContent)
+            case unprocessableContent(Operations.transcripts_get.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.get_transcript_by_id.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.transcripts_get.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -5292,7 +1330,7 @@ public enum Operations {
             }
             /// Payment Required - A paid plan is required to access this resource.
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/402`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)/responses/402`.
             ///
             /// HTTP response code: `402 code402`.
             case code402(Components.Responses.PaymentRequired)
@@ -5315,7 +1353,7 @@ public enum Operations {
             }
             /// Bad Request - The request was invalid or malformed.
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)/responses/400`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)/responses/400`.
             ///
             /// HTTP response code: `400 badRequest`.
             case badRequest(Components.Responses.BadRequest)
@@ -5372,9 +1410,9 @@ public enum Operations {
     /// Delete a previously generated transcript by its ID.
     ///
     /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
-    public enum delete_transcript_by_id {
-        public static let id: Swift.String = "delete_transcript_by_id"
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)`.
+    public enum transcripts_delete {
+        public static let id: Swift.String = "transcripts_delete"
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/path`.
             public struct Path: Sendable, Hashable {
@@ -5390,36 +1428,34 @@ public enum Operations {
                     self.transcription_id = transcription_id
                 }
             }
-            public var path: Operations.delete_transcript_by_id.Input.Path
+            public var path: Operations.transcripts_delete.Input.Path
             /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/header`.
             public struct Headers: Sendable, Hashable {
-                /// Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
-                ///
                 /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/header/xi-api-key`.
                 public var xi_hyphen_api_hyphen_key: Swift.String?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.delete_transcript_by_id.AcceptableContentType>]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.transcripts_delete.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - xi_hyphen_api_hyphen_key: Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.
+                ///   - xi_hyphen_api_hyphen_key:
                 ///   - accept:
                 public init(
                     xi_hyphen_api_hyphen_key: Swift.String? = nil,
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.delete_transcript_by_id.AcceptableContentType>] = .defaultValues()
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.transcripts_delete.AcceptableContentType>] = .defaultValues()
                 ) {
                     self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
                     self.accept = accept
                 }
             }
-            public var headers: Operations.delete_transcript_by_id.Input.Headers
+            public var headers: Operations.transcripts_delete.Input.Headers
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - path:
             ///   - headers:
             public init(
-                path: Operations.delete_transcript_by_id.Input.Path,
-                headers: Operations.delete_transcript_by_id.Input.Headers = .init()
+                path: Operations.transcripts_delete.Input.Path,
+                headers: Operations.transcripts_delete.Input.Headers = .init()
             ) {
                 self.path = path
                 self.headers = headers
@@ -5445,26 +1481,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.delete_transcript_by_id.Output.Ok.Body
+                public var body: Operations.transcripts_delete.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.delete_transcript_by_id.Output.Ok.Body) {
+                public init(body: Operations.transcripts_delete.Output.Ok.Body) {
                     self.body = body
                 }
             }
             /// Delete completed successfully.
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/200`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.delete_transcript_by_id.Output.Ok)
+            case ok(Operations.transcripts_delete.Output.Ok)
             /// The associated value of the enum case if `self` is `.ok`.
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.delete_transcript_by_id.Output.Ok {
+            public var ok: Operations.transcripts_delete.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -5472,57 +1508,6 @@ public enum Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self
-                        )
-                    }
-                }
-            }
-            public struct Unauthorized: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/401/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/v1/speech-to-text/transcripts/{transcription_id}/DELETE/responses/401/content/application\/json`.
-                    case json(OpenAPIRuntime.OpenAPIValueContainer)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: OpenAPIRuntime.OpenAPIValueContainer {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.delete_transcript_by_id.Output.Unauthorized.Body
-                /// Creates a new `Unauthorized`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.delete_transcript_by_id.Output.Unauthorized.Body) {
-                    self.body = body
-                }
-            }
-            /// Authentication required
-            ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/401`.
-            ///
-            /// HTTP response code: `401 unauthorized`.
-            case unauthorized(Operations.delete_transcript_by_id.Output.Unauthorized)
-            /// The associated value of the enum case if `self` is `.unauthorized`.
-            ///
-            /// - Throws: An error if `self` is not `.unauthorized`.
-            /// - SeeAlso: `.unauthorized`.
-            public var unauthorized: Operations.delete_transcript_by_id.Output.Unauthorized {
-                get throws {
-                    switch self {
-                    case let .unauthorized(response):
-                        return response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "unauthorized",
                             response: self
                         )
                     }
@@ -5547,26 +1532,26 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.delete_transcript_by_id.Output.UnprocessableContent.Body
+                public var body: Operations.transcripts_delete.Output.UnprocessableContent.Body
                 /// Creates a new `UnprocessableContent`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.delete_transcript_by_id.Output.UnprocessableContent.Body) {
+                public init(body: Operations.transcripts_delete.Output.UnprocessableContent.Body) {
                     self.body = body
                 }
             }
             /// Validation Error
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/422`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)/responses/422`.
             ///
             /// HTTP response code: `422 unprocessableContent`.
-            case unprocessableContent(Operations.delete_transcript_by_id.Output.UnprocessableContent)
+            case unprocessableContent(Operations.transcripts_delete.Output.UnprocessableContent)
             /// The associated value of the enum case if `self` is `.unprocessableContent`.
             ///
             /// - Throws: An error if `self` is not `.unprocessableContent`.
             /// - SeeAlso: `.unprocessableContent`.
-            public var unprocessableContent: Operations.delete_transcript_by_id.Output.UnprocessableContent {
+            public var unprocessableContent: Operations.transcripts_delete.Output.UnprocessableContent {
                 get throws {
                     switch self {
                     case let .unprocessableContent(response):
@@ -5581,7 +1566,7 @@ public enum Operations {
             }
             /// Payment Required - A paid plan is required to access this resource.
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/402`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)/responses/402`.
             ///
             /// HTTP response code: `402 code402`.
             case code402(Components.Responses.PaymentRequired)
@@ -5604,7 +1589,3758 @@ public enum Operations {
             }
             /// Bad Request - The request was invalid or malformed.
             ///
-            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)/responses/400`.
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Create transcript
+    ///
+    /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
+    ///
+    /// - Remark: HTTP `POST /v1/speech-to-text`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)`.
+    public enum speechToText_convert {
+        public static let id: Swift.String = "speechToText_convert"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query`.
+            public struct Query: Sendable, Hashable {
+                /// A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query/token`.
+                public var token: Swift.String?
+                /// When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.
+                ///
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/query/enable_logging`.
+                public var enable_logging: Swift.Bool?
+                /// Creates a new `Query`.
+                ///
+                /// - Parameters:
+                ///   - token: A single-use authentication token created via POST /v1/single-use-token/batch_scribe. This token can only be used once and expires after 15 minutes. Alternative to API key or bearer token authentication for frontend clients.
+                ///   - enable_logging: When enable_logging is set to false zero retention mode will be used for the request. This will mean log and transcript storage features are unavailable for this request. Zero retention mode may only be used by enterprise customers.
+                public init(
+                    token: Swift.String? = nil,
+                    enable_logging: Swift.Bool? = nil
+                ) {
+                    self.token = token
+                    self.enable_logging = enable_logging
+                }
+            }
+            public var query: Operations.speechToText_convert.Input.Query
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.speechToText_convert.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.speechToText_convert.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.speechToText_convert.Input.Headers
+            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm`.
+                @frozen public enum multipartFormPayload: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/model_id`.
+                    public struct model_idPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `model_idPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case model_id(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.model_idPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/file`.
+                    public struct filePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `filePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case file(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.filePayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/language_code`.
+                    public struct language_codePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `language_codePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case language_code(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.language_codePayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/secondary_language_codes`.
+                    public struct secondary_language_codesPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `secondary_language_codesPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case secondary_language_codes(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.secondary_language_codesPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/numbers_format`.
+                    public struct numbers_formatPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `numbers_formatPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case numbers_format(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.numbers_formatPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/transcript_edit`.
+                    public struct transcript_editPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `transcript_editPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case transcript_edit(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.transcript_editPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/tag_audio_events`.
+                    public struct tag_audio_eventsPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `tag_audio_eventsPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case tag_audio_events(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.tag_audio_eventsPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/num_speakers`.
+                    public struct num_speakersPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `num_speakersPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case num_speakers(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.num_speakersPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/timestamps_granularity`.
+                    public struct timestamps_granularityPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `timestamps_granularityPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case timestamps_granularity(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.timestamps_granularityPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/diarize`.
+                    public struct diarizePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `diarizePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case diarize(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.diarizePayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/diarization_threshold`.
+                    public struct diarization_thresholdPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `diarization_thresholdPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case diarization_threshold(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.diarization_thresholdPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/file_format`.
+                    public struct file_formatPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `file_formatPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case file_format(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.file_formatPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/cloud_storage_url`.
+                    public struct cloud_storage_urlPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `cloud_storage_urlPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case cloud_storage_url(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.cloud_storage_urlPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/source_url`.
+                    public struct source_urlPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `source_urlPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case source_url(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.source_urlPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/webhook`.
+                    public struct webhookPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `webhookPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case webhook(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.webhookPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/webhook_id`.
+                    public struct webhook_idPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `webhook_idPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case webhook_id(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.webhook_idPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/temperature`.
+                    public struct temperaturePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `temperaturePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case temperature(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.temperaturePayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/seed`.
+                    public struct seedPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `seedPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case seed(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.seedPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/use_multi_channel`.
+                    public struct use_multi_channelPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `use_multi_channelPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case use_multi_channel(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.use_multi_channelPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/multichannel_output_style`.
+                    public struct multichannel_output_stylePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `multichannel_output_stylePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case multichannel_output_style(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.multichannel_output_stylePayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/webhook_metadata`.
+                    public struct webhook_metadataPayload: Sendable, Hashable {
+                        public var body: Components.Schemas.V1SpeechToTextPostRequestBodyContentMultipartFormDataSchemaWebhookMetadata
+                        /// Creates a new `webhook_metadataPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: Components.Schemas.V1SpeechToTextPostRequestBodyContentMultipartFormDataSchemaWebhookMetadata) {
+                            self.body = body
+                        }
+                    }
+                    case webhook_metadata(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.webhook_metadataPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/entity_detection`.
+                    public struct entity_detectionPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `entity_detectionPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case entity_detection(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.entity_detectionPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/no_verbatim`.
+                    public struct no_verbatimPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `no_verbatimPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case no_verbatim(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.no_verbatimPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/use_speaker_library`.
+                    public struct use_speaker_libraryPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `use_speaker_libraryPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case use_speaker_library(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.use_speaker_libraryPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/detect_speaker_roles`.
+                    public struct detect_speaker_rolesPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `detect_speaker_rolesPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case detect_speaker_roles(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.detect_speaker_rolesPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/entity_redaction`.
+                    public struct entity_redactionPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `entity_redactionPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case entity_redaction(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.entity_redactionPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/entity_redaction_mode`.
+                    public struct entity_redaction_modePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `entity_redaction_modePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case entity_redaction_mode(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.entity_redaction_modePayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/keyterms`.
+                    public struct keytermsPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `keytermsPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case keyterms(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.keytermsPayload>)
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/additional_formats`.
+                    public struct additional_formatsPayload: Sendable, Hashable {
+                        /// Additional transcript formats, encoded together as one JSON array part.
+                        ///
+                        /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/additional_formats/content/body`.
+                        public struct bodyPayload: Codable, Hashable, Sendable {
+                            /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/multipartForm/additional_formats/content/body/value1`.
+                            public var value1: [Components.Schemas.ExportOptions]?
+                            /// Creates a new `bodyPayload`.
+                            ///
+                            /// - Parameters:
+                            ///   - value1:
+                            public init(value1: [Components.Schemas.ExportOptions]? = nil) {
+                                self.value1 = value1
+                            }
+                            public init(from decoder: any Swift.Decoder) throws {
+                                var errors: [any Swift.Error] = []
+                                do {
+                                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                                } catch {
+                                    errors.append(error)
+                                }
+                                try Swift.DecodingError.verifyAtLeastOneSchemaIsNotNil(
+                                    [
+                                        self.value1
+                                    ],
+                                    type: Self.self,
+                                    codingPath: decoder.codingPath,
+                                    errors: errors
+                                )
+                            }
+                            public func encode(to encoder: any Swift.Encoder) throws {
+                                try encoder.encodeFirstNonNilValueToSingleValueContainer([
+                                    self.value1
+                                ])
+                            }
+                        }
+                        public var body: Operations.speechToText_convert.Input.Body.multipartFormPayload.additional_formatsPayload.bodyPayload
+                        /// Creates a new `additional_formatsPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: Operations.speechToText_convert.Input.Body.multipartFormPayload.additional_formatsPayload.bodyPayload) {
+                            self.body = body
+                        }
+                    }
+                    case additional_formats(OpenAPIRuntime.MultipartPart<Operations.speechToText_convert.Input.Body.multipartFormPayload.additional_formatsPayload>)
+                    case undocumented(OpenAPIRuntime.MultipartRawPart)
+                }
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/requestBody/content/multipart\/form-data`.
+                case multipartForm(OpenAPIRuntime.MultipartBody<Operations.speechToText_convert.Input.Body.multipartFormPayload>)
+            }
+            public var body: Operations.speechToText_convert.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - query:
+            ///   - headers:
+            ///   - body:
+            public init(
+                query: Operations.speechToText_convert.Input.Query = .init(),
+                headers: Operations.speechToText_convert.Input.Headers = .init(),
+                body: Operations.speechToText_convert.Input.Body
+            ) {
+                self.query = query
+                self.headers = headers
+                self.body = body
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.speech_to_text_convert_Response_200)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.speech_to_text_convert_Response_200 {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.speechToText_convert.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.speechToText_convert.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Synchronous transcription result
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.speechToText_convert.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.speechToText_convert.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.speechToText_convert.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.speechToText_convert.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.speechToText_convert.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.speechToText_convert.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct Unauthorized: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/401/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/401/content/application\/json`.
+                    case json(Components.Schemas.BadRequestError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.BadRequestError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.speechToText_convert.Output.Unauthorized.Body
+                /// Creates a new `Unauthorized`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.speechToText_convert.Output.Unauthorized.Body) {
+                    self.body = body
+                }
+            }
+            /// Authentication failed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)/responses/401`.
+            ///
+            /// HTTP response code: `401 unauthorized`.
+            case unauthorized(Operations.speechToText_convert.Output.Unauthorized)
+            /// The associated value of the enum case if `self` is `.unauthorized`.
+            ///
+            /// - Throws: An error if `self` is not `.unauthorized`.
+            /// - SeeAlso: `.unauthorized`.
+            public var unauthorized: Operations.speechToText_convert.Output.Unauthorized {
+                get throws {
+                    switch self {
+                    case let .unauthorized(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unauthorized",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct TooManyRequests: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/429/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/speech-to-text/POST/responses/429/content/application\/json`.
+                    case json(Components.Schemas.BadRequestError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.BadRequestError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.speechToText_convert.Output.TooManyRequests.Body
+                /// Creates a new `TooManyRequests`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.speechToText_convert.Output.TooManyRequests.Body) {
+                    self.body = body
+                }
+            }
+            /// Rate limit or quota exceeded.
+            ///
+            /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)/responses/429`.
+            ///
+            /// HTTP response code: `429 tooManyRequests`.
+            case tooManyRequests(Operations.speechToText_convert.Output.TooManyRequests)
+            /// The associated value of the enum case if `self` is `.tooManyRequests`.
+            ///
+            /// - Throws: An error if `self` is not `.tooManyRequests`.
+            /// - SeeAlso: `.tooManyRequests`.
+            public var tooManyRequests: Operations.speechToText_convert.Output.TooManyRequests {
+                get throws {
+                    switch self {
+                    case let .tooManyRequests(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "tooManyRequests",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Get shared voices
+    ///
+    /// Retrieves a list of shared voices.
+    ///
+    /// - Remark: HTTP `GET /v1/shared-voices`.
+    /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)`.
+    public enum voices_get_shared {
+        public static let id: Swift.String = "voices_get_shared"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query`.
+            public struct Query: Sendable, Hashable {
+                /// How many shared voices to return at maximum. Can not exceed 100, defaults to 30.
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/page_size`.
+                public var page_size: Swift.Int?
+                /// Voice category used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/category`.
+                public var category: Components.Schemas.V1SharedVoicesGetParametersCategory?
+                /// Gender used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/gender`.
+                public var gender: Swift.String?
+                /// Age used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/age`.
+                public var age: Swift.String?
+                /// Accent used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/accent`.
+                public var accent: Swift.String?
+                /// Language used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/language`.
+                public var language: Swift.String?
+                /// Locale used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/locale`.
+                public var locale: Swift.String?
+                /// Search term used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/search`.
+                public var search: Swift.String?
+                /// Use-case used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/use_cases`.
+                public var use_cases: [Swift.String]?
+                /// Search term used for filtering
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/descriptives`.
+                public var descriptives: [Swift.String]?
+                /// Filter featured voices
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/featured`.
+                public var featured: Swift.Bool?
+                /// Filter voices with a minimum notice period of the given number of days.
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/min_notice_period_days`.
+                public var min_notice_period_days: Swift.Int?
+                /// Include/exclude voices with custom rates
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/include_custom_rates`.
+                public var include_custom_rates: Swift.Bool?
+                /// Include/exclude voices that are live moderated
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/include_live_moderated`.
+                public var include_live_moderated: Swift.Bool?
+                /// Filter voices that are enabled for the reader app
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/reader_app_enabled`.
+                public var reader_app_enabled: Swift.Bool?
+                /// Filter voices by public owner ID
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/owner_id`.
+                public var owner_id: Swift.String?
+                /// Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.
+                ///
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/sort`.
+                public var sort: Components.Schemas.V1SharedVoicesGetParametersSort?
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/query/page`.
+                public var page: Swift.Int?
+                /// Creates a new `Query`.
+                ///
+                /// - Parameters:
+                ///   - page_size: How many shared voices to return at maximum. Can not exceed 100, defaults to 30.
+                ///   - category: Voice category used for filtering
+                ///   - gender: Gender used for filtering
+                ///   - age: Age used for filtering
+                ///   - accent: Accent used for filtering
+                ///   - language: Language used for filtering
+                ///   - locale: Locale used for filtering
+                ///   - search: Search term used for filtering
+                ///   - use_cases: Use-case used for filtering
+                ///   - descriptives: Search term used for filtering
+                ///   - featured: Filter featured voices
+                ///   - min_notice_period_days: Filter voices with a minimum notice period of the given number of days.
+                ///   - include_custom_rates: Include/exclude voices with custom rates
+                ///   - include_live_moderated: Include/exclude voices that are live moderated
+                ///   - reader_app_enabled: Filter voices that are enabled for the reader app
+                ///   - owner_id: Filter voices by public owner ID
+                ///   - sort: Sort criteria. Must be one of: created_date, usage_character_count_1y, trending, cloned_by_count.
+                ///   - page:
+                public init(
+                    page_size: Swift.Int? = nil,
+                    category: Components.Schemas.V1SharedVoicesGetParametersCategory? = nil,
+                    gender: Swift.String? = nil,
+                    age: Swift.String? = nil,
+                    accent: Swift.String? = nil,
+                    language: Swift.String? = nil,
+                    locale: Swift.String? = nil,
+                    search: Swift.String? = nil,
+                    use_cases: [Swift.String]? = nil,
+                    descriptives: [Swift.String]? = nil,
+                    featured: Swift.Bool? = nil,
+                    min_notice_period_days: Swift.Int? = nil,
+                    include_custom_rates: Swift.Bool? = nil,
+                    include_live_moderated: Swift.Bool? = nil,
+                    reader_app_enabled: Swift.Bool? = nil,
+                    owner_id: Swift.String? = nil,
+                    sort: Components.Schemas.V1SharedVoicesGetParametersSort? = nil,
+                    page: Swift.Int? = nil
+                ) {
+                    self.page_size = page_size
+                    self.category = category
+                    self.gender = gender
+                    self.age = age
+                    self.accent = accent
+                    self.language = language
+                    self.locale = locale
+                    self.search = search
+                    self.use_cases = use_cases
+                    self.descriptives = descriptives
+                    self.featured = featured
+                    self.min_notice_period_days = min_notice_period_days
+                    self.include_custom_rates = include_custom_rates
+                    self.include_live_moderated = include_live_moderated
+                    self.reader_app_enabled = reader_app_enabled
+                    self.owner_id = owner_id
+                    self.sort = sort
+                    self.page = page
+                }
+            }
+            public var query: Operations.voices_get_shared.Input.Query
+            /// - Remark: Generated from `#/paths/v1/shared-voices/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_get_shared.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_get_shared.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_get_shared.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - query:
+            ///   - headers:
+            public init(
+                query: Operations.voices_get_shared.Input.Query = .init(),
+                headers: Operations.voices_get_shared.Input.Headers = .init()
+            ) {
+                self.query = query
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/200/content/application\/json`.
+                    case json(Components.Schemas.GetLibraryVoicesResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.GetLibraryVoicesResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_get_shared.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_get_shared.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_get_shared.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_get_shared.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/shared-voices/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_get_shared.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_get_shared.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_get_shared.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_get_shared.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Add shared voice
+    ///
+    /// Add a shared voice to your collection of Voices
+    ///
+    /// - Remark: HTTP `POST /v1/voices/add/{public_user_id}/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)`.
+    public enum voices_share {
+        public static let id: Swift.String = "voices_share"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/path`.
+            public struct Path: Sendable, Hashable {
+                /// Public user ID used to publicly identify ElevenLabs users.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/path/public_user_id`.
+                public var public_user_id: Swift.String
+                /// ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/path/voice_id`.
+                public var voice_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - public_user_id: Public user ID used to publicly identify ElevenLabs users.
+                ///   - voice_id: ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                public init(
+                    public_user_id: Swift.String,
+                    voice_id: Swift.String
+                ) {
+                    self.public_user_id = public_user_id
+                    self.voice_id = voice_id
+                }
+            }
+            public var path: Operations.voices_share.Input.Path
+            /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_share.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_share.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_share.Input.Headers
+            /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/requestBody/content/application\/json`.
+                case json(Components.Schemas.Body_Add_shared_voice_v1_voices_add__public_user_id___voice_id__post)
+            }
+            public var body: Operations.voices_share.Input.Body?
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            ///   - body:
+            public init(
+                path: Operations.voices_share.Input.Path,
+                headers: Operations.voices_share.Input.Headers = .init(),
+                body: Operations.voices_share.Input.Body? = nil
+            ) {
+                self.path = path
+                self.headers = headers
+                self.body = body
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.AddVoiceResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.AddVoiceResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_share.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_share.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_share.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_share.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/add/{public_user_id}/{voice_id}/POST/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_share.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_share.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_share.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_share.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Get voice
+    ///
+    /// Returns metadata about a specific voice.
+    ///
+    /// - Remark: HTTP `GET /v1/voices/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)`.
+    public enum voices_get {
+        public static let id: Swift.String = "voices_get"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/path`.
+            public struct Path: Sendable, Hashable {
+                /// ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/path/voice_id`.
+                public var voice_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - voice_id: ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                public init(voice_id: Swift.String) {
+                    self.voice_id = voice_id
+                }
+            }
+            public var path: Operations.voices_get.Input.Path
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/query`.
+            public struct Query: Sendable, Hashable {
+                /// This parameter is now deprecated. It is ignored and will be removed in a future version.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/query/with_settings`.
+                @available(*, deprecated)
+                public var with_settings: Swift.Bool?
+                /// Creates a new `Query`.
+                ///
+                /// - Parameters:
+                ///   - with_settings: This parameter is now deprecated. It is ignored and will be removed in a future version.
+                public init(with_settings: Swift.Bool? = nil) {
+                    self.with_settings = with_settings
+                }
+            }
+            public var query: Operations.voices_get.Input.Query
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_get.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_get.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_get.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - query:
+            ///   - headers:
+            public init(
+                path: Operations.voices_get.Input.Path,
+                query: Operations.voices_get.Input.Query = .init(),
+                headers: Operations.voices_get.Input.Headers = .init()
+            ) {
+                self.path = path
+                self.query = query
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/200/content/application\/json`.
+                    case json(Components.Schemas.VoiceResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.VoiceResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_get.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_get.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_get.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_get.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_get.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_get.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_get.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_get.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Delete voice
+    ///
+    /// Deletes a voice by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/voices/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)`.
+    public enum voices_delete {
+        public static let id: Swift.String = "voices_delete"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/path`.
+            public struct Path: Sendable, Hashable {
+                /// ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/path/voice_id`.
+                public var voice_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - voice_id: ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                public init(voice_id: Swift.String) {
+                    self.voice_id = voice_id
+                }
+            }
+            public var path: Operations.voices_delete.Input.Path
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_delete.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_delete.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_delete.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            public init(
+                path: Operations.voices_delete.Input.Path,
+                headers: Operations.voices_delete.Input.Headers = .init()
+            ) {
+                self.path = path
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/200/content/application\/json`.
+                    case json(Components.Schemas.DeleteVoiceResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.DeleteVoiceResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_delete.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_delete.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_delete.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_delete.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/DELETE/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_delete.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_delete.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_delete.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_delete.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Edit voice
+    ///
+    /// Edit a voice created by you.
+    ///
+    /// - Remark: HTTP `POST /v1/voices/{voice_id}/edit`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)`.
+    public enum voices_update {
+        public static let id: Swift.String = "voices_update"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/path`.
+            public struct Path: Sendable, Hashable {
+                /// ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/path/voice_id`.
+                public var voice_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - voice_id: ID of the voice to be used. You can use the [Get voices](/docs/api-reference/voices/search) endpoint list all the available voices.
+                public init(voice_id: Swift.String) {
+                    self.voice_id = voice_id
+                }
+            }
+            public var path: Operations.voices_update.Input.Path
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_update.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_update.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_update.Input.Headers
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm`.
+                @frozen public enum multipartFormPayload: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm/name`.
+                    public struct namePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `namePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case name(OpenAPIRuntime.MultipartPart<Operations.voices_update.Input.Body.multipartFormPayload.namePayload>)
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm/files`.
+                    public struct filesPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `filesPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case files(OpenAPIRuntime.MultipartPart<Operations.voices_update.Input.Body.multipartFormPayload.filesPayload>)
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm/remove_background_noise`.
+                    public struct remove_background_noisePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `remove_background_noisePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case remove_background_noise(OpenAPIRuntime.MultipartPart<Operations.voices_update.Input.Body.multipartFormPayload.remove_background_noisePayload>)
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm/description`.
+                    public struct descriptionPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `descriptionPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case description(OpenAPIRuntime.MultipartPart<Operations.voices_update.Input.Body.multipartFormPayload.descriptionPayload>)
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm/labels`.
+                    public struct labelsPayload: Sendable, Hashable {
+                        public var body: Components.Schemas.V1VoicesVoiceIdEditPostRequestBodyContentMultipartFormDataSchemaLabels
+                        /// Creates a new `labelsPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: Components.Schemas.V1VoicesVoiceIdEditPostRequestBodyContentMultipartFormDataSchemaLabels) {
+                            self.body = body
+                        }
+                    }
+                    case labels(OpenAPIRuntime.MultipartPart<Operations.voices_update.Input.Body.multipartFormPayload.labelsPayload>)
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/multipartForm/moderate_metadata`.
+                    public struct moderate_metadataPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `moderate_metadataPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case moderate_metadata(OpenAPIRuntime.MultipartPart<Operations.voices_update.Input.Body.multipartFormPayload.moderate_metadataPayload>)
+                    case undocumented(OpenAPIRuntime.MultipartRawPart)
+                }
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/requestBody/content/multipart\/form-data`.
+                case multipartForm(OpenAPIRuntime.MultipartBody<Operations.voices_update.Input.Body.multipartFormPayload>)
+            }
+            public var body: Operations.voices_update.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            ///   - body:
+            public init(
+                path: Operations.voices_update.Input.Path,
+                headers: Operations.voices_update.Input.Headers = .init(),
+                body: Operations.voices_update.Input.Body
+            ) {
+                self.path = path
+                self.headers = headers
+                self.body = body
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.EditVoiceResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.EditVoiceResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_update.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_update.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_update.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_update.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/edit/POST/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_update.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_update.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_update.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_update.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// List voices
+    ///
+    /// Gets a list of all available voices for a user with search, filtering and pagination.
+    ///
+    /// - Remark: HTTP `GET /v2/voices`.
+    /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)`.
+    public enum voices_search {
+        public static let id: Swift.String = "voices_search"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v2/voices/GET/query`.
+            public struct Query: Sendable, Hashable {
+                /// The next page token to use for pagination. Returned from the previous request. Use this in combination with the has_more flag for reliable pagination.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/next_page_token`.
+                public var next_page_token: Swift.String?
+                /// How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/page_size`.
+                public var page_size: Swift.Int?
+                /// Search term to filter voices by. Searches in name, description, labels, category.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/search`.
+                public var search: Swift.String?
+                /// Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/sort`.
+                public var sort: Swift.String?
+                /// Which direction to sort the voices in. 'asc' or 'desc'.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/sort_direction`.
+                public var sort_direction: Swift.String?
+                /// Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default', 'non-community', 'saved'. 'non-default' is equal to all but 'default'. 'non-community' is equal to 'personal' and 'workspace' combined (excludes library copies). 'saved' is equal to non-default, but includes default voices if they have been added to a collection.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/voice_type`.
+                public var voice_type: Swift.String?
+                /// Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/category`.
+                public var category: Swift.String?
+                /// State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/fine_tuning_state`.
+                public var fine_tuning_state: Swift.String?
+                /// Collection ID to filter voices by.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/collection_id`.
+                public var collection_id: Swift.String?
+                /// Gender used for filtering, based on the voice's 'gender' label.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/gender`.
+                public var gender: Swift.String?
+                /// Age used for filtering, based on the voice's 'age' label.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/age`.
+                public var age: Swift.String?
+                /// Languages used for filtering, based on the voice's 'language' label. Voices matching any of the given languages are returned.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/language`.
+                public var language: [Swift.String]?
+                /// Accent used for filtering, based on the voice's 'accent' label.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/accent`.
+                public var accent: Swift.String?
+                /// Use cases used for filtering, based on the voice's 'use_case' label. Voices matching any of the given use cases are returned.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/use_cases`.
+                public var use_cases: [Swift.String]?
+                /// Filter to voices whose sharing notice period is at least the given number of days.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/min_notice_period_days`.
+                public var min_notice_period_days: Swift.Int?
+                /// Whether to include voices that have a custom sharing rate. Defaults to including them.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/include_custom_rates`.
+                public var include_custom_rates: Swift.Bool?
+                /// Whether to include voices that have live moderation enabled. Defaults to including them.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/include_live_moderated`.
+                public var include_live_moderated: Swift.Bool?
+                /// When true, only return studio-quality voices (those whose category is 'high_quality').
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/high_quality`.
+                public var high_quality: Swift.Bool?
+                /// Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/include_total_count`.
+                public var include_total_count: Swift.Bool?
+                /// Voice IDs to lookup by. Maximum 100 voice IDs.
+                ///
+                /// - Remark: Generated from `#/paths/v2/voices/GET/query/voice_ids`.
+                public var voice_ids: [Swift.String]?
+                /// Creates a new `Query`.
+                ///
+                /// - Parameters:
+                ///   - next_page_token: The next page token to use for pagination. Returned from the previous request. Use this in combination with the has_more flag for reliable pagination.
+                ///   - page_size: How many voices to return at maximum. Can not exceed 100, defaults to 10. Page 0 may include more voices due to default voices being included.
+                ///   - search: Search term to filter voices by. Searches in name, description, labels, category.
+                ///   - sort: Which field to sort by, one of 'created_at_unix' or 'name'. 'created_at_unix' may not be available for older voices.
+                ///   - sort_direction: Which direction to sort the voices in. 'asc' or 'desc'.
+                ///   - voice_type: Type of the voice to filter by. One of 'personal', 'community', 'default', 'workspace', 'non-default', 'non-community', 'saved'. 'non-default' is equal to all but 'default'. 'non-community' is equal to 'personal' and 'workspace' combined (excludes library copies). 'saved' is equal to non-default, but includes default voices if they have been added to a collection.
+                ///   - category: Category of the voice to filter by. One of 'premade', 'cloned', 'generated', 'professional'
+                ///   - fine_tuning_state: State of the voice's fine tuning to filter by. Applicable only to professional voices clones. One of 'draft', 'not_verified', 'not_started', 'queued', 'fine_tuning', 'fine_tuned', 'failed', 'delayed'
+                ///   - collection_id: Collection ID to filter voices by.
+                ///   - gender: Gender used for filtering, based on the voice's 'gender' label.
+                ///   - age: Age used for filtering, based on the voice's 'age' label.
+                ///   - language: Languages used for filtering, based on the voice's 'language' label. Voices matching any of the given languages are returned.
+                ///   - accent: Accent used for filtering, based on the voice's 'accent' label.
+                ///   - use_cases: Use cases used for filtering, based on the voice's 'use_case' label. Voices matching any of the given use cases are returned.
+                ///   - min_notice_period_days: Filter to voices whose sharing notice period is at least the given number of days.
+                ///   - include_custom_rates: Whether to include voices that have a custom sharing rate. Defaults to including them.
+                ///   - include_live_moderated: Whether to include voices that have live moderation enabled. Defaults to including them.
+                ///   - high_quality: When true, only return studio-quality voices (those whose category is 'high_quality').
+                ///   - include_total_count: Whether to include the total count of voices found in the response. NOTE: The total_count value is a live snapshot and may change between requests as users create, modify, or delete voices. For pagination, rely on the has_more flag instead. Only enable this when you actually need the total count (e.g., for display purposes), as it incurs a performance cost.
+                ///   - voice_ids: Voice IDs to lookup by. Maximum 100 voice IDs.
+                public init(
+                    next_page_token: Swift.String? = nil,
+                    page_size: Swift.Int? = nil,
+                    search: Swift.String? = nil,
+                    sort: Swift.String? = nil,
+                    sort_direction: Swift.String? = nil,
+                    voice_type: Swift.String? = nil,
+                    category: Swift.String? = nil,
+                    fine_tuning_state: Swift.String? = nil,
+                    collection_id: Swift.String? = nil,
+                    gender: Swift.String? = nil,
+                    age: Swift.String? = nil,
+                    language: [Swift.String]? = nil,
+                    accent: Swift.String? = nil,
+                    use_cases: [Swift.String]? = nil,
+                    min_notice_period_days: Swift.Int? = nil,
+                    include_custom_rates: Swift.Bool? = nil,
+                    include_live_moderated: Swift.Bool? = nil,
+                    high_quality: Swift.Bool? = nil,
+                    include_total_count: Swift.Bool? = nil,
+                    voice_ids: [Swift.String]? = nil
+                ) {
+                    self.next_page_token = next_page_token
+                    self.page_size = page_size
+                    self.search = search
+                    self.sort = sort
+                    self.sort_direction = sort_direction
+                    self.voice_type = voice_type
+                    self.category = category
+                    self.fine_tuning_state = fine_tuning_state
+                    self.collection_id = collection_id
+                    self.gender = gender
+                    self.age = age
+                    self.language = language
+                    self.accent = accent
+                    self.use_cases = use_cases
+                    self.min_notice_period_days = min_notice_period_days
+                    self.include_custom_rates = include_custom_rates
+                    self.include_live_moderated = include_live_moderated
+                    self.high_quality = high_quality
+                    self.include_total_count = include_total_count
+                    self.voice_ids = voice_ids
+                }
+            }
+            public var query: Operations.voices_search.Input.Query
+            /// - Remark: Generated from `#/paths/v2/voices/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v2/voices/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_search.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_search.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_search.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - query:
+            ///   - headers:
+            public init(
+                query: Operations.voices_search.Input.Query = .init(),
+                headers: Operations.voices_search.Input.Headers = .init()
+            ) {
+                self.query = query
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v2/voices/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v2/voices/GET/responses/200/content/application\/json`.
+                    case json(Components.Schemas.GetVoicesV2ResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.GetVoicesV2ResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_search.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_search.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_search.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_search.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v2/voices/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v2/voices/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_search.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_search.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_search.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_search.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Replicate Voice To Isolated Environment
+    ///
+    /// Replicates an Instant Voice Clone or Voice Design voice to a workspace in a different data residency. The target workspace must belong to the same consolidated billing group. The user must have VOICES_WRITE in the source workspace, and be an admin on the source voice. Human users (i.e. not service accounts) must also have VOICES_WRITE in the target workspace. This endpoint is available on the central environment only.
+    ///
+    /// - Remark: HTTP `POST /v1/voices/{voice_id}/replicate-to-isolated-environment`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)`.
+    public enum voices_replicate_to_isolated_environment {
+        public static let id: Swift.String = "voices_replicate_to_isolated_environment"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/path`.
+            public struct Path: Sendable, Hashable {
+                /// Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/path/voice_id`.
+                public var voice_id: Swift.String
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - voice_id: Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices.
+                public init(voice_id: Swift.String) {
+                    self.voice_id = voice_id
+                }
+            }
+            public var path: Operations.voices_replicate_to_isolated_environment.Input.Path
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_replicate_to_isolated_environment.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_replicate_to_isolated_environment.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_replicate_to_isolated_environment.Input.Headers
+            /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/requestBody/content/application\/json`.
+                case json(Components.Schemas.ReplicateVoiceToIsolatedEnvironmentRequestModel)
+            }
+            public var body: Operations.voices_replicate_to_isolated_environment.Input.Body?
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            ///   - body:
+            public init(
+                path: Operations.voices_replicate_to_isolated_environment.Input.Path,
+                headers: Operations.voices_replicate_to_isolated_environment.Input.Headers = .init(),
+                body: Operations.voices_replicate_to_isolated_environment.Input.Body? = nil
+            ) {
+                self.path = path
+                self.headers = headers
+                self.body = body
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ReplicateVoiceToIsolatedEnvironmentResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ReplicateVoiceToIsolatedEnvironmentResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_replicate_to_isolated_environment.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_replicate_to_isolated_environment.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_replicate_to_isolated_environment.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_replicate_to_isolated_environment.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/{voice_id}/replicate-to-isolated-environment/POST/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_replicate_to_isolated_environment.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_replicate_to_isolated_environment.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_replicate_to_isolated_environment.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_replicate_to_isolated_environment.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// List similar voices
+    ///
+    /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
+    ///
+    /// - Remark: HTTP `POST /v1/similar-voices`.
+    /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)`.
+    public enum voices_find_similar_voices {
+        public static let id: Swift.String = "voices_find_similar_voices"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/similar-voices/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_find_similar_voices.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_find_similar_voices.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_find_similar_voices.Input.Headers
+            /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody/multipartForm`.
+                @frozen public enum multipartFormPayload: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody/multipartForm/audio_file`.
+                    public struct audio_filePayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `audio_filePayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case audio_file(OpenAPIRuntime.MultipartPart<Operations.voices_find_similar_voices.Input.Body.multipartFormPayload.audio_filePayload>)
+                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody/multipartForm/similarity_threshold`.
+                    public struct similarity_thresholdPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `similarity_thresholdPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case similarity_threshold(OpenAPIRuntime.MultipartPart<Operations.voices_find_similar_voices.Input.Body.multipartFormPayload.similarity_thresholdPayload>)
+                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody/multipartForm/top_k`.
+                    public struct top_kPayload: Sendable, Hashable {
+                        public var body: OpenAPIRuntime.HTTPBody
+                        /// Creates a new `top_kPayload`.
+                        ///
+                        /// - Parameters:
+                        ///   - body:
+                        public init(body: OpenAPIRuntime.HTTPBody) {
+                            self.body = body
+                        }
+                    }
+                    case top_k(OpenAPIRuntime.MultipartPart<Operations.voices_find_similar_voices.Input.Body.multipartFormPayload.top_kPayload>)
+                    case undocumented(OpenAPIRuntime.MultipartRawPart)
+                }
+                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/requestBody/content/multipart\/form-data`.
+                case multipartForm(OpenAPIRuntime.MultipartBody<Operations.voices_find_similar_voices.Input.Body.multipartFormPayload>)
+            }
+            public var body: Operations.voices_find_similar_voices.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.voices_find_similar_voices.Input.Headers = .init(),
+                body: Operations.voices_find_similar_voices.Input.Body
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.GetLibraryVoicesResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.GetLibraryVoicesResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_find_similar_voices.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_find_similar_voices.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_find_similar_voices.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_find_similar_voices.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/similar-voices/POST/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_find_similar_voices.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_find_similar_voices.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_find_similar_voices.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_find_similar_voices.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// List models
+    ///
+    /// Gets a list of available models.
+    ///
+    /// - Remark: HTTP `GET /v1/models`.
+    /// - Remark: Generated from `#/paths//v1/models/get(models_list)`.
+    public enum models_list {
+        public static let id: Swift.String = "models_list"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/models/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/models/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.models_list.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.models_list.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.models_list.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            public init(headers: Operations.models_list.Input.Headers = .init()) {
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/models/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/models/GET/responses/200/content/application\/json`.
+                    case json([Components.Schemas.ModelResponseModel])
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: [Components.Schemas.ModelResponseModel] {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.models_list.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.models_list.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(models_list)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.models_list.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.models_list.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/models/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/models/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.models_list.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.models_list.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(models_list)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.models_list.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.models_list.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(models_list)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/models/get(models_list)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// List voices
+    ///
+    /// Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.
+    ///
+    /// - Remark: HTTP `GET /v1/voices`.
+    /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)`.
+    public enum voices_get_all {
+        public static let id: Swift.String = "voices_get_all"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/voices/GET/query`.
+            public struct Query: Sendable, Hashable {
+                /// If set to true, legacy premade voices will be included in responses from /v1/voices
+                ///
+                /// - Remark: Generated from `#/paths/v1/voices/GET/query/show_legacy`.
+                public var show_legacy: Swift.Bool?
+                /// Creates a new `Query`.
+                ///
+                /// - Parameters:
+                ///   - show_legacy: If set to true, legacy premade voices will be included in responses from /v1/voices
+                public init(show_legacy: Swift.Bool? = nil) {
+                    self.show_legacy = show_legacy
+                }
+            }
+            public var query: Operations.voices_get_all.Input.Query
+            /// - Remark: Generated from `#/paths/v1/voices/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_get_all.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.voices_get_all.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.voices_get_all.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - query:
+            ///   - headers:
+            public init(
+                query: Operations.voices_get_all.Input.Query = .init(),
+                headers: Operations.voices_get_all.Input.Headers = .init()
+            ) {
+                self.query = query
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/GET/responses/200/content/application\/json`.
+                    case json(Components.Schemas.GetVoicesResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.GetVoicesResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_get_all.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_get_all.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.voices_get_all.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.voices_get_all.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/voices/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/voices/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.voices_get_all.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.voices_get_all.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.voices_get_all.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.voices_get_all.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)/responses/400`.
+            ///
+            /// HTTP response code: `400 badRequest`.
+            case badRequest(Components.Responses.BadRequest)
+            /// The associated value of the enum case if `self` is `.badRequest`.
+            ///
+            /// - Throws: An error if `self` is not `.badRequest`.
+            /// - SeeAlso: `.badRequest`.
+            public var badRequest: Components.Responses.BadRequest {
+                get throws {
+                    switch self {
+                    case let .badRequest(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "badRequest",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    return string
+                case .json:
+                    return "application/json"
+                }
+            }
+            public static var allCases: [Self] {
+                [
+                    .json
+                ]
+            }
+        }
+    }
+    /// Retrieve A Transcript
+    ///
+    /// Fetch the transcript for one of the languages in a dub.
+    ///
+    /// - Remark: HTTP `GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}`.
+    /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)`.
+    public enum transcripts_get_2 {
+        public static let id: Swift.String = "transcripts_get_2"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/path`.
+            public struct Path: Sendable, Hashable {
+                /// ID of the dubbing project.
+                ///
+                /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/path/dubbing_id`.
+                public var dubbing_id: Swift.String
+                /// ISO-693 language code to retrieve the transcript for. Use 'source' to fetch the transcript of the original media.
+                ///
+                /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/path/language_code`.
+                public var language_code: Swift.String
+                /// Format to return transcript in. For subtitles use either 'srt' or 'webvtt', and for a full transcript use 'json'. The 'json' format is not yet supported for Dubbing Studio.
+                ///
+                /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/path/format_type`.
+                public var format_type: Components.Schemas.V1DubbingDubbingIdTranscriptsLanguageCodeFormatFormatTypeGetParametersFormatType
+                /// Creates a new `Path`.
+                ///
+                /// - Parameters:
+                ///   - dubbing_id: ID of the dubbing project.
+                ///   - language_code: ISO-693 language code to retrieve the transcript for. Use 'source' to fetch the transcript of the original media.
+                ///   - format_type: Format to return transcript in. For subtitles use either 'srt' or 'webvtt', and for a full transcript use 'json'. The 'json' format is not yet supported for Dubbing Studio.
+                public init(
+                    dubbing_id: Swift.String,
+                    language_code: Swift.String,
+                    format_type: Components.Schemas.V1DubbingDubbingIdTranscriptsLanguageCodeFormatFormatTypeGetParametersFormatType
+                ) {
+                    self.dubbing_id = dubbing_id
+                    self.language_code = language_code
+                    self.format_type = format_type
+                }
+            }
+            public var path: Operations.transcripts_get_2.Input.Path
+            /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/header`.
+            public struct Headers: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/header/xi-api-key`.
+                public var xi_hyphen_api_hyphen_key: Swift.String?
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.transcripts_get_2.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - xi_hyphen_api_hyphen_key:
+                ///   - accept:
+                public init(
+                    xi_hyphen_api_hyphen_key: Swift.String? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.transcripts_get_2.AcceptableContentType>] = .defaultValues()
+                ) {
+                    self.xi_hyphen_api_hyphen_key = xi_hyphen_api_hyphen_key
+                    self.accept = accept
+                }
+            }
+            public var headers: Operations.transcripts_get_2.Input.Headers
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - path:
+            ///   - headers:
+            public init(
+                path: Operations.transcripts_get_2.Input.Path,
+                headers: Operations.transcripts_get_2.Input.Headers = .init()
+            ) {
+                self.path = path
+                self.headers = headers
+            }
+        }
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/responses/200/content/application\/json`.
+                    case json(Components.Schemas.DubbingTranscriptsResponseModel)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.DubbingTranscriptsResponseModel {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.transcripts_get_2.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.transcripts_get_2.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+            /// Successful Response
+            ///
+            /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.transcripts_get_2.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.transcripts_get_2.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self
+                        )
+                    }
+                }
+            }
+            public struct UnprocessableContent: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/responses/422/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/GET/responses/422/content/application\/json`.
+                    case json(Components.Schemas.HTTPValidationError)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.HTTPValidationError {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                return body
+                            }
+                        }
+                    }
+                }
+                /// Received HTTP response body
+                public var body: Operations.transcripts_get_2.Output.UnprocessableContent.Body
+                /// Creates a new `UnprocessableContent`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.transcripts_get_2.Output.UnprocessableContent.Body) {
+                    self.body = body
+                }
+            }
+            /// Validation Error
+            ///
+            /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)/responses/422`.
+            ///
+            /// HTTP response code: `422 unprocessableContent`.
+            case unprocessableContent(Operations.transcripts_get_2.Output.UnprocessableContent)
+            /// The associated value of the enum case if `self` is `.unprocessableContent`.
+            ///
+            /// - Throws: An error if `self` is not `.unprocessableContent`.
+            /// - SeeAlso: `.unprocessableContent`.
+            public var unprocessableContent: Operations.transcripts_get_2.Output.UnprocessableContent {
+                get throws {
+                    switch self {
+                    case let .unprocessableContent(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "unprocessableContent",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Payment Required - A paid plan is required to access this resource.
+            ///
+            /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)/responses/402`.
+            ///
+            /// HTTP response code: `402 code402`.
+            case code402(Components.Responses.PaymentRequired)
+            /// The associated value of the enum case if `self` is `.code402`.
+            ///
+            /// - Throws: An error if `self` is not `.code402`.
+            /// - SeeAlso: `.code402`.
+            public var code402: Components.Responses.PaymentRequired {
+                get throws {
+                    switch self {
+                    case let .code402(response):
+                        return response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "code402",
+                            response: self
+                        )
+                    }
+                }
+            }
+            /// Bad Request - The request was invalid or malformed.
+            ///
+            /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)/responses/400`.
             ///
             /// HTTP response code: `400 badRequest`.
             case badRequest(Components.Responses.BadRequest)

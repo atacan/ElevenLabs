@@ -35,8 +35,8 @@ struct ElevenLabsTests {
             .appendingPathComponent("60s_speech.wav")
         let audioData = try Data(contentsOf: audioURL)
 
-        let response = try await client.speech_to_text(
-            Operations.speech_to_text.Input(
+        let response = try await client.speechToText_convert(
+            Operations.speechToText_convert.Input(
                 query: .init(enable_logging: true),
                 body: .multipartForm([
                     .model_id(.init(payload: .init(body: HTTPBody("scribe_v1")))),
@@ -50,8 +50,7 @@ struct ElevenLabsTests {
             )
         )
 
-        let output: Components.Schemas.SpeechToTextChunkResponseModel? = try response.ok.body.json.value1
-        guard let output: Components.Schemas.SpeechToTextChunkResponseModel = output else {
+        guard case .SpeechToTextChunkResponseModel(let output) = try response.ok.body.json else {
             throw NSError(domain: "No output", code: 1)
         }
 
@@ -71,15 +70,15 @@ struct ElevenLabsTests {
     @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
     func testTextToSpeechApiStructure() async throws {
         let client = try self.client
-        let voiceResponse = try await client.get_voices(.init(query: .init(show_legacy: false)))
+        let voiceResponse = try await client.voices_get_all(.init(query: .init(show_legacy: false)))
         let voices = try voiceResponse.ok.body.json.voices
         // Default voices are returned as premade; library voices require a paid API plan.
         let voice = try #require(
             voices.first { $0.category == .premade && $0.is_legacy != true },
             "No current default voice is available to this account; refusing to use a paid library voice."
         )
-        let response = try await client.text_to_speech_full(
-            Operations.text_to_speech_full.Input(
+        let response = try await client.textToSpeech_convert(
+            Operations.textToSpeech_convert.Input(
                 path: .init(voice_id: voice.voice_id),
                 body: .json(
                     Components.Schemas.Body_text_to_speech_full(
@@ -102,26 +101,26 @@ struct ElevenLabsTests {
 
     @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
     func testGetModelsApiStructure() async throws {
-        let response = try await client.get_models(Operations.get_models.Input())
+        let response = try await client.models_list(Operations.models_list.Input())
 
         let models: [Components.Schemas.ModelResponseModel] = try response.ok.body.json
         #expect(models.isEmpty == false)
 
         let model: Components.Schemas.ModelResponseModel = models[0]
         #expect(model.model_id.isEmpty == false)
-        #expect(model.name.isEmpty == false)
+        #expect(model.name?.isEmpty == false)
 
-        let languages: [Components.Schemas.LanguageResponseModel] = model.languages
+        let languages: [Components.Schemas.LanguageResponseModel] = try #require(model.languages)
         #expect(languages.isEmpty == false)
 
-        let ttsModel: Components.Schemas.ModelResponseModel? = models.first { $0.can_do_text_to_speech }
+        let ttsModel: Components.Schemas.ModelResponseModel? = models.first { $0.can_do_text_to_speech == true }
         #expect(ttsModel != nil)
     }
 
     @Test(.enabled(if: liveAPIKey?.isEmpty == false, "Set ELEVENLABS_API_KEY to run this live API test."))
     func testGetVoicesApiStructure() async throws {
-        let response = try await client.get_voices(
-            Operations.get_voices.Input(query: .init(show_legacy: true))
+        let response = try await client.voices_get_all(
+            Operations.voices_get_all.Input(query: .init(show_legacy: true))
         )
 
         let output: Components.Schemas.GetVoicesResponseModel = try response.ok.body.json
@@ -131,10 +130,10 @@ struct ElevenLabsTests {
 
         let voice: Components.Schemas.VoiceResponseModel = voices[0]
         #expect(voice.voice_id.isEmpty == false)
-        #expect(voice.name.isEmpty == false)
+        #expect(voice.name?.isEmpty == false)
 
-        let category: Components.Schemas.VoiceResponseModel.categoryPayload = voice.category
-        #expect(Components.Schemas.VoiceResponseModel.categoryPayload.allCases.contains(category))
+        let category: Components.Schemas.VoiceResponseModelCategory = try #require(voice.category)
+        #expect(Components.Schemas.VoiceResponseModelCategory.allCases.contains(category))
     }
 
     @Test func testClientInitialization() {

@@ -19,7 +19,7 @@ private struct OfflineResponse: ClientMiddleware {
             #expect(!json.contains("\n"))
             #expect(json.contains("https://example.com"))
         }
-        #expect(operationID == "text_to_speech_full")
+        #expect(operationID == "textToSpeech_convert")
         #expect(baseURL.absoluteString == "https://api.elevenlabs.io")
         return (.init(status: .ok, headerFields: [.contentType: "audio/mpeg"]), HTTPBody("offline-audio"))
     }
@@ -32,7 +32,7 @@ struct URLSessionFactoryTests {
             authentication: .apiKey("offline-test-key"),
             middlewares: [OfflineResponse()]
         )
-        let response = try await client.text_to_speech_full(
+        let response = try await client.textToSpeech_convert(
             .init(path: .init(voice_id: "offline-voice"), body: .json(.init(text: "Offline test")))
         )
         let data = try await Data(collecting: response.ok.body.audio_mpeg, upTo: 1024)
@@ -45,7 +45,7 @@ struct URLSessionFactoryTests {
             configuration: .init(jsonEncodingOptions: [.withoutEscapingSlashes]),
             middlewares: [OfflineResponse(expectsCompactJSON: true)]
         )
-        _ = try await client.text_to_speech_full(
+        _ = try await client.textToSpeech_convert(
             .init(path: .init(voice_id: "offline-voice"), body: .json(.init(text: "https://example.com")))
         )
     }

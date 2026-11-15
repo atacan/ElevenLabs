@@ -5,429 +5,209 @@ public import struct Foundation.Data
 public import struct Foundation.Date
 /// A type that performs HTTP operations defined by the OpenAPI document.
 public protocol APIProtocol: Sendable {
-    /// Text To Speech
+    /// Create speech
     ///
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
-    func text_to_speech_full(_ input: Operations.text_to_speech_full.Input) async throws -> Operations.text_to_speech_full.Output
-    /// Text To Speech With Timestamps
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)`.
+    func textToSpeech_convert(_ input: Operations.textToSpeech_convert.Input) async throws -> Operations.textToSpeech_convert.Output
+    /// Create speech with timing
     ///
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
-    func text_to_speech_full_with_timestamps(_ input: Operations.text_to_speech_full_with_timestamps.Input) async throws -> Operations.text_to_speech_full_with_timestamps.Output
-    /// Text To Speech Streaming
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)`.
+    func textToSpeech_convert_with_timestamps(_ input: Operations.textToSpeech_convert_with_timestamps.Input) async throws -> Operations.textToSpeech_convert_with_timestamps.Output
+    /// Stream speech
     ///
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
-    func text_to_speech_stream(_ input: Operations.text_to_speech_stream.Input) async throws -> Operations.text_to_speech_stream.Output
-    /// Text To Speech Streaming With Timestamps
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)`.
+    func textToSpeech_stream(_ input: Operations.textToSpeech_stream.Input) async throws -> Operations.textToSpeech_stream.Output
+    /// Stream speech with timing
     ///
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
-    func text_to_speech_stream_with_timestamps(_ input: Operations.text_to_speech_stream_with_timestamps.Input) async throws -> Operations.text_to_speech_stream_with_timestamps.Output
-    /// List Voices
-    ///
-    /// Returns a list of all available voices for a user.
-    ///
-    /// - Remark: HTTP `GET /v1/voices`.
-    /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)`.
-    func get_voices(_ input: Operations.get_voices.Input) async throws -> Operations.get_voices.Output
-    /// Get Voices V2
-    ///
-    /// Gets a list of all available voices for a user with search, filtering and pagination.
-    ///
-    /// - Remark: HTTP `GET /v2/voices`.
-    /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)`.
-    func get_user_voices_v2(_ input: Operations.get_user_voices_v2.Input) async throws -> Operations.get_user_voices_v2.Output
-    /// Get Default Voice Settings.
-    ///
-    /// Gets the default settings for voices. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/settings/default`.
-    /// - Remark: Generated from `#/paths//v1/voices/settings/default/get(get_voice_settings_default)`.
-    func get_voice_settings_default(_ input: Operations.get_voice_settings_default.Input) async throws -> Operations.get_voice_settings_default.Output
-    /// Get Voice Settings
-    ///
-    /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/{voice_id}/settings`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)`.
-    func get_voice_settings(_ input: Operations.get_voice_settings.Input) async throws -> Operations.get_voice_settings.Output
-    /// Get Voice
-    ///
-    /// Returns metadata about a specific voice.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)`.
-    func get_voice_by_id(_ input: Operations.get_voice_by_id.Input) async throws -> Operations.get_voice_by_id.Output
-    /// Delete Voice
-    ///
-    /// Deletes a voice by its ID.
-    ///
-    /// - Remark: HTTP `DELETE /v1/voices/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)`.
-    func delete_voice(_ input: Operations.delete_voice.Input) async throws -> Operations.delete_voice.Output
-    /// Edit Voice Settings
-    ///
-    /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/{voice_id}/settings/edit`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)`.
-    func edit_voice_settings(_ input: Operations.edit_voice_settings.Input) async throws -> Operations.edit_voice_settings.Output
-    /// Add Voice
-    ///
-    /// Add a new voice to your collection of voices in VoiceLab.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/add`.
-    /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)`.
-    func add_voice(_ input: Operations.add_voice.Input) async throws -> Operations.add_voice.Output
-    /// Edit Voice
-    ///
-    /// Edit a voice created by you.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/{voice_id}/edit`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)`.
-    func edit_voice(_ input: Operations.edit_voice.Input) async throws -> Operations.edit_voice.Output
-    /// Add Shared Voice
-    ///
-    /// Add a shared voice to your collection of voices.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/add/{public_user_id}/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)`.
-    func add_sharing_voice(_ input: Operations.add_sharing_voice.Input) async throws -> Operations.add_sharing_voice.Output
-    /// Get Models
-    ///
-    /// Gets a list of available models.
-    ///
-    /// - Remark: HTTP `GET /v1/models`.
-    /// - Remark: Generated from `#/paths//v1/models/get(get_models)`.
-    func get_models(_ input: Operations.get_models.Input) async throws -> Operations.get_models.Output
-    /// Get Voices
-    ///
-    /// Retrieves a list of shared voices.
-    ///
-    /// - Remark: HTTP `GET /v1/shared-voices`.
-    /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)`.
-    func get_library_voices(_ input: Operations.get_library_voices.Input) async throws -> Operations.get_library_voices.Output
-    /// Get Similar Library Voices
-    ///
-    /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
-    ///
-    /// - Remark: HTTP `POST /v1/similar-voices`.
-    /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)`.
-    func get_similar_library_voices(_ input: Operations.get_similar_library_voices.Input) async throws -> Operations.get_similar_library_voices.Output
-    /// Speech To Text
-    ///
-    /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
-    ///
-    /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
-    func speech_to_text(_ input: Operations.speech_to_text.Input) async throws -> Operations.speech_to_text.Output
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)`.
+    func textToSpeech_stream_with_timestamps(_ input: Operations.textToSpeech_stream_with_timestamps.Input) async throws -> Operations.textToSpeech_stream_with_timestamps.Output
     /// Get Transcript By Id
     ///
     /// Retrieve a previously generated transcript by its ID.
     ///
     /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
-    func get_transcript_by_id(_ input: Operations.get_transcript_by_id.Input) async throws -> Operations.get_transcript_by_id.Output
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)`.
+    func transcripts_get(_ input: Operations.transcripts_get.Input) async throws -> Operations.transcripts_get.Output
     /// Delete Transcript By Id
     ///
     /// Delete a previously generated transcript by its ID.
     ///
     /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
-    func delete_transcript_by_id(_ input: Operations.delete_transcript_by_id.Input) async throws -> Operations.delete_transcript_by_id.Output
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)`.
+    func transcripts_delete(_ input: Operations.transcripts_delete.Input) async throws -> Operations.transcripts_delete.Output
+    /// Create transcript
+    ///
+    /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
+    ///
+    /// - Remark: HTTP `POST /v1/speech-to-text`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)`.
+    func speechToText_convert(_ input: Operations.speechToText_convert.Input) async throws -> Operations.speechToText_convert.Output
+    /// Get shared voices
+    ///
+    /// Retrieves a list of shared voices.
+    ///
+    /// - Remark: HTTP `GET /v1/shared-voices`.
+    /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)`.
+    func voices_get_shared(_ input: Operations.voices_get_shared.Input) async throws -> Operations.voices_get_shared.Output
+    /// Add shared voice
+    ///
+    /// Add a shared voice to your collection of Voices
+    ///
+    /// - Remark: HTTP `POST /v1/voices/add/{public_user_id}/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)`.
+    func voices_share(_ input: Operations.voices_share.Input) async throws -> Operations.voices_share.Output
+    /// Get voice
+    ///
+    /// Returns metadata about a specific voice.
+    ///
+    /// - Remark: HTTP `GET /v1/voices/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)`.
+    func voices_get(_ input: Operations.voices_get.Input) async throws -> Operations.voices_get.Output
+    /// Delete voice
+    ///
+    /// Deletes a voice by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/voices/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)`.
+    func voices_delete(_ input: Operations.voices_delete.Input) async throws -> Operations.voices_delete.Output
+    /// Edit voice
+    ///
+    /// Edit a voice created by you.
+    ///
+    /// - Remark: HTTP `POST /v1/voices/{voice_id}/edit`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)`.
+    func voices_update(_ input: Operations.voices_update.Input) async throws -> Operations.voices_update.Output
+    /// List voices
+    ///
+    /// Gets a list of all available voices for a user with search, filtering and pagination.
+    ///
+    /// - Remark: HTTP `GET /v2/voices`.
+    /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)`.
+    func voices_search(_ input: Operations.voices_search.Input) async throws -> Operations.voices_search.Output
+    /// Replicate Voice To Isolated Environment
+    ///
+    /// Replicates an Instant Voice Clone or Voice Design voice to a workspace in a different data residency. The target workspace must belong to the same consolidated billing group. The user must have VOICES_WRITE in the source workspace, and be an admin on the source voice. Human users (i.e. not service accounts) must also have VOICES_WRITE in the target workspace. This endpoint is available on the central environment only.
+    ///
+    /// - Remark: HTTP `POST /v1/voices/{voice_id}/replicate-to-isolated-environment`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)`.
+    func voices_replicate_to_isolated_environment(_ input: Operations.voices_replicate_to_isolated_environment.Input) async throws -> Operations.voices_replicate_to_isolated_environment.Output
+    /// List similar voices
+    ///
+    /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
+    ///
+    /// - Remark: HTTP `POST /v1/similar-voices`.
+    /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)`.
+    func voices_find_similar_voices(_ input: Operations.voices_find_similar_voices.Input) async throws -> Operations.voices_find_similar_voices.Output
+    /// List models
+    ///
+    /// Gets a list of available models.
+    ///
+    /// - Remark: HTTP `GET /v1/models`.
+    /// - Remark: Generated from `#/paths//v1/models/get(models_list)`.
+    func models_list(_ input: Operations.models_list.Input) async throws -> Operations.models_list.Output
+    /// List voices
+    ///
+    /// Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.
+    ///
+    /// - Remark: HTTP `GET /v1/voices`.
+    /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)`.
+    @available(*, deprecated)
+    func voices_get_all(_ input: Operations.voices_get_all.Input) async throws -> Operations.voices_get_all.Output
+    /// Retrieve A Transcript
+    ///
+    /// Fetch the transcript for one of the languages in a dub.
+    ///
+    /// - Remark: HTTP `GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}`.
+    /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)`.
+    @available(*, deprecated)
+    func transcripts_get_2(_ input: Operations.transcripts_get_2.Input) async throws -> Operations.transcripts_get_2.Output
 }
 
 /// Convenience overloads for operation inputs.
 extension APIProtocol {
-    /// Text To Speech
+    /// Create speech
     ///
     /// Converts text into speech using a voice of your choice and returns audio.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(text_to_speech_full)`.
-    public func text_to_speech_full(
-        path: Operations.text_to_speech_full.Input.Path,
-        query: Operations.text_to_speech_full.Input.Query = .init(),
-        headers: Operations.text_to_speech_full.Input.Headers = .init(),
-        body: Operations.text_to_speech_full.Input.Body
-    ) async throws -> Operations.text_to_speech_full.Output {
-        try await text_to_speech_full(Operations.text_to_speech_full.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/post(textToSpeech_convert)`.
+    public func textToSpeech_convert(
+        path: Operations.textToSpeech_convert.Input.Path,
+        query: Operations.textToSpeech_convert.Input.Query = .init(),
+        headers: Operations.textToSpeech_convert.Input.Headers = .init(),
+        body: Operations.textToSpeech_convert.Input.Body? = nil
+    ) async throws -> Operations.textToSpeech_convert.Output {
+        try await textToSpeech_convert(Operations.textToSpeech_convert.Input(
             path: path,
             query: query,
             headers: headers,
             body: body
         ))
     }
-    /// Text To Speech With Timestamps
+    /// Create speech with timing
     ///
     /// Generate speech from text with precise character-level timing information for audio-text synchronization.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(text_to_speech_full_with_timestamps)`.
-    public func text_to_speech_full_with_timestamps(
-        path: Operations.text_to_speech_full_with_timestamps.Input.Path,
-        query: Operations.text_to_speech_full_with_timestamps.Input.Query = .init(),
-        headers: Operations.text_to_speech_full_with_timestamps.Input.Headers = .init(),
-        body: Operations.text_to_speech_full_with_timestamps.Input.Body
-    ) async throws -> Operations.text_to_speech_full_with_timestamps.Output {
-        try await text_to_speech_full_with_timestamps(Operations.text_to_speech_full_with_timestamps.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/with-timestamps/post(textToSpeech_convert_with_timestamps)`.
+    public func textToSpeech_convert_with_timestamps(
+        path: Operations.textToSpeech_convert_with_timestamps.Input.Path,
+        query: Operations.textToSpeech_convert_with_timestamps.Input.Query = .init(),
+        headers: Operations.textToSpeech_convert_with_timestamps.Input.Headers = .init(),
+        body: Operations.textToSpeech_convert_with_timestamps.Input.Body? = nil
+    ) async throws -> Operations.textToSpeech_convert_with_timestamps.Output {
+        try await textToSpeech_convert_with_timestamps(Operations.textToSpeech_convert_with_timestamps.Input(
             path: path,
             query: query,
             headers: headers,
             body: body
         ))
     }
-    /// Text To Speech Streaming
+    /// Stream speech
     ///
     /// Converts text into speech using a voice of your choice and returns audio as an audio stream.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(text_to_speech_stream)`.
-    public func text_to_speech_stream(
-        path: Operations.text_to_speech_stream.Input.Path,
-        query: Operations.text_to_speech_stream.Input.Query = .init(),
-        headers: Operations.text_to_speech_stream.Input.Headers = .init(),
-        body: Operations.text_to_speech_stream.Input.Body
-    ) async throws -> Operations.text_to_speech_stream.Output {
-        try await text_to_speech_stream(Operations.text_to_speech_stream.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/post(textToSpeech_stream)`.
+    public func textToSpeech_stream(
+        path: Operations.textToSpeech_stream.Input.Path,
+        query: Operations.textToSpeech_stream.Input.Query = .init(),
+        headers: Operations.textToSpeech_stream.Input.Headers = .init(),
+        body: Operations.textToSpeech_stream.Input.Body? = nil
+    ) async throws -> Operations.textToSpeech_stream.Output {
+        try await textToSpeech_stream(Operations.textToSpeech_stream.Input(
             path: path,
             query: query,
             headers: headers,
             body: body
         ))
     }
-    /// Text To Speech Streaming With Timestamps
+    /// Stream speech with timing
     ///
     /// Converts text into speech using a voice of your choice and returns a stream of JSONs containing audio as a base64 encoded string together with information on when which character was spoken.
     ///
     /// - Remark: HTTP `POST /v1/text-to-speech/{voice_id}/stream/with-timestamps`.
-    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(text_to_speech_stream_with_timestamps)`.
-    public func text_to_speech_stream_with_timestamps(
-        path: Operations.text_to_speech_stream_with_timestamps.Input.Path,
-        query: Operations.text_to_speech_stream_with_timestamps.Input.Query = .init(),
-        headers: Operations.text_to_speech_stream_with_timestamps.Input.Headers = .init(),
-        body: Operations.text_to_speech_stream_with_timestamps.Input.Body
-    ) async throws -> Operations.text_to_speech_stream_with_timestamps.Output {
-        try await text_to_speech_stream_with_timestamps(Operations.text_to_speech_stream_with_timestamps.Input(
+    /// - Remark: Generated from `#/paths//v1/text-to-speech/{voice_id}/stream/with-timestamps/post(textToSpeech_stream_with_timestamps)`.
+    public func textToSpeech_stream_with_timestamps(
+        path: Operations.textToSpeech_stream_with_timestamps.Input.Path,
+        query: Operations.textToSpeech_stream_with_timestamps.Input.Query = .init(),
+        headers: Operations.textToSpeech_stream_with_timestamps.Input.Headers = .init(),
+        body: Operations.textToSpeech_stream_with_timestamps.Input.Body? = nil
+    ) async throws -> Operations.textToSpeech_stream_with_timestamps.Output {
+        try await textToSpeech_stream_with_timestamps(Operations.textToSpeech_stream_with_timestamps.Input(
             path: path,
-            query: query,
-            headers: headers,
-            body: body
-        ))
-    }
-    /// List Voices
-    ///
-    /// Returns a list of all available voices for a user.
-    ///
-    /// - Remark: HTTP `GET /v1/voices`.
-    /// - Remark: Generated from `#/paths//v1/voices/get(get_voices)`.
-    public func get_voices(
-        query: Operations.get_voices.Input.Query = .init(),
-        headers: Operations.get_voices.Input.Headers = .init()
-    ) async throws -> Operations.get_voices.Output {
-        try await get_voices(Operations.get_voices.Input(
-            query: query,
-            headers: headers
-        ))
-    }
-    /// Get Voices V2
-    ///
-    /// Gets a list of all available voices for a user with search, filtering and pagination.
-    ///
-    /// - Remark: HTTP `GET /v2/voices`.
-    /// - Remark: Generated from `#/paths//v2/voices/get(get_user_voices_v2)`.
-    public func get_user_voices_v2(
-        query: Operations.get_user_voices_v2.Input.Query = .init(),
-        headers: Operations.get_user_voices_v2.Input.Headers = .init()
-    ) async throws -> Operations.get_user_voices_v2.Output {
-        try await get_user_voices_v2(Operations.get_user_voices_v2.Input(
-            query: query,
-            headers: headers
-        ))
-    }
-    /// Get Default Voice Settings.
-    ///
-    /// Gets the default settings for voices. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/settings/default`.
-    /// - Remark: Generated from `#/paths//v1/voices/settings/default/get(get_voice_settings_default)`.
-    public func get_voice_settings_default(headers: Operations.get_voice_settings_default.Input.Headers = .init()) async throws -> Operations.get_voice_settings_default.Output {
-        try await get_voice_settings_default(Operations.get_voice_settings_default.Input(headers: headers))
-    }
-    /// Get Voice Settings
-    ///
-    /// Returns the settings for a specific voice. "similarity_boost" corresponds to"Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/{voice_id}/settings`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/get(get_voice_settings)`.
-    public func get_voice_settings(
-        path: Operations.get_voice_settings.Input.Path,
-        headers: Operations.get_voice_settings.Input.Headers = .init()
-    ) async throws -> Operations.get_voice_settings.Output {
-        try await get_voice_settings(Operations.get_voice_settings.Input(
-            path: path,
-            headers: headers
-        ))
-    }
-    /// Get Voice
-    ///
-    /// Returns metadata about a specific voice.
-    ///
-    /// - Remark: HTTP `GET /v1/voices/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(get_voice_by_id)`.
-    public func get_voice_by_id(
-        path: Operations.get_voice_by_id.Input.Path,
-        query: Operations.get_voice_by_id.Input.Query = .init(),
-        headers: Operations.get_voice_by_id.Input.Headers = .init()
-    ) async throws -> Operations.get_voice_by_id.Output {
-        try await get_voice_by_id(Operations.get_voice_by_id.Input(
-            path: path,
-            query: query,
-            headers: headers
-        ))
-    }
-    /// Delete Voice
-    ///
-    /// Deletes a voice by its ID.
-    ///
-    /// - Remark: HTTP `DELETE /v1/voices/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(delete_voice)`.
-    public func delete_voice(
-        path: Operations.delete_voice.Input.Path,
-        headers: Operations.delete_voice.Input.Headers = .init()
-    ) async throws -> Operations.delete_voice.Output {
-        try await delete_voice(Operations.delete_voice.Input(
-            path: path,
-            headers: headers
-        ))
-    }
-    /// Edit Voice Settings
-    ///
-    /// Edit your settings for a specific voice. "similarity_boost" corresponds to "Clarity + Similarity Enhancement" in the web app and "stability" corresponds to "Stability" slider in the web app.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/{voice_id}/settings/edit`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/settings/edit/post(edit_voice_settings)`.
-    public func edit_voice_settings(
-        path: Operations.edit_voice_settings.Input.Path,
-        headers: Operations.edit_voice_settings.Input.Headers = .init(),
-        body: Operations.edit_voice_settings.Input.Body
-    ) async throws -> Operations.edit_voice_settings.Output {
-        try await edit_voice_settings(Operations.edit_voice_settings.Input(
-            path: path,
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Add Voice
-    ///
-    /// Add a new voice to your collection of voices in VoiceLab.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/add`.
-    /// - Remark: Generated from `#/paths//v1/voices/add/post(add_voice)`.
-    public func add_voice(
-        headers: Operations.add_voice.Input.Headers = .init(),
-        body: Operations.add_voice.Input.Body
-    ) async throws -> Operations.add_voice.Output {
-        try await add_voice(Operations.add_voice.Input(
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Edit Voice
-    ///
-    /// Edit a voice created by you.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/{voice_id}/edit`.
-    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(edit_voice)`.
-    public func edit_voice(
-        path: Operations.edit_voice.Input.Path,
-        headers: Operations.edit_voice.Input.Headers = .init(),
-        body: Operations.edit_voice.Input.Body
-    ) async throws -> Operations.edit_voice.Output {
-        try await edit_voice(Operations.edit_voice.Input(
-            path: path,
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Add Shared Voice
-    ///
-    /// Add a shared voice to your collection of voices.
-    ///
-    /// - Remark: HTTP `POST /v1/voices/add/{public_user_id}/{voice_id}`.
-    /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(add_sharing_voice)`.
-    public func add_sharing_voice(
-        path: Operations.add_sharing_voice.Input.Path,
-        headers: Operations.add_sharing_voice.Input.Headers = .init(),
-        body: Operations.add_sharing_voice.Input.Body
-    ) async throws -> Operations.add_sharing_voice.Output {
-        try await add_sharing_voice(Operations.add_sharing_voice.Input(
-            path: path,
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Get Models
-    ///
-    /// Gets a list of available models.
-    ///
-    /// - Remark: HTTP `GET /v1/models`.
-    /// - Remark: Generated from `#/paths//v1/models/get(get_models)`.
-    public func get_models(headers: Operations.get_models.Input.Headers = .init()) async throws -> Operations.get_models.Output {
-        try await get_models(Operations.get_models.Input(headers: headers))
-    }
-    /// Get Voices
-    ///
-    /// Retrieves a list of shared voices.
-    ///
-    /// - Remark: HTTP `GET /v1/shared-voices`.
-    /// - Remark: Generated from `#/paths//v1/shared-voices/get(get_library_voices)`.
-    public func get_library_voices(
-        query: Operations.get_library_voices.Input.Query = .init(),
-        headers: Operations.get_library_voices.Input.Headers = .init()
-    ) async throws -> Operations.get_library_voices.Output {
-        try await get_library_voices(Operations.get_library_voices.Input(
-            query: query,
-            headers: headers
-        ))
-    }
-    /// Get Similar Library Voices
-    ///
-    /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
-    ///
-    /// - Remark: HTTP `POST /v1/similar-voices`.
-    /// - Remark: Generated from `#/paths//v1/similar-voices/post(get_similar_library_voices)`.
-    public func get_similar_library_voices(
-        headers: Operations.get_similar_library_voices.Input.Headers = .init(),
-        body: Operations.get_similar_library_voices.Input.Body
-    ) async throws -> Operations.get_similar_library_voices.Output {
-        try await get_similar_library_voices(Operations.get_similar_library_voices.Input(
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Speech To Text
-    ///
-    /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
-    ///
-    /// - Remark: HTTP `POST /v1/speech-to-text`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speech_to_text)`.
-    public func speech_to_text(
-        query: Operations.speech_to_text.Input.Query = .init(),
-        headers: Operations.speech_to_text.Input.Headers = .init(),
-        body: Operations.speech_to_text.Input.Body
-    ) async throws -> Operations.speech_to_text.Output {
-        try await speech_to_text(Operations.speech_to_text.Input(
             query: query,
             headers: headers,
             body: body
@@ -438,12 +218,12 @@ extension APIProtocol {
     /// Retrieve a previously generated transcript by its ID.
     ///
     /// - Remark: HTTP `GET /v1/speech-to-text/transcripts/{transcription_id}`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(get_transcript_by_id)`.
-    public func get_transcript_by_id(
-        path: Operations.get_transcript_by_id.Input.Path,
-        headers: Operations.get_transcript_by_id.Input.Headers = .init()
-    ) async throws -> Operations.get_transcript_by_id.Output {
-        try await get_transcript_by_id(Operations.get_transcript_by_id.Input(
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/get(transcripts_get)`.
+    public func transcripts_get(
+        path: Operations.transcripts_get.Input.Path,
+        headers: Operations.transcripts_get.Input.Headers = .init()
+    ) async throws -> Operations.transcripts_get.Output {
+        try await transcripts_get(Operations.transcripts_get.Input(
             path: path,
             headers: headers
         ))
@@ -453,12 +233,198 @@ extension APIProtocol {
     /// Delete a previously generated transcript by its ID.
     ///
     /// - Remark: HTTP `DELETE /v1/speech-to-text/transcripts/{transcription_id}`.
-    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(delete_transcript_by_id)`.
-    public func delete_transcript_by_id(
-        path: Operations.delete_transcript_by_id.Input.Path,
-        headers: Operations.delete_transcript_by_id.Input.Headers = .init()
-    ) async throws -> Operations.delete_transcript_by_id.Output {
-        try await delete_transcript_by_id(Operations.delete_transcript_by_id.Input(
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/transcripts/{transcription_id}/delete(transcripts_delete)`.
+    public func transcripts_delete(
+        path: Operations.transcripts_delete.Input.Path,
+        headers: Operations.transcripts_delete.Input.Headers = .init()
+    ) async throws -> Operations.transcripts_delete.Output {
+        try await transcripts_delete(Operations.transcripts_delete.Input(
+            path: path,
+            headers: headers
+        ))
+    }
+    /// Create transcript
+    ///
+    /// Transcribe an audio or video file. If webhook is set to true, the request will be processed asynchronously and results sent to configured webhooks. When use_multi_channel is true and the provided audio has multiple channels, a 'transcripts' object with separate transcripts for each channel is returned; set multichannel_output_style='combined' to instead receive a single transcript with all channels merged and sorted by time. Otherwise, returns a single transcript. The optional webhook_metadata parameter allows you to attach custom data that will be included in webhook responses for request correlation and tracking.
+    ///
+    /// - Remark: HTTP `POST /v1/speech-to-text`.
+    /// - Remark: Generated from `#/paths//v1/speech-to-text/post(speechToText_convert)`.
+    public func speechToText_convert(
+        query: Operations.speechToText_convert.Input.Query = .init(),
+        headers: Operations.speechToText_convert.Input.Headers = .init(),
+        body: Operations.speechToText_convert.Input.Body
+    ) async throws -> Operations.speechToText_convert.Output {
+        try await speechToText_convert(Operations.speechToText_convert.Input(
+            query: query,
+            headers: headers,
+            body: body
+        ))
+    }
+    /// Get shared voices
+    ///
+    /// Retrieves a list of shared voices.
+    ///
+    /// - Remark: HTTP `GET /v1/shared-voices`.
+    /// - Remark: Generated from `#/paths//v1/shared-voices/get(voices_get_shared)`.
+    public func voices_get_shared(
+        query: Operations.voices_get_shared.Input.Query = .init(),
+        headers: Operations.voices_get_shared.Input.Headers = .init()
+    ) async throws -> Operations.voices_get_shared.Output {
+        try await voices_get_shared(Operations.voices_get_shared.Input(
+            query: query,
+            headers: headers
+        ))
+    }
+    /// Add shared voice
+    ///
+    /// Add a shared voice to your collection of Voices
+    ///
+    /// - Remark: HTTP `POST /v1/voices/add/{public_user_id}/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/add/{public_user_id}/{voice_id}/post(voices_share)`.
+    public func voices_share(
+        path: Operations.voices_share.Input.Path,
+        headers: Operations.voices_share.Input.Headers = .init(),
+        body: Operations.voices_share.Input.Body? = nil
+    ) async throws -> Operations.voices_share.Output {
+        try await voices_share(Operations.voices_share.Input(
+            path: path,
+            headers: headers,
+            body: body
+        ))
+    }
+    /// Get voice
+    ///
+    /// Returns metadata about a specific voice.
+    ///
+    /// - Remark: HTTP `GET /v1/voices/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/get(voices_get)`.
+    public func voices_get(
+        path: Operations.voices_get.Input.Path,
+        query: Operations.voices_get.Input.Query = .init(),
+        headers: Operations.voices_get.Input.Headers = .init()
+    ) async throws -> Operations.voices_get.Output {
+        try await voices_get(Operations.voices_get.Input(
+            path: path,
+            query: query,
+            headers: headers
+        ))
+    }
+    /// Delete voice
+    ///
+    /// Deletes a voice by its ID.
+    ///
+    /// - Remark: HTTP `DELETE /v1/voices/{voice_id}`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/delete(voices_delete)`.
+    public func voices_delete(
+        path: Operations.voices_delete.Input.Path,
+        headers: Operations.voices_delete.Input.Headers = .init()
+    ) async throws -> Operations.voices_delete.Output {
+        try await voices_delete(Operations.voices_delete.Input(
+            path: path,
+            headers: headers
+        ))
+    }
+    /// Edit voice
+    ///
+    /// Edit a voice created by you.
+    ///
+    /// - Remark: HTTP `POST /v1/voices/{voice_id}/edit`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/edit/post(voices_update)`.
+    public func voices_update(
+        path: Operations.voices_update.Input.Path,
+        headers: Operations.voices_update.Input.Headers = .init(),
+        body: Operations.voices_update.Input.Body
+    ) async throws -> Operations.voices_update.Output {
+        try await voices_update(Operations.voices_update.Input(
+            path: path,
+            headers: headers,
+            body: body
+        ))
+    }
+    /// List voices
+    ///
+    /// Gets a list of all available voices for a user with search, filtering and pagination.
+    ///
+    /// - Remark: HTTP `GET /v2/voices`.
+    /// - Remark: Generated from `#/paths//v2/voices/get(voices_search)`.
+    public func voices_search(
+        query: Operations.voices_search.Input.Query = .init(),
+        headers: Operations.voices_search.Input.Headers = .init()
+    ) async throws -> Operations.voices_search.Output {
+        try await voices_search(Operations.voices_search.Input(
+            query: query,
+            headers: headers
+        ))
+    }
+    /// Replicate Voice To Isolated Environment
+    ///
+    /// Replicates an Instant Voice Clone or Voice Design voice to a workspace in a different data residency. The target workspace must belong to the same consolidated billing group. The user must have VOICES_WRITE in the source workspace, and be an admin on the source voice. Human users (i.e. not service accounts) must also have VOICES_WRITE in the target workspace. This endpoint is available on the central environment only.
+    ///
+    /// - Remark: HTTP `POST /v1/voices/{voice_id}/replicate-to-isolated-environment`.
+    /// - Remark: Generated from `#/paths//v1/voices/{voice_id}/replicate-to-isolated-environment/post(voices_replicate_to_isolated_environment)`.
+    public func voices_replicate_to_isolated_environment(
+        path: Operations.voices_replicate_to_isolated_environment.Input.Path,
+        headers: Operations.voices_replicate_to_isolated_environment.Input.Headers = .init(),
+        body: Operations.voices_replicate_to_isolated_environment.Input.Body? = nil
+    ) async throws -> Operations.voices_replicate_to_isolated_environment.Output {
+        try await voices_replicate_to_isolated_environment(Operations.voices_replicate_to_isolated_environment.Input(
+            path: path,
+            headers: headers,
+            body: body
+        ))
+    }
+    /// List similar voices
+    ///
+    /// Returns a list of shared voices similar to the provided audio sample. If neither similarity_threshold nor top_k is provided, we will apply default values.
+    ///
+    /// - Remark: HTTP `POST /v1/similar-voices`.
+    /// - Remark: Generated from `#/paths//v1/similar-voices/post(voices_find_similar_voices)`.
+    public func voices_find_similar_voices(
+        headers: Operations.voices_find_similar_voices.Input.Headers = .init(),
+        body: Operations.voices_find_similar_voices.Input.Body
+    ) async throws -> Operations.voices_find_similar_voices.Output {
+        try await voices_find_similar_voices(Operations.voices_find_similar_voices.Input(
+            headers: headers,
+            body: body
+        ))
+    }
+    /// List models
+    ///
+    /// Gets a list of available models.
+    ///
+    /// - Remark: HTTP `GET /v1/models`.
+    /// - Remark: Generated from `#/paths//v1/models/get(models_list)`.
+    public func models_list(headers: Operations.models_list.Input.Headers = .init()) async throws -> Operations.models_list.Output {
+        try await models_list(Operations.models_list.Input(headers: headers))
+    }
+    /// List voices
+    ///
+    /// Returns a list of all available voices for a user. Stops working once the user's workspace exceeds 500 voices.
+    ///
+    /// - Remark: HTTP `GET /v1/voices`.
+    /// - Remark: Generated from `#/paths//v1/voices/get(voices_get_all)`.
+    @available(*, deprecated)
+    public func voices_get_all(
+        query: Operations.voices_get_all.Input.Query = .init(),
+        headers: Operations.voices_get_all.Input.Headers = .init()
+    ) async throws -> Operations.voices_get_all.Output {
+        try await voices_get_all(Operations.voices_get_all.Input(
+            query: query,
+            headers: headers
+        ))
+    }
+    /// Retrieve A Transcript
+    ///
+    /// Fetch the transcript for one of the languages in a dub.
+    ///
+    /// - Remark: HTTP `GET /v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}`.
+    /// - Remark: Generated from `#/paths//v1/dubbing/{dubbing_id}/transcripts/{language_code}/format/{format_type}/get(transcripts_get_2)`.
+    @available(*, deprecated)
+    public func transcripts_get_2(
+        path: Operations.transcripts_get_2.Input.Path,
+        headers: Operations.transcripts_get_2.Input.Headers = .init()
+    ) async throws -> Operations.transcripts_get_2.Output {
+        try await transcripts_get_2(Operations.transcripts_get_2.Input(
             path: path,
             headers: headers
         ))
@@ -466,4 +432,95 @@ extension APIProtocol {
 }
 
 /// Server URLs defined in the OpenAPI document.
-public enum Servers {}
+public enum Servers {
+    /// Production
+    public enum Server1 {
+        /// Production
+        public static func url() throws -> Foundation.URL {
+            try Foundation.URL(
+                validatingOpenAPIServerURL: "https://api.elevenlabs.io",
+                variables: []
+            )
+        }
+    }
+    /// Production
+    @available(*, deprecated, renamed: "Servers.Server1.url")
+    public static func server1() throws -> Foundation.URL {
+        try Foundation.URL(
+            validatingOpenAPIServerURL: "https://api.elevenlabs.io",
+            variables: []
+        )
+    }
+    /// Production US
+    public enum Server2 {
+        /// Production US
+        public static func url() throws -> Foundation.URL {
+            try Foundation.URL(
+                validatingOpenAPIServerURL: "https://api.us.elevenlabs.io",
+                variables: []
+            )
+        }
+    }
+    /// Production US
+    @available(*, deprecated, renamed: "Servers.Server2.url")
+    public static func server2() throws -> Foundation.URL {
+        try Foundation.URL(
+            validatingOpenAPIServerURL: "https://api.us.elevenlabs.io",
+            variables: []
+        )
+    }
+    /// Production EU
+    public enum Server3 {
+        /// Production EU
+        public static func url() throws -> Foundation.URL {
+            try Foundation.URL(
+                validatingOpenAPIServerURL: "https://api.eu.residency.elevenlabs.io",
+                variables: []
+            )
+        }
+    }
+    /// Production EU
+    @available(*, deprecated, renamed: "Servers.Server3.url")
+    public static func server3() throws -> Foundation.URL {
+        try Foundation.URL(
+            validatingOpenAPIServerURL: "https://api.eu.residency.elevenlabs.io",
+            variables: []
+        )
+    }
+    /// Production India
+    public enum Server4 {
+        /// Production India
+        public static func url() throws -> Foundation.URL {
+            try Foundation.URL(
+                validatingOpenAPIServerURL: "https://api.in.residency.elevenlabs.io",
+                variables: []
+            )
+        }
+    }
+    /// Production India
+    @available(*, deprecated, renamed: "Servers.Server4.url")
+    public static func server4() throws -> Foundation.URL {
+        try Foundation.URL(
+            validatingOpenAPIServerURL: "https://api.in.residency.elevenlabs.io",
+            variables: []
+        )
+    }
+    /// Production Singapore
+    public enum Server5 {
+        /// Production Singapore
+        public static func url() throws -> Foundation.URL {
+            try Foundation.URL(
+                validatingOpenAPIServerURL: "https://api.sg.residency.elevenlabs.io",
+                variables: []
+            )
+        }
+    }
+    /// Production Singapore
+    @available(*, deprecated, renamed: "Servers.Server5.url")
+    public static func server5() throws -> Foundation.URL {
+        try Foundation.URL(
+            validatingOpenAPIServerURL: "https://api.sg.residency.elevenlabs.io",
+            variables: []
+        )
+    }
+}
