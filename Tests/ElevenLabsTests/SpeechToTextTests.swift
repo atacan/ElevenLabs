@@ -47,7 +47,7 @@ struct SpeechToTextTests {
             configuration: .init(jsonEncodingOptions: [], multipartBoundaryGenerator: ConstantMultipartBoundaryGenerator(boundary: "offline-boundary")),
             transport: SpeechToTextTransport(status: .accepted, responseBody: "{\"message\":\"accepted\",\"request_id\":\"offline\"}", expectedBody: expected)
         )
-        _ = try await client.speech_to_text(
+        _ = try await client.speechToText_convert(
             .init(
                 body: .multipartForm([
                     .model_id(.init(payload: .init(body: HTTPBody("scribe_v2")))),
@@ -64,7 +64,7 @@ struct SpeechToTextTests {
             serverURL: URL(string: "https://api.elevenlabs.io")!,
             transport: SpeechToTextTransport(status: .init(code: status), responseBody: json, expectedBody: nil)
         )
-        let response = try await client.speech_to_text(
+        let response = try await client.speechToText_convert(
             .init(
                 body: .multipartForm([
                     .model_id(.init(payload: .init(body: HTTPBody("scribe_v2"))))
