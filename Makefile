@@ -26,7 +26,7 @@ RESET  := \033[0m
 # Meta Targets
 # ------------------------------------------------------------------------------
 
-.PHONY: all help check-clean merge-main format test-on-linux generate build test
+.PHONY: download-openapi regenerate all help check-clean merge-main format test-on-linux generate build test
 
 # Default target runs help
 all: help
@@ -79,6 +79,15 @@ test-on-linux: ## Run swift tests inside a Docker container
 		-w /code \
 		$(DOCKER_IMAGE) \
 		swift test
+
+OPENAPI_URL := https://elevenlabs.io/docs/openapi/api-reference-2.json
+
+download-openapi: ## Download the latest ElevenLabs OpenAPI spec (includes speech-to-text) to original_openapi.json
+	@echo "$(YELLOW)Downloading $(OPENAPI_URL)...$(RESET)"
+	@curl -fsSL "$(OPENAPI_URL)" -o original_openapi.json.tmp
+	@python3 -c "import json; d=json.load(open('original_openapi.json.tmp')); assert '/v1/speech-to-text' in d['paths'], 'speech-to-text missing'" || (rm -f original_openapi.json.tmp; echo "$(RED)Downloaded spec is invalid.$(RESET)"; exit 1)
+	@mv original_openapi.json.tmp original_openapi.json
+	@echo "$(GREEN)Saved original_openapi.json. Run 'make regenerate' next.$(RESET)"
 
 regenerate:
 	uvx --from git+https://github.com/atacan/swift-package-generator-based-on-openapi.git swift-bootstrapper .

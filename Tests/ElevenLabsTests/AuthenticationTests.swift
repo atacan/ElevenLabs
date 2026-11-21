@@ -26,7 +26,7 @@ struct AuthenticationTests {
             transport: HeaderCheckingTransport(expectedKey: key),
             authentication: key.map(Authentication.apiKey) ?? .none
         )
-        let response = try await client.text_to_speech_full(
+        let response = try await client.textToSpeech_convert(
             .init(path: .init(voice_id: "offline-voice"), body: .json(.init(text: "Offline test")))
         )
         let data = try await Data(collecting: response.ok.body.audio_mpeg, upTo: 1024)
@@ -39,7 +39,7 @@ struct AuthenticationTests {
             transport: HeaderCheckingTransport(expectedKey: "named-offline-key"),
             authentication: .credentials(["ElevenLabsAPIKey": .init("named-offline-key")])
         )
-        _ = try await client.text_to_speech_full(
+        _ = try await client.textToSpeech_convert(
             .init(path: .init(voice_id: "offline-voice"), body: .json(.init(text: "Offline test")))
         )
     }
